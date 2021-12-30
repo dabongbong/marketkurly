@@ -6,6 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+리스트 첫페이지!!
 </body>
 </html>
