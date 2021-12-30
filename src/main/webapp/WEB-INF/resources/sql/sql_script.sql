@@ -28,10 +28,10 @@ create table product(
 
 create table product_detail(
 	product_detail_id int primary key auto_increment
-	, subcategory_id int
+	, product_id int
 	, content text
 	, product_img text
-	, constraint fk_subcategory_product_detail foreign key(subcategory_id) references subcategory(subcategory_id)
+	, constraint fk_subcategory_product_detail foreign key(product_id) references product(product_id)
 ) default character set utf8;
 
 create table product_qna(
