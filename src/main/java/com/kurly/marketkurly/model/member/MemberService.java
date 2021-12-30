@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.kurly.marketkurly.domain.Member;
 
-public interface MemberDAO {
+public interface MemberService {
 	public List selectAll();
 	public Member select(int member_id);
 	public void insert(Member member);
