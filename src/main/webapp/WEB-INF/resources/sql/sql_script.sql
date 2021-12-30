@@ -36,15 +36,16 @@ create table product_detail(
 
 create table product_qna(
 	qna_no int primary key auto_increment
-	, subcategory int
+	, product_id int
 	, title varchar(30)
 	, writer varchar(20)
 	, date timestamp default now()
 	, answer text
 	, ishidden int default 0
+	, CONSTRAINT fk_product_product_qna FOREIGN KEY (product_id) REFERENCES product(product_id)
 ) default character set utf8;
 
-CREATE TABLE hashtag(
+CREATE TABLE product_hashtag(
 	tag_id INT PRIMARY KEY AUTO_INCREMENT,
 	product_id INT,
 	comment VARCHAR(20),
@@ -56,15 +57,15 @@ create table paymethod(
 	, method varchar(20)
 ) default character set utf8;
 
-create table review(
+create table product_review(
 	review_id int primary key auto_increment
-	, subcategory_id int
+	, product_id int
 	, title varchar(20)
 	, writer varchar(20)
 	, date timestamp default now()
 	, help int default 0
 	, hit int default 0
-	, constraint fk_subcategory_review foreign key (subcategory_id) references subcategory(subcategory_id)
+	, constraint fk_subcategory_review foreign key (product_id) references product(product_id)
 ) default character set utf8;
 
 create table faq(
