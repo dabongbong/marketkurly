@@ -22,7 +22,7 @@
 	<!-- mybatis spring을 사용하는 경우 SqlSessionFactoryBean 등록-->
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean"
 			p:dataSource-ref="dataSource"
-			p:configLocation="classpath:com/koreait/shoppingmall/mybatis/config.xml"/>
+			p:configLocation="classpath:com/kurly/marketkurly/mybatis/config.xml"/>
 			
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactoryBean"/>
@@ -30,6 +30,6 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- 웹사이트에서 공통으로 사용할 빈들을 여기에 등록하자 ! @Service, @Repository 등등...  -->
-	<context:component-scan base-package="com.koreait.shoppingmall.model"/>
+	<context:component-scan base-package="com.kurly.marketkurly.model"/>
 	
 </beans>
