@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<!-- <typeAlias type="com.kurly.marketkurly.domain.Category" 		 alias="Category"/> -->
+		<typeAlias type="com.kurly.marketkurly.domain.Category" 		 alias="Category"/> 
 		<!-- <typeAlias type="com.kurly.marketkurly.domain.Customer" 		 alias="Customer"/> -->
 		<typeAlias type="com.kurly.marketkurly.domain.Member" 			 alias="Member"/>
 		<typeAlias type="com.kurly.marketkurly.domain.Order_summary" 	 alias="Order_summary"/>
