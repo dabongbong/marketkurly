@@ -36,12 +36,13 @@ create table product_detail(
 
 create table product_qna(
 	qna_no int primary key auto_increment
-	, subcategory int
+	, product_id int
 	, title varchar(30)
 	, writer varchar(20)
 	, date timestamp default now()
 	, answer text
 	, ishidden int default 0
+	, CONSTRAINT fk_product_product_qna FOREIGN KEY (product_id) REFERENCES product(product_id)
 ) default character set utf8;
 
 CREATE TABLE product_hashtag(
