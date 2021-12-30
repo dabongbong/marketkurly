@@ -1,4 +1,5 @@
 package com.kurly.marketkurly.domain;
 
-public class Order {
+public class Product {
+
 }
