@@ -4,11 +4,11 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.koreait.shoppingmall.domain.Product;
-import com.koreait.shoppingmall.exception.UploadException;
+import com.kurly.marketkurly.domain.Product;
+import com.kurly.marketkurly.exception.UploadException;
+
 
 
 //파일 처리와 관련된 다양한 업무를 처리해주는 전담자 클래스

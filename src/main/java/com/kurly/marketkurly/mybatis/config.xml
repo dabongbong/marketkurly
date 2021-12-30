@@ -1,1 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.kurly.marketkurly.domain.Category" 			 alias="Category"/>
+		<typeAlias type="com.kurly.marketkurly.domain.Customer" 			 alias="Customer"/>
+		<typeAlias type="com.kurly.marketkurly.domain.Member" 			 alias="Member"/>
+		<typeAlias type="com.kurly.marketkurly.domain.Order" 			 alias="Order"/>
+		<typeAlias type="com.kurly.marketkurly.domain.Product" 			 alias="Product"/>
+
+	</typeAliases>
+
+  <mappers>
+    <mapper resource="com/kurly/marketkurly/mybatis/CategoryMapper.xml"/>
+    <mapper resource="com/kurly/marketkurly/mybatis/CustomerMapper.xml"/>
+    <mapper resource="com/kurly/marketkurly/mybatis/MemberMapper.xml"/>
+    <mapper resource="com/kurly/marketkurly/mybatis/OrderMapper.xml"/>
+    <mapper resource="com/kurly/marketkurly/mybatis/ProductMapper.xml"/>
+  </mappers>
+</configuration>
