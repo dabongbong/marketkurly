@@ -4,18 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.kurly.marketkurly.domain.Category" 		 alias="Category"/>
-		<typeAlias type="com.kurly.marketkurly.domain.Customer" 		 alias="Customer"/>
+		<!-- <typeAlias type="com.kurly.marketkurly.domain.Category" 		 alias="Category"/> -->
+		<!-- <typeAlias type="com.kurly.marketkurly.domain.Customer" 		 alias="Customer"/> -->
 		<typeAlias type="com.kurly.marketkurly.domain.Member" 			 alias="Member"/>
 		<typeAlias type="com.kurly.marketkurly.domain.Order_summary" 	 alias="Order_summary"/>
 		<typeAlias type="com.kurly.marketkurly.domain.Order_detail" 	 alias="Order_detail"/>
-		<typeAlias type="com.kurly.marketkurly.domain.Notice" 			 alias="Notice"/>
+		<!-- <typeAlias type="com.kurly.marketkurly.domain.Notice" 			 alias="Notice"/> -->
 
 		<!-- Product -->
 		<typeAlias type="com.kurly.marketkurly.domain.Product" 			 alias="Product"/>
-		<typeAlias type="com.kurly.marketkurly.domain.ProductQnA"		 alias="ProductQnA"/>
+<!-- 		<typeAlias type="com.kurly.marketkurly.domain.ProductQnA"		 alias="ProductQnA"/> -->
 		<typeAlias type="com.kurly.marketkurly.domain.Product_detail"	 alias="Product_detail"/>
-		<typeAlias type="com.kurly.marketkurly.domain.Product_review" 	 alias="Product_review"/>
+		<!-- <typeAlias type="com.kurly.marketkurly.domain.Product_review" 	 alias="Product_review"/> -->
 		<typeAlias type="com.kurly.marketkurly.domain.Product_hashtag" 	 alias="Product_hashtag"/>
 		
 	</typeAliases>
