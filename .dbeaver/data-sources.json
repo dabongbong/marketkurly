@@ -1,0 +1,33 @@
+{
+	"folders": {},
+	"connections": {
+		"mysql8-17e0ecf3bbe-503bb885e3474591": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "kurly",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "kurly",
+				"url": "jdbc:mysql://localhost:3306/kurly",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 5.7",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

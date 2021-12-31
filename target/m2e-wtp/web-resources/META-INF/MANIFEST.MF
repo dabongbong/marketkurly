@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
-Built-By: sunnyim
+<<<<<<< HEAD
+Built-By: Kim Sung Hyun
+Build-Jdk: 11.0.12
+=======
+Built-By: jeongjibaeg
 Build-Jdk: 11.0.13
+>>>>>>> d0b38d9245d77ffe98b7ea09e7acff4a8201950d
 Created-By: Maven Integration for Eclipse
 
