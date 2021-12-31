@@ -22,7 +22,7 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public Category select(int category_id) {
-		return null;
+		return categoryDAO.select(category_id);
 	}
 
 	@Override

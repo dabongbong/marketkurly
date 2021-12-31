@@ -20,7 +20,7 @@ public class MybatisCategoryDAO implements CategoryDAO {
 
 	@Override
 	public Category select(int category_id) {
-		return null;
+		return sessionTemplate.selectOne("Category.select", category_id);
 	}
 
 	@Override

@@ -7,7 +7,7 @@
 </select>
 
 <select id="select">
-	
+	select * from category where category_id=#{category_id}
 </select>
 
 <insert id="insert">
