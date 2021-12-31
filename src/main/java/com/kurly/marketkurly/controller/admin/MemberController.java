@@ -13,21 +13,21 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kurly.marketkurly.model.member.MemberService;
 import com.kurly.marketkurly.util.Pager;
 
-@Controller
+//@Controller
 public class MemberController {
-	@Autowired
-	private MemberService memberService;
-	@Autowired
-	private Pager pager;
-	
-	
-	@GetMapping("/member/list")
-	public String getList(HttpServletRequest request,Model model) {
-		List memberList=memberService.selectAll();
-		pager.init(memberList, request);
-		
-		model.addAttribute("memberList",memberList);
-		model.addAttribute("pager",pager);
-		return "admin/member/list";
-	}
+//	@Autowired
+//	private MemberService memberService;
+//	@Autowired
+//	private Pager pager;
+//	
+//	
+//	@GetMapping("/member/list")
+//	public String getList(HttpServletRequest request,Model model) {
+//		List memberList=memberService.selectAll();
+//		pager.init(memberList, request);
+//		
+//		model.addAttribute("memberList",memberList);
+//		model.addAttribute("pager",pager);
+//		return "admin/member/list";
+//	}
 }

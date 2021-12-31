@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.kurly.marketkurly.domain.Category;
 
-public interface CategoryDAO {
+public interface CategoryService {
 
 	public List selectAll();
 	public Category select(int category_id);
