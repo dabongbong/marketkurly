@@ -13,9 +13,9 @@
 
 		<!-- Product -->
 		<typeAlias type="com.kurly.marketkurly.domain.Product" 			 alias="Product"/>
-<!-- 		<typeAlias type="com.kurly.marketkurly.domain.ProductQnA"		 alias="ProductQnA"/> -->
+ 		<typeAlias type="com.kurly.marketkurly.domain.ProductQnA"		 alias="ProductQnA"/>
 		<typeAlias type="com.kurly.marketkurly.domain.Product_detail"	 alias="Product_detail"/>
-		<!-- <typeAlias type="com.kurly.marketkurly.domain.Product_review" 	 alias="Product_review"/> -->
+		 <typeAlias type="com.kurly.marketkurly.domain.Product_review" 	 alias="Product_review"/>
 		<typeAlias type="com.kurly.marketkurly.domain.Product_hashtag" 	 alias="Product_hashtag"/>
 		
 	</typeAliases>
