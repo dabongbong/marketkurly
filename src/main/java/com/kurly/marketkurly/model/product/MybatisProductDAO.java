@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kurly.marketkurly.domain.Product;
+import com.kurly.marketkurly.exception.ProductException;
 
 @Repository
 public class MybatisProductDAO implements ProductDAO{
@@ -25,8 +26,11 @@ public class MybatisProductDAO implements ProductDAO{
 	}
 
 	@Override
-	public void insert(Product product) {
-		// TODO Auto-generated method stub
+	public void insert(Product product) throws ProductException{
+		int result = sessionTemplate.insert("Product.insert", product);
+		if(result==0) {
+			throw new ProductException("상품등록 실패");
+		}
 		
 	}
 

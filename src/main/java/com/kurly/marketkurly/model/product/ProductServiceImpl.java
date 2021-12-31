@@ -3,11 +3,13 @@ package com.kurly.marketkurly.model.product;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.kurly.marketkurly.domain.Product;
 import com.kurly.marketkurly.domain.Product_detail;
 import com.kurly.marketkurly.domain.Product_hashtag;
 
+@Service
 public class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductDAO productDAO;

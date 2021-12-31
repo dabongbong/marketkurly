@@ -23,6 +23,7 @@ create table product(
 	, price int
 	, detail text
 	, sale int
+	, product_img text
 	, constraint fk_subcategory_product foreign key(subcategory_id) references subcategory(subcategory_id)
 ) default character set utf8;
 
@@ -30,8 +31,7 @@ create table product_detail(
 	product_detail_id int primary key auto_increment
 	, product_id int
 	, content text
-	, product_img text
-	, constraint fk_subcategory_product_detail foreign key(product_id) references product(product_id)
+	, constraint fk_product_product_detail foreign key(product_id) references product(product_id)
 ) default character set utf8;
 
 create table product_qna(
@@ -65,7 +65,7 @@ create table product_review(
 	, date timestamp default now()
 	, help int default 0
 	, hit int default 0
-	, constraint fk_subcategory_review foreign key (product_id) references product(product_id)
+	, constraint fk_product_review foreign key (product_id) references product(product_id)
 ) default character set utf8;
 
 create table faq(
