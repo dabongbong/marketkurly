@@ -15,7 +15,9 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public List selectAll() {
-		return null;
+		List list = categoryDAO.selectAll();
+		System.out.println("dao가 가져오는거 "+list);
+		return list; 
 	}
 
 	@Override

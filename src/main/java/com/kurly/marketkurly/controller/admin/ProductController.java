@@ -15,17 +15,17 @@ import com.kurly.marketkurly.util.Pager;
 @Controller
 public class ProductController {
 
-	@Autowired
+//	@Autowired
 	private ProductService productService;
-	@Autowired
+	//@Autowired
 	private Pager pager;
 	
 	@GetMapping("/product/list")
 	public String getList(HttpServletRequest request, Model model) {
-		List prodcutList = productService.selectAll();
-		pager.init(prodcutList, request);
-		model.addAttribute("productList", prodcutList);
-		model.addAttribute("pager", pager);
+//		//List prodcutList = productService.selectAll();
+		//pager.init(prodcutList, request);
+		//model.addAttribute("productList", prodcutList);
+	//	model.addAttribute("pager", pager);
 		
 		return "admin/product/list";
 	}

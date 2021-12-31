@@ -15,7 +15,7 @@ public class MybatisCategoryDAO implements CategoryDAO {
 	private SqlSessionTemplate sessionTemplate;
 	@Override
 	public List selectAll() {
-		return null;
+		return sessionTemplate.selectList("Category.selectAll");
 	}
 
 	@Override

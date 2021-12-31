@@ -2,9 +2,7 @@ package com.kurly.marketkurly.controller.admin;
 
 
 public class MemberController {
-<<<<<<< Updated upstream
-	
-=======
+
 //	@Autowired
 //	private MemberService memberService;
 //	@Autowired
@@ -20,5 +18,5 @@ public class MemberController {
 //		model.addAttribute("pager",pager);
 //		return "admin/member/list";
 //	}
->>>>>>> Stashed changes
+
 }
