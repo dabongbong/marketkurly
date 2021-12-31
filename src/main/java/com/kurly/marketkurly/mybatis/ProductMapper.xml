@@ -9,9 +9,29 @@
 		<result column="price" property="price"/>
 		<result column="detail" property="detail"/>
 		<result column="sale" property="sale"/>
+		
+		<association column="subCategory_id" property="subcategory" javaType="Subcategory" select="Subcategory.select"/>
 	</resultMap>
 
-	<select id=""></select>
+	<select id="selectAll" resultMap="joinSubCategoryProduct">
+		select product_id, title, subTitle, price, detail, sale
+		s.category_name as category_name, s.subCategory_id as subCategory_id, subCategory_name
+		from subCategory s, product p
+		where s.subCategory_id = p.subCategory_id 
+	</select>
 
+	<select id="select" parameterType="int" resultType="Product">
+		select * from product where product_id=#{product_id}
+	</select>
 
+	<insert id="insert" parameterType="Product">
+		insert into product(subCategory_id, title, subTitle, price, detail, sale)
+		values(#{subCategory.subCategory_id},#{title},#{subTitle},#{price},#{detail},#{sale})
+	</insert>
+	
+	<update id="update" parameterType="Product">
+		
+	</update>
+	
+	<delete id="delete"></delete>
 </mapper>

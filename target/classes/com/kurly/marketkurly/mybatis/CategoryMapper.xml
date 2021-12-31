@@ -3,7 +3,7 @@
 <mapper namespace="Category">
 
 <select id="selectAll">
-
+	select * from category order by desc
 </select>
 
 <select id="select">
