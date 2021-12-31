@@ -85,12 +85,14 @@ create table member(
 	, birth varchar(20)
 ) default character set utf8;
 
+-- 수정 중 --
 create table order_summary(
 	order_summary_id int primary key auto_increment
 	, member_id int
 	, paymethod_id int
 	, orderdate timestamp default now()
-	, price INT
+	, order_count int
+	, price int
 	, constraint fk_member_order_summary foreign key (member_id) references member(member_id)
 	, constraint fk_paymenthod_order_summary foreign key (paymethod_id) references paymethod(paymethod_id)
 ) default character set utf8;
