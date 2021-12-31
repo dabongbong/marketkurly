@@ -10,7 +10,7 @@
 		<result column="detail" property="detail"/>
 		<result column="sale" property="sale"/>
 		
-		<association column="subCategory_id" property="subcategory" javaType="Subcategory" select="Subcategory.select"/>
+		<association column="subCategory_id" property="subcategory" javaType="Subcategory" select="Subcategory.selectAllByCategoryId"/>
 	</resultMap>
 
 	<select id="selectAll" resultMap="joinSubCategoryProduct">
