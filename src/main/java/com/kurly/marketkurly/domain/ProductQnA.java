@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class ProductQnA {
 	private int productqna_no;
-	private Product product_id;
+	private Product product;
 	private String title;
 	private String writer;
 	private String date;

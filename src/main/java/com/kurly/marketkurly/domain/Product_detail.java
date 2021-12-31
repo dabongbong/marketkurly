@@ -8,6 +8,5 @@ public class Product_detail {
 	private Product product;
 	private String item;
 	private String content;
-	private String product_img;
 	
 }
