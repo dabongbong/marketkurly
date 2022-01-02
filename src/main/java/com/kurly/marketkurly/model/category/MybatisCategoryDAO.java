@@ -15,12 +15,12 @@ public class MybatisCategoryDAO implements CategoryDAO {
 	private SqlSessionTemplate sessionTemplate;
 	@Override
 	public List selectAll() {
-		return null;
+		return sessionTemplate.selectList("Category.selectAll");
 	}
 
 	@Override
 	public Category select(int category_id) {
-		return null;
+		return sessionTemplate.selectOne("Category.select", category_id);
 	}
 
 	@Override

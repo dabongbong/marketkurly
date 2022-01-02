@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.kurly.marketkurly.model.product.ProductService;
 import com.kurly.marketkurly.util.Pager;
 
-@Controller
+//@Controller
 public class ProductController {
 
 	@Autowired
@@ -21,10 +21,10 @@ public class ProductController {
 	private Pager pager;
 	
 	@GetMapping("/product/list")
-	public String getList(HttpServletRequest request, Model model) {
-		List prodcutList = productService.selectAll();
-		pager.init(prodcutList, request);
-		model.addAttribute("productList", prodcutList);
+	public String getList(HttpServletRequest request ,Model model) {
+		List productList = productService.selectAll();
+		pager.init(productList, request);
+		model.addAttribute("productList", productList);
 		model.addAttribute("pager", pager);
 		
 		return "admin/product/list";
