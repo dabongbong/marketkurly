@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 	
-	<%@ include file="../../inc/head_link.jsp" %>
+	<%@ include file="../inc/head_link.jsp" %>
   <!-- summernote -->
   <link rel="stylesheet" href="/resources/admin/plugins/summernote/summernote-bs4.min.css">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -21,11 +21,11 @@
   </div>
 
   <!-- Navbar -->
-  <%@ include file="../../inc/navbar.jsp" %>
+  <%@ include file="../inc/navbar.jsp" %>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <%@ include file="../../inc/sidebar.jsp" %>  
+  <%@ include file="../inc/sidebar.jsp" %>  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -87,7 +87,7 @@
   </div>
   <!-- /.content-wrapper -->
   
-  <%@ include file="../../inc/footer.jsp" %>  
+  <%@ include file="../inc/footer.jsp" %>  
   
 
   <!-- Control Sidebar -->
@@ -98,7 +98,7 @@
 </div>
 <!-- ./wrapper -->
 
-<%@ include file="../../inc/bottom_link.jsp" %>
+<%@ include file="../inc/bottom_link.jsp" %>
 
 <!-- Summernote -->
 <script src="/resources/admin/plugins/summernote/summernote-bs4.min.js"></script>

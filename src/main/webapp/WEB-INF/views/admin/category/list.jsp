@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 	
-	<%@ include file="../../inc/head_link.jsp" %>
+	<%@ include file="../inc/head_link.jsp" %>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -23,11 +23,11 @@
   </div>
 
   <!-- Navbar -->
-  <%@ include file="../../inc/navbar.jsp" %>
+  <%@ include file="../inc/navbar.jsp" %>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <%@ include file="../../inc/sidebar.jsp" %>  
+  <%@ include file="../inc/sidebar.jsp" %>  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -94,7 +94,7 @@
   </div>
   <!-- /.content-wrapper -->
   
-  <%@ include file="../../inc/footer.jsp" %>  
+  <%@ include file="../inc/footer.jsp" %>  
   
 
   <!-- Control Sidebar -->
@@ -105,7 +105,7 @@
 </div>
 <!-- ./wrapper -->
 
-<%@ include file="../../inc/bottom_link.jsp" %>
+<%@ include file="../inc/bottom_link.jsp" %>
 
 </body>
 </html>

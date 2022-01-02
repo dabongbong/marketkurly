@@ -3,24 +3,25 @@
 <mapper namespace="Category">
 
 <select id="selectAll"  resultType="Category">
-	select * from category order by desc
+	select * from category order by category_id desc
 </select>
 
-<select id="select">
+<select id="select" parameterType="int" resultType="Category">
 	select * from category where category_id=#{category_id}
 </select>
 
-<insert id="insert">
+<insert id="insert" parameterType="Category">
 	insert into category(category_name, category_logo)
-	values category_name=#{category_name}, category_logo={category_logo}
+	values (#{category_name}, #{category_logo})
 </insert>
 
-<update id="update">
-
+<update id="update" parameterType="Category">
+	update category set category_name=#{category_name}
+	where category_id=#{category_id}
 </update>
 
-<delete id="delete">
-
+<delete id="delete" parameterType="int">
+	delete from category where category_id=#{category_id}
 </delete>
 
 </mapper>

@@ -32,10 +32,12 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public void update(Category category) {
+		categoryDAO.update(category);
 	}
 
 	@Override
 	public void delete(int category_id) {
+		categoryDAO.delete(category_id);
 	}
 
 }

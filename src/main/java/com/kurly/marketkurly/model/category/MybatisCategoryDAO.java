@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kurly.marketkurly.domain.Category;
+import com.kurly.marketkurly.exception.CategoryException;
 
 @Repository
 public class MybatisCategoryDAO implements CategoryDAO {
 
 	@Autowired
 	private SqlSessionTemplate sessionTemplate;
+	
 	@Override
 	public List selectAll() {
 		return sessionTemplate.selectList("Category.selectAll");
@@ -24,16 +26,24 @@ public class MybatisCategoryDAO implements CategoryDAO {
 	}
 
 	@Override
-	public void insert(Category category) {
-		int result = sessionTemplate.insert("Category.insert", category);  
+	public void insert(Category category) throws CategoryException{
+		int result = sessionTemplate.insert("Category.insert", category);
+		if(result == 0) {
+			throw new CategoryException("카테고리 등록에 실패하였습니다");
+		}
 	}
 
 	@Override
-	public void update(Category category) {
+	public void update(Category category) throws CategoryException{
+		int result = sessionTemplate.update("Category.update" , category);
+		if(result == 0) {
+			throw new CategoryException("카테고리 수정에 실패하였습니다");
+		}
 	}
 
 	@Override
 	public void delete(int category_id) {
+		sessionTemplate.delete("Category.delete", category_id);
 	}
 
 }
