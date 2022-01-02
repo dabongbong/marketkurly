@@ -8,5 +8,6 @@ public class Order_summary {
 	private Member member_id;
 	private PayMethod paymethod_id;
 	private String order_date;
+	private int order_count;
 	private int price;
 }
