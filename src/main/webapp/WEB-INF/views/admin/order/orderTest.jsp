@@ -6,6 +6,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<form>
+		<div>
+			<table>
+				<tr>
+					<td>제목</td>
+					<td>가수</td>
+				</tr>			
+			</table>
+		</div>
+	</form>
 </body>
 </html>
