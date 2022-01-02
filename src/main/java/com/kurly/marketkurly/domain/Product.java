@@ -11,4 +11,5 @@ public class Product {
 	private int price;
 	private String detail;
 	private int sale;
+	private String product_img;
 }
