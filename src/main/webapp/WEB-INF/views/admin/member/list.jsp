@@ -4,7 +4,7 @@
 <%@page import="java.util.List"%>
 <%
 	//상품목록
-	List<Member> membertList=(List)request.getAttribute("memberList");
+	List<Member> memberList=(List)request.getAttribute("memberList");
 	Pager pager = (Pager)request.getAttribute("pager");
 %>
 <!DOCTYPE html>
@@ -89,12 +89,13 @@
                       <th>birth</th>
                     </tr>
                   </thead>
+                  <%-- 
                   <tbody>
                   <%int curPos=pager.getCurPos(); %>
                   <%int num=pager.getNum(); %>
                   <%for(int i =0; i<=pager.getPageSize();i++) {%>
                   <%if(num<1)break; %>
-                  <%Member member=membertList.get(curPos++); %>
+                  <%Member member=memberList.get(curPos++); %>
                     <tr>
                       <td><%=num-- %></td>
                       <td><%=member.getMember_id()%></td>
@@ -107,9 +108,10 @@
                       <td><%=member.getBirth()%></td>
                     </tr>
                     <%} %>
+                     --%>
                     <tr>
                        <td colspan="4">
-                          <button type="button" class="btn btn-info" onClick="location.href='/admin/product/registform';">상품등록</button>
+                          <button type="button" class="btn btn-info" onClick="location.href='/admin/member/registform';">회원등록</button>
                        </td>
                     </tr>
                   </tbody>
