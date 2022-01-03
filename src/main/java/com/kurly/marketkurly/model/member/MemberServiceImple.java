@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.kurly.marketkurly.domain.Member;
 import com.kurly.marketkurly.exception.MemberException;
-@Service
+
+//@Service
 public class MemberServiceImple implements MemberService{
-	@Autowired
+	
+	//@Autowired
 	private MemberDAO memberDAO;
 		
 	@Override
