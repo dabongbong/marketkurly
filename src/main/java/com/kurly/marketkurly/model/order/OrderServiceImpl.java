@@ -11,9 +11,6 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderSummaryDAO orderSummaryDAO;
 	
-	@Autowired
-	private OrderDetailDAO orderDetailDAO;
-	
 	@Override
 	public List selectAll() {
 		return orderSummaryDAO.selectAll();
