@@ -4,7 +4,7 @@
 
 	<!-- 주문 내역 요청 -->
 	<select id="selectAll" resultType="OrderSummary">
-		select * from order_summary order by order_date desc
+		select * from order_summary order by orderdate desc
 	</select>
 	
 	<!-- 주문 상세 요청 -->
