@@ -17,7 +17,6 @@ public class MemberServiceImple implements MemberService{
 	@Override
 	public List selectAll() {
 			List list=memberDAO.selectAll();
-			System.out.println("dao가 가저오는" + list);	
 			return list; 
 	}
 
