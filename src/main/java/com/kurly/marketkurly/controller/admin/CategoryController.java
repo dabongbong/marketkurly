@@ -2,6 +2,7 @@ package com.kurly.marketkurly.controller.admin;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +17,10 @@ import com.kurly.marketkurly.model.category.CategoryService;
 @Controller
 public class CategoryController {
 
+	@Autowired
 	private CategoryService categoryService;
 	
-	
+
 	// 카테고리 리스트
 	@GetMapping("/category/list")
 	public ModelAndView getList() {

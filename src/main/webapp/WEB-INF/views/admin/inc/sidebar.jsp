@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="/" class="brand-link" target="_blank">
       <img src="/resources/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">쇼핑몰 바로가기</span>
+      <span class="brand-text font-weight-light">마켓컬리 바로가기</span>
     </a>
 
     <!-- Sidebar -->
