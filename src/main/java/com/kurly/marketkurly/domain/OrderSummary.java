@@ -3,7 +3,7 @@ package com.kurly.marketkurly.domain;
 import lombok.Data;
 
 @Data
-public class Order_summary {
+public class OrderSummary {
 	private int order_summary_id;
 	private Member member;
 	private PayMethod paymethod;

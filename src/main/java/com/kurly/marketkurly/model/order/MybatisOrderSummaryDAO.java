@@ -5,34 +5,34 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.kurly.marketkurly.domain.Order_summary;
+import com.kurly.marketkurly.domain.OrderSummary;
+import com.kurly.marketkurly.exception.OrderException;
 
-public class MybatisOrderSummaryDAO implements OrderSummaryDAO{
+public class MybatisOrderSummaryDAO implements OrderSummaryDAO {
 
 	@Autowired
 	private SqlSessionTemplate sessionTemplate;
-	
+
 	@Override
 	public List selectAll() {
-		return sessionTemplate.selectList("Order_summary.selectAll");
+		return sessionTemplate.selectList("OrderSummary.selectAll");
 	}
 
 	@Override
-	public Order_summary select(int order_summary_id) {
-		return sessionTemplate.selectOne("Order_summary.select", order_summary_id);
+	public OrderSummary select(int order_summary_id) {
+		return sessionTemplate.selectOne("OrderSummary.select", order_summary_id);
 	}
 
 	@Override
-	public void insert(Order_summary orderSummary) {
+	public void insert(OrderSummary orderSummary) throws OrderException{
+		int result = sessionTemplate.insert("OrderSummary.insert", orderSummary);
+		if(result==0) {
+			throw new OrderException("주문 내역 주입 실패");
+		}
 	}
 
 	@Override
 	public void delete(int order_summary_id) {
-	}
-
-	@Override
-	public List selectDetailAll() {
-		return null;
 	}
 
 }
