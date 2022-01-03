@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Notice">
+	
+	<sql id="selectCommon">
+		select * notice_no, title, writer, content, regdate, hit from notice
+	</sql>
+	
+	 
+	<select id="selectAll" resultType="Notice">
+		<include refid="selectCommon"/>
+		order by notice_no desc
+	</select> 
+	  
+	 
+	<select id="select" resultType="Notice" >
+		<include refid="selectCommon"/>
+		where notice_no=#{notice_no}
+	</select>
+
+	<insert id="insert" parameterType="Notice">
+		insert into notice(notice_no, title, writer, content)
+		values(#{notice_no}, #{title}, #{writer}, #{content})
+	</insert>
+	
+	<update id="update" parameterType="Notice">
+		update notice set title=#{title}, writer=#{writer}, content=#{content}
+		where notice_no=#{notice_no}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from notice where notice_no=#{notice_no}
+	</delete>
+</mapper>

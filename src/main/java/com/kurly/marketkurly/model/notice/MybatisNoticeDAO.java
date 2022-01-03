@@ -7,33 +7,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kurly.marketkurly.domain.Notice;
+import com.kurly.marketkurly.exception.NoticeException;
 
 @Repository
 public class MybatisNoticeDAO implements NoticeDAO{
-
+ 
 	@Autowired
 	private SqlSessionTemplate sessionTemplate;
 	
 	@Override
 	public List selectAll() {
-		return null;
+		return sessionTemplate.selectList("Notice.selectAll");
 	}
 
 	@Override
-	public Notice select(int notice_id) {
-		return null;
+	public Notice select(int notice_no) {
+		return sessionTemplate.selectOne("Notice.select", notice_no);
 	}
 
 	@Override
-	public void insert(Notice notice) {
+	public void insert(Notice notice) throws NoticeException{
+		int result = sessionTemplate.insert("Notice.insert", notice);
+		if(result==0) {
+			throw new NoticeException("게시물 등록 실패");
+		}
 	}
 
 	@Override
-	public void update(Notice notice) {
+	public void update(Notice notice)  throws NoticeException{
+		int result = sessionTemplate.update("Notice.update", notice);
+		if(result==0) {
+			throw new NoticeException("게시물 수정 실패");
+		}
 	}
 
 	@Override
-	public void delete(int notice_id) {
+	public void delete(int notice_no)  throws NoticeException{
+		int result = sessionTemplate.delete("Notice.delete", notice_no);
+		if(result==0) {
+			throw new NoticeException("게시물  삭제 실패");
+		}
 	}
 
 }
