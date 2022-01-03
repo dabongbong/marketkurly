@@ -6,7 +6,7 @@
 	<typeAliases>
 		<typeAlias type="com.kurly.marketkurly.domain.Category" 		 alias="Category"/> 
 		<typeAlias type="com.kurly.marketkurly.domain.Subcategory" 		 alias="Subcategory"/> 
-		 <typeAlias type="com.kurly.marketkurly.domain.Customer" 		 alias="Customer"/>
+		<typeAlias type="com.kurly.marketkurly.domain.Customer" 		 alias="Customer"/>
 		<typeAlias type="com.kurly.marketkurly.domain.Member" 			 alias="Member"/>
 		<typeAlias type="com.kurly.marketkurly.domain.OrderSummary" 	 alias="OrderSummary"/>
 		<typeAlias type="com.kurly.marketkurly.domain.OrderDetail" 	 alias="OrderDetail"/>
