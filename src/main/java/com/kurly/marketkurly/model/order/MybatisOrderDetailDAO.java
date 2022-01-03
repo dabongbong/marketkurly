@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MybatisOrderDetailDAO {
-	@Autowired
-	private OrderDetailDAO orderDetailDAO;
+//	@Autowired
+//	private OrderDetailDAO orderDetailDAO;
 }
