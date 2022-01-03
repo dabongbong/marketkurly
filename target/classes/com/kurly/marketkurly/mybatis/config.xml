@@ -8,8 +8,8 @@
 		<typeAlias type="com.kurly.marketkurly.domain.Subcategory" 		 alias="Subcategory"/> 
 		<typeAlias type="com.kurly.marketkurly.domain.Customer" 		 alias="Customer"/>
 		<typeAlias type="com.kurly.marketkurly.domain.Member" 			 alias="Member"/>
-		<typeAlias type="com.kurly.marketkurly.domain.Order_summary" 	 alias="Order_summary"/>
-		<typeAlias type="com.kurly.marketkurly.domain.Order_detail" 	 alias="Order_detail"/>
+		<typeAlias type="com.kurly.marketkurly.domain.OrderSummary" 	 alias="OrderSummary"/>
+		<typeAlias type="com.kurly.marketkurly.domain.OrderDetail" 	 alias="OrderDetail"/>
 		<typeAlias type="com.kurly.marketkurly.domain.Notice" 			 alias="Notice"/> 
 
 		<!-- Product -->

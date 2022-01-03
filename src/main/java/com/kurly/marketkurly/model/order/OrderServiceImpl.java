@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.kurly.marketkurly.domain.Order_summary;
+import com.kurly.marketkurly.domain.OrderSummary;
 
 public class OrderServiceImpl implements OrderService {
 	
@@ -20,12 +20,12 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Order_summary select(int order_summary_id) {
+	public OrderSummary select(int order_summary_id) {
 		return null;
 	}
 
 	@Override
-	public void insert(Order_summary order_summary) {
+	public void insert(OrderSummary order_summary) {
 	}
 
 	@Override
