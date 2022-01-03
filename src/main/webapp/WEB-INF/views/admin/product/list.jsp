@@ -24,7 +24,7 @@
                       <th>가격</th>
                     </tr>
                   </thead>
-                  <tbody>
+<%--                   <tbody>
                 <%int curPos=pager.getCurPos(); %>
                   <%int num=pager.getNum(); %>
                   <%for(int i =0; i<=pager.getPageSize();i++) {%>
@@ -44,7 +44,7 @@
                     		<button type="button" class="btn btn-info" onClick="location.href='/admin/product/registForm'">상품등록</button>
                     	</td>
                     </tr>
-                  </tbody>
+                  </tbody> --%>
             
                 </table>
 </body>

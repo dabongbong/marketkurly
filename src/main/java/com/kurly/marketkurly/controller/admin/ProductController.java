@@ -8,11 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kurly.marketkurly.model.product.ProductService;
 import com.kurly.marketkurly.util.Pager;
 
-//@Controller
+@Controller
 public class ProductController {
 
 	@Autowired
@@ -20,14 +21,13 @@ public class ProductController {
 	@Autowired
 	private Pager pager;
 	
-	@GetMapping("/product/list")
-	public String getList(HttpServletRequest request ,Model model) {
-		List productList = productService.selectAll();
-		pager.init(productList, request);
-		model.addAttribute("productList", productList);
-		model.addAttribute("pager", pager);
-		
-		return "admin/product/list";
+	@GetMapping(value="/product/list")
+	public ModelAndView getList(HttpServletRequest request) {
+//		List productList = productService.selectAll();
+//		pager.init(productList, request);
+		ModelAndView mav = new ModelAndView("admin/product/list");
+		System.out.println("컨트롤러 호출");
+		return mav;
 	}
 	
 }
