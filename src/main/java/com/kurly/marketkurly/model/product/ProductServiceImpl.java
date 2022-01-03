@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public void insert(Product product, List<Product_detail> prouct_detail, List<Product_hashtag> product_hashtag) {
+	public void insert(Product product) {
 		
 	}
 

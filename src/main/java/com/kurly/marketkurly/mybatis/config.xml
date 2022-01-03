@@ -24,9 +24,9 @@
   <mappers>
     <mapper resource="com/kurly/marketkurly/mybatis/CategoryMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/SubcategoryMapper.xml"/>
-    <mapper resource="com/kurly/marketkurly/mybatis/CustomerMapper.xml"/>
+   <!--  <mapper resource="com/kurly/marketkurly/mybatis/CustomerMapper.xml"/> -->
     <mapper resource="com/kurly/marketkurly/mybatis/MemberMapper.xml"/>
-    <mapper resource="com.kurly.marketkurly.mybatis.OrderMapper.xml"/>
+    <!-- <mapper resource="com.kurly.marketkurly.mybatis.OrderMapper.xml"/> -->
     <mapper resource="com/kurly/marketkurly/mybatis/ProductMapper.xml"/>
   </mappers>
 </configuration>
