@@ -15,9 +15,6 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
-
-	@Autowired
-	private MemberDAO memberDAO;
 	
 	@GetMapping("member/list")
 	public ModelAndView getList() {
