@@ -5,7 +5,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.kurly.marketkurly.domain.Order_summary;
+import com.kurly.marketkurly.domain.OrderSummary;
 
 public class MybatisOrderSummaryDAO implements OrderSummaryDAO{
 
@@ -18,12 +18,12 @@ public class MybatisOrderSummaryDAO implements OrderSummaryDAO{
 	}
 
 	@Override
-	public Order_summary select(int order_summary_id) {
+	public OrderSummary select(int order_summary_id) {
 		return sessionTemplate.selectOne("Order_summary.select", order_summary_id);
 	}
 
 	@Override
-	public void insert(Order_summary orderSummary) {
+	public void insert(OrderSummary orderSummary) {
 	}
 
 	@Override
