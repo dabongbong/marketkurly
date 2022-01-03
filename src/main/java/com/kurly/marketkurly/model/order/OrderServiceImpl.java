@@ -21,7 +21,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public OrderSummary select(int order_summary_id) {
-		return null;
+		return orderSummaryDAO.select(order_summary_id);
 	}
 
 	@Override
