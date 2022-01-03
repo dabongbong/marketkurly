@@ -23,15 +23,11 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public void insert(OrderSummary order_summary) {
+		
 	}
 
 	@Override
 	public void delete(int order_summary_id) {
 	}
 
-	@Override
-	public List selectDetailAll() {
-		return null;
-	}
-	
 }
