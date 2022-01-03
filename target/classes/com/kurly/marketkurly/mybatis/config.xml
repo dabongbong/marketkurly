@@ -28,6 +28,6 @@
     <mapper resource="com/kurly/marketkurly/mybatis/MemberMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/OrderMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/ProductMapper.xml"/>
-    <mapper resource="com/kurly/marketkurly/mybatis/NoticeMapper.xml"/>
+    <!-- <mapper resource="com/kurly/marketkurly/mybatis/NoticeMapper.xml"/> -->
   </mappers>
 </configuration>

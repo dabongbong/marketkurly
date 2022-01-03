@@ -31,5 +31,6 @@
 			p:maxUploadSize="5242880"/>
 			
 	<beans:bean class="com.kurly.marketkurly.util.CategoryFileManager" id="categoryFileManager"></beans:bean>
+	<beans:bean class="com.kurly.marketkurly.util.Pager" id="pager"></beans:bean>
 	
 </beans:beans>
