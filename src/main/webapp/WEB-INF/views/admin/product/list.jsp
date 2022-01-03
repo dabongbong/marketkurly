@@ -22,9 +22,11 @@
                       <th>카테고리</th>
                       <th>상품명</th>
                       <th>가격</th>
+                      <th>가격</th>
+                      <th>가격</th>
                     </tr>
                   </thead>
-<%--                   <tbody>
+                   <tbody>
                 <%int curPos=pager.getCurPos(); %>
                   <%int num=pager.getNum(); %>
                   <%for(int i =0; i<=pager.getPageSize();i++) {%>
@@ -35,7 +37,7 @@
                       <td><%=product.getSubcategory().getSubcategory_name() %></td>
                       <td><%=product.getTitle() %></td>
                       <td><%=product.getSubTitle() %></td>
-                      <td><%=product.getPrice() %></td>
+                      <td><%=product.getPrice()/100*(100-product.getSale()) %></td>
                       <td><%=product.getDetail() %></td>
                     </tr>
                     <%} %>
@@ -44,7 +46,7 @@
                     		<button type="button" class="btn btn-info" onClick="location.href='/admin/product/registForm'">상품등록</button>
                     	</td>
                     </tr>
-                  </tbody> --%>
+                  </tbody> 
             
                 </table>
 </body>
