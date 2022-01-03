@@ -14,22 +14,23 @@
 
 <%
 
-	InitialContext context = new InitialContext();
-	DataSource ds = (DataSource)context.lookup("java:comp/env/jdbc/mysql");
-	
-	Connection con = ds.getConnection();
-	/* out.print(con);
-	String sql = "select * from category"; */
-	/* PreparedStatement pstmt=con.prepareStatement(sql);
-	ResultSet rs =pstmt.executeQuery();
-	rs.next();
-	out.print(rs.getString(1)); */ 
-	
-	String sql = "insert into category(category_name, category_logo) values('sddf','banana')";
+InitialContext context = new InitialContext();
+DataSource ds = (DataSource)context.lookup("java:comp/env/jdbc/mysql");
+
+Connection con = ds.getConnection();
+out.print(con);
+String sql = "select * from category"; 
+PreparedStatement pstmt=con.prepareStatement(sql);
+ResultSet rs =pstmt.executeQuery();
+rs.next();
+rs.next();
+out.print(rs.getString("category_name")); 
+
+/* 	String sql = "insert into category(category_name, category_logo) values('a하이','수창쓰')";
 	PreparedStatement pstmt = con.prepareStatement(sql);
-	pstmt.executeUpdate();
+	pstmt.executeUpdate();  */
 	
 %>
-ㄴㅇㄹㅎㅁㄴㅎ메
+
 </body>
 </html>
