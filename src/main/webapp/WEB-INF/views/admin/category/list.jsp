@@ -6,7 +6,6 @@
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
 	List<Subcategory> subcategoryList = (List)request.getAttribute("subcategoryList");
-	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +73,7 @@
                     <tr data-widget="expandable-table" aria-expanded="true">
                       <td>
                         <i class="expandable-table-caret fas fa-caret-right fa-fw" ></i>
-                        <span id="category"><%=category.getCategory_name() %></a>
+                        <span id="category" onClick="selectCategory(<%=category.getCategory_id()%>)"><%=category.getCategory_name() %></span>
                         <button type="button" class="btn btn-info"  style="float:right" onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'">상세보기</button>
                       </td>
                     </tr>
@@ -99,26 +98,27 @@
                 <h3 class="card-title">소분류</h3>
               </div>
               <!-- ./card-header -->
+              <form>
+              <input type="hidden" name="category_id">
               <div class="card-body p-0">
                 <table class="table table-hover">
                   <tbody>
-                  <% //for(Subcategory subcategory : subcategoryList){ %> 
                     <tr data-widget="expandable-table" aria-expanded="true">
                       <td>
                         <i class="expandable-table-caret fas fa-caret-right fa-fw" ></i>
-                        <%-- <span><%=subcategory.getSubcategory_name() %></span>--%>
- 						<button type="button" class="btn btn-info"  style="float:right" <%-- onClick="location.href='/admin/category/subdetail?subcategory_id=<%=subcategory.getSubcategory_id()%>'" --%>>상세보기</button>                    
+                        <%-- <span><%=subcategory.getSubcategory_name() %></span> --%>
+ 						<button type="button" class="btn btn-info" style="float:right" >상세보기</button>                    
                       </td>
                     </tr>
-                    <%//} %>
                     <tr>
                     	<td>
-                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/category/subregistform';">카테고리등록</button>
+                    		<button type="button" class="btn btn-info" onClick="subregist()">카테고리등록</button>
                     	</td>
                     </tr>
                   </tbody>
                 </table>
             </div>
+            </form>
               <!-- /.card-body -->
             </div>
             </div>
@@ -152,6 +152,37 @@ $(function(){
 		$("#subForm").show();
 	});
 })
+
+function selectCategory(category_id){
+	$("input[name='category_id']").val(category_id)	
+}
+
+function subregist(){
+	$("form").attr({
+		action:"/admin/category/subregistform",
+		method:"post"
+	})
+	$("form").submit();
+}
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

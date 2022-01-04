@@ -6,16 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kurly.marketkurly.domain.Category;
-import com.kurly.marketkurly.domain.CategoryImg;
-import com.kurly.marketkurly.exception.CategoryImgException;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
-	@Autowired
-	private CategoryImgDAO categoryImgDAO;
 
 	@Override
 	public List selectAll() {

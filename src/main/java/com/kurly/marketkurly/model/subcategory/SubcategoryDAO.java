@@ -7,6 +7,7 @@ import com.kurly.marketkurly.domain.Subcategory;
 public interface SubcategoryDAO {
 
 	public List selectAll();
+	public List selectAllByCategory(int category_id);
 	public Subcategory select(int subcategory_id);
 	public void insert(Subcategory subcategory);
 	public void update(Subcategory subcategory);

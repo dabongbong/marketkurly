@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%
+	int category_id = (int)request.getAttribute("category_id");	
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +66,8 @@
                 <div class="card-body">
                 
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="category_name">
+                  	<input type="hidden" name="category.category_id" value="<%=category_id%>">
+                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="subcategory_name">
                   </div>
                   
                 <!-- /.card-body -->

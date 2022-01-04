@@ -21,6 +21,11 @@ public class SubcategoryServiceImpl implements SubcategoryService{
 		System.out.println("subDAO가 가져오는거 " +list);
 		return list;
 	}
+	
+	@Override
+	public List selectAllByCategory(int category) {
+		return subcategoryDAO.selectAllByCategory(category);
+	}
 
 	@Override
 	public Subcategory select(int subcategory_id) {
