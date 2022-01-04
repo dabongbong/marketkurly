@@ -2,8 +2,11 @@ package com.kurly.marketkurly.model.subcategory;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.kurly.marketkurly.domain.Subcategory;
 
+@Service
 public class SubcategoryServiceImpl implements SubcategoryService{
 
 	@Override
