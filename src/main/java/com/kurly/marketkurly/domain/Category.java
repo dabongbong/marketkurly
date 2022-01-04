@@ -9,6 +9,6 @@ public class Category {
 	private int category_id;
 	private String category_name;
 	private String category_logo;
-	private MultipartFile[] imgFiles;
+	private MultipartFile imgFiles;
 
 }

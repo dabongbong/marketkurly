@@ -1,12 +1,4 @@
-<%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
-<%@page import="com.kurly.marketkurly.util.Pager"%>
-<%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-<%
-	List<OrderSummary> orderList = (List)request.getAttribute("orderSummaryList");
-	Pager pager = (Pager)request.getAttribute("pager");
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +7,9 @@
   <title>AdminLTE 3 | Dashboard</title>
 	
 	<%@ include file="../inc/head_link.jsp" %>
+  <!-- summernote -->
+  <link rel="stylesheet" href="/resources/admin/plugins/summernote/summernote-bs4.min.css">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -39,7 +34,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">카테고리 소분류</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -58,54 +53,29 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-12">
-            <div class="card">
+            <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
-
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <h3 class="card-title">소분류</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>고객ID</th>
-                      <th>결제방식</th>
-                      <th>가격</th>
-                      <th>구매일</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-			    	  <%int curPos=pager.getCurPos(); %>
-				      <%int num=pager.getNum(); %>
-				      <%for(int i =0; i<=pager.getPageSize();i++) {%>
-				      <%if(num<1)break; %>
-				      <%OrderSummary orderSummary=orderList.get(curPos++); %>
-				        <tr>
-				          <td><%=num-- %></td>
-				          <td><%=orderSummary.getOrder_summary_id() %></td>
-				          <td><%=orderSummary.getMember() %></td>
-				          <td><%=orderSummary.getPaymethod() %></td>
-				          <td><%=orderSummary.getPrice() %></td>
-				          <td><%=orderSummary.getOrder_date() %></td>
-				        </tr>
-				        <%} %>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
+              <!-- form start -->
+              <form name="form1">
+                <div class="card-body">
+                
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="category_name">
+                  </div>
+                  
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="button" class="btn btn-info" id="bt_regist">카테고리 등록</button>
+                  <button type="button" class="btn btn-info" onClick="location.href='/admin/category/list';">목록</button>
+                </div>
+              </form>
             </div>
+          
+            
             <!-- /.card -->
           </div>
         </div>
@@ -130,5 +100,30 @@
 
 <%@ include file="../inc/bottom_link.jsp" %>
 
+<!-- Summernote -->
+<script src="/resources/admin/plugins/summernote/summernote-bs4.min.js"></script>
+
+<!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
+<script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+<script>
+ $(function () {
+	$("#bt_regist").click(function(){
+		regist();
+	});
+	
+})
+
+function regist(){
+	form1.action="/admin/category/subregist";
+	form1.method="post";
+	form1.submit();
+}
+</script>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.kurly.marketkurly.model.category;
 import java.util.List;
 
 import com.kurly.marketkurly.domain.Category;
+import com.kurly.marketkurly.domain.CategoryImg;
 
 public interface CategoryService {
 
