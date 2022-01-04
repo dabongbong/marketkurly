@@ -1,10 +1,14 @@
+<%@page import="com.kurly.marketkurly.util.Pager"%>
 <%@page import="com.kurly.marketkurly.domain.Member"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@page import="java.util.List"%>
 <%
 	//상품목록
 	List<Member> memberList=(List)request.getAttribute("memberList");
+
+	Pager pager = (Pager)request.getAttribute("pager");
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,6 +87,7 @@ function registForm(){
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
+                      <th>NO</th>
                       <th>id</th>
                       <th>pass</th>
                       <th>name</th>
@@ -95,8 +100,13 @@ function registForm(){
                   </thead>
                 
                   <tbody>
-                  <%for(Member member: memberList) {%>
+                   <%int curPos=pager.getCurPos(); %>
+                  <%int num=pager.getNum(); %>
+                  <%for(int i =0; i<=pager.getPageSize();i++) {%>
+                  <%if(num<1)break; %>
+                  <%Member member=memberList.get(curPos++); %>
                     <tr>
+                    	<td><%=num-- %></td>
                       <td><%=member.getMember_id()%></td>
                       <td><%=member.getMember_pass()%></td>
                       <td><a href="/admin/member/detail?member_id=<%=member.getMember_id() %>"><%=member.getMember_name()%></a></td>
