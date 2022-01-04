@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kurly.marketkurly.domain.OrderSummary;
+import com.kurly.marketkurly.exception.OrderException;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -24,8 +25,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void insert(OrderSummary order_summary) {
-		
+	public void insert(OrderSummary order_summary) throws OrderException{
+		orderSummaryDAO.insert(order_summary);
 	}
 
 	@Override

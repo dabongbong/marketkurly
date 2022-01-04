@@ -1,11 +1,9 @@
-<%@page import="com.kurly.marketkurly.util.Pager"%>
 <%@page import="com.kurly.marketkurly.domain.Member"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@page import="java.util.List"%>
 <%
 	//상품목록
 	List<Member> memberList=(List)request.getAttribute("memberList");
-	Pager pager = (Pager)request.getAttribute("pager");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +15,12 @@
    <%@ include file="../inc/head_link.jsp" %>
 
 </head>
+<script type="text/javascript">
+function registForm(){
+	location.href="/admin/member/registform"
+
+}
+</script>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -89,18 +93,13 @@
                       <th>birth</th>
                     </tr>
                   </thead>
-                  <%-- 
+                
                   <tbody>
-                  <%int curPos=pager.getCurPos(); %>
-                  <%int num=pager.getNum(); %>
-                  <%for(int i =0; i<=pager.getPageSize();i++) {%>
-                  <%if(num<1)break; %>
-                  <%Member member=memberList.get(curPos++); %>
+                  <%for(Member member: memberList) {%>
                     <tr>
-                      <td><%=num-- %></td>
                       <td><%=member.getMember_id()%></td>
                       <td><%=member.getMember_pass()%></td>
-                      <td><%=member.getMember_name()%></td>
+                      <td><a href="/admin/member/detail?member_id=<%=member.getMember_id() %>"><%=member.getMember_name()%></a></td>
                       <td><%=member.getEmail()%></td>
                       <td><%=member.getPhone()%></td>
                       <td><%=member.getAddr()%></td>
@@ -108,15 +107,13 @@
                       <td><%=member.getBirth()%></td>
                     </tr>
                     <%} %>
-                     --%>
-                    <tr>
-                       <td colspan="4">
-                          <button type="button" class="btn btn-info" onClick="location.href='/admin/member/registform';">회원등록</button>
-                       </td>
-                    </tr>
+                    
                   </tbody>
                 </table>
               </div>
+                     <div class="card-footer">
+                  		<button type="button" class="btn btn-info" onClick="registForm()">등록</button>
+               		 </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
