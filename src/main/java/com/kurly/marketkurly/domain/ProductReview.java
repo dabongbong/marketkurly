@@ -3,7 +3,7 @@ package com.kurly.marketkurly.domain;
 import lombok.Data;
 
 @Data
-public class Product_review {
+public class ProductReview {
 	private int review_no;
 	private Product product;
 	private String title;

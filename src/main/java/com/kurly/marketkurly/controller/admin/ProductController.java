@@ -24,8 +24,6 @@ public class ProductController {
 	@Autowired
 	private CategoryService categoryService;
 	@Autowired
-	private SubcategoryService subcategoryService;
-	@Autowired
 	private Pager pager;
 	
 	@GetMapping(value="/product/list")

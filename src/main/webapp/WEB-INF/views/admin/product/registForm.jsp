@@ -68,7 +68,7 @@
               <div class="card-body p-0">
                 <table class="table table-hover">
                   <tbody>
-                    <%for(Category category : categoryList){ %>
+                     <%for(Category category : categoryList){ %>
                     <tr data-widget="expandable-table" aria-expanded="true">
                       <td>
                         <a href="javascript:selCategory('<%=category.getCategory_name() %>', <%=category.getCategory_id() %>)"><%=category.getCategory_name() %></a>
@@ -94,14 +94,7 @@
               <!-- ./card-header -->
               <div class="card-body p-0">
                 <table class="table table-hover">
-                  <tbody>
-                    <%for(Category category : categoryList){ %>
-                    <tr data-widget="expandable-table" aria-expanded="true">
-                      <td>
-                        <a href="javascript:selCategory('<%=category.getCategory_name() %>', <%=category.getCategory_id() %>)"><%=category.getCategory_name() %></a>
-                      </td>
-                    </tr>
-                    <%} %>
+                  <tbody id="subcategory_table">
                   </tbody>
                 </table>
             </div>
@@ -145,7 +138,6 @@
                      <textarea id="detail" name="detail"></textarea>
                   </div>
                   <div class="form-group">
-                  
                   <div id="preview">이미지 미리보기 영역
                   
                   </div>
@@ -161,9 +153,19 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  <div class="form-group" id="detail_form">
+                    <div style="display:flex;" >
+                      <input type="text" class="form-control col-3"  placeholder="추가사항" name="item">
+                      <input type="text" class="form-control col-8"  placeholder="상세내용" name="content">
+                      <button type="button" class="btn btn-info col-1" onClick="addDetailForm()">+</button>
+                    </div>
+                    
+                  </div>
+                  <div class="form-group" id="hashtag_form">
+	                  <div style="display:flex;" >
+	                    <input type="text" class="form-control"  placeholder="해시태그" name="comment">
+	                    <button type="button" class="btn btn-info col-1" onClick="addHashtagForm()">+</button>
+	                  </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -221,6 +223,8 @@ $(function () {
 	  regist();
   })
   
+  
+  
 });
 //select 컴포넌트에 선택한 카테고리 반영하기
 function selCategory(category_name, category_id){
@@ -232,6 +236,11 @@ function selCategory(category_name, category_id){
 	getSubcategory();
 	
 };
+function selSubcategory(subcategory_name, subcategory_id){
+	var sel = document.querySelector('#subcategory_id');
+	sel.options[0].text = subcategory_name; 
+	sel.options[0].value = subcategory_id; 
+};
 
 function getSubcategory(){
 	//비동기 방식으로 서브카테고리 테이블에 반영하기.. 
@@ -239,13 +248,14 @@ function getSubcategory(){
   		 url: "/admin/product/category",
   		 method: 'GET',
   		 success : function(data){
-  			 console.log("가져온 값은 "+data);
-  			/*  for(i=0; i<data.data.length;i++){
-  				 
-  			 } */
+  			 console.log("가져온 값은 "+data.data[2].title);
+			 $('#subcategory_table').empty();
+  			 for(i=0; i<data.data.length;i++){
+  				 var td = '<tr><td><a href="javascript:selSubcategory(\''+data.data[i].title+'\','+data.data[i].product_id+')">'+data.data[i].title+'</a><td><tr>';
+  				 $('#subcategory_table').append(td);
+  			 }
   		 }
   	 })
-		alert("뿅!");
 };
 
 
@@ -287,6 +297,19 @@ function preview(obj){
 		};//파일을 다 읽어들이면, 익명함수가 호출된다.
 		reader.readAsDataURL(obj.files[i]);
 	}
+}
+function addDetailForm(){
+	var tag = '<div style="display:flex;">'
+        		+'<input type="text" class="form-control col-3"  placeholder="추가사항" name="item">'
+   				+'<input type="text" class="form-control col-9"  placeholder="상세내용" name="content">'
+ 				+'</div>';
+	$("#detail_form").append(tag);
+}
+function addHashtagForm(){
+	var tag = '<div style="display:flex;" >'
+		+'<input type="text" class="form-control"  placeholder="해시태그" name="comment">'
+		+'</div>'
+	$("#hashtag_form").append(tag);
 }
 </script>
 </body>
