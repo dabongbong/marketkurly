@@ -2,6 +2,8 @@ package com.kurly.marketkurly.controller.admin;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,21 +16,25 @@ import com.kurly.marketkurly.domain.Member;
 import com.kurly.marketkurly.exception.MemberException;
 import com.kurly.marketkurly.model.member.MemberDAO;
 import com.kurly.marketkurly.model.member.MemberService;
+import com.kurly.marketkurly.util.Pager;
 
 @Controller
 public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private Pager pager;
 	
 	//회원 리스트요청
 	@GetMapping("/member/list")
-	public ModelAndView getList() {
+	public ModelAndView getList(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/member/list");
 		List memberList = memberService.selectAll();
+		pager.init(memberList, request);
 		
 		mav.addObject("memberList",memberList);
-				
+		mav.addObject("pager",pager);
 		
 		return mav;
 	}
