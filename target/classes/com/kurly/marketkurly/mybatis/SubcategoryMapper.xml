@@ -23,8 +23,8 @@
 		and s.category=#{category_id}
 	</select>
 	
-	<select id="select" resultType="Subcategory">
-		select * from subcategory where subcategory_id = #{subcategory_id}
+	<select id="select" resultType="Subcategory" parameterType="int">
+		select * from subcategory where subcategory_id=#{subcategory_id}
 	</select>
 	
 	<insert id="insert" parameterType="Subcategory">

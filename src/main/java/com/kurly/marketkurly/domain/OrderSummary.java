@@ -7,6 +7,6 @@ public class OrderSummary {
 	private int order_summary_id;
 	private Member member;
 	private PayMethod paymethod;
-	private String order_date;
+	private String orderdate;
 	private int price;
 }
