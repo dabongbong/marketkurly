@@ -1,7 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%
-	int category_id = (int)request.getAttribute("category_id");	
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +34,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">카테고리 소분류</h1>
+            <h1 class="m-0">카테고리 등록</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -58,7 +55,7 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">소분류</h3>
+                <h3 class="card-title">Quick Example</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -66,10 +63,8 @@
                 <div class="card-body">
                 
                   <div class="form-group">
-                  	<input type="hidden" name="category.category_id" value="<%=category_id%>">
-                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="subcategory_name">
+                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="category_name">
                   </div>
-                  
                 <!-- /.card-body -->
 
                 <div class="card-footer">
@@ -78,7 +73,6 @@
                 </div>
               </form>
             </div>
-          
             
             <!-- /.card -->
           </div>
@@ -117,6 +111,7 @@ $(function () {
 </script>
 <script>
  $(function () {
+	
 	$("#bt_regist").click(function(){
 		regist();
 	});
@@ -124,10 +119,11 @@ $(function () {
 })
 
 function regist(){
-	form1.action="/admin/category/subregist";
+	form1.action="/admin/category/regist";
 	form1.method="post";
 	form1.submit();
 }
+
 </script>
 </body>
 </html>

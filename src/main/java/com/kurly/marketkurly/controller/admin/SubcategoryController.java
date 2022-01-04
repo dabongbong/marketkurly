@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,8 +33,10 @@ public class SubcategoryController {
 		return mav;
 	}
 	// 카테고리 등록 폼 
-	@GetMapping("/category/subregistform")
-	public String registForm() {
+	@PostMapping("/category/subregistform")
+	public String registForm(int category_id, Model model) {
+		model.addAttribute("category_id", category_id);
+		
 		return "admin/category/subregist";
 	}
 	

@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="OrderSummary">
+	<resultMap type="OrderSummary" id="joinMemberOrderSummary">
+		<id column="order_summary_id" 	  property="order_summary_id"/>
+		<result column="orderdate" 	  	  property="orderdate"/>
+		<result column="price" 		 	  property="price"/>
+
+		<association column="member_id" property="member" javaType="Member" select="Member.select"/>
+		<association column="paymethod_id" property="paymethod" javaType="PayMethod" select="PayMethod.select"/>
+	</resultMap>
 
 	<!-- 주문 내역 요청 -->
-	<select id="selectAll" resultType="OrderSummary">
-		select * from order_summary order by orderdate desc
+	<select id="selectAll" resultMap="joinMemberOrderSummary">
+		select order_summary_id, orderdate, price,
+		m.member_id as member_id, p.paymethod_id as paymethod_id
+		from order_summary os, member m, paymethod p
+		where os.member_id=m.member_id and os.paymethod_id=p.paymethod_id
 	</select>
 	
-	<!-- 주문 상세 요청 -->
+	<!-- 주문 내역 상세 요청 -->
 	<select id="select" parameterType="int" resultType="OrderSummary">
 		select * from order_summary where order_summary_id=#{order_summary_id}
 	</select>

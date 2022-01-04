@@ -17,7 +17,11 @@ public class MybatisOrderSummaryDAO implements OrderSummaryDAO {
 
 	@Override
 	public List selectAll() {
-		return sessionTemplate.selectList("OrderSummary.selectAll");
+		List list = sessionTemplate.selectList("OrderSummary.selectAll");
+		
+		System.out.println("lis is "+list);
+		
+		return list;
 	}
 
 	@Override

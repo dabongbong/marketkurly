@@ -26,13 +26,10 @@
 <!-- AdminLTE App -->
 <script src="/resources/admin/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
-<<<<<<< HEAD
-<script src="/resources/admin/dist/js/demo.js"></script> 
-=======
+<!-- <script src="/resources/admin/dist/js/demo.js"></script>  -->
  <!-- <script src="/resources/admin/dist/js/demo.js"></script>  -->
->>>>>>> 11340d5144407a457e9fdb1666f66d2e09d317c1
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/resources/admin/dist/js/pages/dashboard.js"></script>
+<!-- <script src="/resources/admin/dist/js/pages/dashboard.js"></script> -->
 <script>
    $.widget.bridge('uibutton', $.ui.button) 
 </script>

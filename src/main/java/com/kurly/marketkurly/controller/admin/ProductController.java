@@ -42,9 +42,7 @@ public class ProductController {
 	@GetMapping("/product/registForm")
 	public String registForm(Model model) {
 		List categoryList = categoryService.selectAll();
-		List subcategoryList = subcategoryService.selectAll();
 		model.addAttribute("categoryList", categoryList);
-		model.addAttribute("subcategoryList", subcategoryList);
 		
 		return "admin/product/registForm";
 	}
