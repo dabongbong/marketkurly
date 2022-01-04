@@ -239,7 +239,10 @@ function getSubcategory(){
   		 url: "/admin/product/category",
   		 method: 'GET',
   		 success : function(data){
-  			 console.log("가져온 값은 "+data.data.length);
+  			 console.log("가져온 값은 "+data);
+  			/*  for(i=0; i<data.data.length;i++){
+  				 
+  			 } */
   		 }
   	 })
 		alert("뿅!");
