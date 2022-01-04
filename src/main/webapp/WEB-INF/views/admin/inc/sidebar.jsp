@@ -113,18 +113,22 @@
             </a>
             
             
-            <%for(int i=0;i<3;i++){%>
             <!-- 자식메뉴 begin -->
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/resources/admin/pages/layout/top-nav.html" class="nav-link">
+          <li class="nav-item">
+                <a href="/admin/order/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
+                  <p>주문 내역</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>주문 상세</p>
                 </a>
               </li>
             </ul>
             <!-- 자식메뉴 end -->
-            <%} %>
           </li>
           <!-- 주메뉴 end -->
           

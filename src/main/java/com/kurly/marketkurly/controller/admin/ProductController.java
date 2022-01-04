@@ -23,10 +23,11 @@ public class ProductController {
 	
 	@GetMapping(value="/product/list")
 	public ModelAndView getList(HttpServletRequest request) {
-//		List productList = productService.selectAll();
-//		pager.init(productList, request);
+		List productList = productService.selectAll();
+		pager.init(productList, request);
 		ModelAndView mav = new ModelAndView("admin/product/list");
-		System.out.println("컨트롤러 호출");
+		mav.addObject("productList", productList);
+		mav.addObject("pager", pager);
 		return mav;
 	}
 	

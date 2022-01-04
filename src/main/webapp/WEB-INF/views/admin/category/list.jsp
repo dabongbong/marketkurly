@@ -1,8 +1,12 @@
+<%@page import="com.kurly.marketkurly.domain.CategoryImg"%>
+<%@page import="com.kurly.marketkurly.domain.Subcategory"%>
 <%@page import="com.kurly.marketkurly.domain.Category"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
+	List<Subcategory> subcategoryList = (List)request.getAttribute("subcategoryList");
+	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,12 +57,13 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
+        <!-- 대분류 시작 -->
         <div class="row">
-          <div class="col-12">
+          <div class="col-6">
             <div class="card">
               <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Expandable Table Tree</h3>
+                <h3 class="card-title">대분류</h3>
               </div>
               <!-- ./card-header -->
               <div class="card-body p-0">
@@ -69,7 +74,8 @@
                     <tr data-widget="expandable-table" aria-expanded="true">
                       <td>
                         <i class="expandable-table-caret fas fa-caret-right fa-fw" ></i>
-                        <a href="/admin/category/detail?category_id=<%=category.getCategory_id()%>"><%=category.getCategory_name() %>
+                        <span id="category"><%=category.getCategory_name() %></a>
+                        <button type="button" class="btn btn-info"  style="float:right" onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'">상세보기</button>
                       </td>
                     </tr>
                     <%} %>
@@ -81,12 +87,46 @@
                   </tbody>
                 </table>
             </div>
+            </div>
               <!-- /.card-body -->
             </div>
+            </div>
+            <!-- 소분류 시작  -->
+            <div class="col-6" style="display:none" id="subForm">
+            <div class="card">
+              <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">소분류</h3>
+              </div>
+              <!-- ./card-header -->
+              <div class="card-body p-0">
+                <table class="table table-hover">
+                  <tbody>
+                  <% //for(Subcategory subcategory : subcategoryList){ %> 
+                    <tr data-widget="expandable-table" aria-expanded="true">
+                      <td>
+                        <i class="expandable-table-caret fas fa-caret-right fa-fw" ></i>
+                        <%-- <span><%=subcategory.getSubcategory_name() %></span>--%>
+ 						<button type="button" class="btn btn-info"  style="float:right" <%-- onClick="location.href='/admin/category/subdetail?subcategory_id=<%=subcategory.getSubcategory_id()%>'" --%>>상세보기</button>                    
+                      </td>
+                    </tr>
+                    <%//} %>
+                    <tr>
+                    	<td>
+                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/category/subregistform';">카테고리등록</button>
+                    	</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+              <!-- /.card-body -->
+            </div>
+            </div>
             <!-- /.card -->
+            <!-- 중분류 끝 -->
           </div>
         </div>
-        
+        </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
@@ -106,6 +146,12 @@
 <!-- ./wrapper -->
 
 <%@ include file="../inc/bottom_link.jsp" %>
-
+<script>
+$(function(){
+	$("#category").click(function(){
+		$("#subForm").show();
+	});
+})
+</script>
 </body>
 </html>
