@@ -10,12 +10,12 @@
 		<result column="detail" property="detail"/>
 		<result column="sale" property="sale"/>
 		
-		<association column="subcategory_id" property="subcategory" javaType="Subcategory" select="Subcategory.selectAllByCategoryId"/>
+		<association column="subcategory_id" property="subcategory" javaType="Subcategory" select="Subcategory.select"/>
 	</resultMap>
 
 	<select id="selectAll" resultMap="joinSubCategoryProduct">
-		select product_id, title, subTitle, price, detail, sale, product_img
-		s.category_name as category_name, s.subcategory_id as subcategory_id, subcategory_name
+		select product_id, title, subTitle, price, detail, sale, product_img,
+		s.subcategory_id as subcategory_id, subcategory_name
 		from subCategory s, product p
 		where s.subCategory_id = p.subCategory_id 
 	</select>

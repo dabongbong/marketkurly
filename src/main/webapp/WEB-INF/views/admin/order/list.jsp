@@ -1,10 +1,10 @@
+<%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
 <%@page import="com.kurly.marketkurly.util.Pager"%>
-<%@page import="com.kurly.marketkurly.domain.Product"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 <%
-	List<Product> productList = (List)request.getAttribute("productList");
+	List<OrderSummary> orderList = (List)request.getAttribute("orderSummaryList");
 	Pager pager = (Pager)request.getAttribute("pager");
 %>
 <!DOCTYPE html>
@@ -13,8 +13,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
-
-<%@ include file="../inc/head_link.jsp" %>
+	
+	<%@ include file="../inc/head_link.jsp" %>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -55,7 +55,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-      
+        <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-12">
             <div class="card">
@@ -80,45 +80,37 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>서브 카테고리</th>
-                      <th>상품명</th>
-                      <th>소제목</th>
-                      <th>정상가</th>
-                      <th>할인적용가</th>
-                      <th>설명</th>
+                      <th>고객ID</th>
+                      <th>결제방식</th>
+                      <th>가격</th>
+                      <th>구매일</th>
                     </tr>
                   </thead>
-                   <tbody>
-                <%int curPos=pager.getCurPos(); %>
-                  <%int num=pager.getNum(); %>
-                  <%for(int i =0; i<=pager.getPageSize();i++) {%>
-                  <%if(num<1)break; %>
-                  <%Product product=productList.get(curPos++); %>
-                    <tr>
-                      <td><%=num-- %></td>
-                      <td><%=product.getSubcategory().getSubcategory_name() %></td>
-                      <td><%=product.getTitle() %></td>
-                      <td><%=product.getSubTitle() %></td>
-                      <td><%=product.getPrice() %></td>
-                      <td><%=product.getPrice()/100*(100-product.getSale()) %></td>
-                      <td><%=product.getDetail() %></td>
-                    </tr>
-                    <%} %>
-                    <tr>
-                 	   <td  colspan="4">
-                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/product/registForm'">상품등록</button>
-                    	</td>
-                    </tr>
-                  </tbody> 
-            
+                  <tbody>
+			    	  <%int curPos=pager.getCurPos(); %>
+				      <%int num=pager.getNum(); %>
+				      <%for(int i =0; i<=pager.getPageSize();i++) {%>
+				      <%if(num<1)break; %>
+				      <%OrderSummary orderSummary=orderList.get(curPos++); %>
+				        <tr>
+				          <td><%=num-- %></td>
+				          <td><%=orderSummary.getOrder_summary_id() %></td>
+				          <td><%=orderSummary.getMember() %></td>
+				          <td><%=orderSummary.getPaymethod() %></td>
+				          <td><%=orderSummary.getPrice() %></td>
+				          <td><%=orderSummary.getOrder_date() %></td>
+				        </tr>
+				        <%} %>
+                  </tbody>
                 </table>
-				</div>
+              </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
         </div>
-      
+        
+        <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -136,7 +128,7 @@
 </div>
 <!-- ./wrapper -->
 
-<%@ include file="../inc/bottom_link.jsp" %>  
+<%@ include file="../inc/bottom_link.jsp" %>
 
 </body>
 </html>
