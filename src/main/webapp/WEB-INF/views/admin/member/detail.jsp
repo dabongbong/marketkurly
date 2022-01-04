@@ -133,7 +133,7 @@ function bt_edit(){
 }
 function bt_del(){
 	if(confirm("삭제하시겠어요?")){
-		location.href="/notice/delete?member_id=<%=member.getMember_id()%>";
+		location.href="/admin/member/delete?member_id=<%=member.getMember_id()%>";
 	}
 }
 

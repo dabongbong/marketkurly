@@ -15,6 +15,12 @@
    <%@ include file="../inc/head_link.jsp" %>
 
 </head>
+<script type="text/javascript">
+function registForm(){
+	location.href="/admin/member/registform"
+
+}
+</script>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -101,10 +107,13 @@
                       <td><%=member.getBirth()%></td>
                     </tr>
                     <%} %>
-                     
+                    
                   </tbody>
                 </table>
               </div>
+                     <div class="card-footer">
+                  		<button type="button" class="btn btn-info" onClick="registForm()">등록</button>
+               		 </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

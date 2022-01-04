@@ -31,12 +31,20 @@ public class MemberController {
 		return mav;
 	}
 	//회원등록 폼 요청
-	@GetMapping("/member/regist")
+	@GetMapping("/member/registform")
+	public String registForm() {
+		return "admin/member/regist";
+	}
+	
+	
+	//회원 등록
+	@PostMapping("/member/regist")
 	public String regist(Member member) {
 		memberService.insert(member);
 		
-		return "redirect:/admin/member/regist";
+		return "redirect:/admin/member/list";
 	}
+	
 	//한건 가져오기
 	@GetMapping("/member/detail")
 	public ModelAndView getDetail(int member_id) {
@@ -53,6 +61,14 @@ public class MemberController {
 		memberService.update(member);
 		
 		model.addAttribute("member", member);
+		return "redirect:/admin/member/list";
+	}
+	
+	//삭제하기
+	@GetMapping("/member/delete")
+	public String delete(int member_id) {
+		memberService.delete(member_id);
+		
 		return "redirect:/admin/member/list";
 	}
 

@@ -1,4 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@page import="com.kurly.marketkurly.domain.Member"%>
+<%@ page contentType="text/html; charset=UTF-8"%><%
+	Member member=(Member)request.getAttribute("member");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +37,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">회원 등록</h1>
+            <h1 class="m-0">회원등록</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -55,29 +58,37 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">상세내용</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
+              	
+              	
                 <div class="card-body">
                 
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="member_name">
+                    이름 <input type="text" class="form-control" name="member_name">
+                    비밀번호 <input type="text" class="form-control"  name="member_pass">
+                    이메일 <input type="text" class="form-control"  name="email">
+                    핸드폰<input type="text" class="form-control"  name="phone">
+                    주소<input type="text" class="form-control"  name="addr">
+                    성별<input type="text" class="form-control"  name="gender">
+                    생일<input type="text" class="form-control"  name="birth">
                   </div>
                   
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" id="bt_regist">카테고리 등록</button>
-                  <button type="button" class="btn btn-info" onClick="location.href='/admin/member/list';">목록</button>
+                  <button type="button" class="btn btn-info" onClick="regist()">회원등록</button>
                 </div>
               </form>
             </div>
             
             <!-- /.card -->
           </div>
-        </div>
+        
+       </div>
         
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
@@ -105,24 +116,15 @@
 <!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
 <script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
-<script>
-$(function () {
-  bsCustomFileInput.init();
-});
-</script>
-<script>
- $(function () {
-	
-	$("#bt_regist").click(function(){
-		regist();
-	});
-	
-})
 
+<script>
+//수정하기
 function regist(){
-	form1.action="/admin/member/regist";
-	form1.method="post";
-	form1.submit();
+	
+		form1.action="/admin/member/regist";
+		form1.method="post";
+		form1.submit();
+	
 }
 
 
@@ -130,3 +132,13 @@ function regist(){
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
