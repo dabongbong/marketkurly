@@ -1,4 +1,8 @@
+<%@page import="com.kurly.marketkurly.domain.Category"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%
+	Category category = (Category)request.getAttribute("category");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +38,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">카테고리 대분류</h1>
+            <h1 class="m-0">카테고리 등록</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -55,22 +59,25 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">대분류</h3>
+                <h3 class="card-title">상세내용</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form name="form1" enctype="multipart/form-data">
+              <form name="form1">
+              	<input type="hidden" name="category_id" value="<%=category.getCategory_id()%>">
+                
                 <div class="card-body">
                 
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="category_name">
+                    <input type="text" class="form-control" value="<%=category.getCategory_name() %>" name="category_name">
                   </div>
                   
                 <!-- /.card-body -->
-				<div id="preview"></div>
-	            <input type="file"  multiple name="imgFiles" >
+
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" id="bt_regist">카테고리 등록</button>
+                  <button type="button" class="btn btn-info" id="bt_edit">카테고리 수정</button>
+                  <button type="button" class="btn btn-info" id="bt_del">카테고리 삭제</button>
+                  <button type="button" class="btn btn-info" id="bt_sub">하위 카테고리 등록</button>
                   <button type="button" class="btn btn-info" onClick="location.href='/admin/category/list';">목록</button>
                 </div>
               </form>
@@ -79,7 +86,34 @@
             
             <!-- /.card -->
           </div>
-        </div>
+          
+         <div class="row" style="display:none" id="subForm">
+		<div class="col-12">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">하위 카테고리 등록</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form name="form2">
+                <div class="card-body">
+                
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="category_name">
+                  </div>
+                  
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="button" class="btn btn-info" onClick="registSub()">하위 카테고리 등록</button>
+                </div>
+              </form>
+            </div>
+            </div>
+            
+            <!-- /.card -->
+          </div>          
+          </div>          
         
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
@@ -114,35 +148,33 @@ $(function () {
 </script>
 <script>
  $(function () {
-	 $("input[name='imgFiles']").change(function(){
-			preview(this);		    	
-	    });
-	 
 	$("#bt_regist").click(function(){
 		regist();
 	});
 	
+	$("#bt_sub").click(function(){
+		$("#subForm").show();
+		form2.category_name.focus();
+	});
+	
 })
 
-function regist(){
-	$("form[name='form1']").attr({
-		action:"/admin/category/regist",
+// 수정하기
+function edit(){
+	form1.action="/admin/category/regist";
+	form1.method="post";
+	form1.submit();
+}
+ 
+// 서브카테고리 등록요청 
+function registSub(){
+	$("form[name='form2']").attr({
+		action:"/admin/category/registsub",
 		method:"post"
-	});		 
-	$("form[name='form1']").submit();
+	});
+	$("form[name='form2']").submit();
 }
- 
-function preview(obj){
-	for(var i=0;i<obj.files.length;i++){		
-		var reader = new FileReader();
-		reader.onload=function(e){
-		 $("#preview").append($("<img src='"+e.target.result+"' width='100px'>"));
-		 
-		}
-		reader.readAsDataURL(obj.files[i]);
-	}
-}
- 
+	
 </script>
 </body>
 </html>

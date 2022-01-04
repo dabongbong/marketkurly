@@ -34,7 +34,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">카테고리 대분류</h1>
+            <h1 class="m-0">카테고리 소분류</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -55,11 +55,11 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">대분류</h3>
+                <h3 class="card-title">소분류</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form name="form1" enctype="multipart/form-data">
+              <form name="form1">
                 <div class="card-body">
                 
                   <div class="form-group">
@@ -67,8 +67,7 @@
                   </div>
                   
                 <!-- /.card-body -->
-				<div id="preview"></div>
-	            <input type="file"  multiple name="imgFiles" >
+
                 <div class="card-footer">
                   <button type="button" class="btn btn-info" id="bt_regist">카테고리 등록</button>
                   <button type="button" class="btn btn-info" onClick="location.href='/admin/category/list';">목록</button>
@@ -114,10 +113,6 @@ $(function () {
 </script>
 <script>
  $(function () {
-	 $("input[name='imgFiles']").change(function(){
-			preview(this);		    	
-	    });
-	 
 	$("#bt_regist").click(function(){
 		regist();
 	});
@@ -125,24 +120,10 @@ $(function () {
 })
 
 function regist(){
-	$("form[name='form1']").attr({
-		action:"/admin/category/regist",
-		method:"post"
-	});		 
-	$("form[name='form1']").submit();
+	form1.action="/admin/category/subregist";
+	form1.method="post";
+	form1.submit();
 }
- 
-function preview(obj){
-	for(var i=0;i<obj.files.length;i++){		
-		var reader = new FileReader();
-		reader.onload=function(e){
-		 $("#preview").append($("<img src='"+e.target.result+"' width='100px'>"));
-		 
-		}
-		reader.readAsDataURL(obj.files[i]);
-	}
-}
- 
 </script>
 </body>
 </html>

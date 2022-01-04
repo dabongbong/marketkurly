@@ -2,24 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Subcategory">
 
-	<select id="selectAll" resultType="Subcategory">
-		select * from subcategory
+	<resultMap type="Subcategory" id="joinCategorySubcategory">
+		<id column="subcategory_id" property="subcategory_id" />
+		<result column="subcategory_name" property="subcategory_name"/>
+		<association column="category_id" property="category" javaType="Category" select="Category.select"/>
+	</resultMap>
+
+	<select id="selectAll" resultMap="joinCategorySubcategory">
+		select subcategory_id, subcategory_name,
+		c.category_id as category_id, category_name, category_logo
+		from category c, subcategory s
+		where c.category_id=s.category_id
 	</select>
 
 	<select id="selectAllByCategoryId" resultType="Subcategory" parameterType="int">
-		select * from subcategory where category_id=#{category_id}
+		select subcategory_id, subcategory_name,
+		c.category_id as category_id, category_name, category_logo
+		from category c, subcategory s
+		where c.category_id=s.category_id
+		and s.category=#{category_id}
 	</select>
 	
 	<select id="select" resultType="Subcategory">
 		select * from subcategory where subcategory_id = #{subcategory_id}
 	</select>
 	
-	<insert id="insert">
-	
+	<insert id="insert" parameterType="Subcategory">
+		insert into subcategory(category_id, subcategory_name) values( #{category.category_id}, #{subcategory_name})
+		
+		<selectKey keyColumn="subcategory_id" order="AFTER" resultType="int" keyProperty="subcategory_id">
+			select last_insert_id() as subcategory_id
+		</selectKey>
 	</insert>
+
+	<update id="update" parameterType="Subcategory">
+		update subcategory set category_id=#{category.category_id}, subcategory_name={subcategory_name}
+		where subcategory_id=#{subcategory_id}
+	</update>		
 	
-	<delete id="delete">
-	
+	<delete id="delete" parameterType="Subcategory">
+		delete * from subcategory where subcategory_id=#{subcategory_id}
 	</delete>
 
 </mapper>

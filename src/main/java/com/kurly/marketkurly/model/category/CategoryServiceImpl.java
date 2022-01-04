@@ -6,17 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kurly.marketkurly.domain.Category;
+import com.kurly.marketkurly.domain.CategoryImg;
+import com.kurly.marketkurly.exception.CategoryImgException;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
+	@Autowired
+	private CategoryImgDAO categoryImgDAO;
 
 	@Override
 	public List selectAll() {
 		List list = categoryDAO.selectAll();
-		System.out.println("dao가 가져오는거 "+list);
 		return list; 
 	}
 
@@ -26,7 +29,7 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
-	public void insert(Category category) {
+	public void insert(Category category){
 		categoryDAO.insert(category);
 	}
 
