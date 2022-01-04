@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.Gson;
 import com.kurly.marketkurly.model.category.CategoryService;
 import com.kurly.marketkurly.model.product.ProductService;
 import com.kurly.marketkurly.model.subcategory.SubcategoryService;
