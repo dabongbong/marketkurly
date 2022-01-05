@@ -42,8 +42,11 @@ public class MybatisCategoryDAO implements CategoryDAO {
 	}
 
 	@Override
-	public void delete(int category_id) {
-		sessionTemplate.delete("Category.delete", category_id);
+	public void delete(int category_id) throws CategoryException{
+		int result = sessionTemplate.delete("Category.delete", category_id);
+		if(result == 0) {
+			throw new CategoryException("카테고리 삭제에 실패하였습니다");
+		}
 	}
 
 }

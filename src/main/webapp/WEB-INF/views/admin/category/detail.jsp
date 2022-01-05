@@ -59,7 +59,7 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">상세내용</h3>
+                <h3 class="card-title">대분류 상세내용</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -76,7 +76,7 @@
 
                 <div class="card-footer">
                   <button type="button" class="btn btn-info" id="bt_edit">카테고리 수정</button>
-                  <button type="button" class="btn btn-info" id="bt_del">카테고리 삭제</button>
+                  <button type="button" class="btn btn-info" id="bt_del" >카테고리 삭제</button>
                   <button type="button" class="btn btn-info" onClick="location.href='/admin/category/list';">목록</button>
                 </div>
               </form>
@@ -127,20 +127,31 @@ $(function () {
 		regist();
 	});
 	
-	$("#bt_sub").click(function(){
-		$("#subForm").show();
-		form2.category_name.focus();
+	$("#bt_edit").click(function(){
+		edit();
+	});
+
+	$("#bt_del").click(function(){
+		del();
 	});
 	
 })
 
 // 수정하기
 function edit(){
-	form1.action="/admin/category/regist";
-	form1.method="post";
-	form1.submit();
-}
+	 if(confirm("수정???")){
+		form1.action="/admin/category/update";
+		form1.method="post";
+		form1.submit();
+ 	}
+ }
  
+ // 삭제 
+function del(){
+	 if(confirm("삭제???")){
+		location.href="/admin/category/delete?category_id=<%=category.getCategory_id()%>";
+ 	}
+ } 
 // 서브카테고리 등록요청 
 function registSub(){
 	$("form[name='form2']").attr({
