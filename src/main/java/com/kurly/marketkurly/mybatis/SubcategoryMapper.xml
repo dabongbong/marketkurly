@@ -16,11 +16,7 @@
 	</select>
 
 	<select id="selectAllByCategoryId" resultType="Subcategory" parameterType="int">
-		select subcategory_id, subcategory_name,
-		c.category_id as category_id, category_name, category_logo
-		from category c, subcategory s
-		where c.category_id=s.category_id
-		and s.category=#{category_id}
+		select * from subcategory where category_id=#{category_id}
 	</select>
 	
 	<select id="select" resultType="Subcategory" parameterType="int">

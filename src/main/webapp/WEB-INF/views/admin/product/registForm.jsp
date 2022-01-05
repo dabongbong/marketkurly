@@ -4,7 +4,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
-	List<Subcategory> subcategoryList = (List)request.getAttribute("subcategoryList");
 	
 %>
 <!DOCTYPE html>
@@ -245,14 +244,12 @@ function selSubcategory(subcategory_name, subcategory_id){
 function getSubcategory(category_id){
 	//비동기 방식으로 서브카테고리 테이블에 반영하기.. 
   	 $.ajax({
-  		 url: "/admin/product/category",
+  		 url: "/admin/product/subcategory?category_id="+category_id,
   		 method: 'GET',
   		 success : function(data){
-  			 console.log("가져온 값은 "+data.data[2].title);
-  			 console.log("카테고리 아이디는 "+ category_id);
 			 $('#subcategory_table').empty();
   			 for(i=0; i<data.data.length;i++){
-  				 var td = '<tr><td><a href="javascript:selSubcategory(\''+data.data[i].title+'\','+data.data[i].product_id+')">'+data.data[i].title+'</a><td><tr>';
+  				 var td = '<tr><td><a href="javascript:selSubcategory(\''+data.data[i].subcategory_name+'\','+data.data[i].subcategory_id+')">'+data.data[i].subcategory_name+'</a><td><tr>';
   				 $('#subcategory_table').append(td);
   			 }
   		 }
