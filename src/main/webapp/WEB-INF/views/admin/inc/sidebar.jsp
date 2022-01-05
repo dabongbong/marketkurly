@@ -122,12 +122,6 @@
                   <p>주문 내역</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>주문 상세</p>
-                </a>
-              </li>
             </ul>
             <!-- 자식메뉴 end -->
           </li>

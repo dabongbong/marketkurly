@@ -19,7 +19,7 @@ public class MybatisOrderSummaryDAO implements OrderSummaryDAO {
 	public List selectAll() {
 		List list = sessionTemplate.selectList("OrderSummary.selectAll");
 		
-		System.out.println("lis is "+list);
+//		System.out.println("summaryLis is "+list);
 		
 		return list;
 	}

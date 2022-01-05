@@ -6,8 +6,10 @@
 		<result column="orderdate" 	  	  property="orderdate"/>
 		<result column="price" 		 	  property="price"/>
 
-		<association column="member_id" property="member" javaType="Member" select="Member.select"/>
+		<association column="member_id"    property="member"    javaType="Member"    select="Member.select"/>
 		<association column="paymethod_id" property="paymethod" javaType="PayMethod" select="PayMethod.select"/>
+<!-- 		<collection property="" javaType="" select=""/> -->
+		
 	</resultMap>
 
 	<!-- 주문 내역 요청 -->
@@ -18,7 +20,7 @@
 		where os.member_id=m.member_id and os.paymethod_id=p.paymethod_id
 	</select>
 	
-	<!-- 주문 내역 상세 요청 -->
+	<!-- 해당 주문 내역 요청 -->
 	<select id="select" parameterType="int" resultType="OrderSummary">
 		select * from order_summary where order_summary_id=#{order_summary_id}
 	</select>
