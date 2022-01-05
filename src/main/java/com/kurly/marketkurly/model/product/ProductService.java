@@ -3,8 +3,8 @@ package com.kurly.marketkurly.model.product;
 import java.util.List;
 
 import com.kurly.marketkurly.domain.Product;
-import com.kurly.marketkurly.domain.Product_detail;
-import com.kurly.marketkurly.domain.Product_hashtag;
+import com.kurly.marketkurly.domain.ProductDetail;
+import com.kurly.marketkurly.domain.ProductHashtag;
 
 public interface ProductService {
 	public List selectAll();

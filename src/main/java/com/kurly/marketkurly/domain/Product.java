@@ -14,7 +14,7 @@ public class Product {
 	private String detail;
 	private int sale;
 	private String product_img;
-	private List<Product_detail> product_detail_list; 
-	private List<Product_hashtag> product_hashtag_list;
+	private List<ProductDetail> product_detail_list; 
+	private List<ProductHashtag> product_hashtag_list;
 	
 }
