@@ -51,4 +51,7 @@
 	<!-- 웹사이트에서 공통으로 사용할 빈들을 여기에 등록하자 ! @Service, @Repository 등등...  -->
 	<context:component-scan base-package="com.kurly.marketkurly.model"/>
 	
+		<!-- 해시값 변환 빈 등록 -->
+	<bean class="com.kurly.marketkurly.util.HashBuilder" id="hashBuilder"/>
+	
 </beans>

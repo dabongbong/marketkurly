@@ -16,6 +16,7 @@ import com.kurly.marketkurly.domain.Member;
 import com.kurly.marketkurly.exception.MemberException;
 import com.kurly.marketkurly.model.member.MemberDAO;
 import com.kurly.marketkurly.model.member.MemberService;
+import com.kurly.marketkurly.util.HashBuilder;
 import com.kurly.marketkurly.util.Pager;
 
 @Controller
@@ -25,6 +26,8 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private Pager pager;
+	@Autowired
+	private HashBuilder hashBuilder;
 	
 	//회원 리스트요청
 	@GetMapping("/member/list")
@@ -48,6 +51,9 @@ public class MemberController {
 	//회원 등록
 	@PostMapping("/member/regist")
 	public String regist(Member member) {
+		
+		String pass=hashBuilder.convertStringToHash(member.getMember_pass());
+		member.setMember_pass(pass);
 		memberService.insert(member);
 		
 		return "redirect:/admin/member/list";
