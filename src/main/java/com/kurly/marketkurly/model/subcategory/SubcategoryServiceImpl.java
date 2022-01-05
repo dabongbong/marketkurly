@@ -22,8 +22,8 @@ public class SubcategoryServiceImpl implements SubcategoryService{
 	}
 	
 	@Override
-	public List selectAllByCategory(int category) {
-		return subcategoryDAO.selectAllByCategory(category);
+	public List selectAllByCategory(int category_id) {
+		return subcategoryDAO.selectAllByCategoryId(category_id);
 	}
 
 	@Override
