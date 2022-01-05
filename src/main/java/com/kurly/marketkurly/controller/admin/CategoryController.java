@@ -60,10 +60,19 @@ public class CategoryController {
 	
 	}
 	
+	// 카테고리 수정 
+	@PostMapping("/category/update")
+	public ModelAndView update(Category category) {
+		categoryService.update(category);
+		
+		ModelAndView mav = new ModelAndView("redirect:/admin/category/detail?category_id="+category.getCategory_id());
+		return mav;
+	}
 	
 	// 카테고리 삭제 
 	@GetMapping("/category/delete")
-	public String delete() {
+	public String delete(int category_id) {
+		categoryService.delete(category_id);
 		return "redirect:/admin/category/list";
 	}
 	

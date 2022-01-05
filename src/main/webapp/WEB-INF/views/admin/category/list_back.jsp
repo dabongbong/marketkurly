@@ -69,7 +69,9 @@
                   <%for(Category category : categoryList){ %> 
                     <tr data-widget="expandable-table" aria-expanded="true">
                       <td>
-                        <a href="javascript:selectCategory('<%=category.getCategory_name()%>';<%=category.getCategory_id()%>)" id="category"><%=category.getCategory_name() %></a>
+                        <i class="expandable-table-caret fas fa-caret-right fa-fw" ></i>
+                        <span id="category" onClick="selectCategory(<%=category.getCategory_id()%>)"><%=category.getCategory_name() %></span>
+                        <%-- <a href="javascript:selectCategory('<%=category.getCategory_name()%>';<%=category.getCategory_id()%>)" id="category"><%=category.getCategory_name() %></a> --%>
                         <button type="button" class="btn btn-info"  style="float:right" onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'">상세보기</button>
                       </td>
                     </tr>
@@ -99,11 +101,15 @@
               <div class="card-body p-0">
                 <table class="table table-hover">
                   <tbody>
-                    <tr data-widget="expandable-table" aria-expanded="true" id="subList">
-                      <%-- <td>
- 						<button type="button" class="btn btn-info" style="float:right" onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'">상세보기</button>                    
-                      </td> --%>
+                  <%-- <%for(Category category : categoryList){ %> --%> 
+                    <tr data-widget="expandable-table" aria-expanded="true">
+                      <td>
+                        <i class="expandable-table-caret fas fa-caret-right fa-fw" ></i>
+                       <%--  <a href="javascript:selectCategory('<%=category.getCategory_name()%>';<%=category.getCategory_id()%>)" name="subcategory_id"><%=category.getCategory_name() %></a> --%>
+ 						<button type="button" class="btn btn-info" style="float:right" <%-- onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'" --%>>상세보기</button>                    
+                      </td>
                     </tr>
+                    <%-- <%} %> --%>
                     <tr>
                     	<td>
                     		<button type="button" class="btn btn-info" onClick="subregist()">카테고리등록</button>
@@ -140,33 +146,24 @@
 <!-- ./wrapper -->
 
 <%@ include file="../inc/bottom_link.jsp" %>
-
 <script>
 /* $(function(){
 	$("#category").click(function(){
 		$("#subForm").show(); 
+		subCategory();
 	});
 })  */
-$(function(){
-	subCategory();
-});
 
 // 서브카테고리 비동기방식
  function subCategory(){
 	$.ajax({
-		url:"/admin/rest/subcategory",
-		type:"get",
+		url:"/admin/category/sublist",
+		type:"POST",
+		data:{
+			subcategory_id:$("a[name='subcategory_id']").val()
+		},
 		success:function(result, status, xhr){
-			console.log(result);
-			
-			var tag="";
-			for(var i=0; i<result.length; i++){
-				var json=[i];
-				
-				tag+="<td></td>";
-				tag+="<td><a href='/admin/rest/subcategory/"+json.subcategory_id+"'>"+json.subcategory_name+"</a></td>";
-			}
-			$("#subList").append(tag);
+			alert(result);
 		}
 	});
 } 
