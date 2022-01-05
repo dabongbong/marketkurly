@@ -34,7 +34,7 @@
 	</insert>
 
 	<update id="update" parameterType="Subcategory">
-		update subcategory set category_id=#{category.category_id}, subcategory_name={subcategory_name}
+		update subcategory set subcategory_name={subcategory_name}
 		where subcategory_id=#{subcategory_id}
 	</update>		
 	
