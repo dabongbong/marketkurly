@@ -20,11 +20,11 @@ public class AES256Util {
 
 	private String byteString;
 
-	private static String key = "minzinokingwangjjang"; // 16자리 이상으로 key값을 부여하자
+	//private static String key = "minzinokingwangjjang"; // 16자리 이상으로 key값을 부여하자
 
-	public AES256Util() throws UnsupportedEncodingException {
+	public AES256Util(String key) throws UnsupportedEncodingException {
 
-		byteString = this.key.substring(0, 16);
+		this.byteString  = key.substring(0, 16);
 
 		byte[] keyBytes = new byte[16];
 		byte[] b = byteString.getBytes("UTF-8");
@@ -73,48 +73,48 @@ public class AES256Util {
 		return new String(c.doFinal(byteStr), "UTF-8");
 
 	}
-
-	public static void main(String[] args) {
-
-		try {
-
-		AES256Util obj = new AES256Util();
-
-		System.out.println(obj.encodeData(key));
-
-
-		System.out.println(obj.decodeData(obj.encodeData(key)));
-
-
-		} catch (UnsupportedEncodingException e) {
-
-		e.printStackTrace();
-
-		} catch (InvalidKeyException e) {
-
-		e.printStackTrace();
-
-		} catch (NoSuchAlgorithmException e) {
-
-		e.printStackTrace();
-
-		} catch (NoSuchPaddingException e) {
-
-		e.printStackTrace();
-
-		} catch (InvalidAlgorithmParameterException e) {
-
-		e.printStackTrace();
-
-		} catch (IllegalBlockSizeException e) {
-
-		e.printStackTrace();
-
-		} catch (BadPaddingException e) {
-
-		e.printStackTrace();
-
-		}
-	}
-
+	/*
+	 * public static void main(String[] args) {
+	 * 
+	 * try {
+	 * 
+	 * AES256Util obj = new AES256Util();
+	 * 
+	 * System.out.println(obj.encodeData(key));
+	 * 
+	 * 
+	 * System.out.println(obj.decodeData(obj.encodeData(key)));
+	 * 
+	 * 
+	 * } catch (UnsupportedEncodingException e) {
+	 * 
+	 * e.printStackTrace();
+	 * 
+	 * } catch (InvalidKeyException e) {
+	 * 
+	 * e.printStackTrace();
+	 * 
+	 * } catch (NoSuchAlgorithmException e) {
+	 * 
+	 * e.printStackTrace();
+	 * 
+	 * } catch (NoSuchPaddingException e) {
+	 * 
+	 * e.printStackTrace();
+	 * 
+	 * } catch (InvalidAlgorithmParameterException e) {
+	 * 
+	 * e.printStackTrace();
+	 * 
+	 * } catch (IllegalBlockSizeException e) {
+	 * 
+	 * e.printStackTrace();
+	 * 
+	 * } catch (BadPaddingException e) {
+	 * 
+	 * e.printStackTrace();
+	 * 
+	 * } }
+	 * 
+	 */
 }
