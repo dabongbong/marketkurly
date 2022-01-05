@@ -4,7 +4,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
-	List<Subcategory> subcategoryList = (List)request.getAttribute("subcategoryList");
 	
 %>
 <!DOCTYPE html>
@@ -233,7 +232,7 @@ function selCategory(category_name, category_id){
 	sel.options[0].value = category_id; 
 	document.getElementById('category_div').className='col-2';
 	document.getElementById('subCategory_div').style.display='block';
-	getSubcategory();
+	getSubcategory(category_id);
 	
 };
 function selSubcategory(subcategory_name, subcategory_id){
@@ -242,16 +241,15 @@ function selSubcategory(subcategory_name, subcategory_id){
 	sel.options[0].value = subcategory_id; 
 };
 
-function getSubcategory(){
+function getSubcategory(category_id){
 	//비동기 방식으로 서브카테고리 테이블에 반영하기.. 
   	 $.ajax({
-  		 url: "/admin/product/category",
+  		 url: "/admin/product/subcategory?category_id="+category_id,
   		 method: 'GET',
   		 success : function(data){
-  			 console.log("가져온 값은 "+data.data[2].title);
 			 $('#subcategory_table').empty();
   			 for(i=0; i<data.data.length;i++){
-  				 var td = '<tr><td><a href="javascript:selSubcategory(\''+data.data[i].title+'\','+data.data[i].product_id+')">'+data.data[i].title+'</a><td><tr>';
+  				 var td = '<tr><td><a href="javascript:selSubcategory(\''+data.data[i].subcategory_name+'\','+data.data[i].subcategory_id+')">'+data.data[i].subcategory_name+'</a><td><tr>';
   				 $('#subcategory_table').append(td);
   			 }
   		 }

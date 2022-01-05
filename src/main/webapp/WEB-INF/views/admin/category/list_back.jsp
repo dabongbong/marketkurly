@@ -69,7 +69,9 @@
                   <%for(Category category : categoryList){ %> 
                     <tr data-widget="expandable-table" aria-expanded="true">
                       <td>
-                        <a id="category" href="javascript:selectCategory('<%=category.getCategory_name()%>',<%=category.getCategory_id()%>)" ><%=category.getCategory_name() %></a>
+                        <i class="expandable-table-caret fas fa-caret-right fa-fw" ></i>
+                        <span id="category" onClick="selectCategory(<%=category.getCategory_id()%>)"><%=category.getCategory_name() %></span>
+                        <%-- <a href="javascript:selectCategory('<%=category.getCategory_name()%>';<%=category.getCategory_id()%>)" id="category"><%=category.getCategory_name() %></a> --%>
                         <button type="button" class="btn btn-info"  style="float:right" onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'">상세보기</button>
                       </td>
                     </tr>
@@ -87,7 +89,7 @@
             </div>
             </div>
             <!-- 소분류 시작  -->
-            <div class="col-6" style="display:none"  id="subForm">
+            <div class="col-6" style="display:none" id="subForm">
             <div class="card">
               <div class="card">
               <div class="card-header">
@@ -97,12 +99,23 @@
               <form>
               <input type="hidden" name="category_id">
               <div class="card-body p-0">
-                <table class="table table-hover" >
-                  <tbody id="subList">
+                <table class="table table-hover">
+                  <tbody>
+                  <%-- <%for(Category category : categoryList){ %> --%> 
+                    <tr data-widget="expandable-table" aria-expanded="true">
+                      <td>
+                        <i class="expandable-table-caret fas fa-caret-right fa-fw" ></i>
+                       <%--  <a href="javascript:selectCategory('<%=category.getCategory_name()%>';<%=category.getCategory_id()%>)" name="subcategory_id"><%=category.getCategory_name() %></a> --%>
+ 						<button type="button" class="btn btn-info" style="float:right" <%-- onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'" --%>>상세보기</button>                    
+                      </td>
+                    </tr>
+                    <%-- <%} %> --%>
+                    <tr>
+                    	<td>
+                    		<button type="button" class="btn btn-info" onClick="subregist()">카테고리등록</button>
+                    	</td>
+                    </tr>
                   </tbody>
- 						<tr>
- 							<td><button type='button' class='btn btn-info' onClick='subregist()'>카테고리등록</button></td>
- 						</tr>
                 </table>
             </div>
             </form>
@@ -133,39 +146,29 @@
 <!-- ./wrapper -->
 
 <%@ include file="../inc/bottom_link.jsp" %>
-
 <script>
- $(function(){
+/* $(function(){
 	$("#category").click(function(){
 		$("#subForm").show(); 
+		subCategory();
 	});
-})  
-
+})  */
 
 // 서브카테고리 비동기방식
- function subCategory(category_id){
+ function subCategory(){
 	$.ajax({
-		url:"/admin/rest/subcategory?category_id="+category_id,
-		type:"get",
+		url:"/admin/category/sublist",
+		type:"POST",
+		data:{
+			subcategory_id:$("a[name='subcategory_id']").val()
+		},
 		success:function(result, status, xhr){
-			console.log(result);
-			
-			var tag="";
-			for(var i=0; i<result.length; i++){
-				var json=result[i];
-				
-				tag+="<tr><td><a href='/admin/rest/subcategory/"+json.subcategory_id+"'>"+json.subcategory_name+"</a>";
-				tag+="<button type='button' class='btn btn-info' style='float:right' onClick='location.href=\"/admin/category/subdetail?subcategory_id="+json.subcategory_id+"\"'>상세보기</button></td></tr>"; 
-			}
-			console.log(tag);
-			$("#subList").empty();
-			$("#subList").append(tag);
+			alert(result);
 		}
 	});
 } 
 
-function selectCategory(category_name,category_id){
-	subCategory(category_id);
+function selectCategory(category_id){
 	$("input[name='category_id']").val(category_id)	
 }
 

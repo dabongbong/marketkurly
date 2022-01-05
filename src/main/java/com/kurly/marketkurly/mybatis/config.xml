@@ -5,7 +5,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.kurly.marketkurly.domain.Category" 		 alias="Category"/> 
-		<typeAlias type="com.kurly.marketkurly.domain.CategoryImg" 		 alias="CategoryImg"/> 
 		<typeAlias type="com.kurly.marketkurly.domain.Subcategory" 		 alias="Subcategory"/> 
 		<typeAlias type="com.kurly.marketkurly.domain.Customer" 		 alias="Customer"/>
 		<typeAlias type="com.kurly.marketkurly.domain.Member" 			 alias="Member"/>
@@ -25,7 +24,6 @@
 
   <mappers>
     <mapper resource="com/kurly/marketkurly/mybatis/CategoryMapper.xml"/>
-    <mapper resource="com/kurly/marketkurly/mybatis/CategoryImgMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/SubcategoryMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/CustomerMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/MemberMapper.xml"/>

@@ -1,7 +1,7 @@
-<%@page import="com.kurly.marketkurly.domain.Category"%>
+<%@page import="com.kurly.marketkurly.domain.Subcategory"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	Category category = (Category)request.getAttribute("category");
+	Subcategory subcategory = (Subcategory)request.getAttribute("subcategory");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,17 +59,17 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">상세내용</h3>
+                <h3 class="card-title">소분류 상세내용</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
-              	<input type="hidden" name="category_id" value="<%=category.getCategory_id()%>">
+              	<input type="hidden" name="category_id" value="<%=subcategory.getSubcategory_id()%>">
                 
                 <div class="card-body">
                 
                   <div class="form-group">
-                    <input type="text" class="form-control" value="<%=category.getCategory_name() %>" name="category_name">
+                    <input type="text" class="form-control" value="<%=subcategory.getSubcategory_name() %>" name="category_name">
                   </div>
                   
                 <!-- /.card-body -->
@@ -77,7 +77,6 @@
                 <div class="card-footer">
                   <button type="button" class="btn btn-info" id="bt_edit">카테고리 수정</button>
                   <button type="button" class="btn btn-info" id="bt_del">카테고리 삭제</button>
-                  <button type="button" class="btn btn-info" id="bt_sub">하위 카테고리 등록</button>
                   <button type="button" class="btn btn-info" onClick="location.href='/admin/category/list';">목록</button>
                 </div>
               </form>
@@ -87,30 +86,6 @@
             <!-- /.card -->
           </div>
           
-         <div class="row" style="display:none" id="subForm">
-		<div class="col-12">
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">하위 카테고리 등록</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form name="form2">
-                <div class="card-body">
-                
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="category_name">
-                  </div>
-                  
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="button" class="btn btn-info" onClick="registSub()">하위 카테고리 등록</button>
-                </div>
-              </form>
-            </div>
-            </div>
-            
             <!-- /.card -->
           </div>          
           </div>          
@@ -152,29 +127,32 @@ $(function () {
 		regist();
 	});
 	
-	$("#bt_sub").click(function(){
-		$("#subForm").show();
-		form2.category_name.focus();
+	$("#bt_edit").click(function(){
+		edit();
+	});
+
+	$("#bt_del").click(function(){
+		del();
 	});
 	
 })
 
 // 수정하기
 function edit(){
-	form1.action="/admin/category/regist";
-	form1.method="post";
-	form1.submit();
-}
+	 if(confirm("수정???")){
+		form1.action="/admin/category/subupdate";
+		form1.method="post";
+		form1.submit();
+ 	}
+ }
  
-// 서브카테고리 등록요청 
-function registSub(){
-	$("form[name='form2']").attr({
-		action:"/admin/category/registsub",
-		method:"post"
-	});
-	$("form[name='form2']").submit();
-}
-	
+ // 삭제 
+ function del(){
+ 	 if(confirm("삭제???")){
+ 		location.href="/admin/category/delete?subcategory_id=<%=subcategory.getSubcategory_id()%>";
+  	}
+  } 
+ 
 </script>
 </body>
 </html>
