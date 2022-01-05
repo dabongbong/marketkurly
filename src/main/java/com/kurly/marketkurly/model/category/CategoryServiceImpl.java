@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kurly.marketkurly.domain.Category;
+import com.kurly.marketkurly.exception.CategoryException;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
@@ -25,17 +26,17 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
-	public void insert(Category category){
+	public void insert(Category category) throws CategoryException{
 		categoryDAO.insert(category);
 	}
 
 	@Override
-	public void update(Category category) {
+	public void update(Category category) throws CategoryException {
 		categoryDAO.update(category);
 	}
 
 	@Override
-	public void delete(int category_id) {
+	public void delete(int category_id) throws CategoryException{
 		categoryDAO.delete(category_id);
 	}
 

@@ -69,7 +69,7 @@
                 
                   <div class="form-group">
                     이름 <input type="text" class="form-control" name="member_name">
-                    비밀번호 <input type="text" class="form-control"  name="member_pass">
+                    비밀번호 <input type="password" class="form-control"  name="member_pass">
                     이메일 <input type="text" class="form-control"  name="email">
                     핸드폰<input type="text" class="form-control"  name="phone">
                     주소<input type="text" class="form-control"  name="addr">
