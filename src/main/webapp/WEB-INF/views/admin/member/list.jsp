@@ -111,7 +111,7 @@ function registForm(){
                       <td><%=member.getMember_pass()%></td>
                       <td><a href="/admin/member/detail?member_id=<%=member.getMember_id() %>"><%=member.getMember_name()%></a></td>
                       <td><%=member.getEmail()%></td>
-                      <td><%=member.getPhone()%></td>
+                      <td><%=member.getPhone()%>0108888</td>
                       <td><%=member.getAddr()%></td>
                       <td><%=member.getGender()%></td>
                       <td><%=member.getBirth()%></td>

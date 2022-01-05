@@ -24,6 +24,7 @@ public class ProductController {
 	@Autowired
 	private CategoryService categoryService;
 	@Autowired
+	private SubcategoryService subcategoryService;
 	private Pager pager;
 	
 	@GetMapping(value="/product/list")
@@ -45,12 +46,12 @@ public class ProductController {
 		return "admin/product/registForm";
 	}
 	
-	@GetMapping("/product/category")
+	@GetMapping("/product/subcategory")
 	@ResponseBody
-	public HashMap<String, Object> categoryListTest(HttpServletRequest request) {
+	public HashMap<String, Object> categoryListTest(HttpServletRequest request, int category_id) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		List productList = productService.selectAll();
-		result.put("data", productList);
+		List subcategoryList = subcategoryService.selectAllByCategory(category_id);
+		result.put("data", subcategoryList);
 		return result;
 	}
 	
