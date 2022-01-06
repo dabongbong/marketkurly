@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,6 +34,11 @@ public class OrderController {
 		return mav;
 	}
 
-	// 주문 상세보기
-
+	@GetMapping("/order/registForm")
+	public String registForm(Model model) {
+		List orderSummaryList = orderService.selectAll();
+		model.addAttribute("orderSummaryList", orderSummaryList);
+		
+		return "admin/order/registForm";
+	}
 }
