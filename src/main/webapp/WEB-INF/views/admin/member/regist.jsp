@@ -69,15 +69,31 @@
                 
                   <div class="form-group">
                   <label for="id">아이디</label>
-                     <input type="text" class="form-control" name="user_id">
-                    이름 <input type="text" class="form-control" name="member_name">
-                    비밀번호 <input type="password" class="form-control"  name="member_pass">
-                    비밀번호 확인 <input type="password" class="form-control"  name="member_pass">
-                    이메일 <input type="text" class="form-control"  name="email">
-                    핸드폰<input type="text" class="form-control"  name="phone">
-                    주소<input type="text" class="form-control"  name="addr">
-                    성별<input type="text" class="form-control"  name="gender">
-                    생일<input type="text" class="form-control"  name="birth">
+                    <input type="text" class="form-control" name="user_id">
+                    
+                  <label for="id">이름</label>
+                     <input type="text" class="form-control" name="member_name">
+                    
+                  <label for="id">비밀번호</label>
+                     <input type="password" class="form-control"  name="member_pass">
+                     
+                  <label for="id">비밀번호 확인</label>
+                     <input type="password" class="form-control"  name="member_pass">
+                    
+                  <label for="id">이메일</label>
+                     <input type="text" class="form-control"  name="email">
+                    
+                  <label for="id">핸드폰</label>
+                    <input type="text" class="form-control"  name="phone">
+                    
+                  <label for="id">주소</label>
+                    <input type="text" class="form-control"  name="addr">
+                    
+                  <label for="id">성별</label>
+                    <input type="text" class="form-control"  name="gender">
+
+                  <label for="id">생일</label>
+                    <input type="text" class="form-control"  name="birth">
                   </div>
                   
                 <!-- /.card-body -->
