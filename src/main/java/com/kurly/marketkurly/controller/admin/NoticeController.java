@@ -31,7 +31,7 @@ public class NoticeController {
  	
  
  	  
- 	@GetMapping(value="/notice/list")
+ 	@GetMapping("/notice/list")
  	public ModelAndView getList(HttpServletRequest request) {
  		
  		ModelAndView mav = new ModelAndView("admin/notice/list");
@@ -52,13 +52,10 @@ public class NoticeController {
  		
  		return "admin/notice/write";
  	}
- 	// fnq myqna 컨트롤러 작성 , 마이바티스 디에이오 디티오 서비스 작성
  	// jsp 작성 ㅠㅠ
- 	// 컨트롤러 dto config추가 매퍼 dao batisDao exception service impl
  	//썸머노트썸머노트
  	// 글등록 누르면 컨텐트에 썸머노트 ㄱㄱ 나오게 
- 	// fnq랑 myqna부터 하자... 
- 	// 등록
+ 	
  	@PostMapping("/notice/write")
 	public ModelAndView regist(HttpServletRequest request, Notice notice) {
 		

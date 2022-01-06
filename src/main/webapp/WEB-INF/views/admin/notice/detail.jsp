@@ -78,7 +78,7 @@
 					
 					<div class="form-group">
 					<th>내용</th><p>
-					    <textarea             		name="content" class="form-control" style="height:450px"><%=notice.getContent() %></textarea>
+					    <textarea id="summernote" name="content" class="form-control" style="height:450px"><%=notice.getContent() %></textarea>
 					</div>
 					
 					<div class="card-footer">
@@ -116,16 +116,29 @@
 
 <%@ include file="../inc/bottom_link.jsp" %>
 
-<!-- Summernote -->
-<script src="/resources/admin/plugins/summernote/summernote-bs4.min.js"></script>
-
 <!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
 <script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+
+<!-- 왜 안될까 질문 -->
+
+<script>
+$ (function () {
+  bsCustomFileInput.init();
+  $('#summernote').summernote({
+	  tabsize: 2,
+      height: 450,
+      
+    });
+  
+</script>
+  
 <script>
 $(function () {
   bsCustomFileInput.init();
 });
+
 </script>
 
 <script>
