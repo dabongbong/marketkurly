@@ -45,7 +45,7 @@
               <p>
                 상품관리
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <!-- <span class="badge badge-info right">6</span> -->
               </p>
             </a>
             
@@ -83,25 +83,22 @@
               <p>
                 회원관리
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
-            
-            
-            <%for(int i=0;i<3;i++){%>
             <!-- 자식메뉴 begin -->
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/resources/admin/pages/layout/top-nav.html" class="nav-link">
+                <a href="/admin/member/list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
+                  <p>회원리스트</p>
                 </a>
               </li>
             </ul>
             <!-- 자식메뉴 end -->
-            <%} %>
           </li>
           <!-- 주메뉴 end -->
+          
+          
           <!-- 주메뉴 begin -->
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -109,7 +106,6 @@
               <p>
                 주문관리
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
             
@@ -134,7 +130,6 @@
               <p>
                 고객센터
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
             
