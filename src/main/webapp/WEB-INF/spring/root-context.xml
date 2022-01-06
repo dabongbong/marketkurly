@@ -57,4 +57,7 @@
 		<!-- AES256 빈등록 --> 
 	<bean class="com.kurly.marketkurly.util.AES256Util" id="aes256Util"/>
 	
+	<!-- 암호화 복호화 쓰레드 빈등록 -->
+	<bean class="com.kurly.marketkurly.util.StringUtil" id="stringUtil"/>
+	
 </beans>

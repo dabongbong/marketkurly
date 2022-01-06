@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import com.kurly.marketkurly.domain.Member;
 import com.kurly.marketkurly.exception.MemberException;
 import com.kurly.marketkurly.util.AES256Util;
+import com.kurly.marketkurly.util.StringUtil;
 
 @Service
 public class MemberServiceImple implements MemberService{
@@ -25,6 +26,8 @@ public class MemberServiceImple implements MemberService{
 		
 	@Autowired
 	private AES256Util encode;
+	@Autowired
+	private StringUtil stringUtil;
 	
 	@Override
 	public List selectAll(){
@@ -33,7 +36,11 @@ public class MemberServiceImple implements MemberService{
 			//List 안에 들어있는 Member 들의 암화된 데이터를 복호화하자 
 			for(Member member :list ) {
 				try {
-					member.setPhone(encode.decodeData(member.getPhone()));
+					String decodeResult = encode.decodeData(member.getPhone());
+					System.out.println("복호화 된 번호"+decodeResult);
+					member.setPhone(stringUtil.getOriginalValue(decodeResult)); //-00
+					System.out.println("목록에서의 복호화 및 원본 여ㅓㄴ락처는 "+member.getPhone());
+					
 				} catch (InvalidKeyException e) {
 					e.printStackTrace();
 				} catch (UnsupportedEncodingException e) {
@@ -60,16 +67,19 @@ public class MemberServiceImple implements MemberService{
 
 	@Override
 	public void insert(Member member) throws MemberException{
-		StringBuffer sb = new StringBuffer();
-		 memberDAO.insert(member);
+		String temp = stringUtil.getTempValue(member.getPhone());
+		member.setPhone(temp);
+		
+		System.out.println("등록 전에 연락처는 "+member.getPhone());
+		
 
 			try {
 				
 				String phone=encode.encodeData(member.getPhone());
 				
 				member.setPhone(phone);
-				
-				System.out.println(phone);
+				System.out.println("입력 전 암호화 결과 "+member.getPhone());
+				memberDAO.insert(member);
 				
 			} catch (InvalidKeyException e) {
 				e.printStackTrace();
