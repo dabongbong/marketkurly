@@ -14,6 +14,9 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderSummaryDAO orderSummaryDAO;
 	
+	@Autowired
+	private OrderDetailDAO orderDetailDAO;
+	
 	@Override
 	public List selectAll() {
 		return orderSummaryDAO.selectAll();
@@ -31,6 +34,15 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public void delete(int order_summary_id) {
+	}
+
+	@Override
+	public List selectDetailAll() {
+		return orderDetailDAO.selectDetailAll();
+	}
+
+	@Override
+	public void insertDetail(int order_detail_id) {
 	}
 
 }

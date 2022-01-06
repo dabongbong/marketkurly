@@ -10,5 +10,8 @@ public interface OrderService {
 	public OrderSummary select(int order_summary_id);
 	public void insert(OrderSummary order_summary);
 	public void delete(int order_summary_id);
+	
+	public List selectDetailAll();
+	public void insertDetail(int order_detail_id);
 }
 
