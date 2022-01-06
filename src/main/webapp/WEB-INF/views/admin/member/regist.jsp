@@ -68,8 +68,11 @@
                 <div class="card-body">
                 
                   <div class="form-group">
+                  <label for="id">아이디</label>
+                     <input type="text" class="form-control" name="user_id">
                     이름 <input type="text" class="form-control" name="member_name">
                     비밀번호 <input type="password" class="form-control"  name="member_pass">
+                    비밀번호 확인 <input type="password" class="form-control"  name="member_pass">
                     이메일 <input type="text" class="form-control"  name="email">
                     핸드폰<input type="text" class="form-control"  name="phone">
                     주소<input type="text" class="form-control"  name="addr">
