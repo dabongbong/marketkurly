@@ -1,10 +1,10 @@
-<%@page import="com.kurly.marketkurly.domain.Notice"%>
+<%@page import="com.kurly.marketkurly.domain.My_qna"%>
 <%@page import="com.kurly.marketkurly.util.Pager"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 <%
-	List<Notice> noticeList = (List)request.getAttribute("noticeList");
+	List<My_qna> my_qnaList = (List)request.getAttribute("my_qnaList");
 	Pager pager = (Pager)request.getAttribute("pager");
 	
 %>
@@ -40,7 +40,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">공지사항</h1>
+            <h1 class="m-0">1:1 문의</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -61,7 +61,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">컬리의 새로운 소식들과 유용한 정보들을 한곳에서 확인하세요.</h3>
+                <h3 class="card-title"></h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -81,10 +81,10 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>제목</th>
+                      <th>카테고리</th>
+                      <th class="col-6"><center>제목</center></th>
                       <th>작성자</th>
                       <th>작성일</th>
-                      <th>조회</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -93,13 +93,13 @@
 				        <%int num=pager.getNum(); %>
 				        <%for(int i =0; i<=pager.getPageSize();i++) {%>
 				        <%if(num<1)break; %>
-				        <%Notice notice=noticeList.get(curPos++); %>
+				        <%My_qna my_qna=my_qnaList.get(curPos++); %>
 				        <tr>
 					          <td><%=num-- %></td>
-					          <td><a href="/admin/notice/detail?notice_no=<%=notice.getNotice_no()%>"><%=notice.getTitle() %></a></td>
-					          <td><%=notice.getWriter() %></td>
-							  <td><%=notice.getRegdate() %></td>
-							  <td><%=notice.getHit() %></td>
+					          <td><a href="/admin/customer/detail?notice_no=<%=my_qna.getMy_qna_no()%>"><%=my_qna.getMy_qna_category() %></a></td>
+					          <td><%=my_qna.getTitle() %></td>
+					          <td><%=my_qna.getWriter() %></td>
+							  <td><%=my_qna.getRegdate() %></td>
 				        </tr>
 				        <%} %>
 				        <tr>
@@ -112,7 +112,7 @@
 						  </tr>
 				        <tr>
 						 	<td  colspan="4">
-                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/notice/write';">공지사항 등록</button>
+                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/customer/write';">문의 등록</button>
                     	</td>
 					  	</tr>
                   </tbody>

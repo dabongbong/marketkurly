@@ -81,7 +81,7 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>제목</th>
+                      <th class="col-6"><center>제목</center></th>
                       <th>작성자</th>
                       <th>작성일</th>
                       <th>조회</th>
