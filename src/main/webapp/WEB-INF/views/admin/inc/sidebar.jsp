@@ -127,6 +127,52 @@
           </li>
           <!-- 주메뉴 end -->
           
+          <!-- 주메뉴 begin -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                고객센터
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            
+            <!-- 자식메뉴 begin -->
+            <ul class="nav nav-treeview">
+          <li class="nav-item">
+                <a href="/admin/notice/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>공지사항</p>
+                </a>
+              </li>
+            </ul>
+            <!-- 자식메뉴 end -->
+            
+            <!-- 자식메뉴 begin -->
+            <ul class="nav nav-treeview">
+          <li class="nav-item">
+                <a href="/admin/customer/fnq" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>자주하는 질문</p>
+                </a>
+              </li>
+            </ul>
+            <!-- 자식메뉴 end -->
+            
+            <!-- 자식메뉴 begin -->
+            <ul class="nav nav-treeview">
+          <li class="nav-item">
+                <a href="/admin/customer/my_qna" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>1:1 문의</p>
+                </a>
+              </li>
+            </ul>
+            <!-- 자식메뉴 end -->
+            
+          </li>
+          <!-- 주메뉴 end -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

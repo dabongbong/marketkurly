@@ -34,12 +34,12 @@
 	</insert>
 
 	<update id="update" parameterType="Subcategory">
-		update subcategory set subcategory_name={subcategory_name}
+		update subcategory set subcategory_name=#{subcategory_name}
 		where subcategory_id=#{subcategory_id}
 	</update>		
 	
 	<delete id="delete" parameterType="Subcategory">
-		delete * from subcategory where subcategory_id=#{subcategory_id}
+		delete from subcategory where subcategory_id=#{subcategory_id}
 	</delete>
 
 </mapper>

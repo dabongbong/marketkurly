@@ -69,6 +69,7 @@
                 <div class="card-body">
                 
                   <div class="form-group">
+                    아이디 <input type="text" class="form-control" value="<%=member.getUser_id() %>" name="user_id">
                     이름 <input type="text" class="form-control" value="<%=member.getMember_name() %>" name="member_name">
                     비밀번호 <input type="text" class="form-control" value="<%=member.getMember_pass() %>" name="member_pass">
                     이메일 <input type="text" class="form-control" value="<%=member.getEmail() %>" name="email">

@@ -11,12 +11,12 @@
 	</select>
 	
 	<insert id="insert" parameterType="Member" >
-		insert into member(member_id, member_pass, member_name, email, phone, addr, gender, birth)
-		values(#{member_id},#{member_pass},#{member_name},#{email},#{phone},#{addr},#{gender},#{birth})
+		insert into member(member_id,user_id, member_pass, member_name, email, phone, addr, gender, birth)
+		values(#{member_id}, #{user_id},#{member_pass},#{member_name},#{email},#{phone},#{addr},#{gender},#{birth})
 	</insert>
 
 	<update id="update" parameterType="Member">
-		update member set member_id=#{member_id}, member_pass=#{member_pass}, member_name=#{member_name},
+		update member set member_id=#{member_id}, user_id=#{user_id},member_pass=#{member_pass}, member_name=#{member_name},
 									 email=#{email}, phone=#{phone}, addr=#{addr}, gender=#{gender}, birth=#{birth}
 		where member_id=#{member_id}
 	</update>
