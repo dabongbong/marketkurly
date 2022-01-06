@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="My_qna">
+
+	<resultMap type="My_qna" id="joinMemberMy_qna">
+		<id column="my_qna_no"	property="my_qna_no"/>
+		<id column="my_qna_category"	property="my_qna_category"/> 
+		<result column="title" property="title"/>
+		<result column="writer" property="writer"/>
+		<result column="content" property="content"/>
+		<result column="regdate" property="regdate"/>
+		
+		<association column="member_id" property="member" javaType="Member" select="Member.select"/>
+	
+	</resultMap>
+ 
+ <!-- 질문하기.. 솔직히 이해못해따..뭐가 틀린거지.. -->
+	<select id="selectAll" resultMap="joinMemberMy_qna">
+		select * my_qna_no, my_qna_category, title, writer, content, regdate,
+		m.member_id as member_id
+		from member m, my_qna q
+		where m.member_id = q.member_id
+	</select>
+	
+	<select id="select" parameterType="int" resultType="My_qna">
+		select * from my_qna where my_qna_no=#{my_qna_no}
+	</select>
+	
+	<insert id="insert" parameterType="My_qna">
+		insert into my_qna(my_qna_no, member_id, my_qna_category, title, writer, content, regdate)
+		values(#{my_qna_no},#{member.member_id},#{my_qna_category},#{title},#{writer}, #{content}, #{regdate})
+	</insert>
+	
+	<update id="update" parameterType="My_qna">
+		update my_qna(my_qna_category, title, content)
+		where my_qna_no=#{My_qna_no}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from my_qna where My_qna_no=#{My_qna_no}
+	</delete>
+</mapper>
