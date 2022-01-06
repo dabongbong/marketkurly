@@ -64,7 +64,7 @@ public class SubcategoryController {
 	@PostMapping("/category/subupdate")
 	public ModelAndView update(Subcategory subcategory) {
 		subcategoryService.update(subcategory);
-		ModelAndView mav = new ModelAndView("redirect:/admin/category/subdetail");
+		ModelAndView mav = new ModelAndView("redirect:/admin/category/list");
 		return mav;
 	}
 		

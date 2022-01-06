@@ -149,7 +149,7 @@ function edit(){
  // 삭제 
  function del(){
  	 if(confirm("삭제???")){
- 		location.href="/admin/category/delete?subcategory_id=<%=subcategory.getSubcategory_id()%>";
+ 		location.href="/admin/category/subdelete?subcategory_id=<%=subcategory.getSubcategory_id()%>";
   	}
   } 
  
