@@ -14,7 +14,7 @@ public class MybatisOrderDetailDAO implements OrderDetailDAO{
 	
 	@Override
 	public List selectDetailAll() {
-		List list = sessionTemplate.selectList("OrderDetail.selectDetailAll");
+		List list = sessionTemplate.selectList("OrderSummary.selectAll");
 		System.out.println("내가 불러온 detailList는 " + list);
 		return list;
 	}

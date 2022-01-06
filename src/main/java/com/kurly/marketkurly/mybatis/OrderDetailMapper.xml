@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="OrderDetail">
-	<resultMap type="OrderDetail" id="joinOrderSummaryOrderDetail">
+	
+	<!--  OrderSummaryMapper를 위한 맵 -->	
+	<resultMap type="OrderDetail" id="joinOrderSummary">
 		<id column="order_detail_id" property="order_detail_id"/>
 		<result column="order_count" property="order_count"/>
-		
-		<association column="order_summary_id" property="order_summary" javaType="OrderSummary" select="OrderSummary.select"/>
-		<association column="product_id" 	   property="product" 		javaType="Product" 		select="Product.select"/>
-		<collection  column="" property=""></collection>
+		<association column="product_id" 	   property="product" 		javaType="Product" 		select="Product.select"/>		
 	</resultMap>
 	
-		<!-- 주문 내역 Detail 요청 -->
-	<select id="selectDetailAll" resultMap="joinOrderSummaryOrderDetail">
-		select order_detail_id, order_count,
-		os.order_summary_id as order_summary_id, p.product_id as product_id
-		from order_detail od, order_summary os, product p
-		where od.order_summary_id=os.order_summary_id and od.product_id=p.product_id
+	<select id="selectAllByOrderSummaryId" resultMap="joinOrderSummary" parameterType="int">
+		select * from order_detail where order_summary_id=#{order_summary_id}	
 	</select>
+	
 </mapper>

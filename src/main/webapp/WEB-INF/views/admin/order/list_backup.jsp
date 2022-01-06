@@ -70,7 +70,7 @@
         <div class="row">
         
           <!-- 카테고리 테이블 begin -->
-          <div class="col-12" align="center">
+          <div class="col-5">
               <div class="card">
               <div class="card-body p-0">
                 <table class="table table-hover">
@@ -101,7 +101,7 @@
 				        </tr>
 				        <%} %>
 			         <tr>
-		                <td colspan="12" align="center">
+		                <td colspan="6" align="center">
 		                    <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
 		                        <a href="/admin/order/list.jsp?currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
 		                    <%}else{}%>
@@ -128,6 +128,41 @@
             </div>
             </div>
           <!-- 카테고리 테이블 end -->
+          
+          <!-- 주문 상세 폼 begin -->
+          <div class="col-7" class="detailForm">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">주문 상세</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form name="form1" enctype="multipart/form-data">
+                <div class="card-body">
+                
+                  <div class="form-group">
+                    <select class="form-control" id="order_summary_id" name="order_summary_id">
+                    	<option>좌측에서 주문번호 선택</option>
+                    </select> 
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="구매일자" name="order_date" readonly>
+                  </div>
+                  
+                  <div class="form-group" display="inline">
+                    <input type="text" class="form-control" placeholder="상품" name="product_name" readonly>
+                    <input type="text" class="form-control" placeholder="개수" name="order_count"  readonly>
+                    <input type="text" class="form-control" placeholder="가격" name="price" 	   readonly>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="button" class="btn btn-info" >접기</button>
+                </div>
+              </form>
+            </div>
+            </div>
+          <!-- 주문 상세폼 end -->
+            
           </div>
         </div>
         
@@ -150,5 +185,15 @@
 
 <!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
 <script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script>
+	// 선택한 주문내역 상세보기에 반영하기
+	function selOrderSummary(order_summary_id) {
+		var sel = document.querySelector("select[name=order_summary_id]");
+		sel.options[0].text=order_summary_id;
+		sel.options[0].value=order_summary_id;
+	}
+	
+	
+</script>
 </body>
 </html>

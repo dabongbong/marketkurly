@@ -69,6 +69,7 @@
                   <%for(Category category : categoryList){ %> 
                     <tr data-widget="expandable-table" aria-expanded="true">
                       <td>
+                        <img src ="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px">
                         <a id="category" style='color:#646464' href="javascript:selectCategory('<%=category.getCategory_name()%>',<%=category.getCategory_id()%>)" ><%=category.getCategory_name() %></a>
                         <button type="button" class="btn btn-info"  style="float:right" onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'">상세보기</button>
                       </td>
