@@ -20,7 +20,7 @@ public class AES256Util {
 
 	private String byteString;
 
-	private static String key = ""; // 16자리 이상으로 key값을 부여하자
+	private static String key = "0000000000000000"; // 16자리 이상으로 key값을 부여하자
 	
 	
 
