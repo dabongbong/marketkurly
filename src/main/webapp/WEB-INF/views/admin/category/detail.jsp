@@ -134,7 +134,7 @@ $(function () {
 	$("#bt_del").click(function(){
 		del();
 	});
-	
+	 
 })
 
 // 수정하기
@@ -161,6 +161,7 @@ function registSub(){
 	$("form[name='form2']").submit();
 }
 	
+
 </script>
 </body>
 </html>

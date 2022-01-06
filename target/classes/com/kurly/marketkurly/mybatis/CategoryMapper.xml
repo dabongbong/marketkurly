@@ -16,7 +16,7 @@
 </insert>
 
 <update id="update" parameterType="Category">
-	update category set category_name=#{category_name}
+	update category set category_name=#{category_name}, category_logo=#{category_logo}
 	where category_id=#{category_id}
 </update>
 
