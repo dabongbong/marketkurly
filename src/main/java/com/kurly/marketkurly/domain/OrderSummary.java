@@ -1,5 +1,7 @@
 package com.kurly.marketkurly.domain;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -9,4 +11,6 @@ public class OrderSummary {
 	private PayMethod paymethod;
 	private String orderdate;
 	private int price;
+	
+	private List<OrderDetail> orderDetailList;
 }

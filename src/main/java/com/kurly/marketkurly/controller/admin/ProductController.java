@@ -50,7 +50,7 @@ public class ProductController {
 	@ResponseBody
 	public HashMap<String, Object> categoryListTest(HttpServletRequest request, int category_id) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		List subcategoryList = subcategoryService.selectAllByCategory(category_id);
+		List subcategoryList = subcategoryService.selectAllByCategoryId(category_id);
 		result.put("data", subcategoryList);
 		return result;
 	}
