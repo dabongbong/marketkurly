@@ -63,6 +63,7 @@ public class SubcategoryController {
 	// 서브카테고리 수정
 	@PostMapping("/category/subupdate")
 	public ModelAndView update(Subcategory subcategory) {
+		System.out.println(subcategory.getSubcategory_id());
 		subcategoryService.update(subcategory);
 		ModelAndView mav = new ModelAndView("redirect:/admin/category/list");
 		return mav;
@@ -75,10 +76,10 @@ public class SubcategoryController {
 		return "redirect:/admin/category/list";
 	}
 	
-	@ExceptionHandler(SubcategoryException.class)
-	public ModelAndView handle(SubcategoryException e) {
-		ModelAndView mav = new ModelAndView("admin/error/result");
-		mav.addObject("e",e); 
-		return mav;
-	}
+//	@ExceptionHandler(SubcategoryException.class)
+//	public ModelAndView handle(SubcategoryException e) {
+//		ModelAndView mav = new ModelAndView("admin/error/result");
+//		mav.addObject("e",e); 
+//		return mav;
+//	}
 }

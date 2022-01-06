@@ -64,12 +64,12 @@
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
-              	<input type="hidden" name="category_id" value="<%=subcategory.getSubcategory_id()%>">
+              	<input type="hidden" name="subcategory_id" value="<%=subcategory.getSubcategory_id()%>">
                 
                 <div class="card-body">
                 
                   <div class="form-group">
-                    <input type="text" class="form-control" value="<%=subcategory.getSubcategory_name() %>" name="category_name">
+                    <input type="text" class="form-control" value="<%=subcategory.getSubcategory_name() %>" name="subcategory_name">
                   </div>
                   
                 <!-- /.card-body -->
