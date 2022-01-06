@@ -54,4 +54,7 @@
 		<!-- 해시값 변환 빈 등록 -->
 	<bean class="com.kurly.marketkurly.util.HashBuilder" id="hashBuilder"/>
 	
+		<!-- AES256 빈등록 --> 
+	<bean class="com.kurly.marketkurly.util.AES256Util" id="aes256Util"/>
+	
 </beans>
