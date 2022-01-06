@@ -69,31 +69,35 @@
                 
                   <div class="form-group">
                   <label for="id">아이디</label>
-                    <input type="text" class="form-control" name="user_id">
+                  
+                    <input type="text" class="form-control" name="user_id" placeholder="아이디를 입력해주세요">
                     
                   <label for="id">이름</label>
-                     <input type="text" class="form-control" name="member_name">
+                     <input type="text" class="form-control" name="member_name"  placeholder="이름을 입력해주세요">
                     
                   <label for="id">비밀번호</label>
-                     <input type="password" class="form-control"  name="member_pass">
+                     <input type="password" class="form-control"  name="member_pass"  placeholder="비밀번호를 입력해주세요">
                      
                   <label for="id">비밀번호 확인</label>
-                     <input type="password" class="form-control"  name="member_pass">
+                     <input type="password" class="form-control"  name="member_pass2"  placeholder="비밀번호를 입력해주세요">
                     
                   <label for="id">이메일</label>
-                     <input type="text" class="form-control"  name="email">
+                     <input type="email" class="form-control"  name="email"  placeholder="이메일을 입력해주세요">
                     
                   <label for="id">핸드폰</label>
-                    <input type="text" class="form-control"  name="phone">
+                    <input type="text" class="form-control"  name="phone"  placeholder="010-0000-0000">
                     
                   <label for="id">주소</label>
-                    <input type="text" class="form-control"  name="addr">
+                    <input type="text" class="form-control"  name="addr"  placeholder="주소를 입력해주세요">
                     
                   <label for="id">성별</label>
-                    <input type="text" class="form-control"  name="gender">
+                    <label><input type="radio" name="gender" value="남" checked/>남</label>
+                    <label><input type="radio" name="gender" value="여" />여</label>
+                    <p>
+
 
                   <label for="id">생일</label>
-                    <input type="text" class="form-control"  name="birth">
+                    <input type="text" class="form-control"  name="birth"  placeholder="생일을 입력해주세요">
                   </div>
                   
                 <!-- /.card-body -->
@@ -145,6 +149,8 @@ function regist(){
 		form1.submit();
 	
 }
+
+
 
 
 
