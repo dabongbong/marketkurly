@@ -34,8 +34,8 @@
 	</insert>
 
 	<update id="update" parameterType="Subcategory">
-		update subcategory set subcategory_name={subcategory_name}
-		where subcategory_id={subcategory_id}
+		update subcategory set subcategory_name=#{subcategory_name}
+		where subcategory_id=#{subcategory_id}
 	</update>		
 	
 	<delete id="delete" parameterType="Subcategory">
