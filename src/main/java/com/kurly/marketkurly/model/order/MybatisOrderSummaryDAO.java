@@ -19,8 +19,6 @@ public class MybatisOrderSummaryDAO implements OrderSummaryDAO {
 	public List selectAll() {
 		List list = sessionTemplate.selectList("OrderSummary.selectAll");
 		
-//		System.out.println("summaryLis is "+list);
-		
 		return list;
 	}
 
@@ -41,6 +39,12 @@ public class MybatisOrderSummaryDAO implements OrderSummaryDAO {
 	// 3년이 지난 경우 삭제
 	@Override
 	public void delete(int order_summary_id) {
+	}
+
+	@Override
+	public OrderSummary getDetail(int order_summary_id) {
+		System.out.println("마이바티스: "+order_summary_id);
+		return sessionTemplate.selectOne("OrderDetail.selectAllByOrderSummaryId", order_summary_id);
 	}
 
 }
