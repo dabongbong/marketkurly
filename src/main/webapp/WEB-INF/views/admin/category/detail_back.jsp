@@ -1,6 +1,7 @@
-<%@page import="com.kurly.marketkurly.domain.Member"%>
-<%@ page contentType="text/html; charset=UTF-8"%><%
-	Member member=(Member)request.getAttribute("member");
+<%@page import="com.kurly.marketkurly.domain.Category"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%
+	Category category = (Category)request.getAttribute("category");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +38,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">회원등록</h1>
+            <h1 class="m-0">카테고리 등록</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -58,60 +59,36 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">상세내용</h3>
+                <h3 class="card-title">대분류 상세내용</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
-              	
-              	
+              	<input type="hidden" name="category_id" value="<%=category.getCategory_id()%>">
+                
                 <div class="card-body">
                 
                   <div class="form-group">
-                  <label for="id">아이디</label>
-                  
-                    <input type="text" class="form-control" name="user_id" placeholder="아이디를 입력해주세요">
-                    
-                  <label for="id">이름</label>
-                     <input type="text" class="form-control" name="member_name"  placeholder="이름을 입력해주세요">
-                    
-                  <label for="id">비밀번호</label>
-                     <input type="password" class="form-control"  name="member_pass"  placeholder="비밀번호를 입력해주세요">
-                     
-                  <label for="id">비밀번호 확인</label>
-                     <input type="password" class="form-control"  name="member_pass2"  placeholder="비밀번호를 입력해주세요">
-                    
-                  <label for="id">이메일</label>
-                     <input type="email" class="form-control"  name="email"  placeholder="이메일을 입력해주세요">
-                    
-                  <label for="id">핸드폰</label>
-                    <input type="text" class="form-control"  name="phone"  placeholder="010-0000-0000">
-                    
-                  <label for="id">주소</label>
-                    <input type="text" class="form-control"  name="addr"  placeholder="주소를 입력해주세요">
-                    
-                  <label for="id">성별</label>
-                    <label><input type="radio" name="gender" value="남" checked/>남</label>
-                    <label><input type="radio" name="gender" value="여" />여</label>
-                    <p>
-
-
-                  <label for="id">생일</label>
-                    <input type="text" class="form-control"  name="birth"  placeholder="생일을 입력해주세요">
+                    <input type="text" class="form-control" value="<%=category.getCategory_name() %>" name="category_name">
                   </div>
                   
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" onClick="regist()">회원등록</button>
+                  <button type="button" class="btn btn-info" id="bt_edit">카테고리 수정</button>
+                  <button type="button" class="btn btn-info" id="bt_del" >카테고리 삭제</button>
+                  <button type="button" class="btn btn-info" onClick="location.href='/admin/category/list';">목록</button>
                 </div>
               </form>
             </div>
+          
             
             <!-- /.card -->
           </div>
-        
-       </div>
+          
+            <!-- /.card -->
+          </div>          
+          </div>          
         
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
@@ -139,31 +116,52 @@
 <!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
 <script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
-
 <script>
-//수정하기
-function regist(){
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+<script>
+ $(function () {
+	$("#bt_regist").click(function(){
+		regist();
+	});
 	
-		form1.action="/admin/member/regist";
+	$("#bt_edit").click(function(){
+		edit();
+	});
+
+	$("#bt_del").click(function(){
+		del();
+	});
+	 
+})
+
+// 수정하기
+function edit(){
+	 if(confirm("수정???")){
+		form1.action="/admin/category/update";
 		form1.method="post";
 		form1.submit();
-	
+ 	}
+ }
+ 
+ // 삭제 
+function del(){
+	 if(confirm("삭제???")){
+		location.href="/admin/category/delete?category_id=<%=category.getCategory_id()%>";
+ 	}
+ } 
+// 서브카테고리 등록요청 
+function registSub(){
+	$("form[name='form2']").attr({
+		action:"/admin/category/registsub",
+		method:"post"
+	});
+	$("form[name='form2']").submit();
 }
-
-
-
-
+	
 
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
