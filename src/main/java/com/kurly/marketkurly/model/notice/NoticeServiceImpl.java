@@ -17,6 +17,7 @@ public class NoticeServiceImpl implements NoticeService{
 	@Override
 	public List selectAll() {
 		return noticeDAO.selectAll();
+	
 	}
 
 	@Override
@@ -38,5 +39,5 @@ public class NoticeServiceImpl implements NoticeService{
 	public void delete(int notice_no) throws NoticeException{
 		noticeDAO.delete(notice_no);
 	}
-
+ 
 }
