@@ -37,18 +37,10 @@ public class OrderController {
 		return mav;
 	}
 
-	@GetMapping("/order/registForm")
-	public String registForm(HttpServletRequest request, Model model) {
-		List orderSummaryList = orderService.selectAll();
-		model.addAttribute("orderSummaryList", orderSummaryList);
-		return "admin/order/registForm";
-	}
-	
 	//카테고리 상세보기 
 	@GetMapping("/order/detail")
 	public ModelAndView getDetail(HttpServletRequest request, int order_summary_id) {
-		System.out.println("컨트롤러부분: "+order_summary_id);
-		OrderSummary orderDetail= orderService.getDetail(order_summary_id);
+		List orderDetail= orderService.getDetail(order_summary_id);
 		ModelAndView mav = new ModelAndView("admin/order/detail");
 		mav.addObject("orderDetail", orderDetail);
 		return mav;

@@ -42,9 +42,8 @@ public class MybatisOrderSummaryDAO implements OrderSummaryDAO {
 	}
 
 	@Override
-	public OrderSummary getDetail(int order_summary_id) {
-		System.out.println("마이바티스: "+order_summary_id);
-		return sessionTemplate.selectOne("OrderDetail.selectAllByOrderSummaryId", order_summary_id);
+	public List getDetail(int order_summary_id) {
+		return sessionTemplate.selectList("OrderDetail.selectAllByOrderSummaryId", order_summary_id);
 	}
 
 }

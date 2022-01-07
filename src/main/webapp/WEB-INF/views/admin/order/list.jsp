@@ -93,12 +93,11 @@
 				        <%for(int i =0; i<=pager.getPageSize();i++) {%>
 				        <%if(num<1)break; %>
 				        <%OrderSummary orderSummary=orderSummaryList.get(curPos++); %>
-				        <%List<OrderDetail> orderDetailList=orderSummary.getOrderDetailList(); %>
 				        <tr>
 				          <td><%=num-- %></td>
 				          <td><%=orderSummary.getMember().getMember_id() %></td>
 				          <td>
-				          	<a href="/admin/notice/detail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
+				          	<a href="/admin/order/detail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
 				          		<%=orderSummary.getOrder_summary_id() %>
 				          	</a>
 			          	</td>
