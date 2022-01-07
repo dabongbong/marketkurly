@@ -1,9 +1,11 @@
+<%@page import="com.kurly.marketkurly.domain.OrderDetail"%>
 <%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
 <%@page import="com.kurly.marketkurly.util.Pager"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	List<OrderSummary> orderSummaryList = (List)request.getAttribute("orderSummaryList");
+
 	Pager pager = (Pager)request.getAttribute("pager");
 %>
 <!DOCTYPE html>
@@ -91,10 +93,15 @@
 				        <%for(int i =0; i<=pager.getPageSize();i++) {%>
 				        <%if(num<1)break; %>
 				        <%OrderSummary orderSummary=orderSummaryList.get(curPos++); %>
+				        <%List<OrderDetail> orderDetailList=orderSummary.getOrderDetailList(); %>
 				        <tr>
 				          <td><%=num-- %></td>
 				          <td><%=orderSummary.getMember().getMember_id() %></td>
-				          <td><a href="javascript:selOrderSummary('<%=orderSummary.getOrder_summary_id()%>')"><%=orderSummary.getOrder_summary_id() %></a></td>
+				          <td>
+				          	<a href="/admin/notice/detail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
+				          		<%=orderSummary.getOrder_summary_id() %>
+				          	</a>
+			          	</td>
 				          <td><%=orderSummary.getPaymethod().getMethod() %></td>
 				          <td><%=orderSummary.getPrice() %> 원</td>
 				          <td><%=orderSummary.getOrderdate().substring(0, 10) %></td>

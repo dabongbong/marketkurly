@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="OrderSummary">
+
 	<resultMap type="OrderSummary" id="joinMemberOrderSummary">
 		<id column="order_summary_id" 	  	property="order_summary_id"/>
 		<result column="orderdate" 	  	  		property="orderdate"/>
@@ -9,10 +10,10 @@
 		<association column="member_id"    	   property="member"    	  javaType="Member"    	 select="Member.select"/>
 		<association column="paymethod_id" 	   property="paymethod" 	  javaType="PayMethod" 	 select="PayMethod.select"/>
 		
-		<collection column="order_summary_id" property="orderDetailList" javaType="java.util.List" ofType="OrderDetail" />
+		<collection column="order_summary_id" property="orderDetailList" javaType="java.util.List" ofType="OrderDetail" select="OrderDetail.selectAllByOrderSummaryId"/>
 	</resultMap>
 	
-	<!-- 해당 회원의 주문 내역 -->
+	<!-- 회원 전체의 주문 내역-->
 	<select id="selectAll" resultMap="joinMemberOrderSummary">
 		select order_summary_id, orderdate, price,
 		m.member_id as member_id, p.paymethod_id as paymethod_id
@@ -21,7 +22,7 @@
 	</select>
 
 	
-	<!-- 해당 주문 내역 요청(회원과 상관없슴 ) -->
+	<!-- 해당 주문 번호 내역-->
 	<select id="select" parameterType="int" resultMap="joinMemberOrderSummary">
 		select * from order_summary where order_summary_id=#{order_summary_id}
 	</select>

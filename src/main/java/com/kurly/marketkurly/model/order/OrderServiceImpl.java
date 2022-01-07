@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kurly.marketkurly.domain.OrderDetail;
 import com.kurly.marketkurly.domain.OrderSummary;
 import com.kurly.marketkurly.exception.OrderException;
 
@@ -13,9 +14,6 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Autowired
 	private OrderSummaryDAO orderSummaryDAO;
-	
-	@Autowired
-	private OrderDetailDAO orderDetailDAO;
 	
 	@Override
 	public List selectAll() {
@@ -37,12 +35,11 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List selectDetailAll() {
-		return orderDetailDAO.selectDetailAll();
+	public OrderSummary getDetail(int order_summary_id) {
+		return orderSummaryDAO.getDetail(order_summary_id);
 	}
 
-	@Override
-	public void insertDetail(int order_detail_id) {
-	}
+
+
 
 }
