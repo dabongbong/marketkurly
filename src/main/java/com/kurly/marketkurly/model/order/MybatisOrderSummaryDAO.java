@@ -43,4 +43,9 @@ public class MybatisOrderSummaryDAO implements OrderSummaryDAO {
 	public void delete(int order_summary_id) {
 	}
 
+	@Override
+	public OrderSummary getDetail(int order_summary_id) {
+		return sessionTemplate.selectOne("OrderDetail.selectAllByOrderSummaryId", order_summary_id);
+	}
+
 }

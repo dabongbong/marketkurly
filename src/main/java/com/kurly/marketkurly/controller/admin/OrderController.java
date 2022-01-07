@@ -10,6 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kurly.marketkurly.domain.Category;
+import com.kurly.marketkurly.domain.OrderDetail;
+import com.kurly.marketkurly.domain.OrderSummary;
 import com.kurly.marketkurly.model.order.OrderService;
 import com.kurly.marketkurly.util.Pager;
 
@@ -35,10 +38,19 @@ public class OrderController {
 	}
 
 	@GetMapping("/order/registForm")
-	public String registForm(Model model) {
+	public String registForm(HttpServletRequest request, Model model) {
 		List orderSummaryList = orderService.selectAll();
 		model.addAttribute("orderSummaryList", orderSummaryList);
-		
 		return "admin/order/registForm";
 	}
+	
+	//카테고리 상세보기 
+	@GetMapping("/order/detail")
+	public ModelAndView getDetail(HttpServletRequest request, int order_summary_id) {
+		OrderSummary orderDetail= orderService.getDetail(order_summary_id);
+		ModelAndView mav = new ModelAndView("admin/order/detail");
+		mav.addObject("orderDetail", orderDetail);
+		return mav;
+	}
+	
 }
