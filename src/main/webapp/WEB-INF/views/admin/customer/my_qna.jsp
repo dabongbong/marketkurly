@@ -96,9 +96,9 @@
 				        <%My_qna my_qna=my_qnaList.get(curPos++); %>
 				        <tr>
 					          <td><%=num-- %></td>
-					          <td><a href="/admin/customer/detail?notice_no=<%=my_qna.getMy_qna_no()%>"><%=my_qna.getMy_qna_category() %></a></td>
+					          <td><a href="/admin/customer/detail?my_qna_no=<%=my_qna.getMy_qna_no()%>"><%=my_qna.getMy_qna_category() %></a></td>
 					          <td><%=my_qna.getTitle() %></td>
-					          <td><%=my_qna.getWriter() %></td>
+					          <td><%=my_qna.getMember() %></td>
 							  <td><%=my_qna.getRegdate() %></td>
 				        </tr>
 				        <%} %>
@@ -112,7 +112,7 @@
 						  </tr>
 				        <tr>
 						 	<td  colspan="4">
-                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/customer/write';">문의 등록</button>
+                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/customer/write';" style="float: right;">문의 등록</button>
                     	</td>
 					  	</tr>
                   </tbody>
