@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
+	List<OrderSummary> orderDetail = (List)request.getAttribute("orderDetail");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +61,7 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">주문 상세</h3>
+                <h3 class="card-title">Quick Example</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -69,16 +69,16 @@
               	<input type="hidden" name="_method" value="PUT">
               	<input type="hidden" name="notice_id" value="">
                 <div class="card-body">
-                <%for(OrderDetail orderDetailList : orderDetail){ %>
+                <%for(OrderSummary orderDetailList : orderDetail){ %>
                   <div class="form-group">
-                  	<input type="text" class="form-control" value="<%=orderDetailList.getProduct().getTitle() %>" name="title" readonly>
-                    <input type="text" class="form-control" value="<%=orderDetailList.getProduct().getPrice() %>원" name="order_count" readonly>
-                    <input type="text" class="form-control" value="<%=orderDetailList.getOrder_count() %>개" name="price" readonly>
+                    <input type="text" class="form-control" value="<%=orderDetailList.getPrice() %>" name="title" readonly>
+<%--                     <input type="text" class="form-control" value="<%=list.getProduct().getPrice() %>" name="order_count" readonly> --%>
+<%--                     <input type="text" class="form-control" value="<%=list.getOrder_count() %>" name="price" readonly> --%>
                   </div>
                  <%} %>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
+                  <button type="button" class="btn btn-info" onClick="location.href='/admin/notice/list';">목록</button>
                 </div>
               </form>
             </div>

@@ -9,6 +9,7 @@
 		<result column="price" property="price"/>
 		<result column="detail" property="detail"/>
 		<result column="sale" property="sale"/>
+		<result column="product_img" property="product_img"/>
 		
 		<association column="subcategory_id" property="subcategory" javaType="Subcategory" select="Subcategory.select"/>
 	</resultMap>

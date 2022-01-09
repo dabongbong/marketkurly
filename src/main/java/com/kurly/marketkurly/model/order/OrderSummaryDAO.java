@@ -10,5 +10,5 @@ public interface OrderSummaryDAO {
 	public OrderSummary select(int order_summary_id);
 	public void insert(OrderSummary order_summary);
 	public void delete(int order_summary_id);
-	public OrderSummary getDetail(int order_summary_id);
+	public List getDetail(int order_summary_id);
 }

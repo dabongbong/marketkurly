@@ -2,6 +2,8 @@ package com.kurly.marketkurly.domain;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -14,6 +16,8 @@ public class Product {
 	private String detail;
 	private int sale;
 	private String product_img;
+	private MultipartFile imgFiles;
+	
 	private List<ProductDetail> product_detail_list; 
 	private List<ProductHashtag> product_hashtag_list;
 	
