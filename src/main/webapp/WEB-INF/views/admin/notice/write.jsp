@@ -1,16 +1,19 @@
+<%@page import="com.kurly.marketkurly.domain.Notice"%>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%
+	List<Notice> noticeList = (List)request.getAttribute("noticeList");
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
-	
-	<%@ include file="../inc/head_link.jsp" %>
-  <!-- summernote -->
-  <link rel="stylesheet" href="/resources/admin/plugins/summernote/summernote-bs4.min.css">
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
+<%@ include file="../inc/head_link.jsp" %>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -34,7 +37,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">카테고리 등록</h1>
+            <h1 class="m-0">공지사항 등록</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -50,35 +53,42 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-12">
-            <div class="card card-info">
+           <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">공지사항 작성란</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form name="form1">
+              <form name="form1" enctype="multipart/form-data">
                 <div class="card-body">
                 
+                  
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="카테고리 입력.." name="category_name">
+                    <input type="text" class="form-control"  placeholder="제목 입력" name="title">
+                  </div>
+                  
+                  <div class="form-group">
+                    <input type="text" class="form-control"  placeholder="작성자" name="writer" >
+                  </div>
+                  
+                  <div class="form-group">
+                     <textarea id="summernote" name="content"></textarea>
                   </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" id="bt_regist">카테고리 등록</button>
-                  <button type="button" class="btn btn-info" onClick="location.href='/admin/category/list';">목록</button>
+                  <button type="button" class="btn btn-info" id="bt_write">등록</button>
+                  <button type="button" class="btn btn-info" onClick="location.href='/admin/notice/list'">목록</button>
                 </div>
               </form>
             </div>
-            
+          <!--  -->
             <!-- /.card -->
           </div>
         </div>
-        
-        <!-- /.row (main row) -->
+      
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -96,33 +106,43 @@
 </div>
 <!-- ./wrapper -->
 
-<%@ include file="../inc/bottom_link.jsp" %>
-
-<!-- Summernote -->
-<script src="/resources/admin/plugins/summernote/summernote-bs4.min.js"></script>
-
-<!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
+<%@ include file="../inc/bottom_link.jsp" %>  
+<!-- bs-custom-file-input 파일 컴포넌트 커스터마이징 -->
 <script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
-$(function () {
+$ (function () {
   bsCustomFileInput.init();
-});
-</script>
-<script>
- $(function () {
-	
-	$("#bt_regist").click(function(){
-		regist();
-	});
-	
-})
+  $('#summernote').summernote({
+      placeholder: '내용 작성',
+      tabsize: 2,
+      height: 450,
+      
+    });
 
-function regist(){
-	form1.action="/admin/category/regist";
-	form1.method="post";
-	form1.submit();
-}
+ 
+  
+  
+  $("#bt_write").click(function(){
+	  write();
+  })
+  
+  
+  
+});
+
+
+function write(){
+	$("form[name='form1']").attr({
+		action:"/admin/notice/write",
+		method:"post"
+	})
+	$("form[name='form1']").submit();
+};
+
+
+
+
 
 </script>
 </body>

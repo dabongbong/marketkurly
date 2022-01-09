@@ -20,20 +20,25 @@ public class AES256Util {
 
 	private String byteString;
 
-	//private static String key = "minzinokingwangjjang"; // 16자리 이상으로 key값을 부여하자
+	private static String key = "0000000000000000"; // 16자리 이상으로 key값을 부여하자
+	
 
-	public AES256Util(String key) throws UnsupportedEncodingException {
+	public AES256Util() throws UnsupportedEncodingException {
+		
+		//StringBuffer sb = new StringBuffer();
 
-		this.byteString  = key.substring(0, 16);
+		this.byteString  = key.substring(0, key.length());
 
-		byte[] keyBytes = new byte[16];
+		byte[] keyBytes = new byte[key.length()];
 		byte[] b = byteString.getBytes("UTF-8");
 		int len = b.length;
 
 		if (len > keyBytes.length) {
 			len = keyBytes.length;
 		}
-
+		/*
+		 * if(key.length()<16) { sb.append("00000"); } sb.append();
+		 */
 		System.arraycopy(b, 0, keyBytes, 0, len);
 
 		SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
@@ -71,7 +76,6 @@ public class AES256Util {
 		byte[] byteStr = Base64.decodeBase64(str.getBytes());
 
 		return new String(c.doFinal(byteStr), "UTF-8");
-
 	}
 	/*
 	 * public static void main(String[] args) {
@@ -115,6 +119,6 @@ public class AES256Util {
 	 * e.printStackTrace();
 	 * 
 	 * } }
-	 * 
 	 */
+	 
 }

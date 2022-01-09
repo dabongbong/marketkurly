@@ -42,7 +42,7 @@ public class MybatisSubcategoryDAO implements SubcategoryDAO{
 	}
 
 	@Override
-	public void update(Subcategory subcategory) throws SubcategoryException{
+	public void update(Subcategory subcategory)throws SubcategoryException {
 		int result = sessionTemplate.update("Subcategory.update", subcategory);
 		if(result ==0 ) {
 			throw new SubcategoryException("서브카테고리 수정 실패");

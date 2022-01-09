@@ -29,7 +29,7 @@ public class MybatisNoticeDAO implements NoticeDAO{
 	public void insert(Notice notice) throws NoticeException{
 		int result = sessionTemplate.insert("Notice.insert", notice);
 		if(result==0) {
-			throw new NoticeException("게시물 등록 실패");
+			throw new NoticeException("공지사항 등록 실패");
 		}
 	}
 
@@ -37,7 +37,7 @@ public class MybatisNoticeDAO implements NoticeDAO{
 	public void update(Notice notice)  throws NoticeException{
 		int result = sessionTemplate.update("Notice.update", notice);
 		if(result==0) {
-			throw new NoticeException("게시물 수정 실패");
+			throw new NoticeException("공지사항 수정 실패");
 		}
 	}
 
@@ -45,7 +45,7 @@ public class MybatisNoticeDAO implements NoticeDAO{
 	public void delete(int notice_no)  throws NoticeException{
 		int result = sessionTemplate.delete("Notice.delete", notice_no);
 		if(result==0) {
-			throw new NoticeException("게시물  삭제 실패");
+			throw new NoticeException("공지사항  삭제 실패");
 		}
 	}
 

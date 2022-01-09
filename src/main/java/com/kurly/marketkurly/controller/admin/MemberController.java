@@ -1,7 +1,14 @@
 package com.kurly.marketkurly.controller.admin;
 
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +23,7 @@ import com.kurly.marketkurly.domain.Member;
 import com.kurly.marketkurly.exception.MemberException;
 import com.kurly.marketkurly.model.member.MemberDAO;
 import com.kurly.marketkurly.model.member.MemberService;
+import com.kurly.marketkurly.util.AES256Util;
 import com.kurly.marketkurly.util.HashBuilder;
 import com.kurly.marketkurly.util.Pager;
 
@@ -32,10 +40,10 @@ public class MemberController {
 	//회원 리스트요청
 	@GetMapping("/member/list")
 	public ModelAndView getList(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("admin/member/list");
 		List memberList = memberService.selectAll();
-		pager.init(memberList, request);
 		
+		ModelAndView mav = new ModelAndView("admin/member/list");
+		pager.init(memberList, request);
 		mav.addObject("memberList",memberList);
 		mav.addObject("pager",pager);
 		
@@ -54,6 +62,7 @@ public class MemberController {
 		
 		String pass=hashBuilder.convertStringToHash(member.getMember_pass());
 		member.setMember_pass(pass);
+		
 		memberService.insert(member);
 		
 		return "redirect:/admin/member/list";

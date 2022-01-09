@@ -68,13 +68,36 @@
                 <div class="card-body">
                 
                   <div class="form-group">
-                    이름 <input type="text" class="form-control" name="member_name">
-                    비밀번호 <input type="password" class="form-control"  name="member_pass">
-                    이메일 <input type="text" class="form-control"  name="email">
-                    핸드폰<input type="text" class="form-control"  name="phone">
-                    주소<input type="text" class="form-control"  name="addr">
-                    성별<input type="text" class="form-control"  name="gender">
-                    생일<input type="text" class="form-control"  name="birth">
+                  <label for="id">아이디</label>
+                  
+                    <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 입력해주세요">
+                    
+                  <label for="name">이름</label>
+                     <input type="text" class="form-control" name="member_name"  placeholder="이름을 입력해주세요">
+                    
+                  <label for="pass">비밀번호</label>
+                     <input type="password" class="form-control"  name="member_pass"  placeholder="비밀번호를 입력해주세요">
+                     
+                  <label for="pass2">비밀번호 확인</label>
+                     <input type="password" class="form-control"  name="member_pass2"  placeholder="비밀번호를 입력해주세요">
+                    
+                  <label for="email">이메일</label>
+                     <input type="email" class="form-control"  name="email"  placeholder="이메일을 입력해주세요">
+                    
+                  <label for="phone">핸드폰</label>
+                    <input type="text" class="form-control"  name="phone"  placeholder="010-0000-0000">
+                    
+                  <label for="addr">주소</label>
+                    <input type="text" class="form-control"  name="addr"  placeholder="주소를 입력해주세요">
+                    
+                  <label for="gender">성별</label>
+                    <label><input type="radio" name="gender" value="남" checked/>남</label>
+                    <label><input type="radio" name="gender" value="여" />여</label>
+                    <p>
+
+
+                  <label for="id">생일</label>
+                    <input type="text" class="form-control"  name="birth"  placeholder="생일을 입력해주세요">
                   </div>
                   
                 <!-- /.card-body -->
@@ -118,14 +141,86 @@
 
 
 <script>
-//수정하기
+
 function regist(){
+	
+	var form1 = document.form1;
+	if(!form1.user_id.value){
+		alert("id를 입력하세요");
+		form1.user_id.focus();
+		
+		return false;
+	}
+	if(!form1.member_name.value){
+		alert("이름를 입력하세요");
+		form1.member_name.focus();
+		
+		return false;
+	}
+	
+	if(!form1.member_pass.value){
+		alert("비밀번호를 입력하세요");
+		form1.member_pass.focus();
+		
+		return false;
+	}
+	
+	if(!form1.member_pass2.value){
+		alert("비밀번호 입력하세요");
+		form1.member_pass2.focus();
+		
+		return false;
+	}
+	
+	if(form1.member_pass.value != form1.member_pass2.value){
+		alert("비밀번호가 일치하지 않습니다.");
+		form1.member_pass2.focus();
+		
+		return false;
+	}
+	
+	if(!form1.email.value){
+		alert("이메일을 입력하세요");
+		form1.email.focus();
+		
+		return false;
+	}
+	if(!form1.phone.value){
+		alert("핸드폰 번호를 입력하세요");
+		form1.addr.focus();
+		
+		return false;
+	}
+	if(!form1.addr.value){
+		alert("주소를 입력하세요");
+		form1.addr.focus();
+		
+		return false;
+	}
+	
+	if(!form1.gender.value){
+		alert("성별 입력하세요");
+		form1.addr.focus();
+		
+		return false;
+	}
+	 
+	if(!form1.birth.value){
+		alert("주소를 입력하세요");
+		form1.addr.focus();
+		
+		return false;
+	}
 	
 		form1.action="/admin/member/regist";
 		form1.method="post";
 		form1.submit();
+		
+		
 	
 }
+
+
 
 
 

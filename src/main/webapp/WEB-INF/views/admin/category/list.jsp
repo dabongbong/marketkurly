@@ -69,14 +69,15 @@
                   <%for(Category category : categoryList){ %> 
                     <tr data-widget="expandable-table" aria-expanded="true">
                       <td>
-                        <a id="category" href="javascript:selectCategory('<%=category.getCategory_name()%>',<%=category.getCategory_id()%>)" ><%=category.getCategory_name() %></a>
+                        <img src ="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px">
+                        <a id="category" style='color:#646464' href="javascript:selectCategory('<%=category.getCategory_name()%>',<%=category.getCategory_id()%>)" ><%=category.getCategory_name() %></a>
                         <button type="button" class="btn btn-info"  style="float:right" onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'">상세보기</button>
                       </td>
                     </tr>
                     <%} %>
                     <tr>
                     	<td>
-                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/category/registform';">카테고리등록</button>
+                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/category/registform';">대분류 등록</button>
                     	</td>
                     </tr>
                   </tbody>
@@ -99,16 +100,10 @@
               <div class="card-body p-0">
                 <table class="table table-hover" >
                   <tbody id="subList">
-                      <%-- <td>
- 						<button type="button" class="btn btn-info" style="float:right" onClick="location.href='/admin/category/detail?category_id=<%=category.getCategory_id()%>'">상세보기</button>                    
-                      </td>
-                    </tr>
-                    <tr>
-                    	<td>
-                    		<button type="button" class="btn btn-info" onClick="subregist()">카테고리등록</button>
-                    	</td>
-                    </tr> --%>
                   </tbody>
+ 						<tr>
+ 							<td><button type='button' class='btn btn-info' onClick='subregist()'>소분류 등록</button></td>
+ 						</tr>
                 </table>
             </div>
             </form>
@@ -160,9 +155,8 @@
 			for(var i=0; i<result.length; i++){
 				var json=result[i];
 				
-				tag+="<tr><td><a href='/admin/rest/subcategory/"+json.subcategory_id+"'>"+json.subcategory_name+"</a></td></tr>";
-				tag+="<tr><td><button type='button' class='btn btn-info' style='float:right' onClick='location.href=\"/admin/subcategory/subdetail?subcategory_id="+json.subcategory_id+"\"'>상세보기</button></td></tr>"; 
-				tag+="<tr><td><button type='button' class='btn btn-info' onClick='subregist()'>카테고리등록</button></td></tr>"; 
+				tag+="<tr><td>"+json.subcategory_name+"</a>"; 
+				tag+="<button type='button' class='btn btn-info' style='float:right' onClick='location.href=\"/admin/category/subdetail?subcategory_id="+json.subcategory_id+"\"'>상세보기</button></td></tr>"; 
 			}
 			console.log(tag);
 			$("#subList").empty();
