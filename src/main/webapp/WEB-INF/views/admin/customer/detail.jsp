@@ -65,6 +65,12 @@
               <form name="form1">
               		<input type="hidden" name="my_qna_no" value="<%=my_qna.getMy_qna_no() %>">
 				    
+				    <div class="card-body">
+					 	<div class="form-group">
+					 	<th>카테고리</th><p>
+						    <input type="text"  	name="my_qna_category" class="form-control" value="<%=my_qna.getMy_qna_category()%>">
+					</div>
+					
 				 <div class="card-body">
 				 	<div class="form-group">
 				 	<th>제목</th><p>
@@ -73,7 +79,7 @@
 					
 					<div class="form-group">
 					<th>작성자</th><p>
-					    <input type="text"  	name="writer" class="form-control" value="<%=my_qna.getMember() %>">
+					    <input type="text"  	name="member" class="form-control" value="<%=my_qna.getMember() %>">
 					</div>
 					
 					<div class="form-group">
