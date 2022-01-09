@@ -30,6 +30,7 @@
     <mapper resource="com/kurly/marketkurly/mybatis/OrderMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/PayMethodMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/ProductMapper.xml"/>
+    <mapper resource="com/kurly/marketkurly/mybatis/ProductDetailMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/NoticeMapper.xml"/>
   </mappers>
 </configuration>
