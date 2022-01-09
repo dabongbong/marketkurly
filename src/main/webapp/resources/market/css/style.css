@@ -1553,16 +1553,147 @@ ol {
 	width: auto;
 }
 
+/*------------- 
+새로만든 푸터 
+---------------*/
+ul {
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+#footer {
+
+}
+#footer, .footer__second{
+    border-top: 1px solid #999;
+}
+
+.footer__first{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__right{
+    width: 50%;
+}
+.footer__left h2{
+    margin: 0;
+    padding: 29px 0px 29px 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    line-height: 24px;
+}
+.footer__left h3, dl{
+    float: left;
+}
+
+.footer__left dl{
+    padding-left: 20px;
+}
+
+.footer__left dd{
+    margin-inline-start: 0px;
+    color: #999;
+}
+
+.footer__left .tel h3 {
+    width: 140px;
+    font-weight: 800;
+    font-size: 28px;
+    color: #333;
+    line-height: 20px;
+    letter-spacing: -.5px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.footer__left .kakao h3,
+.footer__left .qna h3,
+.footer__left .bulkorder h3 {
+    float: left;
+    width: 140px;
+    height: 40px;
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333;
+    line-height: 32px;
+    text-align: center;
+}
+
+.bulkorder p a{
+    color: #999;
+    text-align: center;
+    line-height: 35px;
+    padding-top: 9px;
+    padding-left: 20px;
+}
+
+.footer__right .intro{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 29px;
+}
+
+.footer__right p{
+    margin: 20px 0;
+    line-height: 24px;
+}
+.footer__right .sns{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.footer__right .sns li img{
+    width: 50px;
+    padding-right: 10px;
+}
+
+
+
 /*---------------------
   Footer
 -----------------------*/
 
+.f_container {
+	display: flex;
+	justify-content: space-between;
+}
 .footer-section {
-	background: #191919;
-	padding-top: 75px;
+	background: #ffffff;
+}
+.footer-widget {
+	width: 60%;
+}
+.footer-widget ul{
+	display:flex;
+	list-style-type: none;
+	justify-content: space-between;
+}
+
+
+.footer-widget li a {
+	font-size: 14px !important;
+	padding: 0 10px;
 }
 
 .footer-left {
+	width: 40%;
 	margin-bottom: 30px;
 }
 
@@ -1625,7 +1756,7 @@ ol {
 }
 
 .footer-widget h5 {
-	color: #ffffff;
+	color: #333;
 	font-weight: 700;
 	margin-bottom: 26px;
 }
