@@ -70,8 +70,10 @@ create table product_review(
 
 create table faq(
 	faq_no int primary key auto_increment
+	, faq_category text
 	, title varchar(50)
 	, writer varchar(20) 
+	, content text
 ) default character set utf8;
 
 create table member(
@@ -121,6 +123,7 @@ create table my_qna(
 	, my_qna_category text
 	, title varchar(50)
 	, writer varchar(20)
+	, content text
 	, regdate timestamp default now()
 	,constraint fk_member_my_qna foreign key(member_id) references member (member_id)
 ) default character set utf8;
