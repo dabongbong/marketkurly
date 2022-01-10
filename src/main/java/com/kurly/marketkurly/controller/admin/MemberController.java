@@ -1,14 +1,7 @@
 package com.kurly.marketkurly.controller.admin;
 
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +10,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kurly.marketkurly.domain.Member;
 import com.kurly.marketkurly.exception.MemberException;
-import com.kurly.marketkurly.model.member.MemberDAO;
 import com.kurly.marketkurly.model.member.MemberService;
-import com.kurly.marketkurly.util.AES256Util;
 import com.kurly.marketkurly.util.HashBuilder;
 import com.kurly.marketkurly.util.Pager;
 
@@ -94,6 +89,17 @@ public class MemberController {
 		
 		return "redirect:/admin/member/list";
 	}
+	//아이디 중복체크
+	// id 중복 체크 컨트롤러
+		@RequestMapping(value = "/member/idCheck", method = RequestMethod.GET)
+		@ResponseBody
+		public int idCheck(@RequestParam("user_id") String user_id) {
+
+			return memberService.userIdCheck(user_id);
+		}
+
+
+	
 	@ExceptionHandler(MemberException.class)
 	public ModelAndView handle(MemberException e) {
 		ModelAndView mav = new ModelAndView("admin/error/result");
