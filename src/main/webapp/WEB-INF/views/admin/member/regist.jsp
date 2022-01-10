@@ -69,26 +69,35 @@
                 
                   <div class="form-group">
                   <label for="id">아이디</label>
-                  
-                    <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 입력해주세요">
-                    
+                    <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 입력해주세요" >
+                     <div class="check_font" id="id_check"></div>
+                  <!--   
+                    <span class="id-input1" style="color:green; display:none;">사용 가능한 아이디 입니다.</span>
+                    <span class="id-input2" style="color:red; display:none;">이미 있는 아이디 입니다.</span><p>
+                     -->
+                     
                   <label for="name">이름</label>
-                     <input type="text" class="form-control" name="member_name"  placeholder="이름을 입력해주세요">
+                     <input type="text" class="form-control" name="member_name" id="member_name"  placeholder="이름을 입력해주세요" required>
+                    <div class="check_font" id="name_check"></div>
                     
                   <label for="pass">비밀번호</label>
-                     <input type="password" class="form-control"  name="member_pass"  placeholder="비밀번호를 입력해주세요">
+                     <input type="password" class="form-control"  name="member_pass" id="member_pass" placeholder="비밀번호를 입력해주세요">
+                    <div class="check_font" id="pw_check"></div>
                      
                   <label for="pass2">비밀번호 확인</label>
-                     <input type="password" class="form-control"  name="member_pass2"  placeholder="비밀번호를 입력해주세요">
+                     <input type="password" class="form-control"  name="member_pass2" id="member_pass2" placeholder="비밀번호를 입력해주세요">
+                    <div class="check_font" id="pw2_check"></div>
                     
                   <label for="email">이메일</label>
-                     <input type="email" class="form-control"  name="email"  placeholder="이메일을 입력해주세요">
+                     <input type="email" class="form-control"  name="email" id="email"  placeholder="이메일을 입력해주세요">
+                    <div class="check_font" id="email_check"></div>
                     
                   <label for="phone">핸드폰</label>
-                    <input type="text" class="form-control"  name="phone"  placeholder="010-0000-0000">
+                    <input type="text" class="form-control"  name="phone" id="phone" placeholder="010-0000-0000">
+                    <div class="check_font" id="phone_check"></div>
                     
                   <label for="addr">주소</label>
-                    <input type="text" class="form-control"  name="addr"  placeholder="주소를 입력해주세요">
+                    <input type="text" class="form-control"  name="addr" id="addr" placeholder="주소를 입력해주세요">
                     
                   <label for="gender">성별</label>
                     <label><input type="radio" name="gender" value="남" checked/>남</label>
@@ -97,13 +106,14 @@
 
 
                   <label for="id">생일</label>
-                    <input type="text" class="form-control"  name="birth"  placeholder="생일을 입력해주세요">
+                    <input type="text" class="form-control"  name="birth" id="birth" placeholder="생일을 입력해주세요">
+                    <div class="check_font" id="birth_check"></div>
                   </div>
                   
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" onClick="regist()">회원등록</button>
+                  <button type="button" class="btn btn-info" id="reg" onClick="regist()">회원등록</button>
                 </div>
               </form>
             </div>
@@ -143,7 +153,7 @@
 <script>
 
 function regist(){
-	
+
 	var form1 = document.form1;
 	if(!form1.user_id.value){
 		alert("id를 입력하세요");
@@ -212,19 +222,66 @@ function regist(){
 		return false;
 	}
 	
-		form1.action="/admin/member/regist";
-		form1.method="post";
-		form1.submit();
-		
-		
-	
+	form1.action="/admin/member/regist";
+	form1.method="post";
+	form1.submit();
 }
+//아이디 유효성 검사(1 = 중복 / 0 != 중복)
+$("#user_id").blur(function() {
+	// 
+	
+	var idJ = /^[a-z0-9]{4,12}$/;
+
+
+	var user_id = $('#user_id').val();
+	$.ajax({
+		url : '/admin/member/idCheck?user_id='+ user_id,
+		type : 'get',
+		success : function(data) {
+			console.log("1 = 중복o / 0 = 중복x : "+ data);							
+			
+			if (data == 1) {
+					// 1 : 아이디가 중복되는 문구
+					$("#id_check").text("사용중인 아이디입니다 :p");
+					$("#id_check").css("color", "red");
+					$("#reg").attr("disabled", true);
+				} else {
+					
+					if(idJ.test(user_id)){
+						// 0 : 아이디 길이 / 문자열 검사
+						$("#id_check").text("");
+						$("#reg").attr("disabled", false);
+			
+					} else if(user_id == ""){
+						
+						$('#id_check').text('아이디를 입력해주세요 :)');
+						$('#id_check').css('color', 'red');
+						$("#reg").attr("disabled", true);				
+						
+					} else {
+						
+						$('#id_check').text("아이디는 소문자와 숫자 4~12자리만 가능합니다 :) :)");
+						$('#id_check').css('color', 'red');
+						$("#reg").attr("disabled", true);
+					}
+					
+				}
+			}, error : function() {
+					console.log("실패");
+			}
+		});
+		
+	});
+
+
+
 
 
 
 
 
 </script>
+
 </body>
 </html>
 

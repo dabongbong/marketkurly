@@ -19,7 +19,7 @@ import com.kurly.marketkurly.util.AES256Util;
 import com.kurly.marketkurly.util.StringUtil;
 
 @Service
-public class MemberServiceImple implements MemberService{
+public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
 	private MemberDAO memberDAO;
@@ -35,7 +35,7 @@ public class MemberServiceImple implements MemberService{
 			
 			//List 안에 들어있는 Member 들의 암화된 데이터를 복호화하자 
 			for(Member member :list ) {
-				try {
+				try { 
 					String decodeResult = encode.decodeData(member.getPhone());
 					System.out.println("복호화 된 번호"+decodeResult);
 					member.setPhone(stringUtil.getOriginalValue(decodeResult)); //-00
@@ -108,5 +108,14 @@ public class MemberServiceImple implements MemberService{
 	public void delete(int member_id) throws MemberException{
 		memberDAO.delete(member_id);
 	}
+	// 중복 아이디 체크
+		public int userIdCheck(String user_id) {
+
+			return memberDAO.userIdCheck(user_id);
+
+		}
+
+
+
 
 }

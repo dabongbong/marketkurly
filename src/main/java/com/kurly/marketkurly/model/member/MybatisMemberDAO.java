@@ -48,4 +48,10 @@ public class MybatisMemberDAO implements MemberDAO{
 		}
 	}
 
+	@Override
+	public int userIdCheck(String user_id) {
+		return sessionTemplate.selectOne("Member.userIdCheck",user_id);
+	}
+
+
 }
