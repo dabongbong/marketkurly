@@ -405,7 +405,7 @@ ol {
 }
 /* 고객센터 하위메뉴 시작 */
 #userMenu .sub {
-	/* visibility: hidden; */
+	display:none;
     position: absolute;
     right: 0;
     top: 34px;
@@ -415,8 +415,12 @@ ol {
     background-color:#fff
 }
 
-#userMenu .menu:hover .sub {
-	visibility: visible;
+#userMenu .drop {
+	display: flex;
+}
+
+#userMenu li:hover ul {
+	display:block;
 }
 #userMenu .sub li {
 	list-style: none;
@@ -4086,7 +4090,7 @@ a{
 		padding: 16px 12px 12px 11px;
 	}
 	.nav-item .nav-menu li a {
-		padding: 16px 45px 15px;
+		padding: 16px 25px 15px;
 	}
 }
 
