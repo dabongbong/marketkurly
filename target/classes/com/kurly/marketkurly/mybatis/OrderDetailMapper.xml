@@ -4,8 +4,8 @@
 	
 	<!--  OrderSummaryMapper를 위한 맵 -->	
 	<resultMap type="OrderDetail" id="joinOrderSummary">
-		<id column="order_detail_id" property="order_detail_id"/>
-		<result column="order_count" property="order_count"/>
+		<id	column="order_detail_id" property="order_detail_id"/>
+		<result column="order_count"  property="order_count"/>
 		<association column="product_id" 	   property="product" 		javaType="Product" 		select="Product.select"/>		
 	</resultMap>
 	

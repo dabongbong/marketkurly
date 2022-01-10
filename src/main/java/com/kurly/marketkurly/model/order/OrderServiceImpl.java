@@ -35,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public OrderSummary getDetail(int order_summary_id) {
+	public List getDetail(int order_summary_id) {
 		return orderSummaryDAO.getDetail(order_summary_id);
 	}
 

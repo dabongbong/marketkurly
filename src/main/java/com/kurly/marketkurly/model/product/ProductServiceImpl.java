@@ -6,11 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kurly.marketkurly.domain.Product;
+import com.kurly.marketkurly.domain.ProductDetail;
+import com.kurly.marketkurly.exception.ProductException;
 
 @Service
 public class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductDAO productDAO;
+	
+	private ProductDetailDAO productDetailDAO;
 
 	@Override
 	public List selectAll() {
@@ -23,7 +27,14 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public void insert(Product product) {
+	public void insert(Product product) throws ProductException{
+		productDAO.insert(product);
+		
+		for(ProductDetail obj:product.getProduct_detail_list()) {
+			obj.setProduct(product);
+			obj.getProduct().setProduct_id(product.getProduct_id());
+			productDetailDAO.insert(obj);
+		}
 		
 	}
 

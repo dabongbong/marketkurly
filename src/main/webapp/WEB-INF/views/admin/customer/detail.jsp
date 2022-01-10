@@ -1,7 +1,7 @@
-<%@page import="com.kurly.marketkurly.domain.Notice"%>
+<%@page import="com.kurly.marketkurly.domain.My_qna"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-	Notice notice = (Notice)request.getAttribute("notice");
+	My_qna my_qna = (My_qna)request.getAttribute("my_qna");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,28 +63,34 @@
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
-              		<input type="hidden" name="notice_no" value="<%=notice.getNotice_no() %>">
+              		<input type="hidden" name="my_qna_no" value="<%=my_qna.getMy_qna_no() %>">
 				    
+				    <div class="card-body">
+					 	<div class="form-group">
+					 	<th>카테고리</th><p>
+						    <input type="text"  	name="my_qna_category" class="form-control" value="<%=my_qna.getMy_qna_category()%>">
+					</div>
+					
 				 <div class="card-body">
 				 	<div class="form-group">
 				 	<th>제목</th><p>
-					    <input type="text"  	name="title" class="form-control" value="<%=notice.getTitle() %>">
+					    <input type="text"  	name="title" class="form-control" value="<%=my_qna.getTitle() %>">
 					</div>
 					
 					<div class="form-group">
 					<th>작성자</th><p>
-					    <input type="text"  	name="writer" class="form-control" value="<%=notice.getWriter() %>">
+					    <input type="text"  	name="member" class="form-control" value="<%=my_qna.getMember() %>">
 					</div>
 					
 					<div class="form-group">
 					<th>내용</th><p>
-					    <textarea id="summernote" name="content" class="form-control" style="height:450px"><%=notice.getContent() %></textarea>
+					    <textarea name="content" class="form-control" style="height:450px"><%=my_qna.getContent() %></textarea>
 					</div>
 					
 					<div class="card-footer">
 						<button type="button" class="btn btn-info" id="bt_edit">수정</button>
 						<button type="button" class="btn btn-info" id="bt_del">삭제</button>
-						<button type="button" class="btn btn-info" onClick="location.href='/admin/notice/list'">목록</button>
+						<button type="button" class="btn btn-info" onClick="location.href='/admin/customer/my_qna'">목록</button>
 	            	</div>
           
 				</div>
@@ -121,19 +127,6 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 
-<!-- 왜 안될까 질문 -->
-
-<script>
-$ (function () {
-  bsCustomFileInput.init();
-  $('#summernote').summernote({
-	  tabsize: 2,
-      height: 450,
-      
-    });
-  
-</script>
-  
 <script>
 $(function () {
   bsCustomFileInput.init();
@@ -157,14 +150,14 @@ $(function () {
 	
 function edit(){
 	if(confirm("수정하시겠습니까?")){
-		form1.action="/admin/notice/update";
+		form1.action="/admin/customer/update";
 		form1.method="post";
 		form1.submit();
 	}
 }
 function del(){
 	if(confirm("삭제하시겠습니까?")){
-		location.href="/admin/notice/delete?notice_no=<%=notice.getNotice_no()%>";
+		location.href="/admin/cutomer/delete?my_qna=<%=my_qna.getMy_qna_no()%>";
 	}
 }
  

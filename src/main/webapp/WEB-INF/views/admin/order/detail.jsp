@@ -1,10 +1,9 @@
-<%@page import="java.util.List"%>
 <%@page import="com.kurly.marketkurly.domain.OrderDetail"%>
 <%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	OrderSummary orderSummary = (OrderSummary)request.getAttribute("orderSummary");
-	List<OrderDetail> orderDetailList = orderSummary.getOrderDetailList();
+	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +40,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">주문 상세</h1>
+            <h1 class="m-0">공지사항 등록</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -62,27 +61,22 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">주문 상세</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
               	<input type="hidden" name="_method" value="PUT">
-              	<input type="hidden" name="order_detail_id" value="<%=orderDetailList%>">
+              	<input type="hidden" name="notice_id" value="">
                 <div class="card-body">
-                
+                <%for(OrderDetail orderDetailList : orderDetail){ %>
                   <div class="form-group">
-<%--                     <input type="text" class="form-control" value="<%=orderDetailList.getProduct().getTitle() %>" name="title"> --%>
-<!--                   </div> -->
-<!--                   <div class="form-group"> -->
-<%--                     <input type="text" class="form-control" value="<%=orderDetailList.getProduct().getPrice() %>" name="price"> --%>
-<!--                   </div> -->
-<!--                   <div class="form-group"> -->
-<%--                     <textarea class="form-control" value="<%=orderDetailList.getOrder_count() %>" name="order_count"></textarea>  --%>
-<!--                   </div> -->
-                  
+                  	<input type="text" class="form-control" value="<%=orderDetailList.getProduct().getTitle() %>" name="title" readonly>
+                    <input type="text" class="form-control" value="<%=orderDetailList.getProduct().getPrice() %>원" name="order_count" readonly>
+                    <input type="text" class="form-control" value="<%=orderDetailList.getOrder_count() %>개" name="price" readonly>
+                  </div>
+                 <%} %>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
                   <button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
                 </div>
