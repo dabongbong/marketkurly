@@ -64,6 +64,8 @@ public class ProductController {
 	
 	@PostMapping("/product/regist")
 	public String regist(HttpServletRequest request, Product product) {
+		request.getParameter("item");
+		request.getParameter("content");
 		System.out.println("디테일 값"+product.getProduct_detail_list());
 		System.out.println("해시태그 "+product.getProduct_hashtag_list());
 		System.out.println(product);
