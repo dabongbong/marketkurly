@@ -10,4 +10,5 @@ public interface MemberService {
 	public void insert(Member member);
 	public void update(Member member);
 	public void delete(int member_id);
+	public int userIdCheck(String user_id);
 }
