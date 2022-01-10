@@ -126,12 +126,16 @@
 <script>
 $ (function () {
   bsCustomFileInput.init();
-  $('#summernote').summernote({
-	  tabsize: 2,
-      height: 450,
-      
+  
     });
   
+$(document).ready(function(){
+	$('#summernote').summernote({
+		tabsize: 2,
+		height: 450
+	});
+	      
+});
 </script>
   
 <script>

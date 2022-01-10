@@ -9,14 +9,13 @@
 		<result column="writer" property="writer"/>
 		<result column="content" property="content"/>
 		<result column="regdate" property="regdate"/>
-		
+		 
 		<association column="member_id" property="member" javaType="Member" select="Member.select"/>
 	
 	</resultMap>
  
- <!-- 질문하기.. 솔직히 이해못해따..뭐가 틀린거지.. -->
 	<select id="selectAll" resultMap="joinMemberMy_qna">
-		select * my_qna_no, my_qna_category, title, writer, content, regdate,
+		select my_qna_no, my_qna_category, title, writer, content, regdate,
 		m.member_id as member_id
 		from member m, my_qna q
 		where m.member_id = q.member_id
