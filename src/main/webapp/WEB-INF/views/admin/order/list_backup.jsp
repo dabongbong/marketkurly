@@ -96,7 +96,7 @@
 				        <tr>
 				          <td><%=num-- %></td>
 				          <td><%=orderSummary.getMember().getUser_id()%></td>
-				          <td n>
+				          <td>
 				          	<a href="/admin/order/detail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
 				          		<%=orderSummary.getOrder_number() %>
 				          	</a>

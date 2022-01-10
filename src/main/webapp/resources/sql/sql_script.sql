@@ -85,15 +85,16 @@ create table member(
 	, birth varchar(20)
 ) default character set utf8;
 
-create table order_summary(
-	order_summary_id int primary key auto_increment
-	, member_id int
-	, paymethod_id int
-	, orderdate timestamp default now()
-	, price int default 0
-	, constraint fk_member_order_summary foreign key (member_id) references member(member_id)
-	, constraint fk_paymenthod_order_summary foreign key (paymethod_id) references paymethod(paymethod_id)
-) default character set utf8;
+CREATE TABLE order_summary(
+	order_summary_id INT	 PRIMARY KEY AUTO_INCREMENT
+	, member_id INT
+	, order_number INT UNIQUE
+	, paymethod_id INT
+	, orderdate TIMESTAMP DEFAULT NOW()
+	, price INT DEFAULT 0
+	, CONSTRAINT fk_member_order_summary FOREIGN KEY (member_id) REFERENCES member(member_id)
+	, CONSTRAINT fk_paymenthod_order_summary FOREIGN KEY (paymethod_id) REFERENCES paymethod(paymethod_id)
+) DEFAULT CHARACTER SET UTF8;
 
 create table order_detail(
 	 order_detail_id int primary key auto_increment

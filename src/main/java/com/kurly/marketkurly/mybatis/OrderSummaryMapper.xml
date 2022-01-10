@@ -4,6 +4,7 @@
 
 	<resultMap type="OrderSummary" id="joinMemberOrderSummary">
 		<id column="order_summary_id" 	  	property="order_summary_id"/>
+		<result column="order_number" 	  	  		property="order_number"/>
 		<result column="orderdate" 	  	  		property="orderdate"/>
 		<result column="price" 		 	  			property="price"/>
 
@@ -15,7 +16,7 @@
 	
 	<!-- 회원 전체의 주문 내역-->
 	<select id="selectAll" resultMap="joinMemberOrderSummary">
-		select order_summary_id, orderdate, price,
+		select order_summary_id, order_number, orderdate, price,
 		m.member_id as member_id, p.paymethod_id as paymethod_id
 		from order_summary os, member m, paymethod p
 		where os.member_id=m.member_id and os.paymethod_id=p.paymethod_id

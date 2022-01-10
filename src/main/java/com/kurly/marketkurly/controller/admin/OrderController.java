@@ -36,7 +36,7 @@ public class OrderController {
 		mav.addObject("pager", pager);
 		return mav;
 	}
-
+	
 	//카테고리 상세보기 
 	@GetMapping("/order/detail")
 	public ModelAndView getDetail(HttpServletRequest request, int order_summary_id) {
