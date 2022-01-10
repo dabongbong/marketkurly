@@ -1,10 +1,7 @@
-<%@page import="com.kurly.marketkurly.domain.OrderDetail"%>
-<%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
-<%@page import="java.util.List"%>
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@page import="com.kurly.marketkurly.domain.Notice"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%
-	String order_number = request.getParameter("order_number");
-	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
+	Notice notice = (Notice)request.getAttribute("notice");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
-	
+	   
 	<%@ include file="../inc/head_link.jsp" %>
   <!-- summernote -->
   <link rel="stylesheet" href="/resources/admin/plugins/summernote/summernote-bs4.min.css">
@@ -21,7 +18,6 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="/resources/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -41,7 +37,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">주문 상세 내역</h1>
+            <h1 class="m-0">공지사항 관리</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -62,35 +58,42 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">주문 번호 &nbsp;&nbsp;
-	                <strong>
-	                	<%=order_number %>
-	                </strong>
-                </h3>
+                <h3 class="card-title">상세 내용</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
-              	<input type="hidden" name="_method" value="PUT">
-              	<input type="hidden" name="notice_id" value="">
-                <div class="card-body">
-                <%for(OrderDetail orderDetailList : orderDetail){ %>
-                  <div class="form-group">
-                  	<input type="text" class="form-control" value="<%=orderDetailList.getProduct().getTitle() %>" name="title" readonly>
-                    <input type="text" class="form-control" value="<%=orderDetailList.getProduct().getPrice() %>원" name="order_count" readonly>
-                    <input type="text" class="form-control" value="<%=orderDetailList.getOrder_count() %>개" name="price" readonly>
-                  </div>
-                 <%} %>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
-                </div>
-              </form>
-            </div>
+              		<input type="hidden" name="notice_no" value="<%=notice.getNotice_no() %>">
+				    
+				 <div class="card-body">
+				 	<div class="form-group">
+				 	<th>제목</th><p>
+					    <input type="text"  	name="title" class="form-control" value="<%=notice.getTitle() %>">
+					</div>
+					
+					<div class="form-group">
+					<th>작성자</th><p>
+					    <input type="text"  	name="writer" class="form-control" value="<%=notice.getWriter() %>">
+					</div>
+					
+					<div class="form-group">
+					<th>내용</th><p>
+					    <textarea id="summernote" name="content" class="form-control" style="height:450px"><%=notice.getContent() %></textarea>
+					</div>
+					
+					<div class="card-footer">
+						<button type="button" class="btn btn-info" id="bt_edit">수정</button>
+						<button type="button" class="btn btn-info" id="bt_del">삭제</button>
+						<button type="button" class="btn btn-info" onClick="location.href='/admin/notice/list'">목록</button>
+	            	</div>
           
-            
+				</div>
+            </form>
             <!-- /.card -->
           </div>
+            
+            <!-- /.card -->
+          </div>         
         </div>
         
         <!-- /.row (main row) -->
@@ -113,11 +116,62 @@
 
 <%@ include file="../inc/bottom_link.jsp" %>
 
-<!-- Summernote -->
-<script src="/resources/admin/plugins/summernote/summernote-bs4.min.js"></script>
-
 <!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
 <script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+
+<!-- 왜 안될까 질문 -->
+
+<script>
+$ (function () {
+  bsCustomFileInput.init();
+  
+    });
+  
+$(document).ready(function(){
+	$('#summernote').summernote({
+		tabsize: 2,
+		height: 450
+	});
+	      
+});
+</script>
+  
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+
+</script>
+
+<script>
+$(function () {
+	$("#bt_edit").click(function(){
+		edit();
+	});
+
+	$("#bt_del").click(function(){
+		del();
+	});
+	 
+})
+
+// 수정 삭제
+	
+function edit(){
+	if(confirm("수정하시겠습니까?")){
+		form1.action="/admin/notice/update";
+		form1.method="post";
+		form1.submit();
+	}
+}
+function del(){
+	if(confirm("삭제하시겠습니까?")){
+		location.href="/admin/notice/delete?notice_no=<%=notice.getNotice_no()%>";
+	}
+}
+ 
+</script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
+	String id = request.getParameter("order_summary_id");
 	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
 %>
 <!DOCTYPE html>
@@ -40,7 +41,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">공지사항 등록</h1>
+            <h1 class="m-0">주문 상세 내역</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -61,7 +62,11 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">주문 상세</h3>
+                <h3 class="card-title">주문 번호 &nbsp;&nbsp;
+	                <strong>
+	                	<%=id %>
+	                </strong>
+                </h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
