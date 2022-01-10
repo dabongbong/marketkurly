@@ -153,75 +153,6 @@
 <script>
 
 function regist(){
-
-	var form1 = document.form1;
-	if(!form1.user_id.value){
-		alert("id를 입력하세요");
-		form1.user_id.focus();
-		
-		return false;
-	}
-	if(!form1.member_name.value){
-		alert("이름를 입력하세요");
-		form1.member_name.focus();
-		
-		return false;
-	}
-	
-	if(!form1.member_pass.value){
-		alert("비밀번호를 입력하세요");
-		form1.member_pass.focus();
-		
-		return false;
-	}
-	
-	if(!form1.member_pass2.value){
-		alert("비밀번호 입력하세요");
-		form1.member_pass2.focus();
-		
-		return false;
-	}
-	
-	if(form1.member_pass.value != form1.member_pass2.value){
-		alert("비밀번호가 일치하지 않습니다.");
-		form1.member_pass2.focus();
-		
-		return false;
-	}
-	
-	if(!form1.email.value){
-		alert("이메일을 입력하세요");
-		form1.email.focus();
-		
-		return false;
-	}
-	if(!form1.phone.value){
-		alert("핸드폰 번호를 입력하세요");
-		form1.addr.focus();
-		
-		return false;
-	}
-	if(!form1.addr.value){
-		alert("주소를 입력하세요");
-		form1.addr.focus();
-		
-		return false;
-	}
-	
-	if(!form1.gender.value){
-		alert("성별 입력하세요");
-		form1.addr.focus();
-		
-		return false;
-	}
-	 
-	if(!form1.birth.value){
-		alert("주소를 입력하세요");
-		form1.addr.focus();
-		
-		return false;
-	}
-	
 	form1.action="/admin/member/regist";
 	form1.method="post";
 	form1.submit();
@@ -273,12 +204,131 @@ $("#user_id").blur(function() {
 		
 	});
 
+	var empJ = /\s/g;
+	//아이디 정규식
+	var idJ = /^[a-z0-9]{4,12}$/;
+	// 비밀번호 정규식
+	var pwJ = /^[A-Za-z0-9]{4,12}$/; 
+	// 이름 정규식
+	var nameJ = /^[가-힣]{2,6}$/;
+	// 이메일 검사 정규식
+	var mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	// 휴대폰 번호 정규식
+	var phoneJ = /01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/;
 
-
-
-
-
-
+	// 이름에 특수문자 들어가지 않도록 설정
+	$("#member_name").blur(function() {
+		if (nameJ.test($(this).val())) {
+				console.log(nameJ.test($(this).val()));
+				$("#name_check").text(' ');
+		} else {
+			$('#name_check').text('이름을 확인해주세요');
+			$('#name_check').css('color', 'red');
+		}
+	});
+	// 휴대전화
+	$('#phone').blur(function(){
+		if(phoneJ.test($(this).val())){
+			console.log(nameJ.test($(this).val()));
+			$("#phone_check").text(' ');
+		} else {
+			$('#phone_check').text('휴대폰번호를 확인해주세요 :)');
+			$('#phone_check').css('color', 'red');
+		}
+	});
+	
+	//비밀번호
+	$('#member_pass').blur(function(){
+		if(pwJ.test($(this).val())){
+			console.log(nameJ.test($(this).val()));
+			$('#pw_check').text(' ');
+		}else{
+			console.log('false');
+			$('#pw_check').text('숫자 or 문자로만 4~12자리 입력 :)');
+			$('#pw_check').css('color', 'red');
+		}
+	});
+	
+	//패스워드 일치확인
+	$('#member_pass2').blur(function(){
+		if($('#member_pass').val() != $(this).val()){
+			$('#pw2_check').text('비밀번호가 일치하지 않습니다');
+			$('#pw2_check').css('color', 'red');
+		}else{
+			$('#pw2_check').text(' ');
+		}
+	});
+	
+	// 이메일
+	$('#email').blur(function(){
+		if(mailJ.test($(this).val())){
+			console.log(nameJ.test($(this).val()));
+			$("#email_check").text('');
+		} else {
+			$('#email_check').text('이메일 형식을 확인해주세요 :)');
+			$('#email_check').css('color', 'red');
+		}
+	});
+	// 생일 유효성 검사
+	var birthJ = false;
+	
+	// 생년월일	birthJ 유효성 검사
+	$('#birth').blur(function(){
+		var dateStr = $(this).val();		
+	    var year = Number(dateStr.substr(0,4)); // 입력한 값의 0~4자리까지 (연)
+	    var month = Number(dateStr.substr(4,2)); // 입력한 값의 4번째 자리부터 2자리 숫자 (월)
+	    var day = Number(dateStr.substr(6,2)); // 입력한 값 6번째 자리부터 2자리 숫자 (일)
+	    var today = new Date(); // 날짜 변수
+	    var yearNow = today.getFullYear(); // 올해 연도 
+		
+	    if (dateStr.length <=8) {
+			// 연도의 경우 1900 보다 작거나 yearNow 보다 크다면 false를 반환합니다.
+		    if (1900 > year || year > yearNow){
+		    	
+		    	$('#birth_check').text('생년월일을 확인해주세요 :)');
+				$('#birth_check').css('color', 'red');
+		    	
+		    }else if (month < 1 || month > 12) {
+		    		
+		    	$('#birth_check').text('생년월일을 확인해주세요 :)');
+				$('#birth_check').css('color', 'red'); 
+		    
+		    }else if (day < 1 || day > 31) {
+		    	
+		    	$('#birth_check').text('생년월일을 확인해주세요 :)');
+				$('#birth_check').css('color', 'red'); 
+		    	
+		    }else if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+		    	 
+		    	$('#birth_check').text('생년월일을 확인해주세요 :)');
+				$('#birth_check').css('color', 'red'); 
+		    	 
+		    }else if (month == 2) {
+		    	 
+		       	var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+		       	
+		     	if (day>29 || (day==29 && !isleap)) {
+		     		
+		     		$('#birth_check').text('생년월일을 확인해주세요 :)');
+					$('#birth_check').css('color', 'red'); 
+		    	
+				}else{
+					$('#birth_check').text('');
+					birthJ = true;
+				}//end of if (day>29 || (day==29 && !isleap))
+		     	
+		    }else{
+		    	
+		    	$('#birth_check').text(''); 
+				birthJ = true;
+			}//end of if
+			
+			}else{
+				//입력된 생년월일이 8자 초과할때 :  auth:false
+				$('#birth_check').text('생년월일을 확인해주세요 :)');
+				$('#birth_check').css('color', 'red');  
+			}
+		}); 
 
 </script>
 
