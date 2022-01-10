@@ -94,13 +94,12 @@ button:focus,
 textarea:focus {
 	outline: none;
 }
-
-a:hover,
+ a:hover,
 a:focus {
 	text-decoration: none;
 	outline: none;
-	color: #fff;
-}
+	color: #333;
+} 
 
 ul,
 ol {
@@ -406,11 +405,10 @@ ol {
 /* 고객센터 하위메뉴 시작 */
 #userMenu .sub {
 	display:none;
-    position: absolute;
-    right: 0;
+	right: 0;
     top: 34px;
     width: 102px;
-    padding: 3px 9px;
+	padding: 3px 9px;
     border: 1px solid #ddd;
     background-color:#fff
 }
@@ -831,7 +829,7 @@ ol {
 	display: block;
 	color: #333;
 	text-transform: uppercase;
-	padding: 16px 42px 15px;
+	padding: 16px 42px 16px;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
@@ -1572,11 +1570,12 @@ a{
     text-decoration: none;
     color: #333;
 }
-#footer {
-
+.footer__right,
+.footer__right p{
+	font-size:12px;
 }
-#footer, .footer__second{
-    border-top: 1px solid #999;
+.footer__right p a{
+	color:#5f0080;
 }
 
 .footer__first{
@@ -1607,6 +1606,7 @@ a{
 
 .footer__left dl{
     padding-left: 20px;
+    font-size:14px;
 }
 
 .footer__left dd{
@@ -1619,7 +1619,7 @@ a{
     font-weight: 800;
     font-size: 28px;
     color: #333;
-    line-height: 20px;
+    line-height: center;
     letter-spacing: -.5px;
     text-align: center;
     white-space: nowrap;
@@ -1636,7 +1636,7 @@ a{
     font-weight: 700;
     font-size: 14px;
     color: #333;
-    line-height: 32px;
+    line-height: 38px;
     text-align: center;
 }
 
@@ -1646,6 +1646,7 @@ a{
     line-height: 35px;
     padding-top: 9px;
     padding-left: 20px;
+    font-size:14px;
 }
 
 .footer__right .intro{
@@ -1664,15 +1665,31 @@ a{
     padding-bottom: 20px;
 }
 .footer__right .sns li img{
-    width: 50px;
+    width: 40px;
     padding-right: 10px;
 }
 
 
+.footer__second {
+	display:flex;
+	justify-content: space-between;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+.footer__second .text {
+	font-size : 10px;
+	color : #999;
+	line-height: 16px;
+}
+.footer__second img {
+
+}
 
 /*---------------------
-  Footer
------------------------*/
+  기존에 있던 Footer
+
 
 .f_container {
 	display: flex;
@@ -1862,7 +1879,7 @@ a{
 .copyright-reserved .payment-pic {
 	float: right;
 }
-
+-----------------------*/
 /*-------------------------------- Other Pages Style -------------------------------*/
 
 /*---------------------

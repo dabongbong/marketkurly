@@ -38,7 +38,7 @@
                 <div class="ht-right" id="userMenu">
                 <ul class="drop">
                     <li><a href="#" class="join-panel">회원가입</a></li>
-                    <li><a href="#" class="login-panel">로그인</a></li>
+                    <li><a href="/market/member/login" class="login-panel">로그인</a></li>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
 	                        <li><a href="#">공지사항­</a></li>
@@ -75,7 +75,7 @@
                         <li class="active"><a href="./index.html">신상품</a></li>
                         <li><a href="./shop.html">베스트</a></li>
                         <li><a href="#">알뜰쇼핑</a></li>
-                        <li><a href="./blog.html">특가/혜택</a></li>
+                        <li><a href="./blog.html">특가/혜택</a></li>
                     </ul>
                   <div class="advanced-search">
                         <div class="input-group">
