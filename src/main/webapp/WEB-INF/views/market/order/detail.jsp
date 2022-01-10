@@ -1,6 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Fashi Template">
@@ -13,15 +13,15 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="../resources/market/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../resources/market/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../resources/market/css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="../resources/market/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../resources/market/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../resources/market/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="../resources/market/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="../resources/market/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../resources/market/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -69,11 +69,11 @@
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/logo.png" alt="">
+                                <img src="../resources/market/img/logo.png" alt="">
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-lg-7">
+                    <div class="col-lg-7 col-md-7">
                         <div class="advanced-search">
                             <button type="button" class="category-btn">All Categories</button>
                             <form action="#" class="input-group">
@@ -82,7 +82,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-3 text-right col-lg-3">
+                    <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
                             <li class="heart-icon"><a href="#">
                                     <i class="icon_heart_alt"></i>
@@ -98,7 +98,7 @@
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
+                                                    <td class="si-pic"><img src="../resources/market/img/select-product-1.jpg" alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
                                                             <p>$60.00 x 1</p>
@@ -110,7 +110,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
+                                                    <td class="si-pic"><img src="../resources/market/img/select-product-2.jpg" alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
                                                             <p>$60.00 x 1</p>
@@ -160,7 +160,7 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./home.html">Home</a></li>
                         <li><a href="./shop.html">Shop</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
@@ -194,53 +194,49 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="#"><i class="fa fa-home"></i> Home</a>
-                        <span>Login</span>
+                    <div class="breadcrumb-text product-more">
+                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                        <a href="./shop.html">Shop</a>
+                        <span>Check Out</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Breadcrumb Form Section Begin -->
+    <!-- Breadcrumb Section Begin -->
 
-    <!-- Register Section Begin -->
-    <div class="register-login-section spad">
+    <!-- Shopping Cart Section Begin -->
+    <section class="checkout-section spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="login-form">
-                        <h2>Login</h2>
-                        <form action="#">
-                            <div class="group-input">
-                                <label for="username">Username or email address *</label>
-                                <input type="text" id="username">
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">Password *</label>
-                                <input type="text" id="pass">
-                            </div>
-                            <div class="group-input gi-check">
-                                <div class="gi-more">
-                                    <label for="save-pass">
-                                        Save Password
-                                        <input type="checkbox" id="save-pass">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <a href="#" class="forget-pass">Forget your Password</a>
+            <form action="#" class="checkout-form">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="checkout-content">
+                            <input type="text" placeholder="Enter Your Coupon Code">
+                        </div>
+                        <div class="place-order">
+                            <h4>주문 내역</h4>
+                            <div class="order-total">
+                                <ul class="order-table">
+                                    <li>품명 <span>금액</span></li>
+                                    <!-- 여기 반복문 돌리기 -->
+                                    
+                                    <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
+                                    
+                                    <!-- 여기 까지 -->
+                                    <li class="total-price">Total <span>$240.00</span></li>
+                                </ul>
+                                <div class="order-btn">
+                                    <button type="button" class="site-btn place-btn">목록가기</button>
                                 </div>
                             </div>
-                            <button type="submit" class="site-btn login-btn">Sign In</button>
-                        </form>
-                        <div class="switch-login">
-                            <a href="./register.html" class="or-login">Or Create An Account</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-    </div>
-    <!-- Register Form Section End -->
+    </section>
+    <!-- Shopping Cart Section End -->
 
     <!-- Partner Logo Section Begin -->
     <div class="partner-logo">
@@ -248,27 +244,27 @@
             <div class="logo-carousel owl-carousel">
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-1.png" alt="">
+                        <img src="../resources/market/img/logo-carousel/logo-1.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-2.png" alt="">
+                        <img src="../resources/market/img/logo-carousel/logo-2.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-3.png" alt="">
+                        <img src="../resources/market/img/logo-carousel/logo-3.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-4.png" alt="">
+                        <img src="../resources/market/img/logo-carousel/logo-4.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-5.png" alt="">
+                        <img src="../resources/market/img/logo-carousel/logo-5.png" alt="">
                     </div>
                 </div>
             </div>
@@ -283,7 +279,7 @@
                 <div class="col-lg-3">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                            <a href="#"><img src="../resources/market/img/footer-logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -342,7 +338,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="payment-pic">
-                            <img src="img/payment-method.png" alt="">
+                            <img src="../resources/market/img/payment-method.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -352,16 +348,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/jquery.dd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../resources/market/js/jquery-3.3.1.min.js"></script>
+    <script src="../resources/market/js/bootstrap.min.js"></script>
+    <script src="../resources/market/js/jquery-ui.min.js"></script>
+    <script src="../resources/market/js/jquery.countdown.min.js"></script>
+    <script src="../resources/market/js/jquery.nice-select.min.js"></script>
+    <script src="../resources/market/js/jquery.zoom.min.js"></script>
+    <script src="../resources/market/js/jquery.dd.min.js"></script>
+    <script src="../resources/market/js/jquery.slicknav.js"></script>
+    <script src="../resources/market/js/owl.carousel.min.js"></script>
+    <script src="../resources/market/js/main.js"></script>
 </body>
 
 </html>
