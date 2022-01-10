@@ -37,7 +37,7 @@ public class MybatisMy_qnaDAO implements My_qnaDAO{
 	public void update(My_qna my_qna) throws My_qnaException{
 		int result = sessionTemplate.update("My_qna.update", my_qna);
 		if(result==0) {
-			throw new My_qnaException("문의 등록 실패");
+			throw new My_qnaException("문의 수정 실패");
 		}
 	}
 
@@ -45,7 +45,7 @@ public class MybatisMy_qnaDAO implements My_qnaDAO{
 	public void delete(int my_qna_no) throws My_qnaException{
 		int result = sessionTemplate.delete("My_qna.delete", my_qna_no);
 		if(result==0) {
-			throw new My_qnaException("문의 등록 실패");
+			throw new My_qnaException("문의 삭제 실패");
 		}
 	}
 

@@ -13,7 +13,8 @@
 		<typeAlias type="com.kurly.marketkurly.domain.OrderDetail" 	 	 alias="OrderDetail"/>
 		<typeAlias type="com.kurly.marketkurly.domain.PayMethod"		 alias="PayMethod"/>
 		<typeAlias type="com.kurly.marketkurly.domain.My_qna" 			 alias="My_qna"/>
-
+		<typeAlias type="com.kurly.marketkurly.domain.Faq" 			 alias="Faq"/>
+ 
 		<!-- Product -->
 		<typeAlias type="com.kurly.marketkurly.domain.Product" 			 alias="Product"/>
  		<typeAlias type="com.kurly.marketkurly.domain.ProductQnA"		 alias="ProductQnA"/>
@@ -35,5 +36,6 @@
     <mapper resource="com/kurly/marketkurly/mybatis/ProductDetailMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/NoticeMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/My_qnaMapper.xml"/>
+    <mapper resource="com/kurly/marketkurly/mybatis/FaqMapper.xml"/>
   </mappers>
 </configuration>
