@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -147,8 +148,8 @@
                         <i class="ti-menu"></i>
                         <span>All departments</span>
                         <ul class="depart-hover">
-                            <li class="active"><a href="#">Women’s Clothing</a></li>
-                            <li><a href="#">Men’s Clothing</a></li>
+                            <li class="active"><a href="#">Womenâs Clothing</a></li>
+                            <li><a href="#">Menâs Clothing</a></li>
                             <li><a href="#">Underwear</a></li>
                             <li><a href="#">Kid's Clothing</a></li>
                             <li><a href="#">Brand Fashion</a></li>
@@ -356,6 +357,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    
+    <script type="text/javascript">
+    function regist(){
+    	form1.action="/market/member/regist";
+    	form1.method="post";
+    	form1.submit();
+    }
+    </script>
 </body>
 
 </html>

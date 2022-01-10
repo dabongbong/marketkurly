@@ -1,5 +1,6 @@
 <%@page import="com.kurly.marketkurly.domain.Member"%>
-<%@ page contentType="text/html; charset=UTF-8"%><%
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%
 	Member member=(Member)request.getAttribute("member");
 %>
 <!DOCTYPE html>
