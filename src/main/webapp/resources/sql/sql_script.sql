@@ -76,6 +76,7 @@ create table faq(
 
 create table member(
 	member_id int primary key auto_increment
+	, user_id varchar(64)
 	, member_pass varchar(64)
 	, member_name varchar(30)
 	, email varchar(30)
