@@ -6,35 +6,19 @@
     <!-- Hero Section Begin -->
     <section class="hero-section">
         <div class="hero-items owl-carousel">
-            <div class="single-hero-items set-bg" data-setbg="./resources/market/img/hero-1.jpg">
+            <div class="single-hero-items set-bg" data-setbg="./resources/market/img/categoryIcons/02e660c5-8de2-4816-8eec-476446753413.webp">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black friday</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore</p>
-                            <a href="#" class="primary-btn">Shop Now</a>
                         </div>
-                    </div>
-                    <div class="off-card">
-                        <h2>Sale <span>50%</span></h2>
                     </div>
                 </div>
             </div>
-            <div class="single-hero-items set-bg" data-setbg="./resources/market/img/hero-2.jpg">
+            <div class="single-hero-items set-bg" data-setbg="./resources/market/img/categoryIcons/11982378-efb1-44ef-afca-cedb63e752b8.webp">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black friday</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore</p>
-                            <a href="#" class="primary-btn">Shop Now</a>
                         </div>
-                    </div>
-                    <div class="off-card">
-                        <h2>Sale <span>50%</span></h2>
                     </div>
                 </div>
             </div>
@@ -43,31 +27,30 @@
     <!-- Hero Section End -->
 
     <!-- Banner Section Begin -->
+    <div>
+    	<span class="index__text">이 상품 어때요?</span>
+    </div>
     <div class="banner-section spad">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="single-banner">
-                        <img src="./resources/market/img/banner-1.jpg" alt="">
-                        <div class="inner-text">
-                            <h4> Men's</h4>
-                        </div>
+                        <img src="./resources/market/img/categoryIcons/1479802123439l0.jpeg" alt="">
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="single-banner">
-                        <img src="./resources/market/img/banner-2.jpg" alt="">
-                        <div class="inner-text">
-                            <h4> Women's</h4>
-                        </div>
+                        <img src="./resources/market/img/categoryIcons/1479802123439l0.jpeg" alt="">
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="single-banner">
-                        <img src="./resources/market/img/banner-3.jpg" alt="">
-                        <div class="inner-text">
-                            <h4>Kid's</h4>
-                        </div>
+                        <img src="./resources/market/img/categoryIcons/1479802123439l0.jpeg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="single-banner">
+                        <img src="./resources/market/img/categoryIcons/1479802123439l0.jpeg" alt="">
                     </div>
                 </div>
             </div>
@@ -75,7 +58,51 @@
     </div>
     <!-- Banner Section End -->
 
-    <!-- Women Banner Section Begin -->
+	<!-- 중간배너 -->
+	<div class="mid-banner">
+		<a href="#">
+			<img src="./resources/market/img/categoryIcons/55da31d2-2d6e-4db5-97b8-898da8d8faef.webp">
+		</a>
+	</div>
+
+    <!-- Deal Of The Week Section Begin-->
+    <section class="deal-of-week set-bg spad" data-setbg="./resources/market/img/time-bg.jpg">
+        <div class="container">
+            <div class="col-lg-6 text-center">
+                <div class="section-title">
+                    <h2>Deal Of The Week</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed<br /> do ipsum dolor sit amet,
+                        consectetur adipisicing elit </p>
+                    <div class="product-price">
+                        $35.00
+                        <span>/ HanBag</span>
+                    </div>
+                </div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="cd-item">
+                        <span>56</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="cd-item">
+                        <span>12</span>
+                        <p>Hrs</p>
+                    </div>
+                    <div class="cd-item">
+                        <span>40</span>
+                        <p>Mins</p>
+                    </div>
+                    <div class="cd-item">
+                        <span>52</span>
+                        <p>Secs</p>
+                    </div>
+                </div>
+                <a href="#" class="primary-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+    <!-- Deal Of The Week Section End -->
+
+    <!-- Women Banner Section Begin-->
     <section class="women-banner spad">
         <div class="container-fluid">
             <div class="row">
@@ -192,42 +219,6 @@
     </section>
     <!-- Women Banner Section End -->
 
-    <!-- Deal Of The Week Section Begin-->
-    <section class="deal-of-week set-bg spad" data-setbg="./resources/market/img/time-bg.jpg">
-        <div class="container">
-            <div class="col-lg-6 text-center">
-                <div class="section-title">
-                    <h2>Deal Of The Week</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed<br /> do ipsum dolor sit amet,
-                        consectetur adipisicing elit </p>
-                    <div class="product-price">
-                        $35.00
-                        <span>/ HanBag</span>
-                    </div>
-                </div>
-                <div class="countdown-timer" id="countdown">
-                    <div class="cd-item">
-                        <span>56</span>
-                        <p>Days</p>
-                    </div>
-                    <div class="cd-item">
-                        <span>12</span>
-                        <p>Hrs</p>
-                    </div>
-                    <div class="cd-item">
-                        <span>40</span>
-                        <p>Mins</p>
-                    </div>
-                    <div class="cd-item">
-                        <span>52</span>
-                        <p>Secs</p>
-                    </div>
-                </div>
-                <a href="#" class="primary-btn">Shop Now</a>
-            </div>
-        </div>
-    </section>
-    <!-- Deal Of The Week Section End -->
 
     <!-- Man Banner Section Begin -->
     <section class="man-banner spad">

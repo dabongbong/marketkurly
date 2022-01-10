@@ -70,8 +70,8 @@
                 <div class="nav-depart">
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
-                        	<span>전체 카테고리 </span>
-                        		<ul class="depart-hover">
+                        <span>전체 카테고리 </span>
+                        <ul class="depart-hover">
                             <li class="active">
                         <%for(Category category : categoryList){ %>
                             	<a id="category"  style='color:#646464' href="#" >

@@ -716,7 +716,7 @@ ol {
 	font-weight: 700;
 	color: #252525;
 }
-
+/* 카테고리시작 */
 .nav-item {
 	background: #fff;
 	display: -webkit-box;
@@ -724,28 +724,26 @@ ol {
 	display: flex;
 }
 
-.nav-item .nav-depart {
+ .nav-item .nav-depart {
 	float: left;
-}
+}  
 
-.nav-item .nav-depart .depart-btn {
+ .nav-item .nav-depart .depart-btn {
 	background: #fff;
-	/* color: #ffffff; */
 	padding: 14px 84px 14px 18px;
 	cursor: pointer;
 	position: relative;
-}
+} 
 
-.nav-item .nav-depart .depart-btn:hover .depart-hover {
+ .nav-item .nav-depart .depart-btn:hover .depart-hover {
 	top: 52px;
 	opacity: 1;
 	visibility: visible;
 	z-index: 99;
-}
+} 
 
 .nav-item .nav-depart .depart-btn:before {
 	position: absolute;
-	/* color: #ffffff; */
 	right: 20px;
 	top: 13px;
 	content: "";
@@ -754,7 +752,6 @@ ol {
 }
 
 .nav-item .nav-depart .depart-btn i {
-	/* color: #ffffff; */
 	font-size: 16px;
 }
 
@@ -765,7 +762,7 @@ ol {
 	margin-left: 16px;
 }
 
-.nav-item .nav-depart .depart-btn .depart-hover {
+ .nav-item .nav-depart .depart-btn .depart-hover {
 	position: absolute;
 	width: 100%;
 	background: #fff;
@@ -773,33 +770,56 @@ ol {
 	top: 62px;
 	opacity: 0;
 	visibility: hidden;
+	border: 1px solid #d5d5d5;
 	padding-bottom: 29px;
-	-webkit-box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
-	box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
-}
+} 
 
-.nav-item .nav-depart .depart-btn .depart-hover li {
+/* .nav-depart .depart-btn>li>ul {
+	left: 2px;
+	top: 32px;
+	display: none;
+	margin-left: 5px;
+} */
+
+/* .nav-item .nav-depart .depart-btn .depart-hover li {
 	list-style: none;
-}
+} */
 
-.nav-item .nav-depart .depart-btn .depart-hover li.active a {
+/* .nav-item .nav-depart .depart-btn .depart-hover li.active a {
 	color: #333;
-}
+} */
 
-.nav-item .nav-depart .depart-btn .depart-hover li a {
+ .nav-item .nav-depart .depart-btn .depart-hover li a {
 	display: block;
-	font-size: 16px;
+	font-size: 14px;
 	color: #000000;
-	padding-left: 40px;
+	padding-left: 20px;
 	padding-top: 16px;
 	padding-right: 30px;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
+} 
+/* 카테고리 끝 */
+
+/* 서브카테고리 시작  */
+
+ .depart-hover{float:left;}
+.depart-hover>li{float:left;} 
+
+.depart-hover ul{display:none;} 
+
+.depart-hover li:hover>ul{
+	display: block;
+	position: absolute;
+	left: 100%;
+	top: 0px;
+	border: 1px solid  #d5d5d5;
+	background: #eaeaea;
+	white-space:nowrap;
 }
+/* 서브카테고리 끝 */
+
 
 .nav-item .nav-depart .depart-btn .depart-hover li a:hover {
 	color: #fff;
@@ -876,7 +896,7 @@ ol {
 -----------------------*/
 
 .hero-items .single-hero-items {
-	height: 725px;
+	height: 370px;
 	padding-top: 210px;
 }
 
@@ -1024,6 +1044,16 @@ ol {
 /*---------------------
   Banner Section
 -----------------------*/
+.index__text {
+	display:flex;
+	justify-content: center;
+    padding-top: 50px;
+	color: rgb(51, 51, 51);
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: -0.26px;
+    font-weight: 600;
+}
 
 .banner-section {
 	padding: 80px 50px;
@@ -1084,6 +1114,13 @@ ol {
 	padding: 11px 28px;
 	background: #ffffff;
 	border-radius: 2px;
+}
+
+/*---------------------
+  중간배너 
+-----------------------*/
+.mid-banner {
+	width:100%;
 }
 
 /*---------------------
