@@ -26,9 +26,7 @@
                                     <a href="#" class="forget-pass">비밀번호 찾기</a>
                                     <a href="#" class="forget-pass">아이디 찾기&nbsp;| &nbsp;</a> 
                                 </div>
-                              	 <c:if test = "${result == 0 }">
-					                <div class = "login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
-					             </c:if>
+                              	 
                             </div>
                             <button type="button" class="site-btn login-btn" id="login-btn" onClick="loginCheck()">로그인</button>
                             <button type="button" class="site-btn login-btn" id="login-btn2" onClick="location.href='/registform'">회원가입</button>

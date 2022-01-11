@@ -1,9 +1,11 @@
+<%@page import="com.kurly.marketkurly.domain.Member"%>
 <%@page import="com.kurly.marketkurly.domain.Category"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
+	Member member= new Member();
 %>
 
 <!DOCTYPE html>
@@ -31,6 +33,8 @@
     <link rel="stylesheet" href="/resources/market/css/style.css" type="text/css">
    
 </head>
+<script type="text/javascript">
+</script>
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -44,8 +48,17 @@
                 <a href="#" class="delivery-panner"><img src="./resources/market/img/categoryIcons/delivery_210801.webp" alt="샛별,택배배송안내" width="121" height="22"></a>
                 <div class="ht-right" id="userMenu">
                 <ul class="drop">
+                
+                <!-- 로그인 하지 않은 상태 -->
+                <c:if test="${member.user_id==null }">
                     <li><a href="/registform" class="join-panel">회원가입</a></li>
                     <li><a href="/loginform" class="login-panel">로그인</a></li>
+                  </c:if>
+                  
+                  <!-- 로그인한 상태 -->
+                  <c:if test="${ member.user_id != null }">
+                                <li><a href="/loginform" class="login-panel" id="loginSuccess" onClick="location.href='/logout'">로그아웃</a></li>
+                </c:if>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
 	                        <li><a href="#">공지사항­</a></li>

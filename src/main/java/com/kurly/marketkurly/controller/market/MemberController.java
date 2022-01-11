@@ -66,6 +66,14 @@ public class MemberController {
 			
 			return message;
 		}
+		//로그아웃 요청처리
+		@GetMapping("/logout")
+		public String logout(HttpServletRequest request) {
+			HttpSession session = request.getSession();
+			session.invalidate();
+			
+			return "redirect:loginform";
+		}
 }
 
 
