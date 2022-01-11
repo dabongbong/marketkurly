@@ -27,7 +27,7 @@ public class MybatisFaqDAO implements FaqDAO{
 
 	@Override
 	public void insert(Faq faq) throws FaqException{
-		int result = sessionTemplate.insert("Fnq.insert", faq);
+		int result = sessionTemplate.insert("Faq.insert", faq);
 		if(result == 0) {
 			throw new FaqException("FAQ 등록 실패");
 		}
@@ -35,7 +35,7 @@ public class MybatisFaqDAO implements FaqDAO{
 
 	@Override
 	public void update(Faq faq) throws FaqException{
-		int result = sessionTemplate.update("Fnq.update", faq);
+		int result = sessionTemplate.update("Faq.update", faq);
 		if(result == 0) {
 			throw new FaqException("FAQ 수정 실패");
 		}
@@ -43,7 +43,7 @@ public class MybatisFaqDAO implements FaqDAO{
 
 	@Override
 	public void delete(int faq_no) throws FaqException{
-		int result = sessionTemplate.delete("Fnq.delete", faq_no);
+		int result = sessionTemplate.delete("Faq.delete", faq_no);
 		if(result == 0) {
 			throw new FaqException("FAQ 삭제 실패"); 
 		}

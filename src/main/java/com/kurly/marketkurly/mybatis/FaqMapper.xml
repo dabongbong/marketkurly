@@ -13,11 +13,10 @@
 	</select>
 	
 	<insert id="insert" parameterType="Faq">
-		insert into faq(faq_no, faq_category, title, writer, content)
-		values(#{faq_no}, #{faq_category}, #{title}, #{writer}, #{content})
+		insert into faq(faq_no, faq_category, title, content)
+		values(#{faq_no}, #{faq_category}, #{title}, #{content})
 	</insert>
 	
-	<!-- 쿼리에 content 추가 시켜야함  -->
 	
 	<update id="update" parameterType="Faq"> 
 		update faq set title=#{title}, faq_category=#{faq_category}, content=#{content}
@@ -25,6 +24,6 @@
 	</update>
 	
 	<delete id="delete" parameterType="int">
-		delete from faq where Faq_no=#{faq_no}
+		delete from faq where faq_no=#{faq_no}
 	</delete>
 </mapper>
