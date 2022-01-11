@@ -127,7 +127,7 @@
 </body>
 <script type="text/javascript">
 function regist(){
-	form1.action="/market/member/regist";
+	form1.action="/member/regist";
 	form1.method="post";
 	form1.submit();
 }
@@ -306,7 +306,5 @@ $("#user_id").blur(function() {
 
 
 </script>
-
-</html>
 </body>
 </html>

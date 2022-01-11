@@ -43,8 +43,8 @@
                 <a href="#" class="delivery-panner"><img src="./resources/market/img/categoryIcons/delivery_210801.webp" alt="샛별,택배배송안내" width="121" height="22"></a>
                 <div class="ht-right" id="userMenu">
                 <ul class="drop">
-                    <li><a href="#" class="join-panel">회원가입</a></li>
-                    <li><a href="/market/member/login" class="login-panel">로그인</a></li>
+                    <li><a href="/registform" class="join-panel">회원가입</a></li>
+                    <li><a href="/loginform" class="login-panel">로그인</a></li>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
 	                        <li><a href="#">공지사항­</a></li>
@@ -73,12 +73,14 @@
                         	<span>전체 카테고리 </span>
                         		<ul class="depart-hover">
                             <li class="active">
+                         <%--    
                         <%for(Category category : categoryList){ %>
                             	<a id="category"  style='color:#646464' href="#" >
                             		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px">
                             		<%=category.getCategory_name() %>
                             	</a>
                     	<%} %>
+                    	 --%>
 		                    	<ul class="sub-hover">
 		                    		<li class="active">
 		                    			<a href="#">서브카테고리</a>
