@@ -44,37 +44,7 @@ public class ProductFileManager {
 		
 		return filename;
 	}
-	public JsonObject saveSummernoteFile(MultipartFile multipartFile, HttpServletRequest request) {
-		JsonObject jsonObject = new JsonObject();
-		
-		//내부경로로 저장
-		ServletContext application = request.getServletContext();
-		String saveDir = application.getRealPath("/resources/productImg");
-		System.out.println("saveDir is "+saveDir);
-		
-		String filename = createFilename(multipartFile.getOriginalFilename());
-		File file = new File(saveDir+"/"+filename);
-		boolean result = false;
-		try {
-			multipartFile.transferTo(file);
-			jsonObject.addProperty("url", saveDir+"/"+filename);
-			jsonObject.addProperty("responseCode", "success");
-			
-			System.out.println("업로드 완료");
-			result = true;
-		} catch (IllegalStateException | IOException e) {
-			FileUtils.deleteQuietly(file);
-			jsonObject.addProperty("responseCode", "error");
-			result = false;
-			e.printStackTrace();
-		}
-		if(result==false) {
-			throw new UploadException("파일업로드 실패");
-		}
-		System.out.println("json is "+ jsonObject);
-		System.out.println("url is "+ jsonObject.get("url"));
-		return jsonObject;
-	}
+
 	
 	
 	

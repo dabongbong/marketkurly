@@ -91,14 +91,6 @@ public class ProductController {
 	}
 	
 	
-	@RequestMapping(value="/product/uploadSummernoteImageFile", produces = "application/json; charset=utf8")
-	@ResponseBody
-	public String uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
-		JsonObject fileName = fileManager.saveSummernoteFile(multipartFile, request);
-		String a = fileName.toString();
-		return a;
-	}
-	
 	
 	
 	
