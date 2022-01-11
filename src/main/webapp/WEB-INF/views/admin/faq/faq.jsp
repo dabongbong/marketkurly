@@ -17,6 +17,8 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
 	<%@ include file="../inc/head_link.jsp" %>
 
 </head>
+
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -39,7 +41,7 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">공지사항</h1>
+            <h1 class="m-0">자주하는 질문</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -60,7 +62,7 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">컬리의 새로운 소식들과 유용한 정보들을 한곳에서 확인하세요.</h3>
+                <h3 class="card-title">고객님들께서 가장 자주하시는 질문을 모두 모았습니다.</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -81,7 +83,7 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
                     <tr>
                       <th>No</th>
                       <th>카테고리</th>
-                      <th class="col-6"><center>제목</center></th>
+                      <th>제목</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -93,8 +95,10 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
 				        <%Faq faq=faqList.get(curPos++); %>
 				        <tr>
 					          <td><%=num-- %></td>
-					          <td><a href="/admin/faq/detail?faq_no=<%=faq.getFaq_no()%>"><%=faq.getFnq_category() %></a></td>
-					          <td><%=faq.getTitle() %></td>
+					          <td><%=faq.getFaq_category() %></td>
+					          <td><a id="faq" style='color:#646464' href="javascript:selectfaq('<%=faq.getFaq_no()%>',<%=faq.getTitle()%>)" ><%=faq.getTitle() %></a>
+				          		 <button type="button" class="btn btn-info"  style="float:right" onClick="location.href='/admin/faq/detail?faq_no=<%=faq.getFaq_no()%>'">상세보기</button>
+					          </td>
 				        </tr>
 				        <%} %>
 				        <tr>
@@ -105,11 +109,14 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
 						  		<%} %>
 						  	</td>
 						  </tr>
+						  
 				        <tr>
 						 	<td  colspan="4">
-                    		<button type="button" class="btn btn-info" onClick="location.href='/admin/faq/write';">공지사항 등록</button>
-                    	</td>
+                    			<button type="button" class="btn btn-info" onClick="location.href='/admin/faq/write';">공지사항 등록</button>
+                    		</td>
 					  	</tr>
+					  		
+					  	
                   </tbody>
                 </table>
               </div>

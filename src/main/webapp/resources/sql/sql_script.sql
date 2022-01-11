@@ -30,6 +30,7 @@ create table product(
 create table product_detail(
 	product_detail_id int primary key auto_increment
 	, product_id int
+	, item varchar(30)
 	, content text
 	, constraint fk_product_product_detail foreign key(product_id) references product(product_id)
 ) default character set utf8;

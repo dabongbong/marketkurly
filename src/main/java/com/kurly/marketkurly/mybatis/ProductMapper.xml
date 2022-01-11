@@ -26,8 +26,11 @@
 	</select>
 
 	<insert id="insert" parameterType="Product">
-		insert into product(subCategory_id, title, subTitle, price, detail, sale, product_img)
-		values(#{subCategory.subCategory_id},#{title},#{subTitle},#{price},#{detail},#{sale},#{product_img})
+		insert into product(subcategory_id, title, subTitle, price, detail, sale, product_img)
+		values(#{subcategory.subcategory_id},#{title},#{subTitle},#{price},#{detail},#{sale},#{product_img})
+		<selectKey keyProperty="product_id" resultType="int" order="AFTER">
+			select last_insert_id()
+		</selectKey>
 	</insert>
 	
 	<update id="update" parameterType="Product">

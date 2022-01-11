@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class ProductHashtag {
 	private int tag_id;
-	private Product product;
+	private int product_id;
 	private String comment;
 }
