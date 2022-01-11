@@ -6,7 +6,8 @@ import com.kurly.marketkurly.domain.Member;
 
 public interface MemberService {
 	public List selectAll();
-	public Member select(int member_id);
+	public Member select(int member_id); //관리자용 
+	public Member select(Member member); //일반용
 	public void insert(Member member);
 	public void update(Member member);
 	public void delete(int member_id);
