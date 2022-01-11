@@ -10,6 +10,12 @@
 %>
 <!-- Header Section Begin -->
 <%@ include file="../inc/header.jsp"%>
+  <style>
+    .pageStyle {
+        font-weight:bold;
+        font-size:15px;
+    }
+  </style>
 <!-- Header End -->
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
@@ -84,8 +90,7 @@
                         </div>
                         <%} %>
                     </div>
-                       <tr>
-		                <td colspan="12" align="center">
+                     <div class="col-sm-12" align="center">
 		                    <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
 		                        <a href="/orderList.jsp?currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
 		                    <%}else{}%>
@@ -97,8 +102,7 @@
 		                    <%if(pager.getLastPage()+1 < pager.getTotalPage()){%> 
 		                        <a href="/orderList.jsp?currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
 		                    <%}else{}%>
-		                </td>
-          			 </tr>
+		        	</div>
                 </div>
             </div>
         </div>

@@ -13,6 +13,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+  	.pageStyle {
+    font-weight:bold;
+    font-size:15px;
+}
+  </style>
   <title>AdminLTE 3 | Dashboard</title>
 	
 	<%@ include file="../inc/head_link.jsp" %>

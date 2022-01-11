@@ -6,6 +6,12 @@
 %>
 <!-- Header Section Begin -->
 <%@ include file="../inc/header.jsp"%>
+<style type="text/css">
+  	.pageStyle {
+    font-weight:bold;
+    font-size:15px;
+}
+  </style>
 <!-- Header End -->
 
 
