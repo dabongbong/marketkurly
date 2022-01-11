@@ -1,6 +1,7 @@
 <%@page import="com.kurly.marketkurly.domain.Category"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
 %>
