@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
-	namespace="ProductHashtag">
+<mapper	namespace="ProductHashtag">
 	
 	<insert id="insert">
 		insert into product_hashtag(product_id, comment)
 		values(#{product_id}, #{comment})
 	</insert>
+	<select id="selectByProductId" parameterType="int" resultType="ProductHashtag">
+		select * from product_hashtag where product_id = #{product_id}
+	</select>
 </mapper>
