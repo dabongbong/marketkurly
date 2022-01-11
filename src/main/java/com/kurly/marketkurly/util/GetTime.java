@@ -7,7 +7,7 @@ import java.util.Date;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TimeToSecond {
+public class GetTime {
 	
 	public String currentTime() {
 		Date date_now  = new Date(System.currentTimeMillis());

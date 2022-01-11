@@ -62,4 +62,6 @@
 	
 	<bean class="com.kurly.marketkurly.util.Pager" id="pager"/>
 	
+	<bean class="com.kurly.marketkurly.util.GetTime" id="getTime"/>
+	
 </beans>
