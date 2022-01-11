@@ -19,20 +19,16 @@
                             <div class="group-input gi-check">
                                 <div class="gi-more">
                                     <label for="save-pass">
-                                        Save Password
+                                        보안접속
                                         <input type="checkbox" id="save-pass">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <a href="#" class="forget-pass">Forget your Password</a>
+                                    <a href="#" class="forget-pass">비밀번호 찾기</a>
+                                    <a href="#" class="forget-pass">아이디 찾기&nbsp;| &nbsp;</a> 
                                 </div>
                             </div>
-                            <button type="button" class="site-btn login-btn" onClick="loginCheck()" style=" border: 1px solid #5f0081; 
-                            																													 background-color: #5f0080;
-                         																														   border-radius: 3px;">로그인</button>
-                            <button type="button" class="site-btn login-btn" onClick="location.href='/registform'" style="border: 1px solid #5f0080; 
-                            																															 background-color: #fff; 
-                            																															 color:#5f0080;
-                            																															 border-radius: 3px;">회원가입</button>
+                            <button type="button" class="site-btn login-btn" id="login-btn" onClick="loginCheck()">로그인</button>
+                            <button type="button" class="site-btn login-btn" id="login-btn2" onClick="location.href='/registform'">회원가입</button>
                         </form>
                     </div>
                 </div>
