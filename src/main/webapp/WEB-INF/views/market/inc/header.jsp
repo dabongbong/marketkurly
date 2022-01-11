@@ -1,8 +1,10 @@
+<%@page import="com.kurly.marketkurly.domain.Subcategory"%>
 <%@page import="com.kurly.marketkurly.domain.Category"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
+	List<Subcategory> subcategoryList = (List)request.getAttribute("subcategoryList");
 %>
 
 <!DOCTYPE html>
@@ -81,7 +83,7 @@
                     	<%} %>
 		                    	<ul class="sub-hover">
 		                    		<li class="active">
-		                    			<a href="#">서브카테고리</a>
+		                    			<a id="subCategory" href="#"><input type="hidden" name="category_id">서브카테고리</a>
 		                    		</li>
 		                    	</ul>
                             </li>
@@ -120,3 +122,10 @@
         </div>
     </header>
     <!-- Header End -->
+    <script>
+    $(function(){
+    	$("#category").hover(function(){
+    		$("#subCategory").show();
+    	});
+    })
+    </script>
