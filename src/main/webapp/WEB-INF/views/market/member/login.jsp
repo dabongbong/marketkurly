@@ -1,5 +1,24 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<<<<<<< HEAD
+    <!-- Header End -->
 <%@ include file="../inc/header.jsp" %>
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <span>Login</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Form Section Begin -->
+=======
+<%@ include file="../inc/header.jsp" %>
+>>>>>>> 93a75a197978ca3ec222b78c2dbc3c1e08248804
 
     <!-- Register Section Begin -->
     <div class="register-login-section spad">
@@ -26,6 +45,7 @@
                                     <a href="#" class="forget-pass">비밀번호 찾기</a>
                                     <a href="#" class="forget-pass">아이디 찾기&nbsp;| &nbsp;</a> 
                                 </div>
+                              	 
                             </div>
                             <button type="button" class="site-btn login-btn" id="login-btn" onClick="loginCheck()">로그인</button>
                             <button type="button" class="site-btn login-btn" id="login-btn2" onClick="location.href='/registform'">회원가입</button>

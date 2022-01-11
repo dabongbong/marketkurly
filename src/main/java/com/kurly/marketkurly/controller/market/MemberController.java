@@ -40,13 +40,21 @@ public class MemberController {
 		}
 		
 		//로그인 폼 요청 처리
+<<<<<<< HEAD
+		@GetMapping("/member/loginform")
+=======
 		@GetMapping("/loginform")
+>>>>>>> 93a75a197978ca3ec222b78c2dbc3c1e08248804
 		public String getLoginForm() {
 			return "market/member/login";
 		}
 		
 		//로그인
+<<<<<<< HEAD
+		@PostMapping("/member/login")
+=======
 		@PostMapping("/login")
+>>>>>>> 93a75a197978ca3ec222b78c2dbc3c1e08248804
 		@ResponseBody
 		public Message loginCheck(HttpServletRequest request,Member member) {
 			System.out.println("비번운 "+member.getMember_pass());
@@ -65,6 +73,14 @@ public class MemberController {
 			session.setAttribute("member", result);
 			
 			return message;
+		}
+		//로그아웃 요청처리
+		@GetMapping("/logout")
+		public String logout(HttpServletRequest request) {
+			HttpSession session = request.getSession();
+			session.invalidate();
+			
+			return "redirect:loginform";
 		}
 }
 
