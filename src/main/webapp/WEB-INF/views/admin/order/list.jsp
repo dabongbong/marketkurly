@@ -21,6 +21,10 @@
  .detailForm{
  	display:none;
  }
+.pageStyle {
+    font-weight:bold;
+    font-size:15px;
+}
  </style>
   <title>AdminLTE 3 | Dashboard</title>
 	

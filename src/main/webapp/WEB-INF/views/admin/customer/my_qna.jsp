@@ -101,22 +101,23 @@
 												<%int num=pager.getNum(); %>
 												<%for(int i =0; i<=pager.getPageSize();i++) {%>
 												<%if(num<1)break; %>
-												<%My_qna my_qna=my_qnaList.get(curPos++); %>
+												<%My_qna my_qna=my_qnaList.get(curPos++); %> 
 											
 											<tr>
 												<td><%=num-- %></td>
+												<td><%=my_qna.getMy_qna_category() %></td>
 												<td><a href="/admin/customer/detail?my_qna_no=<%=my_qna.getMy_qna_no()%>"><%=my_qna.getTitle() %></a></td>
-												<td><%=my_qna.getTitle() %></td>
-												<td><%=my_qna.getMember() %></td>
+												<td><%=my_qna.getMember().getUser_id() %></td>
 												<td><%=my_qna.getRegdate() %></td>
 											</tr>
 											<%} %>
 											<tr>
 												<td colspan="6" align="center">
 													<%for(int i = pager.getFirstPage();i<=pager.getLastPage();i++) {%>
-													<%if(i>=pager.getTotalPage())break; %> <%=i %> <%} %>
+													<%if(i>=pager.getTotalPage())break; %> <%=i %> 
 												</td>
-											</tr>
+													<%} %>
+											</tr> 
 											<form>
 								              <input type="hidden" name="category_id">
 								              <div class="card-body p-0">

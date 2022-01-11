@@ -16,7 +16,8 @@ public class My_qnaServiceImpl implements My_qnaService{
 	
 	@Override
 	public List selectAll() {
-		return my_qnaDAO.selectAll();
+		List list = my_qnaDAO.selectAll();
+		return list;
 	}
 
 	@Override

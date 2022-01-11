@@ -32,7 +32,7 @@ insert into paymethod (method) values('휴대폰');
 -- 홍길동=1, 심청이=2 --
 insert into member(member_id,user_id, member_pass, member_name, email, phone, addr, gender, birth) 
 values('redRoadEast','1234','홍길동','redRoadEast@naver.com','01012341234','경기도 의왕시','남자','19980206');
-insert into member(member_id,user_id, member_pass, member_name, email, phone, addr, gender, birth) 
+insert into member(user_id, member_pass, member_name, email, phone, addr, gender, birth) 
 values('mindBlue2','1234','심청이','mindBlue2@naver.com','01198765432','서울시 강남구','여자','19710505');
  -- 팬시레몬 2개, 아보카도 5개 --
 -- 샤인마토 2개 --
@@ -53,6 +53,38 @@ insert into order_detail (order_summary_id, product_id, order_count) values(4,19
 insert into order_detail (order_summary_id, product_id, order_count) values(4,2,1);
 insert into order_detail (order_summary_id, product_id, order_count) values(5,21,1);
 insert into order_detail (order_summary_id, product_id, order_count) values(5,23,1);
-insert into order_detail (order_summary_id, product_id, order_count) values(5,17,1);
-insert into order_detail (order_summary_id, product_id, order_count) values(5,3,1);
-insert into order_detail (order_summary_id, product_id, order_count) values(5,19,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(6,17,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(7,3,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(8,19,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(9,21,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(10,23,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(11,17,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(12,3,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(13,19,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(14,21,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(15,23,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(16,17,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(17,3,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(18,19,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(19,19,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,1,1);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,2,2);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,3,3);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,4,4);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,5,5);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,6,6);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,7,7);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,8,8);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,9,9);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,10,10);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,11,11);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,12,12);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,13,13);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,14,14);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,15,15);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,16,16);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,17,17);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,18,18);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,19,19);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,20,20);
+insert into order_detail (order_summary_id, product_id, order_count) VALUES(20,21,21);

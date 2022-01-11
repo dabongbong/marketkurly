@@ -30,13 +30,13 @@ public class My_qnaController {
 	@GetMapping("/customer/my_qna")
  	public ModelAndView getList(HttpServletRequest request) {
  		
+		List my_qnaList = my_qnaService.selectAll();
+		pager.init(my_qnaList, request);
  		ModelAndView mav = new ModelAndView("admin/customer/my_qna");
- 		List my_qnaList = my_qnaService.selectAll();
  		
- 		pager.init(my_qnaList, request);
  		
- 		mav.addObject("pager", pager);
  		mav.addObject("my_qnaList", my_qnaList);
+ 		mav.addObject("pager", pager);
  		
  		return mav;
  	}
