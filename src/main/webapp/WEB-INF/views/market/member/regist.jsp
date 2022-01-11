@@ -1,194 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
-<html lang="zxx">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Fashi Template">
-    <meta name="keywords" content="Fashi, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fashi | Template</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-</head>
-
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="header-top">
-            <div class="container">
-                <div class="ht-left">
-                    <div class="mail-service">
-                        <i class=" fa fa-envelope"></i>
-                        hello.colorlib@gmail.com
-                    </div>
-                    <div class="phone-service">
-                        <i class=" fa fa-phone"></i>
-                        +65 11.188.888
-                    </div>
-                </div>
-                <div class="ht-right">
-                    <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
-                    <div class="lan-selector">
-                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt"
-                                data-title="English">English</option>
-                            <option value='yu' data-image="img/flag-2.jpg" data-imagecss="flag yu"
-                                data-title="Bangladesh">German </option>
-                        </select>
-                    </div>
-                    <div class="top-social">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"><i class="ti-twitter-alt"></i></a>
-                        <a href="#"><i class="ti-linkedin"></i></a>
-                        <a href="#"><i class="ti-pinterest"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="inner-header">
-                <div class="row">
-                    <div class="col-lg-2 col-md-2">
-                        <div class="logo">
-                            <a href="./index.html">
-                                <img src="img/logo.png" alt="">
-                            </a>
-                        </div>    
-                    </div>
-                    <div class="col-lg-7 col-md-7">
-                        <div class="advanced-search">
-                            <button type="button" class="category-btn">All Categories</button>
-                            <form action="#" class="input-group">
-                                <input type="text" placeholder="What do you need?">
-                                <button type="button"><i class="ti-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 text-right col-md-3">
-                        <ul class="nav-right">
-                            <li class="heart-icon"><a href="#">
-                                <i class="icon_heart_alt"></i>
-                                <span>1</span>
-                            </a>
-                            </li>
-                            <li class="cart-icon"><a href="#">
-                                <i class="icon_bag_alt"></i>
-                                <span>3</span>
-                            </a>
-                            <div class="cart-hover">
-                                <div class="select-items">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
-                                                <td class="si-text">
-                                                    <div class="product-selected">
-                                                        <p>$60.00 x 1</p>
-                                                        <h6>Kabino Bedside Table</h6>
-                                                    </div>
-                                                </td>
-                                                <td class="si-close">
-                                                    <i class="ti-close"></i>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
-                                                <td class="si-text">
-                                                    <div class="product-selected">
-                                                        <p>$60.00 x 1</p>
-                                                        <h6>Kabino Bedside Table</h6>
-                                                    </div>
-                                                </td>
-                                                <td class="si-close">
-                                                    <i class="ti-close"></i>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="select-total">
-                                    <span>total:</span>
-                                    <h5>$120.00</h5>
-                                </div>
-                                <div class="select-button">
-                                    <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                    <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-                                </div>
-                            </div>
-                        </li>
-                            <li class="cart-price">$150.00</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="nav-item">
-            <div class="container">
-                <div class="nav-depart">
-                    <div class="depart-btn">
-                        <i class="ti-menu"></i>
-                        <span>All departments</span>
-                        <ul class="depart-hover">
-                            <li class="active"><a href="#">Womenâs Clothing</a></li>
-                            <li><a href="#">Menâs Clothing</a></li>
-                            <li><a href="#">Underwear</a></li>
-                            <li><a href="#">Kid's Clothing</a></li>
-                            <li><a href="#">Brand Fashion</a></li>
-                            <li><a href="#">Accessories/Shoes</a></li>
-                            <li><a href="#">Luxury Brands</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <nav class="nav-menu mobile-menu">
-                    <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li><a href="#">Collection</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Men's</a></li>
-                                <li><a href="#">Women's</a></li>
-                                <li><a href="#">Kid's</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                <li><a href="./check-out.html">Checkout</a></li>
-                                <li><a href="./faq.html">Faq</a></li>
-                                <li><a href="./register.html">Register</a></li>
-                                <li><a href="./login.html">Login</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <div id="mobile-menu-wrap"></div>
-            </div>
-        </div>
-    </header>
-    <!-- Header End -->
+<%@ include file="../inc/header.jsp" %>
 
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
@@ -211,24 +23,63 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
-                        <h2>Register</h2>
-                        <form action="#">
-                            <div class="group-input">
-                                <label for="username">Username or email address *</label>
-                                <input type="text" id="username">
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">Password *</label>
-                                <input type="text" id="pass">
-                            </div>
-                            <div class="group-input">
-                                <label for="con-pass">Confirm Password *</label>
-                                <input type="text" id="con-pass">
-                            </div>
-                            <button type="submit" class="site-btn register-btn">REGISTER</button>
-                        </form>
+                         <form name="form1">
+              	
+              	
+                <div class="card-body">
+                
+                  <div class="form-group">
+                  <label for="id">아이디</label>
+                    <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 입력해주세요" >
+                     <div class="check_font" id="id_check"></div>
+                  <!--   
+                    <span class="id-input1" style="color:green; display:none;">사용 가능한 아이디 입니다.</span>
+                    <span class="id-input2" style="color:red; display:none;">이미 있는 아이디 입니다.</span><p>
+                     -->
+                     
+                  <label for="name">이름</label>
+                     <input type="text" class="form-control" name="member_name" id="member_name"  placeholder="이름을 입력해주세요" required>
+                    <div class="check_font" id="name_check"></div>
+                    
+                  <label for="pass">비밀번호</label>
+                     <input type="password" class="form-control"  name="member_pass" id="member_pass" placeholder="비밀번호를 입력해주세요">
+                    <div class="check_font" id="pw_check"></div>
+                     
+                  <label for="pass2">비밀번호 확인</label>
+                     <input type="password" class="form-control"  name="member_pass2" id="member_pass2" placeholder="비밀번호를 입력해주세요">
+                    <div class="check_font" id="pw2_check"></div>
+                    
+                  <label for="email">이메일</label>
+                     <input type="email" class="form-control"  name="email" id="email"  placeholder="이메일을 입력해주세요">
+                    <div class="check_font" id="email_check"></div>
+                    
+                  <label for="phone">핸드폰</label>
+                    <input type="text" class="form-control"  name="phone" id="phone" placeholder="010-0000-0000">
+                    <div class="check_font" id="phone_check"></div>
+                    
+                  <label for="addr">주소</label>
+                    <input type="text" class="form-control"  name="addr" id="addr" placeholder="주소를 입력해주세요">
+                    
+                  <label for="gender">성별</label>
+                    <label><input type="radio" name="gender" value="남" checked/>남</label>
+                    <label><input type="radio" name="gender" value="여" />여</label>
+                    <label><input type="radio" name="gender" value="선택안함" />선택안함</label>
+                    <p>
+
+
+                  <label for="id">생일</label>
+                    <input type="text" class="form-control"  name="birth" id="birth" placeholder="생일을 입력해주세요">
+                    <div class="check_font" id="birth_check"></div>
+                  </div>
+                  
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="button" class="site-btn register-btn" id="reg" onClick="regist()">가입하기</button>
+                </div>
+              </form>
                         <div class="switch-login">
-                            <a href="./login.html" class="or-login">Or Login</a>
+                            <a href="/market/member/list" class="or-login">Or Login</a>
                         </div>
                     </div>
                 </div>
@@ -271,100 +122,191 @@
     </div>
     <!-- Partner Logo Section End -->
 
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="footer-left">
-                        <div class="footer-logo">
-                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello.colorlib@gmail.com</li>
-                        </ul>
-                        <div class="footer-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1">
-                    <div class="footer-widget">
-                        <h5>Information</h5>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Serivius</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="footer-widget">
-                        <h5>My Account</h5>
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newslatter-item">
-                        <h5>Join Our Newsletter Now</h5>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#" class="subscribe-form">
-                            <input type="text" placeholder="Enter Your Mail">
-                            <button type="button">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright-reserved">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="copyright-text">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </div>
-                        <div class="payment-pic">
-                            <img src="img/payment-method.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
+    <%@ include file="../inc/footer.jsp" %>
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.zoom.min.js"></script>
-    <script src="js/jquery.dd.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-    
-    <script type="text/javascript">
-    function regist(){
-    	form1.action="/market/member/regist";
-    	form1.method="post";
-    	form1.submit();
-    }
-    </script>
 </body>
+<script type="text/javascript">
+function regist(){
+	form1.action="/market/member/regist";
+	form1.method="post";
+	form1.submit();
+}
+//아이디 유효성 검사(1 = 중복 / 0 != 중복)
+$("#user_id").blur(function() {
+	// 
+	
+	var idJ = /^[a-z0-9]{4,12}$/;
 
+
+	var user_id = $('#user_id').val();
+	$.ajax({
+		url : '/admin/member/idCheck?user_id='+ user_id,
+		type : 'get',
+		success : function(data) {
+			console.log("1 = 중복o / 0 = 중복x : "+ data);							
+			
+			if (data == 1) {
+					// 1 : 아이디가 중복되는 문구
+					$("#id_check").text("사용중인 아이디입니다");
+					$("#id_check").css("color", "red");
+					$("#reg").attr("disabled", true);
+				} else {
+					
+					if(idJ.test(user_id)){
+						// 0 : 아이디 길이 / 문자열 검사
+						$("#id_check").text("");
+						$("#reg").attr("disabled", false);
+			
+					} else if(user_id == ""){
+						
+						$('#id_check').text('아이디를 입력해주세요');
+						$('#id_check').css('color', 'red');
+						$("#reg").attr("disabled", true);				
+						
+					} else {
+						
+						$('#id_check').text("아이디는 소문자와 숫자 4~12자리만 가능합니다");
+						$('#id_check').css('color', 'red');
+						$("#reg").attr("disabled", true);
+					}
+					
+				}
+			}, error : function() {
+					console.log("실패");
+			}
+		});
+		
+	});
+
+	var empJ = /\s/g;
+	//아이디 정규식
+	var idJ = /^[a-z0-9]{4,12}$/;
+	// 비밀번호 정규식
+	var pwJ = /^[A-Za-z0-9]{4,12}$/; 
+	// 이름 정규식
+	var nameJ = /^[가-힣]{2,6}$/;
+	// 이메일 검사 정규식
+	var mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	// 휴대폰 번호 정규식
+	var phoneJ = /01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/;
+
+	// 이름에 특수문자 들어가지 않도록 설정
+	$("#member_name").blur(function() {
+		if (nameJ.test($(this).val())) {
+				console.log(nameJ.test($(this).val()));
+				$("#name_check").text(' ');
+		} else {
+			$('#name_check').text('이름을 확인해주세요');
+			$('#name_check').css('color', 'red');
+		}
+	});
+	// 휴대전화
+	$('#phone').blur(function(){
+		if(phoneJ.test($(this).val())){
+			console.log(nameJ.test($(this).val()));
+			$("#phone_check").text(' ');
+		} else {
+			$('#phone_check').text('휴대폰번호를 확인해주세요');
+			$('#phone_check').css('color', 'red');
+		}
+	});
+	
+	//비밀번호
+	$('#member_pass').blur(function(){
+		if(pwJ.test($(this).val())){
+			console.log(nameJ.test($(this).val()));
+			$('#pw_check').text(' ');
+		}else{
+			console.log('false');
+			$('#pw_check').text('숫자 or 문자로만 4~12자리 입력');
+			$('#pw_check').css('color', 'red');
+		}
+	});
+	
+	//패스워드 일치확인
+	$('#member_pass2').blur(function(){
+		if($('#member_pass').val() != $(this).val()){
+			$('#pw2_check').text('비밀번호가 일치하지 않습니다');
+			$('#pw2_check').css('color', 'red');
+		}else{
+			$('#pw2_check').text(' ');
+		}
+	});
+	
+	// 이메일
+	$('#email').blur(function(){
+		if(mailJ.test($(this).val())){
+			console.log(nameJ.test($(this).val()));
+			$("#email_check").text('');
+		} else {
+			$('#email_check').text('이메일 형식을 확인해주세요');
+			$('#email_check').css('color', 'red');
+		}
+	});
+	// 생일 유효성 검사
+	var birthJ = false;
+	
+	// 생년월일	birthJ 유효성 검사
+	$('#birth').blur(function(){
+		var dateStr = $(this).val();		
+	    var year = Number(dateStr.substr(0,4)); // 입력한 값의 0~4자리까지 (연)
+	    var month = Number(dateStr.substr(4,2)); // 입력한 값의 4번째 자리부터 2자리 숫자 (월)
+	    var day = Number(dateStr.substr(6,2)); // 입력한 값 6번째 자리부터 2자리 숫자 (일)
+	    var today = new Date(); // 날짜 변수
+	    var yearNow = today.getFullYear(); // 올해 연도 
+		
+	    if (dateStr.length <=8) {
+			// 연도의 경우 1900 보다 작거나 yearNow 보다 크다면 false를 반환합니다.
+		    if (1900 > year || year > yearNow){
+		    	
+		    	$('#birth_check').text('생년월일을 확인해주세요');
+				$('#birth_check').css('color', 'red');
+		    	
+		    }else if (month < 1 || month > 12) {
+		    		
+		    	$('#birth_check').text('생년월일을 확인해주세요');
+				$('#birth_check').css('color', 'red'); 
+		    
+		    }else if (day < 1 || day > 31) {
+		    	
+		    	$('#birth_check').text('생년월일을 확인해주세요');
+				$('#birth_check').css('color', 'red'); 
+		    	
+		    }else if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+		    	 
+		    	$('#birth_check').text('생년월일을 확인해주세요');
+				$('#birth_check').css('color', 'red'); 
+		    	 
+		    }else if (month == 2) {
+		    	 
+		       	var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+		       	
+		     	if (day>29 || (day==29 && !isleap)) {
+		     		
+		     		$('#birth_check').text('생년월일을 확인해주세요');
+					$('#birth_check').css('color', 'red'); 
+		    	
+				}else{
+					$('#birth_check').text('');
+					birthJ = true;
+				}//end of if (day>29 || (day==29 && !isleap))
+		     	
+		    }else{
+		    	
+		    	$('#birth_check').text(''); 
+				birthJ = true;
+			}//end of if
+			
+			}else{
+				//입력된 생년월일이 8자 초과할때 :  auth:false
+				$('#birth_check').text('생년월일을 확인해주세요');
+				$('#birth_check').css('color', 'red');  
+			}
+		}); 
+
+
+</script>
+
+</html>
+</body>
 </html>

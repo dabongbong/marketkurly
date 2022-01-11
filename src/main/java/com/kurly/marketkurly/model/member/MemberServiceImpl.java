@@ -64,6 +64,12 @@ public class MemberServiceImpl implements MemberService{
 	public Member select(int member_id) {
 		return memberDAO.select(member_id);
 	}
+	
+
+	@Override
+	public Member select(Member member) {
+		return memberDAO.select(member);
+	}
 
 	@Override
 	public void insert(Member member) throws MemberException{
@@ -109,11 +115,13 @@ public class MemberServiceImpl implements MemberService{
 		memberDAO.delete(member_id);
 	}
 	// 중복 아이디 체크
-		public int userIdCheck(String user_id) {
+	public int userIdCheck(String user_id) {
 
-			return memberDAO.userIdCheck(user_id);
+		return memberDAO.userIdCheck(user_id);
 
-		}
+	}
+
+
 
 
 

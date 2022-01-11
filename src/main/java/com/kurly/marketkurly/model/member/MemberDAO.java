@@ -7,6 +7,7 @@ import com.kurly.marketkurly.domain.Member;
 public interface MemberDAO {
 	public List selectAll();
 	public Member select(int member_id);
+	public Member select(Member member);
 	public void insert(Member member);
 	public void update(Member member);
 	public void delete(int member_id);
