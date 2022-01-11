@@ -58,6 +58,7 @@
                   <!-- 로그인한 상태 -->
                   <c:if test="${ member.user_id != null }">
                                 <li><a href="/loginform" class="login-panel" id="loginSuccess" onClick="location.href='/logout'">로그아웃</a></li>
+                                
                 </c:if>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
