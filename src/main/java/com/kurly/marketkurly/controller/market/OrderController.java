@@ -34,10 +34,12 @@ public class OrderController {
 	}
 	
 	@GetMapping("/orderDetail")
-	public ModelAndView getList(HttpServletRequest requset, int order_summary_id) {
+	public ModelAndView getList(HttpServletRequest request, int order_summary_id) {
 		List orderDetail = orderService.getDetail(order_summary_id);
+		pager.init(orderDetail, request);
 		ModelAndView mav = new ModelAndView("market/order/detail");
 		mav.addObject("orderDetail", orderDetail);
+		mav.addObject("pager", pager);
 		return mav;
 	}
 	

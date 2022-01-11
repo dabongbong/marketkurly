@@ -20,6 +20,7 @@
 		m.member_id as member_id, p.paymethod_id as paymethod_id
 		from order_summary os, member m, paymethod p
 		where os.member_id=m.member_id and os.paymethod_id=p.paymethod_id
+		order by order_summary_id desc;
 	</select>
 
 	

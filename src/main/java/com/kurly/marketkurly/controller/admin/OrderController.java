@@ -41,8 +41,10 @@ public class OrderController {
 	@GetMapping("/order/detail")
 	public ModelAndView getDetail(HttpServletRequest request, int order_summary_id) {
 		List orderDetail= orderService.getDetail(order_summary_id);
+		pager.init(orderDetail, request);
 		ModelAndView mav = new ModelAndView("admin/order/detail");
 		mav.addObject("orderDetail", orderDetail);
+		mav.addObject("pager", pager);
 		return mav;
 	}
 	
