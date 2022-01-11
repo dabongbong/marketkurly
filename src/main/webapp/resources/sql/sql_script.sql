@@ -30,6 +30,7 @@ create table product(
 create table product_detail(
 	product_detail_id int primary key auto_increment
 	, product_id int
+	, item varchar(30)
 	, content text
 	, constraint fk_product_product_detail foreign key(product_id) references product(product_id)
 ) default character set utf8;
@@ -89,6 +90,7 @@ create table member(
 create table order_summary(
 	order_summary_id int primary key auto_increment
 	, member_id int
+	, order_number bigint
 	, paymethod_id int
 	, orderdate timestamp default now()
 	, price int default 0

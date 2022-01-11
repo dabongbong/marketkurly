@@ -31,11 +31,11 @@
 	</insert>
 	
 	<update id="update" parameterType="My_qna">
-		update my_qna(my_qna_category, title, content)
-		where my_qna_no=#{My_qna_no}
+		update my_qna set title=#{title}, my_qna_category=#{my_qna_category}, content=#{content}
+		where my_qna_no=#{my_qna_no}
 	</update>
 	
 	<delete id="delete" parameterType="int">
-		delete from my_qna where My_qna_no=#{My_qna_no}
+		delete from my_qna where my_qna_no=#{my_qna_no}
 	</delete>
 </mapper>

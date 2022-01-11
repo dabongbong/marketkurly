@@ -18,16 +18,17 @@ import com.kurly.marketkurly.util.Message;
 public class MemberController {
 	@Autowired
 	private HashBuilder hashBuilder;
+	
 	@Autowired
 	private MemberService memberService;
 	
 	//회원등록 폼 요청
-	@GetMapping("/market/member/registform")
+	@GetMapping("/registform")
 	public String registForm() {
 		return "market/member/regist";
 	}
 	//회원 등록
-		@PostMapping("/market/member/regist")
+		@PostMapping("/regist")
 		public String regist(Member member) {
 			
 			String pass=hashBuilder.convertStringToHash(member.getMember_pass());
@@ -35,33 +36,51 @@ public class MemberController {
 			
 			memberService.insert(member);
 			
-			return "redirect:/market/member/loginform";
+			return "redirect:/loginform";
 		}
 		
 		//로그인 폼 요청 처리
+<<<<<<< HEAD
 		@GetMapping("/member/loginform")
+=======
+		@GetMapping("/loginform")
+>>>>>>> 93a75a197978ca3ec222b78c2dbc3c1e08248804
 		public String getLoginForm() {
 			return "market/member/login";
 		}
 		
 		//로그인
+<<<<<<< HEAD
 		@PostMapping("/member/login")
+=======
+		@PostMapping("/login")
+>>>>>>> 93a75a197978ca3ec222b78c2dbc3c1e08248804
 		@ResponseBody
 		public Message loginCheck(HttpServletRequest request,Member member) {
+			System.out.println("비번운 "+member.getMember_pass());
 			
 			String pass=hashBuilder.convertStringToHash(member.getMember_pass());
 			member.setMember_pass(pass);
 			
-			Member result = memberService.select(member);
+			Member result = memberService.selectByAdmin(member);
+			System.out.println("로그인 결과"+result);
 			
 			Message message = new Message();
 			message.setCode(1);
-			message.setMsg(member.getMember_name()+"님 환영합니다.");
+			message.setMsg(result.getMember_name()+"님 환영합니다.");
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("member", result);
 			
 			return message;
+		}
+		//로그아웃 요청처리
+		@GetMapping("/logout")
+		public String logout(HttpServletRequest request) {
+			HttpSession session = request.getSession();
+			session.invalidate();
+			
+			return "redirect:loginform";
 		}
 }
 

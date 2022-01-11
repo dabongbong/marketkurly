@@ -1,7 +1,7 @@
-<%@page import="com.kurly.marketkurly.domain.Notice"%>
+<%@page import="com.kurly.marketkurly.domain.Faq"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-	Notice notice = (Notice)request.getAttribute("notice");
+	Faq faq= (Faq)request.getAttribute("faq");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">공지사항 관리</h1>
+            <h1 class="m-0">FAQ 관리</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -63,28 +63,37 @@
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
-              		<input type="hidden" name="notice_no" value="<%=notice.getNotice_no() %>">
+              		<input type="hidden" name="faq_no" value="<%=faq.getFaq_no() %>">
 				    
 				 <div class="card-body">
 				 	<div class="form-group">
 				 	<th>제목</th><p>
-					    <input type="text"  	name="title" class="form-control" value="<%=notice.getTitle() %>">
+					    <input type="text"  	name="title" class="form-control" value="<%=faq.getTitle() %>">
 					</div>
 					
 					<div class="form-group">
-					<th>작성자</th><p>
-					    <input type="text"  	name="writer" class="form-control" value="<%=notice.getWriter() %>">
-					</div>
+					<th>카테고리</th><p>
+                  	<select name="faq_category" type="text">
+					    <option value="">선택해주세요.</option>
+					    <option value="배송/포장/상품">배송/포장/상품</option>
+					    <option value="선물하기">선물하기</option>
+					    <option value="주문/결제/대량주문">주문/결제/대량주문</option>
+					    <option value="취소/교환/환불">취소/교환/환불</option>
+					    <option value="이벤트/쿠폰/적립금">이벤트/쿠폰/적립금</option>
+					    <option value="회원">회원</option>
+					    <option value="서비스이용">서비스이용</option>
+					</select>
+                  </div>
 					
 					<div class="form-group">
 					<th>내용</th><p>
-					    <textarea id="summernote" name="content" class="form-control" style="height:450px"><%=notice.getContent() %></textarea>
+					    <textarea id="summernote" name="content" class="form-control" style="height:450px"><%=faq.getContent() %></textarea>
 					</div>
 					
 					<div class="card-footer">
 						<button type="button" class="btn btn-info" id="bt_edit">수정</button>
 						<button type="button" class="btn btn-info" id="bt_del">삭제</button>
-						<button type="button" class="btn btn-info" onClick="location.href='/admin/notice/list'">목록</button>
+						<button type="button" class="btn btn-info" onClick="location.href='/admin/faq/faq'">목록</button>
 	            	</div>
           
 				</div>
@@ -161,14 +170,14 @@ $(function () {
 	
 function edit(){
 	if(confirm("수정하시겠습니까?")){
-		form1.action="/admin/notice/update";
+		form1.action="/admin/faq/update";
 		form1.method="post";
 		form1.submit();
 	}
 }
 function del(){
 	if(confirm("삭제하시겠습니까?")){
-		location.href="/admin/notice/delete?notice_no=<%=notice.getNotice_no()%>";
+		location.href="/admin/faq/delete?faq_no=<%=faq.getFaq_no()%>";
 	}
 }
  

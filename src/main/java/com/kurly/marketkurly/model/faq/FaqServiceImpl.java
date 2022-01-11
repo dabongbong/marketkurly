@@ -12,31 +12,31 @@ import com.kurly.marketkurly.exception.FaqException;
 public class FaqServiceImpl implements FaqService{
 
 	@Autowired
-	private FaqDAO fnqDAO;
+	private FaqDAO faqDAO;
 	
 	@Override
 	public List selectAll() {
-		return fnqDAO.selectAll();
+		return faqDAO.selectAll();
 	}
 
 	@Override
-	public Faq select(int fnq_no) {
-		return fnqDAO.select(fnq_no);
+	public Faq select(int faq_no) {
+		return faqDAO.select(faq_no);
 	}
 
 	@Override
-	public void insert(Faq fnq) throws FaqException{
-		fnqDAO.insert(fnq);
+	public void insert(Faq faq) throws FaqException{
+		faqDAO.insert(faq);
 	}
 
 	@Override
-	public void update(Faq fnq) throws FaqException{
-		fnqDAO.update(fnq);
+	public void update(Faq faq) throws FaqException{
+		faqDAO.update(faq);
 	}
 
 	@Override
-	public void delete(int fnq_no) throws FaqException{
-		fnqDAO.delete(fnq_no);
+	public void delete(int faq_no) throws FaqException{
+		faqDAO.delete(faq_no);
 	}
 
 }

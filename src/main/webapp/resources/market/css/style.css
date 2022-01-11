@@ -177,6 +177,24 @@ ol {
 }
 
 /* buttons */
+#login-btn{
+	border: 1px solid #5f0081; 
+	background-color: #5f0080;
+	border-radius: 3px;
+}
+
+#login-btn2{
+	border: 1px solid #5f0081; 
+	background-color: #fff;
+	color:#5f0080;
+	border-radius: 3px;
+}
+#reg{
+	border: 1px solid #5f0081; 
+	background-color: #5f0080;
+	border-radius: 3px;
+	
+}
 
 .primary-btn {
 	display: inline-block;
@@ -197,6 +215,15 @@ ol {
 	text-transform: uppercase;
 	padding: 13px 45px 11px;
 	cursor: pointer;
+}
+
+
+ 
+/* 로그인 실패시 경고글 */
+.login_warn{
+    margin-top: 30px;
+    text-align: center;
+    color : red;
 }
 
 /* Preloder */

@@ -137,6 +137,3 @@
     <script src="/resources/market/js/jquery.slicknav.js"></script>
     <script src="/resources/market/js/owl.carousel.min.js"></script>
     <script src="/resources/market/js/main.js"></script>
-</body>
-
-</html>
