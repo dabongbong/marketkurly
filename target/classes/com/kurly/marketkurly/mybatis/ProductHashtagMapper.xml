@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ProductDetail">
-
+<mapper
+	namespace="ProductHashtag">
+	
 	<insert id="insert">
-		insert into product_detail(product_id, item, content)
-		values(#{product_id},#{item},#{content})
+		insert into product_hashtag(product_id, comment)
+		values(#{product_id}, #{comment})
 	</insert>
 </mapper>

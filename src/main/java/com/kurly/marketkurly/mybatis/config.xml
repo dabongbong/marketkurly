@@ -33,6 +33,7 @@
     <mapper resource="com/kurly/marketkurly/mybatis/PayMethodMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/ProductMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/ProductDetailMapper.xml"/>
+    <mapper resource="com/kurly/marketkurly/mybatis/ProductHashtagMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/NoticeMapper.xml"/>
     <mapper resource="com/kurly/marketkurly/mybatis/My_qnaMapper.xml"/>
   </mappers>

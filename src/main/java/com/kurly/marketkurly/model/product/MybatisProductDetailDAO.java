@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.kurly.marketkurly.domain.ProductDetail;
 import com.kurly.marketkurly.exception.ProductException;
-
+@Repository
 public class MybatisProductDetailDAO implements ProductDetailDAO{
 
 	@Autowired

@@ -61,7 +61,7 @@
             <div class="card">
               <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Expandable Table Tree</h3>
+                <h3 class="card-title">카테고리</h3>
               </div>
               <!-- ./card-header -->
               <div class="card-body p-0">
@@ -88,7 +88,7 @@
             <div class="card">
               <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Expandable Table Tree</h3>
+                <h3 class="card-title">서브 카테고리</h3>
               </div>
               <!-- ./card-header -->
               <div class="card-body p-0">
@@ -131,6 +131,9 @@
                   <div class="form-group">
                     <input type="text" class="form-control"  placeholder="가격 입력" name="price">
                   </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control"  placeholder="할인율" name="sale">
+                  </div>
                   
                   
                   <div class="form-group">
@@ -153,16 +156,19 @@
                     </div>
                   </div>
                   <div class="form-group" id="detail_form">
-                    <div style="display:flex;" >
-                      <input type="text" class="form-control col-3"  placeholder="추가사항" name="item">
-                      <input type="text" class="form-control col-8"  placeholder="상세내용" name="content">
-                      <button type="button" class="btn btn-info col-1" onClick="addDetailForm()">+</button>
-                    </div>
-                    
+	                  <div style="display:flex;" >
+		                   <input type="text" class="form-control col-3"  placeholder="추가사항" name="product_detail_list[0].item" value="판매단위" readonly>
+		                   <input type="text" class="form-control col-8"  placeholder="상세내용" name="product_detail_list[0].content">
+		                   <button type="button" class="btn btn-info col-1" onClick="addDetailForm()">+</button>
+	                  </div>
+	                  <div style="display:flex;" >
+		                    <input type="text" class="form-control col-3"  placeholder="추가사항" name="product_detail_list[1].item" value="중량/용량" readonly>
+		                    <input type="text" class="form-control col-9"  placeholder="상세내용" name="product_detail_list[1].content">
+	                  </div>
                   </div>
                   <div class="form-group" id="hashtag_form">
 	                  <div style="display:flex;" >
-	                    <input type="text" class="form-control"  placeholder="해시태그" name="comment">
+	                    <input type="text" class="form-control"  placeholder="해시태그" name="product_hashtag_list[0].comment">
 	                    <button type="button" class="btn btn-info col-1" onClick="addHashtagForm()">+</button>
 	                  </div>
                   </div>
@@ -202,13 +208,29 @@
 <script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
+let j1 = 2;
+let j2 = 1;
+var setting = {
+		height : 300,
+		minHeight : null,
+		maxHeight : null,
+		focus : false,
+		lang : 'ko-KR',
+		placeholder: '상품 상세정보',
+      	tabsize: 2
+   /*    	
+		callbacks : {
+			onImageUpload : function(files, editor, welEditable){
+				for(var i = files.length - 1; i >= 0; i--){
+					uploadSummernoteImageFile(files[i], this);
+				}
+			}
+		}
+		 */
+}
 $(function () {
   bsCustomFileInput.init();
-  $('#detail').summernote({
-      placeholder: '상품 상세정보',
-      tabsize: 2,
-      height: 100
-    });
+  $('#detail').summernote(setting);
 
   //이미지 미리보기 버튼 이벤트
    /* $("input[name='imgFiles']").change(()=>{
@@ -225,6 +247,26 @@ $(function () {
   
   
 });
+//섬머노트에 넣은 이미지 넘기기
+function uploadSummernoteImageFile(file, editor){
+	data = new FormData();
+	data.append("file", file);
+	$.ajax({
+		data : data,
+		type : "POST",
+		url : "/admin/product/uploadSummernoteImageFile",
+		contentType : false,
+		enctype : 'multipart/form-data',
+		processData : false,
+		success : function(data) {
+			$(editor).summernote('editor.insertImage', data.url);
+		}
+	
+	});
+}
+
+
+
 //select 컴포넌트에 선택한 카테고리 반영하기
 function selCategory(category_name, category_id){
 	var sel = document.querySelector('#category_id');
@@ -297,17 +339,20 @@ function preview(obj){
 	}
 }
 function addDetailForm(){
+	
 	var tag = '<div style="display:flex;">'
-        		+'<input type="text" class="form-control col-3"  placeholder="추가사항" name="item">'
-   				+'<input type="text" class="form-control col-9"  placeholder="상세내용" name="content">'
+        		+'<input type="text" class="form-control col-3"  placeholder="추가사항" name="product_detail_list['+j1+'].item">'
+   				+'<input type="text" class="form-control col-9"  placeholder="상세내용" name="product_detail_list['+j1+'].content">'
  				+'</div>';
 	$("#detail_form").append(tag);
+	j1 = j1+1;
 }
 function addHashtagForm(){
 	var tag = '<div style="display:flex;" >'
-		+'<input type="text" class="form-control"  placeholder="해시태그" name="comment">'
+		+'<input type="text" class="form-control"  placeholder="해시태그" name="product_hashtag_list['+j2+'].comment">'
 		+'</div>'
 	$("#hashtag_form").append(tag);
+	j2 = j2+1;
 }
 </script>
 </body>
