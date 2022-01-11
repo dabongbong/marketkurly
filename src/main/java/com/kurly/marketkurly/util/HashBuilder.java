@@ -3,6 +3,8 @@ package com.kurly.marketkurly.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import org.springframework.stereotype.Component;
+@Component
 public class HashBuilder {
 	
 	public String convertStringToHash(String pass) {

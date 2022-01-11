@@ -10,6 +10,11 @@
 		select * from member where member_id=#{member_id}
 	</select>
 	
+	<!-- 일반 로그인 -->
+	<select id="selectByAdmin" parameterType="Member" resultType="Member">
+		select * from member where user_id=#{user_id} and member_pass=#{member_pass}
+	</select>
+	
 	<insert id="insert" parameterType="Member" >
 		insert into member(member_id,user_id, member_pass, member_name, email, phone, addr, gender, birth)
 		values(#{member_id}, #{user_id},#{member_pass},#{member_name},#{email},#{phone},#{addr},#{gender},#{birth})

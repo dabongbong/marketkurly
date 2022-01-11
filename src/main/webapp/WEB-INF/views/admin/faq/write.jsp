@@ -1,8 +1,8 @@
-<%@page import="com.kurly.marketkurly.domain.Notice"%>
+<%@page import="com.kurly.marketkurly.domain.Faq"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	List<Notice> noticeList = (List)request.getAttribute("noticeList");
+List<Faq> faqList = (List)request.getAttribute("faqList");
 	
 %>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">공지사항 등록</h1>
+            <h1 class="m-0">FAQ 등록</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -57,21 +57,31 @@
           <div class="col-12">
            <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">공지사항 작성란</h3>
+                <h3 class="card-title">FAQ 작성란</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1" enctype="multipart/form-data">
                 <div class="card-body">
                 
-                  
+                 <th>제목</th>
                   <div class="form-group">
-                    <input type="text" class="form-control"  placeholder="제목 입력" name="title">
+                  	<select name="faq_category" type="text">
+					    <option value="">선택해주세요.</option>
+					    <option value="배송/포장/상품">배송/포장/상품</option>
+					    <option value="선물하기">선물하기</option>
+					    <option value="주문/결제/대량주문">주문/결제/대량주문</option>
+					    <option value="취소/교환/환불">취소/교환/환불</option>
+					    <option value="이벤트/쿠폰/적립금">이벤트/쿠폰/적립금</option>
+					    <option value="회원">회원</option>
+					    <option value="서비스이용">서비스이용</option>
+					</select>
                   </div>
                   
-                  <div class="form-group">
-                    <input type="text" class="form-control"  placeholder="작성자" name="writer" >
-                  </div>
+	                  <div class="form-group">
+	                    <input type="text" class="form-control"  placeholder="제목 입력" name="title">
+	                  </div>
+                  
                   
                   <div class="form-group">
                      <textarea id="summernote" name="content"></textarea>
@@ -134,7 +144,7 @@ $ (function () {
 
 function write(){
 	$("form[name='form1']").attr({
-		action:"/admin/notice/write",
+		action:"/admin/faq/write",
 		method:"post"
 	})
 	$("form[name='form1']").submit();

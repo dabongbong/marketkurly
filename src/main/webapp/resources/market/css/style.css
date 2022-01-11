@@ -177,6 +177,18 @@ ol {
 }
 
 /* buttons */
+#login-btn{
+	border: 1px solid #5f0081; 
+	background-color: #5f0080;
+	border-radius: 3px;
+}
+
+#login-btn2{
+	border: 1px solid #5f0081; 
+	background-color: #fff;
+	color:#5f0080;
+	border-radius: 3px;
+}
 
 .primary-btn {
 	display: inline-block;
