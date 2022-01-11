@@ -94,13 +94,12 @@ button:focus,
 textarea:focus {
 	outline: none;
 }
-
-a:hover,
+ a:hover,
 a:focus {
 	text-decoration: none;
 	outline: none;
-	color: #fff;
-}
+	color: #333;
+} 
 
 ul,
 ol {
@@ -406,11 +405,10 @@ ol {
 /* 고객센터 하위메뉴 시작 */
 #userMenu .sub {
 	display:none;
-    position: absolute;
-    right: 0;
+	right: 0;
     top: 34px;
     width: 102px;
-    padding: 3px 9px;
+	padding: 3px 9px;
     border: 1px solid #ddd;
     background-color:#fff
 }
@@ -718,7 +716,7 @@ ol {
 	font-weight: 700;
 	color: #252525;
 }
-
+/* 카테고리시작 */
 .nav-item {
 	background: #fff;
 	display: -webkit-box;
@@ -726,28 +724,26 @@ ol {
 	display: flex;
 }
 
-.nav-item .nav-depart {
+ .nav-item .nav-depart {
 	float: left;
-}
+}  
 
-.nav-item .nav-depart .depart-btn {
+ .nav-item .nav-depart .depart-btn {
 	background: #fff;
-	/* color: #ffffff; */
 	padding: 14px 84px 14px 18px;
 	cursor: pointer;
 	position: relative;
-}
+} 
 
-.nav-item .nav-depart .depart-btn:hover .depart-hover {
+ .nav-item .nav-depart .depart-btn:hover .depart-hover {
 	top: 52px;
 	opacity: 1;
 	visibility: visible;
 	z-index: 99;
-}
+} 
 
 .nav-item .nav-depart .depart-btn:before {
 	position: absolute;
-	/* color: #ffffff; */
 	right: 20px;
 	top: 13px;
 	content: "";
@@ -756,7 +752,6 @@ ol {
 }
 
 .nav-item .nav-depart .depart-btn i {
-	/* color: #ffffff; */
 	font-size: 16px;
 }
 
@@ -767,7 +762,7 @@ ol {
 	margin-left: 16px;
 }
 
-.nav-item .nav-depart .depart-btn .depart-hover {
+ .nav-item .nav-depart .depart-btn .depart-hover {
 	position: absolute;
 	width: 100%;
 	background: #fff;
@@ -775,33 +770,56 @@ ol {
 	top: 62px;
 	opacity: 0;
 	visibility: hidden;
+	border: 1px solid #d5d5d5;
 	padding-bottom: 29px;
-	-webkit-box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
-	box-shadow: 0 13px 32px rgba(51, 51, 51, 0.1);
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
-}
+} 
 
-.nav-item .nav-depart .depart-btn .depart-hover li {
+/* .nav-depart .depart-btn>li>ul {
+	left: 2px;
+	top: 32px;
+	display: none;
+	margin-left: 5px;
+} */
+
+/* .nav-item .nav-depart .depart-btn .depart-hover li {
 	list-style: none;
-}
+} */
 
-.nav-item .nav-depart .depart-btn .depart-hover li.active a {
+/* .nav-item .nav-depart .depart-btn .depart-hover li.active a {
 	color: #333;
-}
+} */
 
-.nav-item .nav-depart .depart-btn .depart-hover li a {
+ .nav-item .nav-depart .depart-btn .depart-hover li a {
 	display: block;
-	font-size: 16px;
+	font-size: 14px;
 	color: #000000;
-	padding-left: 40px;
+	padding-left: 20px;
 	padding-top: 16px;
 	padding-right: 30px;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
+} 
+/* 카테고리 끝 */
+
+/* 서브카테고리 시작  */
+
+ .depart-hover{float:left;}
+.depart-hover>li{float:left;} 
+
+.depart-hover ul{display:none;} 
+
+.depart-hover li:hover>ul{
+	display: block;
+	position: absolute;
+	left: 100%;
+	top: 0px;
+	border: 1px solid  #d5d5d5;
+	background: #eaeaea;
+	white-space:nowrap;
 }
+/* 서브카테고리 끝 */
+
 
 .nav-item .nav-depart .depart-btn .depart-hover li a:hover {
 	color: #fff;
@@ -831,7 +849,7 @@ ol {
 	display: block;
 	color: #333;
 	text-transform: uppercase;
-	padding: 16px 42px 15px;
+	padding: 16px 42px 16px;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
@@ -878,7 +896,7 @@ ol {
 -----------------------*/
 
 .hero-items .single-hero-items {
-	height: 725px;
+	height: 370px;
 	padding-top: 210px;
 }
 
@@ -1026,6 +1044,16 @@ ol {
 /*---------------------
   Banner Section
 -----------------------*/
+.index__text {
+	display:flex;
+	justify-content: center;
+    padding-top: 50px;
+	color: rgb(51, 51, 51);
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: -0.26px;
+    font-weight: 600;
+}
 
 .banner-section {
 	padding: 80px 50px;
@@ -1086,6 +1114,13 @@ ol {
 	padding: 11px 28px;
 	background: #ffffff;
 	border-radius: 2px;
+}
+
+/*---------------------
+  중간배너 
+-----------------------*/
+.mid-banner {
+	width:100%;
 }
 
 /*---------------------
@@ -1572,11 +1607,12 @@ a{
     text-decoration: none;
     color: #333;
 }
-#footer {
-
+.footer__right,
+.footer__right p{
+	font-size:12px;
 }
-#footer, .footer__second{
-    border-top: 1px solid #999;
+.footer__right p a{
+	color:#5f0080;
 }
 
 .footer__first{
@@ -1607,6 +1643,7 @@ a{
 
 .footer__left dl{
     padding-left: 20px;
+    font-size:14px;
 }
 
 .footer__left dd{
@@ -1619,7 +1656,7 @@ a{
     font-weight: 800;
     font-size: 28px;
     color: #333;
-    line-height: 20px;
+    line-height: center;
     letter-spacing: -.5px;
     text-align: center;
     white-space: nowrap;
@@ -1636,7 +1673,7 @@ a{
     font-weight: 700;
     font-size: 14px;
     color: #333;
-    line-height: 32px;
+    line-height: 38px;
     text-align: center;
 }
 
@@ -1646,6 +1683,7 @@ a{
     line-height: 35px;
     padding-top: 9px;
     padding-left: 20px;
+    font-size:14px;
 }
 
 .footer__right .intro{
@@ -1664,15 +1702,31 @@ a{
     padding-bottom: 20px;
 }
 .footer__right .sns li img{
-    width: 50px;
+    width: 40px;
     padding-right: 10px;
 }
 
 
+.footer__second {
+	display:flex;
+	justify-content: space-between;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: 1px solid #eaeaea;
+}
+
+.footer__second .text {
+	font-size : 10px;
+	color : #999;
+	line-height: 16px;
+}
+.footer__second img {
+
+}
 
 /*---------------------
-  Footer
------------------------*/
+  기존에 있던 Footer
+
 
 .f_container {
 	display: flex;
@@ -1862,7 +1916,7 @@ a{
 .copyright-reserved .payment-pic {
 	float: right;
 }
-
+-----------------------*/
 /*-------------------------------- Other Pages Style -------------------------------*/
 
 /*---------------------
