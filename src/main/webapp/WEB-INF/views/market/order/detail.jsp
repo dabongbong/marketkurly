@@ -37,9 +37,8 @@
                                 	<%for(OrderDetail orderDetailList : orderDetail){ %>
                                     <li class="fw-normal">
                                     	<%=orderDetailList.getProduct().getTitle() %> &nbsp;<%=orderDetailList.getOrder_count() %>개
-                                    	<span><%=orderDetailList.getProduct().getPrice() %>원</span>
+                                    	<span><%=orderDetailList.getProduct().getPrice() %> 원</span>
                                    	</li>
-                                    <li class="total-price">Total <span>$240.00</span></li>
                                     <%} %>
                                 </ul>
                                 <div class="order-pager">

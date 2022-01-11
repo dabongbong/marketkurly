@@ -1,12 +1,12 @@
-<%@page import="com.kurly.marketkurly.domain.Product"%>
-<%@page import="com.kurly.marketkurly.domain.OrderDetail"%>
-<%@page import="com.kurly.marketkurly.util.Pager"%>
 <%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
+<%@page import="com.kurly.marketkurly.domain.Product"%>
+<%@page import="com.kurly.marketkurly.util.Pager"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	List<OrderSummary> orderSummaryList = (List)request.getAttribute("orderSummaryList");
 	Pager pager = (Pager)request.getAttribute("pager");
-	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
 %>
 <!-- Header Section Begin -->
 <%@ include file="../inc/header.jsp"%>
@@ -57,27 +57,26 @@
 				        <%for(int i =0; i<=pager.getPageSize();i++) {%>
 				        <%if(num<1)break; %>
 				        <%OrderSummary orderSummary=orderSummaryList.get(curPos++); %>
+				        <%num--; %>
                         <div class="cw-item">
 	                   		<div class="name">
-								<a href="/market/order/detail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
-<%-- 									<%for(int i=0; i<orderDetail.size(); i++){  --%>
-// 											List productDetailList = null;.
-<%-- 									%> --%>
-<%-- 										<%for(int j=0; j<orderDetail.size(); j++){ productDetailList.add(j, orderDetail.get(i).getProduct()); } %> --%>
-<%-- 										<%=orderDetail.get(i).getProduct().getTitle() %> 외  --%>
-<%-- 									<%} %> --%>
-								</a>
+								<strong><a href="/orderDetail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
+									<%=orderSummary.getOrderDetailList().get(0).getProduct().getTitle() %>
+									<%if(orderSummary.getOrderDetailList().size() -1 != 0){ %>
+									 외 <%=orderSummary.getOrderDetailList().size() -1 %>건
+									 <%} %>
+								</a></strong>
 							</div>
 							<hr>
                             <div class="ci-icon col-sm-3">
-<!--                                <img src="" alt=""> -->asdasd
+                               <img src="" alt=" ">
                             </div>
                             <div class="ci-text col-sm-6">
                             	<dl>
                             		<dt>주문번호</dt>
-                            		<dd>15555587654</dd>
+                            		<dd><%=orderSummary.getOrder_number() %></dd>
                             		<dt>결재금액</dt>
-                            		<dd>27,800원</dd>
+                            		<dd><%=orderSummary.getPrice() %> 원</dd>
                             	</dl>
                             	<dl>
                             	</dl>
@@ -85,6 +84,21 @@
                         </div>
                         <%} %>
                     </div>
+                       <tr>
+		                <td colspan="12" align="center">
+		                    <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
+		                        <a href="/orderList.jsp?currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
+		                    <%}else{}%>
+		                    <%for(int i=pager.getFirstPage(); i <= pager.getLastPage(); i++){%>
+		                        <%if(i>pager.getTotalPage()) break;%> <%--페이지 번호가 내가 가진 총 페이지를 넘어서면 반복문 중단--%>
+		                        <a href="/orderList.jsp?currentPage=<%=i%>" <%if(i == pager.getCurrentPage()){%>class="pageStyle"<%}%>>[<%=i%>] </a>
+		                    <%}%>
+		
+		                    <%if(pager.getLastPage()+1 < pager.getTotalPage()){%> 
+		                        <a href="/orderList.jsp?currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
+		                    <%}else{}%>
+		                </td>
+          			 </tr>
                 </div>
             </div>
         </div>

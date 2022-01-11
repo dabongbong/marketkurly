@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.mysql.fabric.xmlrpc.base.Array"%>
+<%@page import="java.util.List"%>
 <%@page import="com.kurly.marketkurly.domain.Product"%>
 <%@page import="com.kurly.marketkurly.domain.OrderDetail"%>
 <%@page import="com.kurly.marketkurly.util.Pager"%>
@@ -6,7 +9,6 @@
 <%
 	List<OrderSummary> orderSummaryList = (List)request.getAttribute("orderSummaryList");
 	Pager pager = (Pager)request.getAttribute("pager");
-	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
 %>
 <!-- Header Section Begin -->
 <%@ include file="../inc/header.jsp"%>
@@ -57,15 +59,20 @@
 				        <%for(int i =0; i<=pager.getPageSize();i++) {%>
 				        <%if(num<1)break; %>
 				        <%OrderSummary orderSummary=orderSummaryList.get(curPos++); %>
+				        <%num--; %>
                         <div class="cw-item">
 	                   		<div class="name">
-								<a href="/market/order/detail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
-<%-- 									<%for(int i=0; i<orderDetail.size(); i++){  --%>
-// 											List productDetailList = null;.
-<%-- 									%> --%>
-<%-- 										<%for(int j=0; j<orderDetail.size(); j++){ productDetailList.add(j, orderDetail.get(i).getProduct()); } %> --%>
-<%-- 										<%=orderDetail.get(i).getProduct().getTitle() %> 외  --%>
-<%-- 									<%} %> --%>
+								<a href="/market/orderDetail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
+							<%-- 		<%for(int j=0; j<orderDetail.size(); j++){ 
+											ArrayList productTitleList = new ArrayList();
+									%>
+										<%
+											for(int k=0; k<orderDetail.size(); k++){
+												productTitleList.add(orderSummary.getOrderDetailList().get(k).getProduct().getTitle());
+											}
+										%>
+										<%=productTitleList.get(j) %> 외 <%=productTitleList.size() -1 %> 건
+									<%} %> --%>
 								</a>
 							</div>
 							<hr>
@@ -85,6 +92,21 @@
                         </div>
                         <%} %>
                     </div>
+                     <tr>
+		                <td colspan="12" align="center">
+		                    <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
+		                        <a href="/market/orderList.jsp?currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
+		                    <%}else{}%>
+		                    <%for(int i=pager.getFirstPage(); i <= pager.getLastPage(); i++){%>
+		                        <%if(i>pager.getTotalPage()) break;%> <%--페이지 번호가 내가 가진 총 페이지를 넘어서면 반복문 중단--%>
+		                        <a href="/market/orderList.jsp?currentPage=<%=i%>" <%if(i == pager.getCurrentPage()){%>class="pageStyle"<%}%>>[<%=i%>] </a>
+		                    <%}%>
+		
+		                    <%if(pager.getLastPage()+1 < pager.getTotalPage()){%> 
+		                        <a href="/market/orderList.jsp?currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
+		                    <%}else{}%>
+		                </td>
+          			 </tr>
                 </div>
             </div>
         </div>
