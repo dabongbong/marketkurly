@@ -6,9 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kurly.marketkurly.domain.OrderSummary;
 import com.kurly.marketkurly.model.order.OrderService;
 import com.kurly.marketkurly.util.Pager;
 
@@ -37,5 +40,13 @@ public class OrderController {
 		mav.addObject("orderDetail", orderDetail);
 		return mav;
 	}
+	
+	@PostMapping("/orderRegist")
+	public String regist(HttpServletRequest request, Model model , OrderSummary orderSummary) {
+		orderService.insert(orderSummary);
+		model.addAttribute("orderRegist", orderSummary);
+		return "rediredirect:/orderList";
+	}
+		
 	
 }
