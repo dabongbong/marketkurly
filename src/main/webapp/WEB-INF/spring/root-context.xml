@@ -64,4 +64,6 @@
 	
 	<bean class="com.kurly.marketkurly.util.GetTime" id="getTime"/>
 	
+	<bean class="com.kurly.marketkurly.util.ProductFileManager" id="productFileManager"/>
+	
 </beans>
