@@ -85,7 +85,6 @@
                       <th>소제목</th>
                       <th>정상가</th>
                       <th>할인적용가</th>
-                      <th>설명</th>
                     </tr>
                   </thead>
                    <tbody>
@@ -97,13 +96,27 @@
                     <tr>
                       <td><%=num-- %></td>
                       <td><%=product.getSubcategory().getSubcategory_name() %></td>
-                      <td><%=product.getTitle() %></td>
+                      <td><a href="/admin/product/detail?product_id=<%=product.getProduct_id()%>"><%=product.getTitle() %></a></td>
                       <td><%=product.getSubTitle() %></td>
                       <td><%=product.getPrice() %></td>
                       <td><%=product.getPrice()/100*(100-product.getSale()) %></td>
-                      <td><%=product.getDetail() %></td>
                     </tr>
                     <%} %>
+                    <tr>
+		                <td colspan="6" align="center">
+		                    <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
+		                        <a href="/admin/product/list.jsp?currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
+		                    <%}else{}%>
+		                    <%for(int i=pager.getFirstPage(); i <= pager.getLastPage(); i++){%>
+		                        <%if(i>pager.getTotalPage()) break;%> <%--페이지 번호가 내가 가진 총 페이지를 넘어서면 반복문 중단--%>
+		                        <a href="/admin/product/list.jsp?currentPage=<%=i%>" <%if(i == pager.getCurrentPage()){%>class="pageStyle"<%}%>>[<%=i%>] </a>
+		                    <%}%>
+		
+		                    <%if(pager.getLastPage()+1 < pager.getTotalPage()){%> 
+		                        <a href="/admin/product/list.jsp?currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
+		                    <%}else{}%>
+		                </td>
+					</tr>
                     <tr>
                  	   <td  colspan="4">
                     		<button type="button" class="btn btn-info" onClick="location.href='/admin/product/registForm'">상품등록</button>
