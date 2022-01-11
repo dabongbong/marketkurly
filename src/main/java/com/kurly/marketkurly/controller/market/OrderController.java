@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class OrderController {
 	
-	@GetMapping("/order/orderList")
+	@GetMapping("/order")
 	public ModelAndView getList() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("market/order/detail");
