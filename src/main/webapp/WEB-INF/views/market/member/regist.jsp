@@ -32,10 +32,7 @@
                   <label for="id">아이디</label>
                     <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 입력해주세요" >
                      <div class="check_font" id="id_check"></div>
-                  <!--   
-                    <span class="id-input1" style="color:green; display:none;">사용 가능한 아이디 입니다.</span>
-                    <span class="id-input2" style="color:red; display:none;">이미 있는 아이디 입니다.</span><p>
-                     -->
+                  	
                      
                   <label for="name">이름</label>
                      <input type="text" class="form-control" name="member_name" id="member_name"  placeholder="이름을 입력해주세요" required>
@@ -46,7 +43,7 @@
                     <div class="check_font" id="pw_check"></div>
                      
                   <label for="pass2">비밀번호 확인</label>
-                     <input type="password" class="form-control"  name="member_pass2" id="member_pass2" placeholder="비밀번호를 입력해주세요">
+                     <input type="password" class="form-control"  name="member_pass2" id="member_pass2" placeholder="비밀번호를 한번 더 입력해주세요">
                     <div class="check_font" id="pw2_check"></div>
                     
                   <label for="email">이메일</label>
@@ -78,9 +75,6 @@
                     <button type="button" class="site-btn register-btn" id="reg" onClick="regist()">가입하기</button>
                 </div>
               </form>
-                        <div class="switch-login">
-                            <a href="/market/member/list" class="or-login">Or Login</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -88,46 +82,13 @@
     </div>
     <!-- Register Form Section End -->
     
-    <!-- Partner Logo Section Begin -->
-    <div class="partner-logo">
-        <div class="container">
-            <div class="logo-carousel owl-carousel">
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-1.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-2.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-3.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-4.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-5.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Partner Logo Section End -->
 
     <%@ include file="../inc/footer.jsp" %>
 
 </body>
 <script type="text/javascript">
 function regist(){
-	form1.action="/market/member/regist";
+	form1.action="/member/regist";
 	form1.method="post";
 	form1.submit();
 }
@@ -177,7 +138,7 @@ $("#user_id").blur(function() {
 		});
 		
 	});
-
+	//공백
 	var empJ = /\s/g;
 	//아이디 정규식
 	var idJ = /^[a-z0-9]{4,12}$/;
@@ -306,7 +267,5 @@ $("#user_id").blur(function() {
 
 
 </script>
-
-</html>
 </body>
 </html>

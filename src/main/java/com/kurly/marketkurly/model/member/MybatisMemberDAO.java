@@ -24,8 +24,8 @@ public class MybatisMemberDAO implements MemberDAO{
 		return sessionTemplate.selectOne("Member.select",member_id);
 	}
 	@Override
-	public Member select(Member member) {
-		return sessionTemplate.selectOne("Member.select", member);
+	public Member selectByAdmin(Member member) {
+		return sessionTemplate.selectOne("Member.selectByAdmin", member);
 	}
 
 	@Override

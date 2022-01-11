@@ -76,8 +76,8 @@ public class FaqController {
 			}
 			//삭제 요청 처리
 			@GetMapping("/faq/delete")
-			public String delete(int faq) {
-				faqService.delete(faq);
+			public String delete(int faq_no) {
+				faqService.delete(faq_no);
 				
 				return "redirect:/admin/faq/faq";
 			}

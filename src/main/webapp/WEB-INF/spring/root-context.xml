@@ -60,4 +60,10 @@
 	<!-- 암호화 복호화 쓰레드 빈등록 -->
 	<bean class="com.kurly.marketkurly.util.StringUtil" id="stringUtil"/>
 	
+	<bean class="com.kurly.marketkurly.util.Pager" id="pager"/>
+	
+	<bean class="com.kurly.marketkurly.util.GetTime" id="getTime"/>
+	
+	<bean class="com.kurly.marketkurly.util.ProductFileManager" id="productFileManager"/>
+	
 </beans>

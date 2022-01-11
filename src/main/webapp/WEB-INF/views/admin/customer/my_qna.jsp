@@ -105,7 +105,7 @@
 											
 											<tr>
 												<td><%=num-- %></td>
-												<td><a href="/admin/customer/detail?my_qna_no=<%=my_qna.getMy_qna_no()%>"><%=my_qna.getMy_qna_category() %></a></td>
+												<td><a href="/admin/customer/detail?my_qna_no=<%=my_qna.getMy_qna_no()%>"><%=my_qna.getTitle() %></a></td>
 												<td><%=my_qna.getTitle() %></td>
 												<td><%=my_qna.getMember() %></td>
 												<td><%=my_qna.getRegdate() %></td>
@@ -117,17 +117,12 @@
 													<%if(i>=pager.getTotalPage())break; %> <%=i %> <%} %>
 												</td>
 											</tr>
-											<!-- 비동기 미완.. 리스트 왜 안뜰까 슈밤 -->
-											<%for(My_qna my_qna : my_qnaList){ %>
-											<tr data-widget="expandable-table" aria-expanded="true">
-												<td><a id="my_qna" style='color: #646464'
-													href="javascript:selectMy_qna('<%=my_qna.getTitle()%>',<%=my_qna.getMy_qna_no()%>)"><%=my_qna.getTitle() %></a>
-													<button type="button" class="btn btn-info"
-														style="float: right"
-														onClick="location.href='/admin/customer/detail?my_qna_no=<%=my_qna.getMy_qna_no()%>'">상세보기</button>
-												</td>
-											</tr>
-											<%} %>
+											<form>
+								              <input type="hidden" name="category_id">
+								              <div class="card-body p-0">
+								                <table class="table table-hover" >
+								                  <tbody id="subList">
+								                  </tbody>
 											<tr>
 												<td colspan="4">
 													<button type="button" class="btn btn-info"
@@ -135,8 +130,11 @@
 														style="float: right;">문의 등록</button>
 												</td>
 											</tr>
+													</table>
+												</div>
+											</form>
+											
 										</tbody>
-
 									</table>
 								</div>
 							</div>
@@ -156,6 +154,9 @@
 
 	<%@ include file="../inc/bottom_link.jsp"%>
 
+
+
+</script>
 
 
 </body>
