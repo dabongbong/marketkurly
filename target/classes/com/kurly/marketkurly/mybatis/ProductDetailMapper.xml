@@ -6,4 +6,7 @@
 		insert into product_detail(product_id, item, content)
 		values(#{product_id},#{item},#{content})
 	</insert>
+	<select id="selectByProductId" parameterType="int" resultType="ProductDetail">
+		select * from product_detail where product_id = #{product_id}
+	</select>
 </mapper>

@@ -13,7 +13,18 @@
 		
 		<association column="subcategory_id" property="subcategory" javaType="Subcategory" select="Subcategory.select"/>
 	</resultMap>
-
+	<resultMap type="Product" id="selectDetail">
+		<id column="product_id" property="product_id"/>
+		<result column="title" property="title"/>
+		<result column="subTitle" property="subTitle"/>
+		<result column="price" property="price"/>
+		<result column="detail" property="detail"/>
+		<result column="sale" property="sale"/>
+		<result column="product_img" property="product_img"/>
+		
+		<collection column="product_id" property="product_detail_list" javaType="java.util.List" ofType="ProductDetail" select="ProductDetail.selectByProductId"/>
+		<collection column="product_id" property="product_hashtag_list" javaType="java.util.List" ofType="ProductHashtag" select="ProductHashtag.selectByProductId"/>
+	</resultMap>
 	<select id="selectAll" resultMap="joinSubCategoryProduct">
 		select product_id, title, subTitle, price, detail, sale, product_img,
 		s.subcategory_id as subcategory_id, subcategory_name
@@ -21,7 +32,7 @@
 		where s.subCategory_id = p.subCategory_id 
 	</select>
 
-	<select id="select" parameterType="int" resultType="Product">
+	<select id="select" parameterType="int" resultType="Product" resultMap="selectDetail">
 		select * from product where product_id=#{product_id}
 	</select>
 

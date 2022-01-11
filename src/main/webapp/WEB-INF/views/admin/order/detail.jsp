@@ -1,10 +1,12 @@
+<%@page import="com.kurly.marketkurly.util.Pager"%>
 <%@page import="com.kurly.marketkurly.domain.OrderDetail"%>
 <%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	String id = request.getParameter("order_summary_id");
+	String order_summary_id = request.getParameter("order_summary_id");
 	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
+	Pager pager = (Pager)request.getAttribute("pager");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,26 +66,39 @@
               <div class="card-header">
                 <h3 class="card-title">주문 번호 &nbsp;&nbsp;
 	                <strong>
-	                	<%=id %>
+	                	<%=order_summary_id %>
 	                </strong>
                 </h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
-              	<input type="hidden" name="_method" value="PUT">
-              	<input type="hidden" name="notice_id" value="">
                 <div class="card-body">
-                <%for(OrderDetail orderDetailList : orderDetail){ %>
+                <%int curPos=pager.getCurPos(); %>
+		        <%int num=pager.getNum(); %>
+		        <%for(int i =0; i<=pager.getPageSize();i++) {%>
+		        <%if(num<1)break; %>
+                <%num--; %>
+		        <%OrderDetail orderDetailList=orderDetail.get(curPos++); %>
                   <div class="form-group">
                   	<input type="text" class="form-control" value="<%=orderDetailList.getProduct().getTitle() %>" name="title" readonly>
                     <input type="text" class="form-control" value="<%=orderDetailList.getProduct().getPrice() %>원" name="order_count" readonly>
                     <input type="text" class="form-control" value="<%=orderDetailList.getOrder_count() %>개" name="price" readonly>
                   </div>
                  <%} %>
-                <!-- /.card-body -->
-                <div class="card-footer">
+                  <div class="form-group">
                   <button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
+	                  <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
+	                      <a href="/admin/order/detail.jsp?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
+	                  <%}else{}%>
+	                  <%for(int i=pager.getFirstPage(); i <= pager.getLastPage(); i++){%>
+	                      <%if(i>pager.getTotalPage()) break;%> <%--페이지 번호가 내가 가진 총 페이지를 넘어서면 반복문 중단--%>
+	                      <a href="/admin/order/detail.jsp?order_summary_id=<%=order_summary_id%>&currentPage=<%=i%>" <%if(i == pager.getCurrentPage()){%>class="pageStyle"<%}%>>[<%=i%>] </a>
+	                  <%}%>
+	
+	                  <%if(pager.getLastPage()+1 < pager.getTotalPage()){%> 
+	                      <a href="//admin/order/detail.jsp?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
+	                  <%}else{}%>
                 </div>
               </form>
             </div>

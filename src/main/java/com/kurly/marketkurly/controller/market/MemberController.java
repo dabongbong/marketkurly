@@ -40,13 +40,13 @@ public class MemberController {
 		}
 		
 		//로그인 폼 요청 처리
-		@GetMapping("/loginform")
+		@GetMapping("/member/loginform")
 		public String getLoginForm() {
 			return "market/member/login";
 		}
 		
 		//로그인
-		@PostMapping("/login")
+		@PostMapping("/member/login")
 		@ResponseBody
 		public Message loginCheck(HttpServletRequest request,Member member) {
 			System.out.println("비번운 "+member.getMember_pass());

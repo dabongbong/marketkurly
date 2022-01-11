@@ -1,3 +1,5 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.kurly.marketkurly.domain.ProductDetail"%>
 <%@page import="com.kurly.marketkurly.domain.Product"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
@@ -39,11 +41,13 @@
   	<section class="content">
   		<div class="container-fluid">
   			<div class="row">
-  				<div class="col-6">이미지</div>
-  				<div class="col-6">
+  				<div class="col-5">
+  					<img class="col-12"alt="상품대표이미지" src="/resources/productImg/<%=product.getProduct_img()%>">
+  				</div>
+  				<div class="col-7">
   					<p class="goods_name">
 	  					<h1 class="font-weight-bold"><%=product.getTitle() %></h1>
-	  					<h6>기분 좋게 부서지는 바삭한 토스트</h6>
+	  					<h6><%=product.getSubTitle() %></h6>
   					</p>
   					<%if(product.getSale()>0){ %>
   					<p>회원할인가</p>
@@ -59,13 +63,23 @@
 						<span class="h1 font-weight-bold"><%=product.getPrice()%></span>
 						<span class="won h3">원</span>
 					</p>
-  					<%} %>
+  					<%}; %>
   					<hr>
-					
+  					<div >
+					<%int i = 1; %>
+					<%for(ProductDetail detail : product.getProduct_detail_list()){ %>
+					<dl class="d-flex">
+						<dt class="col-3"><%=detail.getItem() %></dt>
+						<dd class="col-9"><%=detail.getContent() %><dd>
+					</dl>
+					<%if(i!=1){ %>
+					<hr>
+					<%}i++;}; %>
+					</div>
   				</div>
   			</div>
   			<div class="row">
- 				<div class="col-12">
+ 				<div class="col-12 d-flex flex-wrap justify-content-center">
  				<%=product.getDetail() %>
  				</div>
   			

@@ -85,16 +85,11 @@ public class ProductController {
 	public ModelAndView getDetail(int product_id) {
 		ModelAndView mav = new ModelAndView("admin/product/detail");
 		Product product = productService.select(product_id);
+		System.out.println(product.getProduct_detail_list());
 		mav.addObject("product", product);
 		return mav;
 	}
-	@RequestMapping(value="/product/uploadSummernoteImageFile", produces = "application/json; charset=utf8")
-	@ResponseBody
-	public String uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
-		JsonObject fileName = fileManager.saveSummernoteFile(multipartFile, request);
-		String a = fileName.toString();
-		return a;
-	}
+	
 	
 	
 	
