@@ -90,6 +90,7 @@ create table member(
 create table order_summary(
 	order_summary_id int primary key auto_increment
 	, member_id int
+	, order_number int
 	, paymethod_id int
 	, orderdate timestamp default now()
 	, price int default 0

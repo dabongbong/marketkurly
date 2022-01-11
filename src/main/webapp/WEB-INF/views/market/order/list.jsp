@@ -57,7 +57,7 @@
 				        <%for(int i =0; i<=pager.getPageSize();i++) {%>
 				        <%if(num<1)break; %>
 				        <%OrderSummary orderSummary=orderSummaryList.get(curPos++); %>
-				        <%num--; %>
+				        <input type="hidden" value="<%=num--%>">
                         <div class="cw-item">
 	                   		<div class="name">
 								<strong><a href="/orderDetail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
