@@ -1,10 +1,8 @@
-<%@page import="com.kurly.marketkurly.domain.Subcategory"%>
 <%@page import="com.kurly.marketkurly.domain.Category"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
-	List<Subcategory> subcategoryList = (List)request.getAttribute("subcategoryList");
 %>
 
 <!DOCTYPE html>
@@ -21,15 +19,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="/resources/market/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/market/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/market/css/themify-icons.css" type="text/css">
-    <link rel="stylesheet" href="/resources/market/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/resources/market/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/market/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/resources/market/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/market/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/market/css/style.css" type="text/css">
+    <link rel="stylesheet" href="./resources/market/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./resources/market/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./resources/market/css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="./resources/market/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="./resources/market/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="./resources/market/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="./resources/market/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="./resources/market/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="./resources/market/css/style.css" type="text/css">
    
 </head>
 <body>
@@ -72,8 +70,8 @@
                 <div class="nav-depart">
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
-                        	<span>전체 카테고리 </span>
-                        		<ul class="depart-hover">
+                        <span>전체 카테고리 </span>
+                        <ul class="depart-hover">
                             <li class="active">
                         <%for(Category category : categoryList){ %>
                             	<a id="category"  style='color:#646464' href="#" >
@@ -83,7 +81,7 @@
                     	<%} %>
 		                    	<ul class="sub-hover">
 		                    		<li class="active">
-		                    			<a id="subCategory" href="#"><input type="hidden" name="category_id">서브카테고리</a>
+		                    			<a href="#">서브카테고리</a>
 		                    		</li>
 		                    	</ul>
                             </li>
@@ -122,10 +120,3 @@
         </div>
     </header>
     <!-- Header End -->
-    <script>
-    $(function(){
-    	$("#category").hover(function(){
-    		$("#subCategory").show();
-    	});
-    })
-    </script>

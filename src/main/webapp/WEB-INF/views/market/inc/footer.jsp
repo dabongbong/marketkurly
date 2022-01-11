@@ -112,16 +112,16 @@
  
 
     <!-- Js Plugins -->
-    <script src="./resources/market/js/jquery-3.3.1.min.js"></script>
-    <script src="./resources/market/js/bootstrap.min.js"></script>
-    <script src="./resources/market/js/jquery-ui.min.js"></script>
-    <script src="./resources/market/js/jquery.countdown.min.js"></script>
-    <script src="./resources/market/js/jquery.nice-select.min.js"></script>
-    <script src="./resources/market/js/jquery.zoom.min.js"></script>
-    <script src="./resources/market/js/jquery.dd.min.js"></script>
-    <script src="./resources/market/js/jquery.slicknav.js"></script>
-    <script src="./resources/market/js/owl.carousel.min.js"></script>
-    <script src="./resources/market/js/main.js"></script>
+    <script src="/resources/market/js/jquery-3.3.1.min.js"></script>
+    <script src="/resources/market/js/bootstrap.min.js"></script>
+    <script src="/resources/market/js/jquery-ui.min.js"></script>
+    <script src="/resources/market/js/jquery.countdown.min.js"></script>
+    <script src="/resources/market/js/jquery.nice-select.min.js"></script>
+    <script src="/resources/market/js/jquery.zoom.min.js"></script>
+    <script src="/resources/market/js/jquery.dd.min.js"></script>
+    <script src="/resources/market/js/jquery.slicknav.js"></script>
+    <script src="/resources/market/js/owl.carousel.min.js"></script>
+    <script src="/resources/market/js/main.js"></script>
 </body>
 
 </html>

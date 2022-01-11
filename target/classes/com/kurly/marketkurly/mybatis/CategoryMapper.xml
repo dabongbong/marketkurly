@@ -3,7 +3,7 @@
 <mapper namespace="Category">
 
 <select id="selectAll"  resultType="Category">
-	select * from category order by category_id desc
+	select * from category order by category_id asc
 </select>
 
 <select id="select" parameterType="int" resultType="Category">

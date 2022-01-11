@@ -1,69 +1,29 @@
-<%@page import="com.kurly.marketkurly.domain.Member"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%
-	Member member=(Member)request.getAttribute("member");
-%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
-	
-	<%@ include file="../inc/head_link.jsp" %>
-  <!-- summernote -->
-  <link rel="stylesheet" href="/resources/admin/plugins/summernote/summernote-bs4.min.css">
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
-</head>
-<body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
+<%@ include file="../inc/header.jsp" %>
 
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="/resources/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
-
-  <!-- Navbar -->
-  <%@ include file="../inc/navbar.jsp" %>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <%@ include file="../inc/sidebar.jsp" %>  
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">회원등록</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <span>Register</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
+    <!-- Breadcrumb Form Section Begin -->
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-12">
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">상세내용</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form name="form1">
+    <!-- Register Section Begin -->
+    <div class="register-login-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="register-form">
+                         <form name="form1">
               	
               	
                 <div class="card-body">
@@ -103,6 +63,7 @@
                   <label for="gender">성별</label>
                     <label><input type="radio" name="gender" value="남" checked/>남</label>
                     <label><input type="radio" name="gender" value="여" />여</label>
+                    <label><input type="radio" name="gender" value="선택안함" />선택안함</label>
                     <p>
 
 
@@ -114,47 +75,59 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" id="reg" onClick="regist()">회원등록</button>
+                    <button type="button" class="site-btn register-btn" id="reg" onClick="regist()">가입하기</button>
                 </div>
               </form>
+                        <div class="switch-login">
+                            <a href="/market/member/list" class="or-login">Or Login</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- /.card -->
-          </div>
-        
-       </div>
-        
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  
-  <%@ include file="../inc/footer.jsp" %>  
-  
+        </div>
+    </div>
+    <!-- Register Form Section End -->
+    
+    <!-- Partner Logo Section Begin -->
+    <div class="partner-logo">
+        <div class="container">
+            <div class="logo-carousel owl-carousel">
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-1.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-2.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-3.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-4.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Partner Logo Section End -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+    <%@ include file="../inc/footer.jsp" %>
 
-<%@ include file="../inc/bottom_link.jsp" %>
-
-<!-- Summernote -->
-<script src="/resources/admin/plugins/summernote/summernote-bs4.min.js"></script>
-
-<!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
-<script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-
-
-<script>
-
+</body>
+<script type="text/javascript">
 function regist(){
-	form1.action="/admin/member/regist";
+	form1.action="/market/member/regist";
 	form1.method="post";
 	form1.submit();
 }
@@ -331,17 +304,9 @@ $("#user_id").blur(function() {
 			}
 		}); 
 
+
 </script>
 
+</html>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

@@ -147,7 +147,7 @@
             <!-- 자식메뉴 begin -->
             <ul class="nav nav-treeview">
           <li class="nav-item">
-                <a href="/admin/customer/fnq" class="nav-link">
+                <a href="/admin/faq/faq" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>자주하는 질문</p>
                 </a>
