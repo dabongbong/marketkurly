@@ -39,7 +39,7 @@
                                     	<img alt="." src=""> <%=orderDetailList.getProduct().getTitle() %> &nbsp;<%=orderDetailList.getOrder_count() %>개
                                     	<span><%=orderDetailList.getProduct().getPrice() %> 원</span>
                                    	</li>
-                                    <%} %>
+                                   	<%} %>
                                 </ul>
                                 <div class="order-btn">
                                 	  <button type="button" class="site-btn place-btn" onclick="location.href='/orderList'">주문 목록</button>
