@@ -1,12 +1,9 @@
-<%@page import="com.kurly.marketkurly.domain.Subcategory"%>
 <%@page import="com.kurly.marketkurly.domain.Category"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	List<Category> categoryList = (List)request.getAttribute("categoryList");
-	List<Subcategory> subcategoryList = (List)request.getAttribute("subcategoryList");
+	List<Category> categoryList =(List)request.getAttribute("categoryList");
 %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +28,8 @@
     <link rel="stylesheet" href="/resources/market/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/resources/market/css/style.css" type="text/css">
    
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <!-- Page Preloder -->
@@ -46,7 +45,7 @@
                 <div class="ht-right" id="userMenu">
                 <ul class="drop">
                     <li><a href="#" class="join-panel">회원가입</a></li>
-                    <li><a href="/market/member/login" class="login-panel">로그인</a></li>
+                    <li><a href="market/member/login" class="login-panel">로그인</a></li>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
 	                        <li><a href="#">공지사항­</a></li>
@@ -75,17 +74,16 @@
                         	<span>전체 카테고리 </span>
                         		<ul class="depart-hover">
                             <li class="active">
-                        <%for(Category category : categoryList){ %>
-                            	<a id="category"  style='color:#646464' href="#" >
+                        <%for(int i=0; i<categoryList.size(); i++){ %>
+                        <%Category category=categoryList.get(i); %>
+                            	<a id="category"  style='color:#646464' href="#" onMouseOver="hoverCategory(<%=category.getCategory_id() %>, <%=i%>)">
                             		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px">
                             		<%=category.getCategory_name() %>
                             	</a>
                     	<%} %>
-		                    	<ul class="sub-hover">
-		                    		<li class="active">
-		                    			<a id="subCategory" href="#"><input type="hidden" name="category_id">서브카테고리</a>
-		                    		</li>
-		                    	</ul>
+                    			<ul class='sub-hover' id='subBox'>
+                    			<!-- 서브카테고리 비동기방식 -->
+                    			</ul>
                             </li>
     					</ul>
                     </div>
@@ -122,10 +120,37 @@
         </div>
     </header>
     <!-- Header End -->
-    <script>
-    $(function(){
-    	$("#category").hover(function(){
-    		$("#subCategory").show();
-    	});
-    })
-    </script>
+<script>
+//categoryList를 가공하여 js의 이차원배열로 전환 
+/* 
+function init(){
+	
+}
+*/
+    
+function hoverCategory(category_id, index){
+ /* $("#subCategory").show();  */
+	$.ajax({
+		url:"/rest/category",
+		type:"get",
+		success:function(result, status, xhr){
+			categoryList= result;
+			//console.log(result);
+			console.log(categoryList[index].subList);
+ 		
+			var tag="";
+			for(var i=0; i<categoryList[index].subList.length; i++){
+				var name=result[index].subList[i];
+	 			
+				tag+="<li id='subCategory' class='active'>";
+				tag+="<a href='#'>"+name.subcategory_name+"</a></li>";
+				
+			}
+			console.log(tag);
+			$("#subBox").empty();
+			$("#subBox").append(tag);
+		}
+	});
+ }
+ </script>
+    

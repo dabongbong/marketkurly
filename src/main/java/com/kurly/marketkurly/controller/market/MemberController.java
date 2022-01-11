@@ -39,13 +39,13 @@ public class MemberController {
 		}
 		
 		//로그인 폼 요청 처리
-		@GetMapping("/market/member/loginform")
+		@GetMapping("/member/loginform")
 		public String getLoginForm() {
 			return "market/member/login";
 		}
 		
 		//로그인
-		@PostMapping("/market/member/login")
+		@PostMapping("/member/login")
 		@ResponseBody
 		public Message loginCheck(HttpServletRequest request,Member member) {
 			
