@@ -90,7 +90,6 @@ public class MemberController {
 		return "redirect:/admin/member/list";
 	}
 	//아이디 중복체크
-	// id 중복 체크 컨트롤러
 		@RequestMapping(value = "/member/idCheck", method = RequestMethod.GET)
 		@ResponseBody
 		public int idCheck(@RequestParam("user_id") String user_id) {

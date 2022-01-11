@@ -77,7 +77,7 @@
               <div class="card-body p-0">
                 <table class="table table-hover">
                 <thead>
-                    <tr>
+                    <tr colspan="12" align="center">
                       <th>No</th>
                       <th>고객ID</th>
                       <th>주문ID</th>
@@ -95,10 +95,10 @@
 				        <%OrderSummary orderSummary=orderSummaryList.get(curPos++); %>
 				        <tr>
 				          <td><%=num-- %></td>
-				          <td><%=orderSummary.getMember().getMember_id() %></td>
-				          <td>
+				          <td><%=orderSummary.getMember().getUser_id()%></td>
+				          <td n>
 				          	<a href="/admin/order/detail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
-				          		<%=orderSummary.getOrder_summary_id() %>
+				          		<%=orderSummary.getOrder_number() %>
 				          	</a>
 			          	</td>
 				          <td><%=orderSummary.getPaymethod().getMethod() %></td>
@@ -121,12 +121,6 @@
 		                    <%}else{}%>
 		                </td>
           			 </tr>
-     			     <tr>
-                 	 	<td colspan="6" align="left">
-<!--                        		<button type="button" class="btn btn-info" onClick="location.href='/admin/order/registForm'">주문하기 테스트</button> -->
-                     	</td>
-                     </tr>
-                  </tbody>
                   </tbody>
                 </table>
               </div>
@@ -137,8 +131,8 @@
           </div>
         </div>
         
+    	</section>
       </div>
-    </section>
   </div>
   <%@ include file="../inc/footer.jsp" %>  
   <!-- Control Sidebar -->

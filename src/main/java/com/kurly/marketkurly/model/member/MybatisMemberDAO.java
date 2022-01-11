@@ -23,6 +23,10 @@ public class MybatisMemberDAO implements MemberDAO{
 	public Member select(int member_id) {
 		return sessionTemplate.selectOne("Member.select",member_id);
 	}
+	@Override
+	public Member select(Member member) {
+		return sessionTemplate.selectOne("Member.select", member);
+	}
 
 	@Override
 	public void insert(Member member)throws MemberException{
@@ -52,6 +56,8 @@ public class MybatisMemberDAO implements MemberDAO{
 	public int userIdCheck(String user_id) {
 		return sessionTemplate.selectOne("Member.userIdCheck",user_id);
 	}
+
+
 
 
 }
