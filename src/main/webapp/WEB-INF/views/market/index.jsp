@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
     <!-- Header Section Begin -->
-    <%@include file="./inc/header.jsp" %>
+    <%@ include file="./inc/header.jsp" %>
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
