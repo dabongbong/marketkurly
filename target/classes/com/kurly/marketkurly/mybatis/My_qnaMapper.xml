@@ -18,7 +18,7 @@
 		select my_qna_no, my_qna_category, title, writer, content, regdate,
 		m.member_id as member_id
 		from member m, my_qna q
-		where m.member_id = q.member_id
+		where m.member_id=q.member_id
 	</select>
 	
 	<select id="select" parameterType="int" resultType="My_qna">
