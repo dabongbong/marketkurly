@@ -75,12 +75,12 @@
                         	<span>전체 카테고리 </span>
                         		<ul class="depart-hover">
                             <li class="active">
-                        <%for(Category category : categoryList){ %>
-                            	<a id="category"  style='color:#646464' href="#" >
-                            		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px">
-                            		<%=category.getCategory_name() %>
-                            	</a>
-                    	<%} %>
+<%--                         <%for(Category category : categoryList){ %> --%>
+<!--                             	<a id="category"  style='color:#646464' href="#" > -->
+<%--                             		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px"> --%>
+<%--                             		<%=category.getCategory_name() %> --%>
+<!--                             	</a> -->
+<%--                     	<%} %> --%>
 		                    	<ul class="sub-hover">
 		                    		<li class="active">
 		                    			<a id="subCategory" href="#"><input type="hidden" name="category_id">서브카테고리</a>
