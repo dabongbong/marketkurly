@@ -31,7 +31,7 @@
 	<!-- 주문 하기 -->
 	<insert id="insert" parameterType="OrderSummary">
 		insert into order_summary(order_summary_id, member_id, order_number, paymethod_int, orderdate, price)
-		values(#{order_summary_id},#{member.member_id},#{paymethod.paymethod_int},#{orderdate},#{price})
+		values(#{order_summary_id},#{member.member_id},#{order_number},#{paymethod.paymethod_int},#{orderdate},#{price})
 	</insert>
 	
 	<!-- 삭제 요청 (3년 지난 것들) 질문 사항 -->
