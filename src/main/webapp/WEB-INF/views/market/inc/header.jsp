@@ -4,10 +4,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
-	List<Category> categoryList =(List)request.getAttribute("categoryList");
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
 	Member member= new Member();
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +32,6 @@
     <link rel="stylesheet" href="/resources/market/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/resources/market/css/style.css" type="text/css">
    
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <script type="text/javascript">
 </script>
@@ -50,8 +48,6 @@
                 <a href="#" class="delivery-panner"><img src="./resources/market/img/categoryIcons/delivery_210801.webp" alt="샛별,택배배송안내" width="121" height="22"></a>
                 <div class="ht-right" id="userMenu">
                 <ul class="drop">
-                    <li><a href="#" class="join-panel">회원가입</a></li>
-                    <li><a href="market/member/login" class="login-panel">로그인</a></li>
                 
                 <!-- 로그인 하지 않은 상태 -->
                 <c:if test="${member.user_id==null }">
@@ -62,6 +58,7 @@
                   <!-- 로그인한 상태 -->
                   <c:if test="${ member.user_id != null }">
                                 <li><a href="/loginform" class="login-panel" id="loginSuccess" onClick="location.href='/logout'">로그아웃</a></li>
+                                
                 </c:if>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
@@ -91,31 +88,19 @@
                         	<span>전체 카테고리 </span>
                         		<ul class="depart-hover">
                             <li class="active">
-<<<<<<< HEAD
-                        <%for(int i=0; i<categoryList.size(); i++){ %>
-                        <%Category category=categoryList.get(i); %>
-                            	<a id="category"  style='color:#646464' href="#" onMouseOver="hoverCategory(<%=category.getCategory_id() %>, <%=i%>)">
-=======
                          <%--    
                         <%for(Category category : categoryList){ %>
                             	<a id="category"  style='color:#646464' href="#" >
->>>>>>> 93a75a197978ca3ec222b78c2dbc3c1e08248804
                             		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px">
                             		<%=category.getCategory_name() %>
                             	</a>
                     	<%} %>
-<<<<<<< HEAD
-                    			<ul class='sub-hover' id='subBox'>
-                    			<!-- 서브카테고리 비동기방식 -->
-                    			</ul>
-=======
                     	 --%>
 		                    	<ul class="sub-hover">
 		                    		<li class="active">
 		                    			<a href="#">서브카테고리</a>
 		                    		</li>
 		                    	</ul>
->>>>>>> 93a75a197978ca3ec222b78c2dbc3c1e08248804
                             </li>
     					</ul>
                     </div>
@@ -151,42 +136,4 @@
             </div>
         </div>
     </header>
-<<<<<<< HEAD
     <!-- Header End -->
-<script>
-//categoryList를 가공하여 js의 이차원배열로 전환 
-/* 
-function init(){
-	
-}
-*/
-    
-function hoverCategory(category_id, index){
- /* $("#subCategory").show();  */
-	$.ajax({
-		url:"/rest/category",
-		type:"get",
-		success:function(result, status, xhr){
-			categoryList= result;
-			//console.log(result);
-			console.log(categoryList[index].subList);
- 		
-			var tag="";
-			for(var i=0; i<categoryList[index].subList.length; i++){
-				var name=result[index].subList[i];
-	 			
-				tag+="<li id='subCategory' class='active'>";
-				tag+="<a href='#'>"+name.subcategory_name+"</a></li>";
-				
-			}
-			console.log(tag);
-			$("#subBox").empty();
-			$("#subBox").append(tag);
-		}
-	});
- }
- </script>
-    
-=======
-    <!-- Header End -->
->>>>>>> 93a75a197978ca3ec222b78c2dbc3c1e08248804
