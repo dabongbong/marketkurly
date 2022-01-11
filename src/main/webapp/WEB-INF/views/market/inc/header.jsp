@@ -19,15 +19,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="./resources/market/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="./resources/market/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="./resources/market/css/themify-icons.css" type="text/css">
-    <link rel="stylesheet" href="./resources/market/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="./resources/market/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="./resources/market/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="./resources/market/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="./resources/market/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="./resources/market/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/resources/market/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/market/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/market/css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="/resources/market/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/resources/market/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/market/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/resources/market/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/market/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/market/css/style.css" type="text/css">
    
 </head>
 <body>
