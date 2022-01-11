@@ -32,7 +32,7 @@ insert into paymethod (method) values('휴대폰');
 -- 홍길동=1, 심청이=2 --
 insert into member(member_id,user_id, member_pass, member_name, email, phone, addr, gender, birth) 
 values('redRoadEast','1234','홍길동','redRoadEast@naver.com','01012341234','경기도 의왕시','남자','19980206');
-insert into member(member_id,user_id, member_pass, member_name, email, phone, addr, gender, birth) 
+insert into member(user_id, member_pass, member_name, email, phone, addr, gender, birth) 
 values('mindBlue2','1234','심청이','mindBlue2@naver.com','01198765432','서울시 강남구','여자','19710505');
  -- 팬시레몬 2개, 아보카도 5개 --
 -- 샤인마토 2개 --
