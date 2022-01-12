@@ -71,7 +71,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-12">
+          <div class="col-10" align="center" style="padding-left:160px; padding-right:0px;">
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">
@@ -94,22 +94,22 @@
                     <input type="text" class="form-control" value="<%=orderDetailList.getOrder_count() %>개" name="price" readonly>
                   </div> --%>
                   <div class="cw-item col-sm-12 row">
-                            <div class=" col-sm-2">
+                            <div class=" col-sm-3">
                                <img src="/resources/productImg/<%=orderDetailList.getProduct().getProduct_img()%>" alt=" " width="140" height="80">
                             </div>
-                            <div class=" col-sm-2">
+                            <div class=" col-sm-3">
                             	<dl>
                             		<dt>상품명</dt>
                             		<dd><%=orderDetailList.getProduct().getTitle()%></dd>
                             	</dl>
                             </div>
-                            <div class=" col-sm-2">
+                            <div class=" col-sm-3">
                             	<dl>
                             		<dt>구매수량</dt>
-                            		<dd><%=orderDetailList.getOrder_count() %> 원</dd>
+                            		<dd><%=orderDetailList.getOrder_count() %> 개</dd>
                             	</dl>
                             </div>
-                            <div class=" col-sm-2">
+                            <div class=" col-sm-3">
                             	<dl>
                             		<dt>결재금액</dt>
                             		<dd><%=orderDetailList.getProduct().getPrice() %> 원</dd>
@@ -119,10 +119,7 @@
                         <hr>
                  <%} %>
                   <div class="form-group row">
-                  	<div class="col-sm-5">
-                  		<button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
-                  	</div>
-                  	<div class="col-sm-6">
+                  	<div class="col-sm-6" align="right">
 	                  <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
 	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
 	                  <%}else{}%>
@@ -135,6 +132,9 @@
 	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
 	                  <%}else{}%>
 	                  </div>
+	                  <div class="col-sm-5" align="right">
+                  		<button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
+                  	  </div>
                    </div>
               </form>
             </div>
