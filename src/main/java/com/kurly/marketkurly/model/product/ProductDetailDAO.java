@@ -9,5 +9,5 @@ public interface ProductDetailDAO {
 	public ProductDetail select(int product_detail_id);
 	public void insert(ProductDetail product_detail);
 	public void update(ProductDetail product_detail);
-	public void delete(int product_detail_id);
+	public void delete(int product_id);
 }

@@ -45,8 +45,11 @@
 	</insert>
 	
 	<update id="update" parameterType="Product">
-		
+		update product set subcategory_id = #{subcategory.subcategory_id}, title = #{title}, subTitle = #{subTitle}, price = #{price}, detail = #{detail}
+		, sale = #{sale} where product_id = #{product_id} 
 	</update>
 	
-	<delete id="delete"></delete>
+	<delete id="delete" parameterType="int">
+		delete from product where product_id = #{product_id}
+	</delete>
 </mapper>
