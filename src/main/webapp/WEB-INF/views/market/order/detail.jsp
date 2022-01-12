@@ -1,11 +1,11 @@
 <%@page import="com.kurly.marketkurly.domain.OrderDetail"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<!-- Header Section Begin -->
+<%@ include file="../inc/header.jsp"%>
 <%
 	String id = request.getParameter("order_summary_id");
 	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
 %>
-<!-- Header Section Begin -->
-<%@ include file="../inc/header.jsp"%>
 <style type="text/css">
   	.pageStyle {
     font-weight:bold;
