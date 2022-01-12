@@ -57,10 +57,10 @@
                   
                   <!-- 로그인한 상태 -->
                   <c:if test="${ member.user_id != null }">
-                            <li><a href="/loginform" class="login-panel" id="loginSuccess" >로그아웃</a>
+                            <li><a href="#" class="login-panel" id="loginSuccess" >로그아웃</a>
 			                    <ul class="sub">
-			                        <li><a href="#">마이페이지­</a></li>
-			                        <li><a href="#">주문내역</a></li>
+			                        <li><a href="/detailform">개인정보수정</a></li>
+			                        <li><a href="/orderList">주문내역</a></li>
 			                        <li><a href="/logout" >로그아웃</a></li>
 			                    </ul>
                             </li>
@@ -70,7 +70,7 @@
 	                    <ul class="sub">
 	                        <li><a href="/market/notice/notice">공지사항</a></li>
 	                        <li><a href="#">자주하는질문</a></li>
-	                        <li><a href="#">1:1문의</a></li>
+	                        <li><a href="/myQnaList">1:1문의</a></li>
 	                    </ul>
                     </li>
 	             </ul> 
@@ -131,7 +131,7 @@
                                 <a href="#"></a>
                             </li>
                             <li class="cart-icon">
-                                <a href="#"></a>
+                                <a href="/myCart"></a>
                             </li>
                         </ul> 
                     </div>

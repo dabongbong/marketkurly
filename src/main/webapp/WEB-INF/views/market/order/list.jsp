@@ -40,8 +40,8 @@
                       <h3>Categories</h3>
                       <div class="blog-catagory">
                             <ul>
-                                <li><a href="#">주문 내역</a></li>
-                                <li><a href="#">선물 내역</a></li>
+                                <li><a href="/orderList">주문 내역</a></li>
+                                <li><a href="/orderForm">선물 내역(임시적 주문하기)</a></li>
                                 <li><a href="#">찜한 상품</a></li>
                                 <li><a href="#">배송지 관리</a></li>
                                 <li><a href="#">상품 후기</a></li>
@@ -60,6 +60,7 @@
                     <div class="contact-widget">
                     	<%int curPos=pager.getCurPos(); %>
 				        <%int num=pager.getNum(); %>
+				        <%if(pager.getPageSize()==0){%><div align="center">주문 내역이 없습니다.</div><%}%>
 				        <%for(int i =0; i<=pager.getPageSize();i++) {%>
 				        <%if(num<1)break; %>
 				        <%OrderSummary orderSummary=orderSummaryList.get(curPos++); %>
@@ -75,7 +76,7 @@
 							</div>
 							<hr>
                             <div class="ci-icon col-sm-3">
-                               <img src="" alt=" ">
+                               <img src="/resources/productImg/<%=orderSummary.getOrderDetailList().get(0).getProduct().getProduct_img()%>" alt=" " width="140" height="80">
                             </div>
                             <div class="ci-text col-sm-6">
                             	<dl>
@@ -92,15 +93,15 @@
                     </div>
                      <div class="col-sm-12" align="center">
 		                    <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
-		                        <a href="/orderList.jsp?currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
+		                        <a href="/orderList?currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
 		                    <%}else{}%>
 		                    <%for(int i=pager.getFirstPage(); i <= pager.getLastPage(); i++){%>
 		                        <%if(i>pager.getTotalPage()) break;%> <%--페이지 번호가 내가 가진 총 페이지를 넘어서면 반복문 중단--%>
-		                        <a href="/orderList.jsp?currentPage=<%=i%>" <%if(i == pager.getCurrentPage()){%>class="pageStyle"<%}%>>[<%=i%>] </a>
+		                        <a href="/orderList?currentPage=<%=i%>" <%if(i == pager.getCurrentPage()){%>class="pageStyle"<%}%>>[<%=i%>] </a>
 		                    <%}%>
 		
 		                    <%if(pager.getLastPage()+1 < pager.getTotalPage()){%> 
-		                        <a href="/orderList.jsp?currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
+		                        <a href="/orderList?currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
 		                    <%}else{}%>
 		        	</div>
                 </div>

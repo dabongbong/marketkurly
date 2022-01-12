@@ -34,8 +34,8 @@ public class MarketSessionCheckAspect {
 		String uri = request.getRequestURI();
 		
 		if(
-				uri.equals("/admin/login/form") ||
-				uri.equals("/admin/login") 
+				uri.equals("/loginform") ||
+				uri.equals("/login") 
 				
 				
 				) { // 그냥가게 해주고 ...
