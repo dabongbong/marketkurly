@@ -118,7 +118,7 @@
 		                </td>
 					</tr>
                     <tr>
-                 	   <td  colspan="4">
+                 	   <td  colspan="6">
                     		<button type="button" class="btn btn-info" onClick="location.href='/admin/product/registForm'">상품등록</button>
                     	</td>
                     </tr>

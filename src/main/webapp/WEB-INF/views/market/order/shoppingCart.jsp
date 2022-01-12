@@ -37,6 +37,9 @@
 	margin:17px 0px 0px;
 	padding:17px 0px 0px;
 }
+.updown-dd{
+
+}
 </style>
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
@@ -80,7 +83,7 @@
 			</div>
 		</div>
 		<div class="col-lg-3" style="margin:0px; padding:0px;">
-			<div class="proceed-checkout" style="padding:9px 18px 18px 20px;">
+			<div class="proceed-checkout updown-dd" style="padding:9px 18px 18px 20px;">
 				<ul>
 					<li class="cart-price">상품금액 <span>21000 원</span></li>
 					<li class="cart-price">상품할인금액<span>-1500 원</span></li>

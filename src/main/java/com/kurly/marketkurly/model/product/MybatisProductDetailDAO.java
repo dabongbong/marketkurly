@@ -37,8 +37,11 @@ public class MybatisProductDetailDAO implements ProductDetailDAO{
 	}
 
 	@Override
-	public void delete(int product_detail_id) {
-		
+	public void delete(int product_id) throws ProductException{
+		int result = sessionTemplate.delete("ProductDetail.deleteByProductId", product_id);
+		if(result==0) {
+			throw new ProductException("productDetail 삭제실패");
+		}
 	}
 
 }

@@ -9,4 +9,7 @@
 	<select id="selectByProductId" parameterType="int" resultType="ProductDetail">
 		select * from product_detail where product_id = #{product_id}
 	</select>
+	<delete id="deleteByProductId" parameterType="int">
+		delete from product_detail where product_id=#{product_id}
+	</delete>
 </mapper>
