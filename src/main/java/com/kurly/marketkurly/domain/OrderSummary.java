@@ -12,6 +12,7 @@ public class OrderSummary {
 	private PayMethod paymethod;
 	private String orderdate;
 	private int price;
+	private int check_no;
 	
 	private List<OrderDetail> orderDetailList;
 }

@@ -11,4 +11,5 @@ public interface OrderSummaryDAO {
 	public void insert(OrderSummary order_summary);
 	public void delete(int order_summary_id);
 	public List getDetail(int order_summary_id);
+	public void checkPlus(OrderSummary orderSummary);
 }
