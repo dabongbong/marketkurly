@@ -21,11 +21,6 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
-	@GetMapping("/orderForm")
-	public String getOrderForm() {
-		return "market/order/registForm";
-	}
-
 	@GetMapping("/orderList")
 	public ModelAndView orderList(HttpServletRequest request) {
 		List orderSummaryList = orderService.selectAll();
@@ -46,6 +41,12 @@ public class OrderController {
 		mav.addObject("orderDetail", orderDetail);
 		mav.addObject("pager", pager);
 		return mav;
+	}
+	
+	// 주문 하기 폼 요청
+	@GetMapping("/orderForm")
+	public String getOrderForm(HttpServletRequest request) {
+		return "market/order/registForm";
 	}
 	
 	@PostMapping("/orderRegist")

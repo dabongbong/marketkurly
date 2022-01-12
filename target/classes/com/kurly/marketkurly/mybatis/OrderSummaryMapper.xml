@@ -4,7 +4,7 @@
 
 	<resultMap type="OrderSummary" id="joinMemberOrderSummary">
 		<id column="order_summary_id" 	  	property="order_summary_id"/>
-		<result column="order_number" 	  	  		property="order_number"/>
+		<result column="order_number" 	  	property="order_number"/>
 		<result column="orderdate" 	  	  		property="orderdate"/>
 		<result column="price" 		 	  			property="price"/>
 
