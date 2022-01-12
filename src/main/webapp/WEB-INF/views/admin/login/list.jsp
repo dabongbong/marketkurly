@@ -68,7 +68,7 @@ function regist(){
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">회원 목록</h3>
+                <h3 class="card-title">관리자 목록</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -117,7 +117,7 @@ function regist(){
                   </tbody>
                 </table>
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" id="reg" onClick="regist()">회원등록</button>
+                  <button type="button" class="btn btn-info" id="reg" onClick="regist()">등록</button>
                 </div>
               </div>
               <!-- /.card-body -->
