@@ -35,7 +35,7 @@
                   	
                      
                   <label for="name">이름</label>
-                     <input type="text" class="form-control" value="<%=member.getMember_name()%>">
+                     <input type="text" class="form-control" name=name id="member_name" placeholder="비밀번호를 입력해주세요">
                     
                   <label for="pass">비밀번호</label>
                      <input type="password" class="form-control"  name="member_pass" id="member_pass" placeholder="비밀번호를 입력해주세요">
@@ -82,7 +82,7 @@
 
                 <div class="card-footer">
                     <button type="button" class="site-btn register-btn" id="bt_edit" onClick="edit()">수정</button>
-                    <button type="button" class="site-btn register-btn" id="bt_del" onClick="del()">탈퇴</button>
+                    <a href="#" id="bt_del" onClick="del()">탈퇴</a>
                 </div>
               </form>
                     </div>
@@ -112,12 +112,13 @@ function regist(){
 			form1.submit();
 		}
 	}
+ <%-- 
 	function bt_del(){
 		if(confirm("삭제하시겠어요?")){
 			location.href="/admin/member/delete?member_id=<%=member.getMember_id()%>";
 		}
 	}
-	
+	 --%>
 function edit(){
 	form1.action="/member/delete";
 	form1.method="post";

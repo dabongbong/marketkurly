@@ -33,20 +33,23 @@ public class MemberController {
 	}
 	//회원 등록
 		@PostMapping("/regist")
-		public String regist(HttpServletRequest request,Member member) {
+		public ModelAndView regist(HttpServletRequest request,Member member) {
 			
 			String pass=hashBuilder.convertStringToHash(member.getMember_pass());
 			member.setMember_pass(pass);
+			ModelAndView mav=new ModelAndView("redirect:/loginform");
 			
 			memberService.insert(member);
 			
-			return "redirect:/loginform";
+			return mav;
 		}
 		
-		//회원등록 폼 요청
+		//수정 폼요청
 		@GetMapping("/detailform")
-		public String detailForm() {
-			return "market/member/detail";
+		public ModelAndView detailForm(HttpServletRequest request) {
+			
+			ModelAndView mav = new ModelAndView("market/member/detail");
+			return mav;
 		}
 		
 		//수정하기
@@ -68,31 +71,11 @@ public class MemberController {
 		
 		//로그인 폼 요청 처리
 		@GetMapping("/loginform")
-		public String getLoginForm(HttpServletRequest request) {
-			return "market/member/login";
+		public ModelAndView getLoginForm(HttpServletRequest request) {
+			ModelAndView mav = new ModelAndView("market/member/login");
+			return mav;
 		}
 		
-		//로그인
-		@PostMapping("/login")
-		@ResponseBody
-		public Message loginCheck(HttpServletRequest request,Member member) {
-			System.out.println("비번운 "+member.getMember_pass());
-			
-			String pass=hashBuilder.convertStringToHash(member.getMember_pass());
-			member.setMember_pass(pass);
-			
-			Member result = memberService.selectByAdmin(member);
-			System.out.println("로그인 결과"+result);
-			
-			Message message = new Message();
-			message.setCode(1);
-			message.setMsg(result.getMember_name()+"님 환영합니다.");
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("member", result);
-			
-			return message;
-		}
 		
 		//로그아웃 요청처리
 		@GetMapping("/logout")
@@ -102,6 +85,8 @@ public class MemberController {
 			
 			return "redirect:/loginform";
 		}
+		
+		
 }
 
 

@@ -57,7 +57,6 @@ public class MemberController {
 		return mav;
 	}
 	
-	
 	//삭제하기
 	@GetMapping("/member/delete")
 	public String delete(int member_id) {
