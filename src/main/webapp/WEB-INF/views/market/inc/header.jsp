@@ -56,8 +56,8 @@
                   </c:if>
                   
                   <!-- 로그인한 상태 -->
-                  <c:if test="${ member.user_id != null }">
-                            <li><a href="#" class="login-panel" id="loginSuccess" >로그아웃</a>
+                <c:if test="${ member.user_id != null }">
+                            <li><a href="#" class="login-panel" id="loginSuccess" >로그아웃<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 			                    <ul class="sub">
 			                        <li><a href="/detailform">개인정보수정</a></li>
 			                        <li><a href="/orderList">주문내역</a></li>
@@ -65,7 +65,7 @@
 			                    </ul>
                             </li>
                           
-                </c:if>
+               	 </c:if>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
 	                        <li><a href="/market/notice/notice">공지사항</a></li>
