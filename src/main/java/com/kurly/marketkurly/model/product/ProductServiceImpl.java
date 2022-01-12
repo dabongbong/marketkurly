@@ -1,5 +1,6 @@
 package com.kurly.marketkurly.model.product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Service;
 import com.kurly.marketkurly.domain.Product;
 import com.kurly.marketkurly.domain.ProductDetail;
 import com.kurly.marketkurly.domain.ProductHashtag;
+import com.kurly.marketkurly.domain.Subcategory;
 import com.kurly.marketkurly.exception.ProductException;
+import com.kurly.marketkurly.model.subcategory.SubcategoryDAO;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -18,10 +21,21 @@ public class ProductServiceImpl implements ProductService{
 	private ProductDetailDAO productDetailDAO;
 	@Autowired
 	private ProductHashtagDAO productHashtagDAO;
+	@Autowired
+	private SubcategoryDAO subcategoryDAO;
 
 	@Override
 	public List selectAll() {
 		return productDAO.selectAll();
+	}
+	@Override
+	public List selectByCategory(int category_id) {
+		List<Subcategory>subcategoryList = subcategoryDAO.selectAllByCategoryId(category_id);
+		List<Product>productList=new ArrayList<Product>();
+		for(Subcategory obj : subcategoryList) {
+			productList.addAll(productDAO.selectByCategory(obj.getSubcategory_id()));
+		}
+		return productList;
 	}
 
 	@Override

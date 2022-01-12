@@ -35,6 +35,9 @@
 	<select id="select" parameterType="int" resultType="Product" resultMap="selectDetail">
 		select * from product where product_id=#{product_id}
 	</select>
+	<select id="selectByCategory" parameterType="int" resultType="Product">
+		select * from product where subcategory_id = #{subcategory_id}
+	</select>
 
 	<insert id="insert" parameterType="Product">
 		insert into product(subcategory_id, title, subTitle, price, detail, sale, product_img)
@@ -50,6 +53,6 @@
 	</update>
 	
 	<delete id="delete" parameterType="int">
-		delete from product where product_id = #{product_id}
+		delete from product where product_id = #{product_id} order by product_id desc
 	</delete>
 </mapper>
