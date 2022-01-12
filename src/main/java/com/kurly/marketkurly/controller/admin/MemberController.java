@@ -73,14 +73,7 @@ public class MemberController {
 		
 		return mav;
 	}
-	//수정하기
-	@PostMapping("/member/update")
-	public String update(Member member,Model model) {
-		memberService.update(member);
-		
-		model.addAttribute("member", member);
-		return "redirect:/admin/member/list";
-	}
+	
 	
 	//삭제하기
 	@GetMapping("/member/delete")
