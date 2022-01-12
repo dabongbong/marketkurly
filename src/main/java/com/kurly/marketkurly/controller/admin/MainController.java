@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kurly.marketkurly.model.member.MemberService;
 import com.kurly.marketkurly.model.order.OrderService;
 
 
@@ -14,11 +15,18 @@ public class MainController {
 	
 		@Autowired
 		private OrderService orderService;
+		@Autowired
+		private MemberService memberService;
+		
+		
+		
 		@RequestMapping(value="/main", method=RequestMethod.GET)
 		public ModelAndView getMain() {
 			ModelAndView mav = new ModelAndView();
 			int newOrder = orderService.checkNewOrder();
+			int regToday = memberService.regToday();
 			mav.addObject("newOrder", newOrder);
+			mav.addObject("regToday", regToday);
 			mav.setViewName("admin/index");
 			
 			return mav;

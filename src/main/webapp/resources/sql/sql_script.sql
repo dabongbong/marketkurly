@@ -79,6 +79,7 @@ create table member(
 	, addr varchar(100)
 	, gender varchar(10)
 	, birth varchar(20)
+	, regdate timestamp default CURRENT_TIMESTAMP
 ) default character set utf8;
 
 create table order_summary(

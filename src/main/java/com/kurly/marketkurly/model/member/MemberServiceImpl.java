@@ -121,6 +121,11 @@ public class MemberServiceImpl implements MemberService{
 
 	}
 
+	@Override
+	public int regToday() {
+		return memberDAO.regToday();
+	}
+
 
 
 
