@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class OrderSummary {
 	private int order_summary_id;
-	private int order_number; // 주문번호
+	private String order_number; // 주문번호
 	private Member member;
 	private PayMethod paymethod;
 	private String orderdate;
