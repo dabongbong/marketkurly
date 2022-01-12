@@ -107,7 +107,7 @@
 
 
                   <label for="id">생일</label>
-                    <input type="text" class="form-control"  name="birth" id="birth" placeholder="생일을 입력해주세요">
+                    <input type="text" class="form-control"  name="birth" id="birth" placeholder="20220101">
                     <div class="check_font" id="birth_check"></div>
                   </div>
                   

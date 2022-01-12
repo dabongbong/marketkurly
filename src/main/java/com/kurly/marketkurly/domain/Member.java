@@ -13,4 +13,5 @@ public class Member {
 	private String addr;
 	private String gender;
 	private String birth;
+	private boolean useCookie;
 }
