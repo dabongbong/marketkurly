@@ -54,4 +54,9 @@ public class MybatisOrderSummaryDAO implements OrderSummaryDAO {
 		}
 	}
 
+	@Override
+	public int checkNewOrder() {
+		return sessionTemplate.selectOne("OrderSummary.selectNewOrder");
+	}
+
 }

@@ -44,6 +44,11 @@ public class OrderServiceImpl implements OrderService {
 		orderSummaryDAO.checkPlus(orderSummary);
 	}
 
+	@Override
+	public int checkNewOrder() {
+		return orderSummaryDAO.checkNewOrder();
+	}
+
 
 
 
