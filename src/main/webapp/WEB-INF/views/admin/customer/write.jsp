@@ -199,7 +199,7 @@ $(function(){
 
 function write(){
 	$("form[name='form1']").attr({
-		action:"/admin/customer/write",
+		action:"/market/myQna/write",
 		method:"post"
 	})
 	$("form[name='form1']").submit();
