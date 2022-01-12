@@ -23,7 +23,7 @@ public class OrderController {
 	
 	@GetMapping("/orderForm")
 	public String getOrderForm() {
-		return "market/order/shoppingCart";
+		return "market/order/registForm";
 	}
 
 	@GetMapping("/orderList")
@@ -49,9 +49,8 @@ public class OrderController {
 	}
 	
 	@PostMapping("/orderRegist")
-	public String regist(HttpServletRequest request, Model model , OrderSummary orderSummary) {
+	public String regist(HttpServletRequest request, OrderSummary orderSummary) {
 		orderService.insert(orderSummary);
-		model.addAttribute("orderRegist", orderSummary);
 		return "rediredirect:/orderList";
 	}
 	

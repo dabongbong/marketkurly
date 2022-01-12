@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kurly.marketkurly.domain.OrderSummary;
@@ -21,9 +22,6 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
-
-
-	// 주문하기
 
 	// 주문 내역 리스트
 	@GetMapping("/order/list")
@@ -48,6 +46,19 @@ public class OrderController {
 		mav.addObject("orderDetail", orderDetail);
 		mav.addObject("pager", pager);
 		return mav;
+	}
+	
+	// 주문 폼 요청
+	@GetMapping("/order/registForm")
+	public String getForm() {
+		return "/admin/order/registForm";
+	}
+	
+	// 주문하기
+	@PostMapping("/order/regist")
+	public String regist(HttpServletRequest request, OrderSummary orderSummary) {
+		orderService.insert(orderSummary);
+		return "rediredirect:/orderList";
 	}
 	
 	@ExceptionHandler(OrderException.class)
