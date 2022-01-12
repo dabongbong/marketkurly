@@ -22,11 +22,9 @@
 	</div>
 </div>
 
-<section class="product-shop spad">
-	<div class="container">
-		<div class="row">
-			<div
-				class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1 produts-sidebar-filter">
+<div class="container">
+	<div class="row">
+			<div class="col-lg-2">
 				<div class="filter-widget">
 					<h4 class="fw-title">고객센터</h4>
 					<ul class="filter-catagories">
@@ -36,9 +34,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-	</div>
-		<div class="card-body table-responsive p-0">
+		<div class="col-lg-10">
 			<table class="table table-hover text-nowrap">
 				<thead>
 					<tr>
@@ -82,7 +78,7 @@
 								<tr>
 									<td colspan="4">
 										<button type="button" class="btn btn-info"
-											onClick="location.href='/myQnaWrite';" style="float: right;">문의 등록</button>
+											onClick="location.href='/myQnaWrite';" style="float: right; background-color: #5F0080">문의 등록</button>
 											
 									</td>
 								</tr>
@@ -92,7 +88,8 @@
 				</tbody>
 			</table>
 		</div>
-</section>
+		</div>
+	</div>
 <%@ include file="../inc/footer.jsp"%>
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
