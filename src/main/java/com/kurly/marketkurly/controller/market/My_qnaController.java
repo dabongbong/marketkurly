@@ -33,7 +33,7 @@ public class My_qnaController {
 		Pager pager = new Pager();
 		pager.init(my_qnaList, request);
 		
- 		ModelAndView mav = new ModelAndView("market/notice/myQna");
+ 		ModelAndView mav = new ModelAndView("market/myQna/myQna");
  		mav.addObject("my_qnaList", my_qnaList);
  		mav.addObject("pager", pager);
  		
@@ -41,10 +41,11 @@ public class My_qnaController {
  	}
 	// 문의 등록 폼
 	 	@GetMapping("/myQnaWrite")
-	 	public ModelAndView registForm(HttpServletRequest request) {
-
-			ModelAndView mav = new ModelAndView("market/notice/write");
-			return mav;
+	 	public String writeForm(Model model) {
+	 		List my_qnaList = my_qnaService.selectAll();
+			model.addAttribute("my_qnaList", my_qnaList);
+	 		
+	 		return "market/myQna/write";
 	 	}
 	 	// 문의 등록 하기~
 	 	@PostMapping("/write")
@@ -52,17 +53,18 @@ public class My_qnaController {
 			
 			my_qnaService.insert(my_qna); 
 			
-			ModelAndView mav = new ModelAndView("redirect:/market/notice/myQna");
+			ModelAndView mav = new ModelAndView("redirect:/market/myQna/myQna");
 			
 			return mav;
 	 	}
 	 	
 	 	@GetMapping("/myQnaDetail")
-	 	public ModelAndView detailForm(HttpServletRequest request) {
-	 		
-	 		ModelAndView mav = new ModelAndView("market/notice/detail");
-	 		return mav;
-	 	}
+		public String getDetail(int my_qna_no, Model model) {
+			My_qna my_qna = my_qnaService.select(my_qna_no); 
+			model.addAttribute("my_qna", my_qna);
+			
+			return "market/myQna/myQnaDetail";
+		}
 		/*
 		 * // 문의 상세보기
 		 * 
@@ -77,7 +79,7 @@ public class My_qnaController {
 		@PostMapping("/myQnaUpdate")
 		public ModelAndView update(My_qna my_qna) {
 			my_qnaService.update(my_qna);
-			ModelAndView mav = new ModelAndView("redirect:/market/notice/myQnaDetail?my_qna_no="+my_qna.getMy_qna_no());
+			ModelAndView mav = new ModelAndView("redirect:/market/myQna/myQnaDetail?my_qna_no="+my_qna.getMy_qna_no());
 			return mav;
 			
 		}
@@ -86,7 +88,7 @@ public class My_qnaController {
 		public String delete(int my_qna) {
 			my_qnaService.delete(my_qna);
 			
-			return "redirect:/market/notice/myQna";
+			return "redirect:/market/myQna/myQna";
 		}
 		
 		@ExceptionHandler(My_qnaException.class)                      

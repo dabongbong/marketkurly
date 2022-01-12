@@ -40,4 +40,9 @@ public class My_qnaServiceImpl implements My_qnaService{
 		my_qnaDAO.delete(my_qna_no);
 	}
 
+	@Override
+	public List getDetail(int my_qna_no) {
+		return null;
+	}
+
 }
