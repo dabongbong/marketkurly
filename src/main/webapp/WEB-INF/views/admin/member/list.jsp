@@ -89,7 +89,6 @@ function registForm(){
                     <tr>
                       <th>NO</th>
                       <th>id</th>
-                      <th>pass</th>
                       <th>name</th>
                       <th>email</th>
                       <th>phone</th>
@@ -108,7 +107,6 @@ function registForm(){
                     <tr>
                     	<td><%=num-- %></td>
                       <td><%=member.getUser_id()%></td>
-                      <td><%=member.getMember_pass()%></td>
                       <td><a href="/admin/member/detail?member_id=<%=member.getMember_id() %>"><%=member.getMember_name()%></a></td>
                       <td><%=member.getEmail()%></td>
                       <td><%=member.getPhone()%></td>

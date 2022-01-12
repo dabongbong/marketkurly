@@ -44,24 +44,7 @@ public class MemberController {
 		
 		return mav;
 	}
-	//회원등록 폼 요청
-	@GetMapping("/member/registform")
-	public String registForm() {
-		return "admin/member/regist";
-	}
-	
-	
-	//회원 등록
-	@PostMapping("/member/regist")
-	public String regist(Member member) {
-		
-		String pass=hashBuilder.convertStringToHash(member.getMember_pass());
-		member.setMember_pass(pass);
-		
-		memberService.insert(member);
-		
-		return "redirect:/admin/member/list";
-	}
+
 	
 	//한건 가져오기
 	@GetMapping("/member/detail")
@@ -72,14 +55,6 @@ public class MemberController {
 		mav.addObject("member", member);
 		
 		return mav;
-	}
-	//수정하기
-	@PostMapping("/member/update")
-	public String update(Member member,Model model) {
-		memberService.update(member);
-		
-		model.addAttribute("member", member);
-		return "redirect:/admin/member/list";
 	}
 	
 	//삭제하기

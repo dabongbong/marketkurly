@@ -24,8 +24,12 @@ public class MybatisMemberDAO implements MemberDAO{
 		return sessionTemplate.selectOne("Member.select",member_id);
 	}
 	@Override
-	public Member selectByAdmin(Member member) {
-		return sessionTemplate.selectOne("Member.selectByAdmin", member);
+	public Member selectByAdmin(Member member) throws MemberException{
+		Member obj=sessionTemplate.selectOne("Member.selectByAdmin", member);
+		if(obj==null) {
+			throw new MemberException("로그인 정보가 올바르지 않습니다.");
+		}
+		return obj;
 	}
 
 	@Override

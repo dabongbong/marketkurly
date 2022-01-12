@@ -67,7 +67,7 @@ public class MemberServiceImpl implements MemberService{
 	
 
 	@Override
-	public Member selectByAdmin(Member member) {
+	public Member selectByAdmin(Member member) throws MemberException{
 		return memberDAO.selectByAdmin(member);
 	}
 

@@ -39,11 +39,15 @@ values('mindBlue2','1234','심청이','mindBlue2@naver.com','01198765432','서�
 -- 유명산지 한판딸기 1개 --
 -- 칠레산 생체리 2개, 친환경 당근 1개 --
 -- 샤인마토 아보카도 팽이버섯 애호박 감자  생체리 1개씩-
-insert into order_summary(member_id,order_number,paymethod_id,price) values(1, 12345974, 1, 12924);
-insert into order_summary(member_id,order_number,paymethod_id,price) values(2, 12345866, 1, 27500); 
-insert into order_summary(member_id,order_number,paymethod_id,price) values(1, 12398620, 1, 16020); 
-insert into order_summary(member_id,order_number,paymethod_id,price) values(2, 98765101, 1, 2150); 
-insert into order_summary(member_id,order_number,paymethod_id,price) values(2, 12398500, 1, 28512);
+insert into order_summary(user_id,order_number,paymethod_id,price) values(1, 12345974, 1, 12924);
+insert into order_summary(user_id,order_number,paymethod_id,price) values(2, 12345866, 1, 27500); 
+insert into order_summary(user_id,order_number,paymethod_id,price) values(1, 12398620, 1, 16020); 
+insert into order_summary(user_id,order_number,paymethod_id,price) values(2, 98765101, 1, 2150); 
+insert into order_summary(user_id,order_number,paymethod_id,price) values(2, 12398500, 1, 28512);
+insert into order_summary(user_id,order_number,paymethod_id,price) values(1, 202201071215, 1, 28512);
+
+insert into order_summary(member_id,order_number,paymethod_id,price)values(1, '202210112174940', 1, 202110);
+insert into order_summary(member_id,order_number,paymethod_id,price) values(2, '202220112174941', 3, 22810);
 
 insert into order_detail (order_summary_id, product_id, order_count) values(1,24,2);
 insert into order_detail (order_summary_id, product_id, order_count) values(1,23,5);

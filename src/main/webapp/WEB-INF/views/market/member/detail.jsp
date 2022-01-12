@@ -35,8 +35,7 @@
                   	
                      
                   <label for="name">이름</label>
-                     <input type="text" class="form-control" name="member_name" id="member_name"  placeholder="이름을 입력해주세요" required>
-                    <div class="check_font" id="name_check"></div>
+                     <input type="text" class="form-control" name=name id="member_name" placeholder="비밀번호를 입력해주세요">
                     
                   <label for="pass">비밀번호</label>
                      <input type="password" class="form-control"  name="member_pass" id="member_pass" placeholder="비밀번호를 입력해주세요">
@@ -82,7 +81,8 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="button" class="site-btn register-btn" id="reg" onClick="regist()">가입하기</button>
+                    <button type="button" class="site-btn register-btn" id="bt_edit" onClick="edit()">수정</button>
+                    <a href="#" id="bt_del" onClick="del()">탈퇴</a>
                 </div>
               </form>
                     </div>
@@ -98,11 +98,33 @@
 </body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
+/* 
 function regist(){
 	form1.action="/regist";
 	form1.method="post";
 	form1.submit();
 }
+ */
+ function bt_edit(){
+		if(confirm("수정하시겠습니까?")){
+			form1.action="/member/update";
+			form1.method="post";
+			form1.submit();
+		}
+	}
+ <%-- 
+	function bt_del(){
+		if(confirm("삭제하시겠어요?")){
+			location.href="/admin/member/delete?member_id=<%=member.getMember_id()%>";
+		}
+	}
+	 --%>
+function edit(){
+	form1.action="/member/delete";
+	form1.method="post";
+	form2.submit();
+}
+
 //아이디 유효성 검사(1 = 중복 / 0 != 중복)
 $("#user_id").blur(function() {
 	// 

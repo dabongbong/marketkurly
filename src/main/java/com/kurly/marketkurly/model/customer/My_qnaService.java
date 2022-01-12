@@ -12,4 +12,5 @@ public interface My_qnaService {
 	public void insert(My_qna my_qna);
 	public void update(My_qna my_qna);
 	public void delete(int my_qna_no);
+	public List getDetail(int my_qna_no);
 }

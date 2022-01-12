@@ -82,7 +82,7 @@
             </div>
         </div>
         <div class="footer__second">
-            <div class="인증범위">
+            <div class="isms">
 	            <img src="../resources/market/img/categoryIcons/logo_isms.webp" alt="">
 	            <a href="#">
 	                <p class="text">
@@ -93,7 +93,7 @@
 	            </a>
             </div>
             
-            <div class="개인정보">
+            <div class="eprivacyplus">
 	            <img src="../resources/market/img/categoryIcons/logo_eprivacyplus.webp"  alt="">
 	            <a href="#">
 	                <p class="text">
@@ -104,7 +104,7 @@
 	            </a>
 	         </div>
 	         
-	         <div class="토스">
+	         <div class="payments">
                 <img src="../resources/market/img/categoryIcons/logo_payments.webp" alt="">
 	            <a href="#">
 	                <p class="text">

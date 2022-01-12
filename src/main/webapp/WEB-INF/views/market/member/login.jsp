@@ -58,6 +58,7 @@ function loginCheck(){
 		},
 		success:function(result, status, xhr){ //200요청에 애한 처리 메서드
 			alert(result.msg);
+		
 			if(result.code==1){
 				location.href="/";
 			}

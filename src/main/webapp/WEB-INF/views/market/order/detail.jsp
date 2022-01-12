@@ -42,8 +42,9 @@
                                 <ul class="order-table">
                                 	<%for(OrderDetail orderDetailList : orderDetail){ %>
                                     <li class="fw-normal">
-                                    	<img alt="." src=""> <%=orderDetailList.getProduct().getTitle() %> &nbsp;<%=orderDetailList.getOrder_count() %>개
-                                    	<span><%=orderDetailList.getProduct().getPrice() %> 원</span>
+                                    	<img alt="." src="/resources/productImg/<%=orderDetailList.getProduct().getProduct_img()%>" width="60" height="60">
+                                    	  &nbsp; &nbsp;<%=orderDetailList.getProduct().getTitle() %> &nbsp;<%=orderDetailList.getOrder_count() %>개
+                                    	<span display="table"><%=orderDetailList.getProduct().getPrice() %> 원</span>
                                    	</li>
                                    	<%} %>
                                 </ul>

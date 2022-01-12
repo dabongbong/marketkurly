@@ -20,12 +20,11 @@ public class OrderController {
 	
 	@Autowired
 	private OrderService orderService;
-	@Autowired
-	private Pager pager;
 	
 	@GetMapping("/orderList")
 	public ModelAndView orderList(HttpServletRequest request) {
 		List orderSummaryList = orderService.selectAll();
+		Pager pager = new Pager();
 		pager.init(orderSummaryList, request);
 		ModelAndView mav = new ModelAndView("market/order/list");
 		mav.addObject("orderSummaryList", orderSummaryList);
@@ -36,6 +35,7 @@ public class OrderController {
 	@GetMapping("/orderDetail")
 	public ModelAndView getList(HttpServletRequest request, int order_summary_id) {
 		List orderDetail = orderService.getDetail(order_summary_id);
+		Pager pager = new Pager();
 		pager.init(orderDetail, request);
 		ModelAndView mav = new ModelAndView("market/order/detail");
 		mav.addObject("orderDetail", orderDetail);
@@ -43,12 +43,24 @@ public class OrderController {
 		return mav;
 	}
 	
+	// 장바구니
+	@GetMapping("/myCart")
+	public String getCart(HttpServletRequest request) {
+		return "market/order/shoppingCart";
+	}
+	
+	// 주문 하기 폼 요청
+	@GetMapping("/orderForm")
+	public String getOrderForm(HttpServletRequest request) {
+		return "market/order/registForm";
+	}
+	
+	// 주문
 	@PostMapping("/orderRegist")
-	public String regist(HttpServletRequest request, Model model , OrderSummary orderSummary) {
+	public String regist(HttpServletRequest request, OrderSummary orderSummary) {
 		orderService.insert(orderSummary);
-		model.addAttribute("orderRegist", orderSummary);
 		return "rediredirect:/orderList";
 	}
-		
+	
 	
 }

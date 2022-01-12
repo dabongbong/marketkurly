@@ -57,14 +57,20 @@
                   
                   <!-- 로그인한 상태 -->
                   <c:if test="${ member.user_id != null }">
-                            <li><a href="/loginform" class="login-panel" id="loginSuccess" onClick="location.href='/logout'">로그아웃</a></li>
+                            <li><a href="#" class="login-panel" id="loginSuccess" >로그아웃</a>
+			                    <ul class="sub">
+			                        <li><a href="/detailform">개인정보수정</a></li>
+			                        <li><a href="/orderList">주문내역</a></li>
+			                        <li><a href="/logout" >로그아웃</a></li>
+			                    </ul>
+                            </li>
                           
                 </c:if>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
-	                        <li><a href="#">공지사항­</a></li>
+	                        <li><a href="/market/notice/notice">공지사항</a></li>
 	                        <li><a href="#">자주하는질문</a></li>
-	                        <li><a href="#">1:1문의</a></li>
+	                        <li><a href="/myQnaList">1:1문의</a></li>
 	                    </ul>
                     </li>
 	             </ul> 
@@ -88,12 +94,14 @@
                         	<span>전체 카테고리 </span>
                         		<ul class="depart-hover">
                             <li class="active">
+                            
                          	<%for(int i=0; i<categoryList.size(); i++){ %>
                          	<%Category category=categoryList.get(i); %>
                          		<a id="category" style='color:#64646' href="#" onMouseOver="hoverCategory(<%=category.getCategory_id()%>, <%=i%>)">
                          		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px"><%=category.getCategory_name() %>
                          		</a>
                          	<%} %>
+                         	 
 		                    	<ul class="sub-hover" id="subBox">
 									<!-- 서브카테고리 비동기방식 -->
 		                    	</ul>
@@ -123,7 +131,7 @@
                                 <a href="#"></a>
                             </li>
                             <li class="cart-icon">
-                                <a href="#"></a>
+                                <a href="/myCart"></a>
                             </li>
                         </ul> 
                     </div>

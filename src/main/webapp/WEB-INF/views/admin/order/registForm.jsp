@@ -1,12 +1,24 @@
-<%@page import="com.kurly.marketkurly.domain.Member"%>
-<%@ page contentType="text/html; charset=UTF-8"%><%
-	Member member=(Member)request.getAttribute("member");
+<%@page import="com.kurly.marketkurly.util.Pager"%>
+<%@page import="com.kurly.marketkurly.domain.OrderDetail"%>
+<%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
+<%@page import="java.util.List"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%
+	String order_summary_id = request.getParameter("order_summary_id");
+	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
+	Pager pager = (Pager)request.getAttribute("pager");
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+  	.pageStyle {
+    font-weight:bold;
+    font-size:15px;
+}
+  </style>
   <title>AdminLTE 3 | Dashboard</title>
 	
 	<%@ include file="../inc/head_link.jsp" %>
@@ -17,7 +29,6 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="/resources/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -37,7 +48,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">카테고리 등록</h1>
+            <h1 class="m-0">주문 상세 내역</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -58,40 +69,49 @@
           <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">상세내용</h3>
+                <h3 class="card-title">주문 번호 &nbsp;&nbsp;
+	                <strong>
+	                	<%=order_summary_id %>
+	                </strong>
+                </h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form name="form1">
-              	<input type="hidden" name="member_id" value="<%=member.getMember_id()%>">
-              	
-              	
                 <div class="card-body">
-                
+                <%int curPos=pager.getCurPos(); %>
+		        <%int num=pager.getNum(); %>
+		        <%for(int i =0; i<=pager.getPageSize();i++) {%>
+		        <%if(num<1)break; %>
+                <%num--; %>
+		        <%OrderDetail orderDetailList=orderDetail.get(curPos++); %>
                   <div class="form-group">
-                    아이디 <input type="text" class="form-control" value="<%=member.getUser_id() %>" name="user_id">
-                    이름 <input type="text" class="form-control" value="<%=member.getMember_name() %>" name="member_name">
-                    이메일 <input type="text" class="form-control" value="<%=member.getEmail() %>" name="email">
-                    핸드폰<input type="text" class="form-control" value="<%=member.getPhone() %>" name="phone">
-                    주소<input type="text" class="form-control" value="<%=member.getAddr() %>" name="addr">
-                    성별<input type="text" class="form-control" value="<%=member.getGender() %>" name="gender">
-                    생일<input type="text" class="form-control" value="<%=member.getBirth()%>" name="birth">
+                  	<input type="text" class="form-control" value="<%=orderDetailList.getProduct().getTitle() %>" name="title" readonly>
+                    <input type="text" class="form-control" value="<%=orderDetailList.getProduct().getPrice() %>원" name="order_count" readonly>
+                    <input type="text" class="form-control" value="<%=orderDetailList.getOrder_count() %>개" name="price" readonly>
                   </div>
-                  
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="button" class="btn btn-info" onClick="bt_edit()">수정</button>
-                  <button type="button" class="btn btn-info" onClick="bt_del()">삭제</button>
-                  <button type="button" class="btn btn-info" onClick="location.href='/admin/member/list';">목록</button>
+                 <%} %>
+                  <div class="form-group">
+                  <button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
+	                  <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
+	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
+	                  <%}else{}%>
+	                  <%for(int i=pager.getFirstPage(); i <= pager.getLastPage(); i++){%>
+	                      <%if(i>pager.getTotalPage()) break;%> <%--페이지 번호가 내가 가진 총 페이지를 넘어서면 반복문 중단--%>
+	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=i%>" <%if(i == pager.getCurrentPage()){%>class="pageStyle"<%}%>>[<%=i%>] </a>
+	                  <%}%>
+	
+	                  <%if(pager.getLastPage()+1 < pager.getTotalPage()){%> 
+	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
+	                  <%}else{}%>
                 </div>
               </form>
             </div>
+          
             
             <!-- /.card -->
           </div>
-        
-       </div>
+        </div>
         
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
@@ -119,36 +139,5 @@
 <!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
 <script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
-<script>
-
-</script>
-<script>
-//수정하기
-function bt_edit(){
-	if(confirm("수정하시겠습니까?")){
-		form1.action="/admin/member/update";
-		form1.method="post";
-		form1.submit();
-	}
-}
-function bt_del(){
-	if(confirm("삭제하시겠어요?")){
-		location.href="/admin/member/delete?member_id=<%=member.getMember_id()%>";
-	}
-}
-
-
-
-</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
