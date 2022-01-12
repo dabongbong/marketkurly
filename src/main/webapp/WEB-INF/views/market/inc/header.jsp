@@ -68,7 +68,7 @@
                 </c:if>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
-	                        <li><a href="#">공지사항­</a></li>
+	                        <li><a href="/market/notice/notice">공지사항</a></li>
 	                        <li><a href="#">자주하는질문</a></li>
 	                        <li><a href="#">1:1문의</a></li>
 	                    </ul>
