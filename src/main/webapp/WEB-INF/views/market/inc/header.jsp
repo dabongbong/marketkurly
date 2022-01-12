@@ -6,6 +6,7 @@
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
 	Member member=(Member)request.getAttribute("member");
+	Member member_name = (Member)request.getAttribute("name");
 %>
 
 <!DOCTYPE html>
@@ -57,7 +58,7 @@
                   
                   <!-- 로그인한 상태 -->
                 <c:if test="${ member.user_id != null }">
-                            <li><a href="#" class="login-panel" id="loginSuccess" >로그아웃<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
+                            <li><a href="#" class="login-panel" id="loginSuccess" >정민님<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 			                    <ul class="sub">
 			                        <li><a href="/detailform">개인정보수정</a></li>
 			                        <li><a href="/orderList">주문내역</a></li>
@@ -80,7 +81,7 @@
         <div class="container">
             <div class="inner-header">
                 <div class="logo">
-                    <a href="./index.html">
+                    <a href="/">
                         <img src="./resources/market/img/categoryIcons/logo_x2.webp" alt="">
                     </a>
                 </div>
