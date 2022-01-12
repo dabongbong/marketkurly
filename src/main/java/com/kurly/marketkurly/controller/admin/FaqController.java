@@ -42,7 +42,7 @@ public class FaqController {
 	}
 	// faq 등록 폼
 		 	@GetMapping("/faq/write")
-		 	public String writeForm(Model model) {
+		 	public String writeForm(Model model,HttpServletRequest request) {
 		 		List faqList = faqService.selectAll();
 				model.addAttribute("faqList", faqList);
 		 		
@@ -60,7 +60,7 @@ public class FaqController {
 		 	}
 		 	// 문의 상세보기
 		 	@GetMapping("/faq/detail")
-			public String getDetail(int faq_no, Model model) {
+			public String getDetail(int faq_no, Model model,HttpServletRequest request) {
 				Faq faq = faqService.select(faq_no); 
 				model.addAttribute("faq", faq);
 				
@@ -68,7 +68,7 @@ public class FaqController {
 			}
 			//수정
 			@PostMapping("/faq/update")
-			public ModelAndView update(Faq faq) {
+			public ModelAndView update(Faq faq,HttpServletRequest request) {
 				faqService.update(faq);
 				ModelAndView mav = new ModelAndView("redirect:/admin/faq/detail?faq_no="+faq.getFaq_no());
 				return mav;
@@ -76,7 +76,7 @@ public class FaqController {
 			}
 			//삭제 요청 처리
 			@GetMapping("/faq/delete")
-			public String delete(int faq_no) {
+			public String delete(int faq_no,HttpServletRequest request) {
 				faqService.delete(faq_no);
 				
 				return "redirect:/admin/faq/faq";

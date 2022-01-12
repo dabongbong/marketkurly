@@ -14,7 +14,7 @@
           <!-- <img src="/resources/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
         </div>
         <div class="info">
-          <a href="#" class="d-block">admin 님, 환영합니다</a>
+          <a href="#" class="d-block">관리자 페이지 입니다</a>
         </div>
       </div>
 
@@ -156,14 +156,14 @@
             <!-- 자식메뉴 end -->
             
             <!-- 자식메뉴 begin -->
-            <ul class="nav nav-treeview">
+            <!-- <ul class="nav nav-treeview">
           <li class="nav-item">
                 <a href="/admin/customer/my_qna" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>1:1 문의</p>
                 </a>
               </li>
-            </ul>
+            </ul> -->
             <!-- 자식메뉴 end -->
           </li>
            <!-- 주메뉴 begin -->

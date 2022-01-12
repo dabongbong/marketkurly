@@ -91,14 +91,12 @@
           <!-- Left col -->
           <section class="col-lg-7 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
-				왼쪽
 
             <!-- /.card -->
           </section>
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
-          	오른쪽
           
           </section>
           <!-- right col -->

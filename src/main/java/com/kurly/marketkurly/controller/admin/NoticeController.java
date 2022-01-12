@@ -46,7 +46,7 @@ public class NoticeController {
  	}
  	// 등록 폼
  	@GetMapping("/notice/write")
- 	public String writeForm(Model model) {
+ 	public String writeForm(Model model,HttpServletRequest request) {
  		List noticeList = noticeService.selectAll();
 		model.addAttribute("noticeList", noticeList);
  		
@@ -70,7 +70,7 @@ public class NoticeController {
 	
 	// 상세보기
 	@GetMapping("/notice/detail")
-	public String getDetail(int notice_no, Model model) {
+	public String getDetail(int notice_no, Model model,HttpServletRequest request) {
 		Notice notice = noticeService.select(notice_no); 
 		model.addAttribute("notice", notice);
 		
@@ -78,7 +78,7 @@ public class NoticeController {
 	}
 	//수정
 	@PostMapping("/notice/update")
-	public ModelAndView update(Notice notice) {
+	public ModelAndView update(Notice notice,HttpServletRequest request) {
 		noticeService.update(notice);
 		ModelAndView mav = new ModelAndView("redirect:/admin/notice/detail?notice_no="+notice.getNotice_no());
 		return mav;
@@ -86,7 +86,7 @@ public class NoticeController {
 	}
 	//삭제 요청 처리
 	@GetMapping("/notice/delete")
-	public String delete(int notice_no) {
+	public String delete(int notice_no,HttpServletRequest request) {
 		noticeService.delete(notice_no);
 		
 		return "redirect:/admin/notice/list";

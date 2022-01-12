@@ -196,7 +196,7 @@
     
     
     <!-- 상품목록 -->
-    <section class="man-banner spad">
+<!--     <section class="man-banner spad">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -244,7 +244,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- 상품목록-->
 
 <!-- 중간배너 -->
