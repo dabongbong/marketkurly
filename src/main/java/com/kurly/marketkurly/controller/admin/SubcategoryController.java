@@ -3,6 +3,8 @@ package com.kurly.marketkurly.controller.admin;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,7 @@ public class SubcategoryController {
 
 	// 서브카테고리 리스트
 	@GetMapping("/category/sublist")
-	public ModelAndView getList() {
+	public ModelAndView getList(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/category/list");
 		List subcategoryList = subcategoryService.selectAll();  
 		mav.addObject("subcategoryList", subcategoryList); 
@@ -38,7 +40,7 @@ public class SubcategoryController {
 	
 	// 서브카테고리 등록 폼 
 	@PostMapping("/category/subregistform")
-	public String registForm(int category_id, Model model) {
+	public String registForm(HttpServletRequest request,int category_id, Model model) {
 		model.addAttribute("category_id", category_id);
 		
 		return "admin/category/subregist";
@@ -46,14 +48,14 @@ public class SubcategoryController {
 	
 	// 서브카테고리 등록 
 	@PostMapping("/category/subregist")
-	public String regist(Subcategory subcategory) {
+	public String regist(HttpServletRequest request,Subcategory subcategory) {
 		subcategoryService.insert(subcategory);
 		return "redirect:/admin/category/list";
 	}
 	
 	//서브카테고리 상세보기 
 	@GetMapping("/category/subdetail")
-	public String getDetail(int subcategory_id, Model model) {
+	public String getDetail(HttpServletRequest request,int subcategory_id, Model model) {
 		Subcategory subcategory = subcategoryService.select(subcategory_id);
 		model.addAttribute("subcategory", subcategory);
 		return "admin/category/subdetail";
@@ -62,7 +64,7 @@ public class SubcategoryController {
 	
 	// 서브카테고리 수정
 	@PostMapping("/category/subupdate")
-	public ModelAndView update(Subcategory subcategory) {
+	public ModelAndView update(HttpServletRequest request,Subcategory subcategory) {
 		System.out.println(subcategory.getSubcategory_id());
 		subcategoryService.update(subcategory);
 		ModelAndView mav = new ModelAndView("redirect:/admin/category/list");
@@ -71,7 +73,7 @@ public class SubcategoryController {
 		
 	// 서브카테고리 삭제 
 	@GetMapping("/category/subdelete")
-	public String delete(int subcategory_id) {
+	public String delete(HttpServletRequest request,int subcategory_id) {
 		subcategoryService.delete(subcategory_id);
 		return "redirect:/admin/category/list";
 	}

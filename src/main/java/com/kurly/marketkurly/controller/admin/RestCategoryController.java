@@ -27,7 +27,7 @@ public class RestCategoryController {
 //		return subcategoryList;
 
 		@GetMapping("/rest/subcategory")
-		public List getList(int category_id) {
+		public List getList(HttpServletRequest request,int category_id) {
 			List<Subcategory> subcategoryList = subcategoryService.selectAllByCategoryId(category_id);
 			return subcategoryList;
 	}
