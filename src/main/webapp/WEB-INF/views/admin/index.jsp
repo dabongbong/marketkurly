@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%
+	int newOrder = (Integer)request.getAttribute("newOrder");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +57,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3><%=newOrder %></h3>
 
                 <p>New Orders</p>
               </div>

@@ -34,7 +34,10 @@
 	<update id="updateCheckNo" parameterType="OrderSummary">
 		update order_summary set check_no=1 where order_summary_id=#{order_summary_id}
 	</update>
-	
+	<!-- 미확인 주문 갯수 확인 -->
+	<select id="selectNewOrder" resultType="int">
+		select count(if(check_no=0,check_no,null)) from order_summary
+	</select>
 	<!-- 주문 하기 -->
 	<insert id="insert" parameterType="OrderSummary">
 		insert into order_summary(order_summary_id, member_id, order_number, paymethod_int, orderdate, price)
