@@ -88,6 +88,7 @@
                       <th>결제수단</th>
                       <th>결제금액</th>
                       <th>구매일자</th>
+                      <th>check_no</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -101,13 +102,14 @@
 				          <td><%=num-- %></td>
 				          <td><%=orderSummary.getMember().getUser_id()%></td>
 				          <td>
-				          	<a href="/admin/order/detail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
+				          	<a href="/admin/order/detail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>" onclick="change()">
 				          		<%=orderSummary.getOrder_number() %>
 				          	</a>
 			          	</td>
 				          <td><%=orderSummary.getPaymethod().getMethod() %></td>
 				          <td><%=orderSummary.getPrice() %> 원</td>
 				          <td><%=orderSummary.getOrderdate().substring(0, 10) %></td>
+				          <td><input type="text" value="<%=orderSummary.getCheck_no()%>" readonly></td>
 				        </tr>
 				        <%} %>
 			         <tr>

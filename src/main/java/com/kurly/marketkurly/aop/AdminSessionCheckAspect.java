@@ -30,6 +30,7 @@ public class AdminSessionCheckAspect {
 		System.out.println("원래 호출하려던 컨트롤러와 메소드는 "+targetClass.getName()+","+method);
 		
 		String uri = request.getRequestURI();
+		System.out.println("uri는 :" + uri);
 		
 		if(
 				uri.equals("/admin/login/form") ||

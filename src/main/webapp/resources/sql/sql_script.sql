@@ -69,12 +69,6 @@ create table product_review(
 	, constraint fk_product_review foreign key (product_id) references product(product_id)
 ) default character set utf8;
 
-create table faq(
-	faq_no int primary key auto_increment
-	, title varchar(50)
-	, writer varchar(20) 
-) default character set utf8;
-
 create table member(
 	member_id int primary key auto_increment
 	, user_id varchar(30)
@@ -94,6 +88,7 @@ create table order_summary(
 	, paymethod_id int
 	, orderdate timestamp default now()
 	, price int default 0
+	, check_no int default 0
 	, constraint fk_member_order_summary foreign key (member_id) references member(member_id)
 	, constraint fk_paymenthod_order_summary foreign key (paymethod_id) references paymethod(paymethod_id)
 ) default character set utf8;
@@ -116,20 +111,31 @@ create table notice(
 	, hit int
 ) default character set utf8;
 
+
 create table my_qna(
 	my_qna_no int primary key auto_increment
 	, member_id int 
 	, my_qna_category text
 	, title varchar(50)
 	, writer varchar(20)
+	, content text
 	, regdate timestamp default now()
 	,constraint fk_member_my_qna foreign key(member_id) references member (member_id)
 ) default character set utf8;
+
+create table faq(
+	faq_no int primary key auto_increment
+	, faq_category text
+	, title varchar(50)
+	, writer varchar(20) 
+	, content text
+) default character set utf8;
+
 
 --어드민 로그인 
 create table admin(
 admin_id int primary key auto_increment
 , user_id varchar(30)
-, pass varchar(30)
+, pass varchar(64)
 , name varchar(30)
 ) default character set utf8;

@@ -46,4 +46,12 @@ public class MybatisOrderSummaryDAO implements OrderSummaryDAO {
 		return sessionTemplate.selectList("OrderDetail.selectAllByOrderSummaryId", order_summary_id);
 	}
 
+	@Override
+	public void checkPlus(OrderSummary orderSummary) throws OrderException{
+		int result = sessionTemplate.update("OrderSummary.updateCheckNo", orderSummary);
+		if(result==0) {
+			throw new OrderException("주문내역 확인 실패");
+		}
+	}
+
 }

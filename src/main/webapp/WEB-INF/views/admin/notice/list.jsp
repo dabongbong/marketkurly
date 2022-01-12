@@ -132,10 +132,10 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<script>
 
+</script>
 <%@ include file="../inc/bottom_link.jsp" %>
-
-
 
 </body>
 </html>
