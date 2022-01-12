@@ -49,12 +49,12 @@
                   <label for="email">이메일</label>
                      <input type="email" class="form-control"  name="email" id="email" value="<%=member.getEmail() %>"  placeholder="이메일을 입력해주세요">
                     <div class="check_font" id="email_check"></div>
-                    
+                    <%-- 
                   <label for="phone">핸드폰</label>
                     <input type="text" class="form-control"  name="phone" id="phone" value="<%=member.getPhone() %>" placeholder="010-0000-0000">
                     <div class="check_font" id="phone_check"></div>
                     
-                  
+                   --%>
 				    </div><br>
                     
                   <label for="gender">성별</label>
