@@ -29,7 +29,7 @@ public class CategoryController {
 	
 	// 카테고리 리스트
 	@GetMapping("/category/list")
-	public ModelAndView getList() {
+	public ModelAndView getList(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/category/list");
 		List categoryList = categoryService.selectAll();  
 		mav.addObject("categoryList", categoryList); 
@@ -38,7 +38,7 @@ public class CategoryController {
 	}
 	// 카테고리 등록 폼 
 	@GetMapping("/category/registform")
-	public String registForm() {
+	public String registForm(HttpServletRequest request) {
 		return "admin/category/regist";
 	}
 	
@@ -54,7 +54,7 @@ public class CategoryController {
 	
 	//카테고리 상세보기 
 	@GetMapping("/category/detail")
-	public String getDetail(int category_id, Model model) {
+	public String getDetail(HttpServletRequest request,int category_id, Model model) {
 		Category category = categoryService.select(category_id);
 		model.addAttribute("category", category);
 		return "admin/category/detail";
@@ -63,7 +63,7 @@ public class CategoryController {
 	
 	// 카테고리 수정 
 	@PostMapping("/category/update")
-	public ModelAndView update(Category category) {
+	public ModelAndView update(HttpServletRequest request,Category category) {
 		categoryService.update(category);
 		
 		ModelAndView mav = new ModelAndView("redirect:/admin/category/detail?category_id="+category.getCategory_id());
@@ -72,7 +72,7 @@ public class CategoryController {
 	
 	// 카테고리 삭제 
 	@GetMapping("/category/delete")
-	public String delete(int category_id) {
+	public String delete(HttpServletRequest request,int category_id) {
 		categoryService.delete(category_id);
 		return "redirect:/admin/category/list";
 	}

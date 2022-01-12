@@ -61,6 +61,11 @@ public class MybatisMemberDAO implements MemberDAO{
 		return sessionTemplate.selectOne("Member.userIdCheck",user_id);
 	}
 
+	@Override
+	public int regToday() {
+		return sessionTemplate.selectOne("Member.regToday");
+	}
+
 
 
 

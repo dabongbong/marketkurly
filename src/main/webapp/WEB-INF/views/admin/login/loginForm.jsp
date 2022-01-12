@@ -35,13 +35,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* Set a style for the submit button */
-.btn .btn_login, .btn_join{
+.btn{
   background-color: dodgerblue;
   color: white;
   padding: 10px 10px;
   border: none;
   cursor: pointer;
-  width: 50%
+  width: 100%;
   opacity: 0.9;
 }
 
@@ -92,10 +92,7 @@ function loginCheck(){
     <input class="input-field" type="password" placeholder="Password" name="pass">
   </div>
 	
-	<div class="btn">
-	  <button type="button" class="btn_login" id="btn_login">관리자 로그인</button>
-	  <button type="button" class="btn_join" id="btn_join">관리자 회원가입</button>
-  </div>
+	  <button type="button" class="btn" id="btn_login">관리자 로그인</button>
   
 </form>
 

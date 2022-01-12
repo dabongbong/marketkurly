@@ -36,4 +36,8 @@
   		select count(*) from member where user_id = #{user_id}
   	
   	</select>
+  	<!-- 오늘 가입한 회원수 조회 -->
+  	<select id="regToday" resultType="int">
+  		select count(if(DATE_FORMAT(regdate, "%Y-%m-%d") = CURDATE(), regdate, null)) from member;
+  	</select>
 </mapper>

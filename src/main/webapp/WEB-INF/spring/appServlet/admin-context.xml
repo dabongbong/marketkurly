@@ -34,11 +34,11 @@
 <!-- 	<beans:bean class="com.kurly.marketkurly.util.Pager" id="pager"></beans:bean> -->
 	
 	<beans:bean class="com.kurly.marketkurly.aop.AdminSessionCheckAspect" id="adminSessionCheckAspect"/>
-	<!-- <aop:config>
+	<aop:config> 
 		<aop:aspect ref="adminSessionCheckAspect">
 			<aop:pointcut expression="execution(public * com.kurly.marketkurly.controller.admin..*(..))" id="loginPointcut"/>
 			<aop:around method="sessionCheck" pointcut-ref="loginPointcut"/>
 		</aop:aspect>	
-	</aop:config>	 -->	
+	</aop:config>	 
 	
 </beans:beans>
