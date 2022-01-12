@@ -57,9 +57,9 @@
                   
                   <!-- 로그인한 상태 -->
                   <c:if test="${ member.user_id != null }">
-                            <li><a href="/loginform" class="login-panel" id="loginSuccess" >로그아웃</a>
+                            <li><a href="#" class="login-panel" id="loginSuccess" >로그아웃</a>
 			                    <ul class="sub">
-			                        <li><a href="#">마이페이지­</a></li>
+			                        <li><a href="/detailform">개인정보수정</a></li>
 			                        <li><a href="#">주문내역</a></li>
 			                        <li><a href="/logout" >로그아웃</a></li>
 			                    </ul>
