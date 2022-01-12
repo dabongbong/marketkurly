@@ -88,7 +88,7 @@
                       <th>결제수단</th>
                       <th>결제금액</th>
                       <th>구매일자</th>
-                      <th>check_no</th>
+                      <th>확인여부</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -109,7 +109,9 @@
 				          <td><%=orderSummary.getPaymethod().getMethod() %></td>
 				          <td><%=orderSummary.getPrice() %> 원</td>
 				          <td><%=orderSummary.getOrderdate().substring(0, 10) %></td>
-				          <td><input type="text" value="<%=orderSummary.getCheck_no()%>" readonly></td>
+				          <td>
+				          	<%if(orderSummary.getCheck_no() == 1){ %>확인<%}else{ %>미확인<%} %>
+				          </td>
 				        </tr>
 				        <%} %>
 			         <tr>
