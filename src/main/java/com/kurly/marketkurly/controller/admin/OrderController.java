@@ -21,8 +21,7 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
-	@Autowired
-	private Pager pager;
+
 
 	// 주문하기
 
@@ -30,6 +29,7 @@ public class OrderController {
 	@GetMapping("/order/list")
 	public ModelAndView orderList(HttpServletRequest request) {
 		List orderSummaryList = orderService.selectAll();
+		Pager pager = new Pager();
 		pager.init(orderSummaryList, request);
 		ModelAndView mav = new ModelAndView("admin/order/list");
 		mav.addObject("orderSummaryList", orderSummaryList);
@@ -41,7 +41,9 @@ public class OrderController {
 	@GetMapping("/order/detail")
 	public ModelAndView getDetail(HttpServletRequest request, int order_summary_id) {
 		List orderDetail= orderService.getDetail(order_summary_id);
+		Pager pager = new Pager();
 		pager.init(orderDetail, request);
+		
 		ModelAndView mav = new ModelAndView("admin/order/detail");
 		mav.addObject("orderDetail", orderDetail);
 		mav.addObject("pager", pager);
