@@ -30,7 +30,7 @@
                 
                   <div class="form-group">
                   <label for="id">아이디</label>
-                    <input type="text" class="form-control" name="user_id" id="user_id" value="<%=member.getUser_id() %>" placeholder="아이디를 입력해주세요" >
+                    <input type="text" class="form-control" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요" >
                      <div class="check_font" id="id_check"></div>
                   	
                      

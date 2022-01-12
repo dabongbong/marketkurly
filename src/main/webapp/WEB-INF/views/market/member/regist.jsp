@@ -24,67 +24,65 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
                          <form name="form1" style="border:1px solid lightgray; border-radius:10px;">
-              	
-              	
-                <div class="card-body">
-                
-                  <div class="form-group">
-                  <label for="id">아이디</label>
-                    <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 입력해주세요" >
-                     <div class="check_font" id="id_check"></div>
-                  	
-                     
-                  <label for="name">이름</label>
-                     <input type="text" class="form-control" name="member_name" id="member_name"  placeholder="이름을 입력해주세요" required>
-                    <div class="check_font" id="name_check"></div>
-                    
-                  <label for="pass">비밀번호</label>
-                     <input type="password" class="form-control"  name="member_pass" id="member_pass" placeholder="비밀번호를 입력해주세요">
-                    <div class="check_font" id="pw_check"></div>
-                     
-                  <label for="pass2">비밀번호 확인</label>
-                     <input type="password" class="form-control"  name="member_pass2" id="member_pass2" placeholder="비밀번호를 한번 더 입력해주세요">
-                    <div class="check_font" id="pw2_check"></div>
-                    
-                  <label for="email">이메일</label>
-                     <input type="email" class="form-control"  name="email" id="email"  placeholder="이메일을 입력해주세요">
-                    <div class="check_font" id="email_check"></div>
-                    
-                  <label for="phone">핸드폰</label>
-                    <input type="text" class="form-control"  name="phone" id="phone" placeholder="010-0000-0000">
-                    <div class="check_font" id="phone_check"></div>
-                    
-                  <label for="addr">주소</label>
-                    <div class="d-flex">
-				        <input type="text"  class="form-control col-9" id="sample6_postcode" placeholder="우편번호" name="zipcode" readonly>
-				        <input type="button" class="form-control col-3"  onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-				    </div>
-				    <div>
-				        <input type="text" class="form-control" id="sample6_address" placeholder="주소" name="address1">
-				        <div class="d-flex">
-				            <input type="text" class="form-control col-3" id="sample6_extraAddress" placeholder="참고항목">
-					        <input type="text" class="form-control col-9" id="sample6_detailAddress" placeholder="상세주소" name="address2">
-				        </div>
-				    </div><br>
-                    
-                  <label for="gender">성별</label>
-                    <label><input type="radio" name="gender" value="남" checked/>남</label>
-                    <label><input type="radio" name="gender" value="여" />여</label>
-                    <label><input type="radio" name="gender" value="선택안함" />선택안함</label><br>
-                   
-
-
-                  <label for="id">생일</label>
-                    <input type="text" class="form-control"  name="birth" id="birth" placeholder="20220101">
-                    <div class="check_font" id="birth_check"></div>
-                  </div>
-                  
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                    <button type="button" class="site-btn register-btn" id="reg" onClick="regist()">가입하기</button>
-                </div>
-              </form>
+					                <div class="card-body">
+					                  <div class="form-group">
+					                  
+					                  <label for="id">아이디</label>
+					                    <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 입력해주세요" >
+					                     <div class="check_font" id="id_check"></div>
+					                  	
+					                     
+					                  <label for="name">이름</label>
+					                     <input type="text" class="form-control" name="member_name" id="member_name"  placeholder="이름을 입력해주세요" required>
+					                    <div class="check_font" id="name_check"></div>
+					                    
+					                  <label for="pass">비밀번호</label>
+					                     <input type="password" class="form-control"  name="member_pass" id="member_pass" placeholder="비밀번호를 입력해주세요">
+					                    <div class="check_font" id="pw_check"></div>
+					                     
+					                  <label for="pass2">비밀번호 확인</label>
+					                     <input type="password" class="form-control"  name="member_pass2" id="member_pass2" placeholder="비밀번호를 한번 더 입력해주세요">
+					                    <div class="check_font" id="pw2_check"></div>
+					                    
+					                  <label for="email">이메일</label>
+					                     <input type="email" class="form-control"  name="email" id="email"  placeholder="이메일을 입력해주세요">
+					                    <div class="check_font" id="email_check"></div>
+					                    
+					                  <label for="phone">핸드폰</label>
+					                    <input type="text" class="form-control"  name="phone" id="phone" placeholder="010-0000-0000">
+					                    <div class="check_font" id="phone_check"></div>
+					                    
+					                  <label for="addr">주소</label>
+					                    <div class="d-flex">
+									        <input type="text"  class="form-control col-9" id="sample6_postcode" placeholder="우편번호" name="zipcode" readonly>
+									        <input type="button" class="form-control col-3"  onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+									    </div>
+									    <div>
+									        <input type="text" class="form-control" id="sample6_address" placeholder="주소" name="address1">
+									        <div class="d-flex">
+									            <input type="text" class="form-control col-3" id="sample6_extraAddress" placeholder="참고항목">
+										        <input type="text" class="form-control col-9" id="sample6_detailAddress" placeholder="상세주소" name="address2">
+									        </div>
+									    </div><br>
+					                    
+					                  <label for="gender">성별</label>
+					                    <label><input type="radio" name="gender" value="남" checked/>남</label>
+					                    <label><input type="radio" name="gender" value="여" />여</label>
+					                    <label><input type="radio" name="gender" value="선택안함" />선택안함</label><br>
+					                   
+					
+					
+					                  <label for="id">생일</label>
+					                    <input type="text" class="form-control"  name="birth" id="birth" placeholder="20220101">
+					                    <div class="check_font" id="birth_check"></div>
+					                  </div>
+					                  
+					                <!-- /.card-body -->
+					
+					                <div class="card-footer">
+					                    <button type="button" class="site-btn register-btn" id="reg" onClick="regist()">가입하기</button>
+					                </div>
+				              </form>
                     </div>
                 </div>
             </div>
