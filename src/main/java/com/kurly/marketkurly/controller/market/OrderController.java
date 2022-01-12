@@ -43,6 +43,7 @@ public class OrderController {
 		return mav;
 	}
 	
+	// 장바구니
 	@GetMapping("/myCart")
 	public String getCart(HttpServletRequest request) {
 		return "market/order/shoppingCart";
@@ -54,6 +55,7 @@ public class OrderController {
 		return "market/order/registForm";
 	}
 	
+	// 주문
 	@PostMapping("/orderRegist")
 	public String regist(HttpServletRequest request, OrderSummary orderSummary) {
 		orderService.insert(orderSummary);

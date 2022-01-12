@@ -5,7 +5,7 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
-	Member member=(Member)request.getAttribute("member");
+	Member member=(Member)session.getAttribute("member");
 %>
 
 <!DOCTYPE html>
@@ -56,8 +56,8 @@
                   </c:if>
                   
                   <!-- 로그인한 상태 -->
-                  <c:if test="${ member.user_id != null }">
-                            <li><a href="#" class="login-panel" id="loginSuccess" >로그아웃</a>
+                <c:if test="${ member.user_id != null }">
+                            <li><a href="#" class="login-panel" id="loginSuccess" ><%=member.getMember_name() %><img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 			                    <ul class="sub">
 			                        <li><a href="/detailform">개인정보수정</a></li>
 			                        <li><a href="/orderList">주문내역</a></li>
@@ -65,7 +65,7 @@
 			                    </ul>
                             </li>
                           
-                </c:if>
+               	 </c:if>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
 	                        <li><a href="/market/notice/notice">공지사항</a></li>
@@ -80,7 +80,7 @@
         <div class="container">
             <div class="inner-header">
                 <div class="logo">
-                    <a href="./index.html">
+                    <a href="/">
                         <img src="./resources/market/img/categoryIcons/logo_x2.webp" alt="">
                     </a>
                 </div>
@@ -94,14 +94,14 @@
                         	<span>전체 카테고리 </span>
                         		<ul class="depart-hover">
                             <li class="active">
-                            <%-- 
+                            
                          	<%for(int i=0; i<categoryList.size(); i++){ %>
                          	<%Category category=categoryList.get(i); %>
                          		<a id="category" style='color:#64646' href="#" onMouseOver="hoverCategory(<%=category.getCategory_id()%>, <%=i%>)">
                          		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px"><%=category.getCategory_name() %>
                          		</a>
                          	<%} %>
-                         	 --%>
+                         	 
 		                    	<ul class="sub-hover" id="subBox">
 									<!-- 서브카테고리 비동기방식 -->
 		                    	</ul>

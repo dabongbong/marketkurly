@@ -49,14 +49,29 @@ public class ProductServiceImpl implements ProductService{
 		
 
 	@Override
-	public void update(Product product) {
-		// TODO Auto-generated method stub
+	public void update(Product product) throws ProductException{
+		productDAO.update(product);
+		productDetailDAO.delete(product.getProduct_id());
+		productHashtagDAO.deleteByProductId(product.getProduct_id());
+		for(ProductDetail detail : product.getProduct_detail_list()) {
+			detail.setProduct_id(product.getProduct_id());
+			productDetailDAO.insert(detail);
+			//System.out.println("디테일 : " + detail);
+			}
+			for(ProductHashtag hashtag : product.getProduct_hashtag_list()) {
+				hashtag.setProduct_id(product.getProduct_id());
+				productHashtagDAO.insert(hashtag);
+				//System.out.println("해시태그 : " + hashtag);
+				
+			}
 		
 	}
 
 	@Override
-	public void delete(int product_id) {
-		// TODO Auto-generated method stub
+	public void delete(int product_id) throws ProductException{
+		productDetailDAO.delete(product_id);
+		productHashtagDAO.deleteByProductId(product_id);
+		productDAO.delete(product_id);
 		
 	}
 
