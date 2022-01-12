@@ -15,38 +15,27 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="breadcrumb-text">
-					<a href="#"><i class="fa fa-home"></i> Home</a> <span>자주하는 질문</span>
+					<a href="#"><i class="fa fa-home"></i> Home</a> <span>1:1 문의</span>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">고객님들께서 가장 자주하시는 질문을 모두 모았습니다.</h3>
-
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<div class="container">
+	<div class="row">
+			<div class="col-lg-2">
+				<div class="filter-widget">
+					<h4 class="fw-title">고객센터</h4>
+					<ul class="filter-catagories">
+						<li><a href="/noticeList">공지사항</a></li>
+						<li><a href="/faq">자주하는 질문</a></li>
+						<li><a href="/myQnaList">1:1 문의</a></li>
+					</ul>
+				</div>
+			</div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
+              <div class="col-lg-9">
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
@@ -65,8 +54,8 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
 				        <tr>
 					          <td><%=num-- %></td>
 					          <td><%=faq.getFaq_category() %></td>
-					          <td><a id="faq" style='color:#646464' href="javascript:selectfaq('<%=faq.getFaq_no()%>',<%=faq.getTitle()%>)" ><%=faq.getTitle() %></a>
-				          		 <button type="button" class="btn btn-info"  style="float:right" onClick="location.href='/admin/faq/detail?faq_no=<%=faq.getFaq_no()%>'">상세보기</button>
+					          <td><a id="faq" style="color:#5F0080" href="javascript:selectfaq('<%=faq.getFaq_no()%>',<%=faq.getTitle()%>)" ><%=faq.getTitle() %></a>
+				          		 <button type="button" class="btn btn-info"  style="float:right; background-color: #5F0080" onClick="location.href='/admin/faq/detail?faq_no=<%=faq.getFaq_no()%>'">상세보기</button>
 					          </td>
 				        </tr>
 				        <%} %>
@@ -81,7 +70,7 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
 						  
 				        <tr>
 						 	<td  colspan="4">
-                    			<button type="button" class="btn btn-info" onClick="location.href='/admin/faq/write';">공지사항 등록</button>
+                    			<button type="button" class="btn btn-info" style="background-color: #5F0080" onClick="location.href='/admin/faq/write';">공지사항 등록</button>
                     		</td>
 					  	</tr>
 					  		
@@ -104,7 +93,6 @@ List<Faq> faqList = (List)request.getAttribute("faqList");
 </div>
 <!-- ./wrapper -->
 
-<%@ include file="../inc/bottom_link.jsp" %>
 
 
 

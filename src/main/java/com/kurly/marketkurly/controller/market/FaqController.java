@@ -47,7 +47,7 @@ public class FaqController {
 				Faq faq = faqService.select(faq_no); 
 				model.addAttribute("faq", faq);
 				
-				return "market/faq/faqDetail";
+				return "market/faq/detail";
 			}
 		
 }
