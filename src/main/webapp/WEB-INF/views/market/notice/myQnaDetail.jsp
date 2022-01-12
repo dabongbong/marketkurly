@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 	   
-	<%@ include file="../inc/head_link.jsp" %>
+	<%@ include file="../inc/header.jsp" %>
   <!-- summernote -->
   <link rel="stylesheet" href="/resources/admin/plugins/summernote/summernote-bs4.min.css">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -23,12 +23,6 @@
     <img class="animation__shake" src="/resources/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
-  <!-- Navbar -->
-  <%@ include file="../inc/navbar.jsp" %>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <%@ include file="../inc/sidebar.jsp" %>  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -37,7 +31,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">문의내역 관리</h1>
+            <h1 class="m-0">나의 문의내역 관리</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -90,7 +84,7 @@
 					<div class="card-footer">
 						<button type="button" class="btn btn-info" id="bt_edit">수정</button>
 						<button type="button" class="btn btn-info" id="bt_del">삭제</button>
-						<button type="button" class="btn btn-info" onClick="location.href='/admin/customer/my_qna'">목록</button>
+						<button type="button" class="btn btn-info" onClick="location.href='/market/notice/myQna'">목록</button>
 	            	</div>
           
 				</div>
@@ -120,7 +114,6 @@
 </div>
 <!-- ./wrapper -->
 
-<%@ include file="../inc/bottom_link.jsp" %>
 
 <!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
 <script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
