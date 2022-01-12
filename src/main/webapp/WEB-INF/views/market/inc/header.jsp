@@ -131,7 +131,7 @@
                                 <a href="#"></a>
                             </li>
                             <li class="cart-icon">
-                                <a href="#"></a>
+                                <a href="/myCart"></a>
                             </li>
                         </ul> 
                     </div>

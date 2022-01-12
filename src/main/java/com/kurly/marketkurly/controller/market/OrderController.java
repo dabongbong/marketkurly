@@ -43,6 +43,11 @@ public class OrderController {
 		return mav;
 	}
 	
+	@GetMapping("/myCart")
+	public String getCart(HttpServletRequest request) {
+		return "market/order/shoppingCart";
+	}
+	
 	// 주문 하기 폼 요청
 	@GetMapping("/orderForm")
 	public String getOrderForm(HttpServletRequest request) {
