@@ -119,9 +119,9 @@ function registForm(){
                   </tbody>
                 </table>
               </div>
-                     <div class="card-footer">
+                     <!-- <div class="card-footer">
                   		<button type="button" class="btn btn-info" onClick="registForm()">등록</button>
-               		 </div>
+               		 </div> -->
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
