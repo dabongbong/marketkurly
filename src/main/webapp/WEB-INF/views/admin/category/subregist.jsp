@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	int category_id = (int)request.getAttribute("category_id");	
+
+	int category_id = (Integer)request.getAttribute("category_id");	
+
 %>
 <!DOCTYPE html>
 <html lang="en">
