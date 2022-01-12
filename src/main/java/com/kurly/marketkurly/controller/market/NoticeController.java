@@ -44,4 +44,11 @@ public class NoticeController {
  		
  		return mav;
  	}
+ 	@GetMapping("/noticeDetail")
+	public String getDetail(int notice_no, Model model) {
+		Notice notice = noticeService.select(notice_no); 
+		model.addAttribute("notice", notice);
+		
+		return "admin/notice/detail";
+	}
 }
