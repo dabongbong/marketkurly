@@ -40,6 +40,12 @@ public class MemberController {
 			return "redirect:/loginform";
 		}
 		
+		//회원등록 폼 요청
+		@GetMapping("/detailform")
+		public String detailForm() {
+			return "market/member/detail";
+		}
+		
 		//수정하기
 		@PostMapping("/update")
 		public String update(Member member,Model model) {
@@ -47,6 +53,14 @@ public class MemberController {
 			
 			model.addAttribute("member", member);
 			return "redirect:/detail";
+		}
+		
+		//삭제하기
+		@GetMapping("/delete")
+		public String delete(int member_id) {
+			memberService.delete(member_id);
+			
+			return "redirect:/";
 		}
 		
 		//로그인 폼 요청 처리
@@ -76,13 +90,14 @@ public class MemberController {
 			
 			return message;
 		}
+		
 		//로그아웃 요청처리
 		@GetMapping("/logout")
 		public String logout(HttpServletRequest request) {
 			HttpSession session = request.getSession();
 			session.invalidate();
 			
-			return "redirect:loginform";
+			return "redirect:/loginform";
 		}
 }
 
