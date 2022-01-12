@@ -88,18 +88,14 @@
                         	<span>전체 카테고리 </span>
                         		<ul class="depart-hover">
                             <li class="active">
-                         <%--    
-                        <%for(Category category : categoryList){ %>
-                            	<a id="category"  style='color:#646464' href="#" >
-                            		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px">
-                            		<%=category.getCategory_name() %>
-                            	</a>
-                    	<%} %>
-                    	 --%>
-		                    	<ul class="sub-hover">
-		                    		<li class="active">
-		                    			<a href="#">서브카테고리</a>
-		                    		</li>
+                         	<%for(int i=0; i<categoryList.size(); i++){ %>
+                         	<%Category category=categoryList.get(i); %>
+                         		<a id="category" style='color:#64646' href="#" onMouseOver="hoverCategory(<%=category.getCategory_id()%>, <%=i%>)">
+                         		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px"><%=category.getCategory_name() %>
+                         		</a>
+                         	<%} %>
+		                    	<ul class="sub-hover" id="subBox">
+									<!-- 서브카테고리 비동기방식 -->
 		                    	</ul>
                             </li>
     					</ul>
@@ -137,3 +133,29 @@
         </div>
     </header>
     <!-- Header End -->
+    <script>
+    function hoverCategory(category_id, index){
+    	 /* $("#subCategory").show();  */
+    		$.ajax({
+    			url:"/rest/category",
+    			type:"get",
+    			success:function(result, status, xhr){
+    				categoryList= result;
+    				//console.log(result);
+    				console.log(categoryList[index].subList);
+    	 		
+    				var tag="";
+    				for(var i=0; i<categoryList[index].subList.length; i++){
+    					var name=result[index].subList[i];
+    		 			
+    					tag+="<li id='subCategory' class='active'>";
+    					tag+="<a href='#'>"+name.subcategory_name+"</a></li>";
+    					
+    				}
+    				console.log(tag);
+    				$("#subBox").empty();
+    				$("#subBox").append(tag);
+    			}
+    		});
+    	 }
+    </script>

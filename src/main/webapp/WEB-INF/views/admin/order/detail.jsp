@@ -13,6 +13,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+  	.pageStyle {
+    font-weight:bold;
+    font-size:15px;
+}
+  </style>
   <title>AdminLTE 3 | Dashboard</title>
 	
 	<%@ include file="../inc/head_link.jsp" %>
@@ -23,7 +29,6 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="/resources/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -89,15 +94,15 @@
                   <div class="form-group">
                   <button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
 	                  <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
-	                      <a href="/admin/order/detail.jsp?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
+	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
 	                  <%}else{}%>
 	                  <%for(int i=pager.getFirstPage(); i <= pager.getLastPage(); i++){%>
 	                      <%if(i>pager.getTotalPage()) break;%> <%--페이지 번호가 내가 가진 총 페이지를 넘어서면 반복문 중단--%>
-	                      <a href="/admin/order/detail.jsp?order_summary_id=<%=order_summary_id%>&currentPage=<%=i%>" <%if(i == pager.getCurrentPage()){%>class="pageStyle"<%}%>>[<%=i%>] </a>
+	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=i%>" <%if(i == pager.getCurrentPage()){%>class="pageStyle"<%}%>>[<%=i%>] </a>
 	                  <%}%>
 	
 	                  <%if(pager.getLastPage()+1 < pager.getTotalPage()){%> 
-	                      <a href="//admin/order/detail.jsp?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
+	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
 	                  <%}else{}%>
                 </div>
               </form>

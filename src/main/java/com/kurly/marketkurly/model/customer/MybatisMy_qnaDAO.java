@@ -17,7 +17,8 @@ public class MybatisMy_qnaDAO implements My_qnaDAO{
 	
 	@Override
 	public List selectAll() {
-		return sessionTemplate.selectList("My_qna.selectAll");
+		List list = sessionTemplate.selectList("My_qna.selectAll");
+		return list;
 	}
 
 	@Override
