@@ -50,4 +50,10 @@ public class MybatisProductDAO implements ProductDAO{
 		}
 	}
 
+	@Override
+	public List selectByCategory(int subcategory_id) {
+		return sessionTemplate.selectList("Product.selectByCategory", subcategory_id);
+		 
+	}
+
 }

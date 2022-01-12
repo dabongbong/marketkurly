@@ -43,13 +43,6 @@
                             <ul>
                                 <li><a href="/orderList">주문 내역</a></li>
                                 <li><a href="/orderForm">선물 내역(임시적 주문하기)</a></li>
-                                <li><a href="#">찜한 상품</a></li>
-                                <li><a href="#">배송지 관리</a></li>
-                                <li><a href="#">상품 후기</a></li>
-                                <li><a href="#">상품 문의</a></li>
-                                <li><a href="#">적립금</a></li>
-                                <li><a href="#">적립금</a></li>
-                                <li><a href="#">쿠폰</a></li>
                                 <li><a href="#">개인 정보 수정</a></li>
                             </ul>
                         </div>

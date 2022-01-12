@@ -1,4 +1,3 @@
-<%@page import="com.kurly.marketkurly.domain.Product"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	
@@ -65,9 +64,9 @@
 							<td class="cart-pic first-row"><img
 								src="img/cart-page/product-1.jpg" alt=""></td>
 							<td class="cart-title first-row">
-								<h5>Pure Pineapple</h5>
+								<h5>상품명</h5>
 							</td>
-							<td class="pr-price">21000 원</td>
+							<td class="pr-price">가격</td>
 							<td class="qua-col first-row">
 								<div class="quantity">
 									<div class="pro-qty">
@@ -85,11 +84,11 @@
 		<div class="col-lg-3" style="margin:0px; padding:0px;">
 			<div class="proceed-checkout updown-dd" style="padding:9px 18px 18px 20px;">
 				<ul>
-					<li class="cart-price">상품금액 <span>21000 원</span></li>
-					<li class="cart-price">상품할인금액<span>-1500 원</span></li>
+					<li class="cart-price">상품금액 <span>상품올라갈때마다 추가</span></li>
+					<li class="cart-price">상품할인금액<span>- (상품의 할인금액 다 더하자)</span></li>
 					<hr>
 					<div class="topi">
-						<li class="total-price">결제예정금액 <span>19500 원</span></li>
+						<li class="total-price">결제예정금액 <span>상품금액-상품할인</span></li>
 					</div>
 				</ul>
 				<a href="/orderForm" class="proceed-btn" id="login-btn">주문하기</a>

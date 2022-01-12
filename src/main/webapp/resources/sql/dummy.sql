@@ -1,6 +1,7 @@
 insert into member(member_id,user_id, member_pass, member_name, email, phone, addr, gender, birth) 
 values(1,'jm2345','1234','홍길동','ooo11@naver.com','01012341234','경기도 의왕시','여자','19980206');
 
+insert into admin(user_id, pass, name) values('admin','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','관리자');
 -------- 개인 Test 용 by KSH.. 페이지 없어서 노가다 했슴다..ㅎㅎ ----------
 insert into category (category_name, category_logo) values ('채소', '식이섬유 가득한 채소');
 insert into category (category_name, category_logo) values ('과일·견과·쌀', '한국인국룰음식');

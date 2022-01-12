@@ -176,9 +176,15 @@ ol {
 }
 
 /* buttons */
+/* 멤버 로그인버튼, 수정버튼 */
 #login-btn{
 	border: 1px solid #5f0081; 
 	background-color: #5f0080;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
 	border-radius: 3px;
 }
 
@@ -186,12 +192,41 @@ ol {
 	border: 1px solid #5f0081; 
 	background-color: #fff;
 	color:#5f0080;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
+	border-radius: 3px;
+}
+#edit_bt{
+	border: 1px solid #5f0081; 
+	background-color: #5f0080;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
+	border-radius: 3px;
+}
+#del_bt{
+	border: 1px solid #5f0081; 
+	background-color: #fff;
+	color:#5f0080;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
 	border-radius: 3px;
 }
 #reg{
 	border: 1px solid #5f0081; 
 	background-color: #5f0080;
 	border-radius: 3px;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
 	
 }
 
@@ -204,7 +239,7 @@ ol {
 	background: #e7ab3c;
 	text-transform: uppercase;
 }
-
+/* 
 .site-btn {
 	color: #ffffff;
 	background: #e7ab3c;
@@ -215,7 +250,7 @@ ol {
 	padding: 13px 45px 11px;
 	cursor: pointer;
 }
-
+ */
 
  
 /* 로그인 실패시 경고글 */
@@ -224,6 +259,84 @@ ol {
     text-align: center;
     color : red;
 }
+
+/* 회원가입 */
+.location_area.member > .box_inner > form {
+    padding-top: 100px;
+}
+.appForm{ margin: 40px auto 0;}
+/* 필수요소들은 빨간색 */
+.appForm .info_pilsoo{
+    position: relative;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000;
+    font-size: 15px;
+    color: #f00;
+}
+/* *글자 빨간색으로 필수 아이템들 앞에 붙이기 */
+.appForm .pilsoo_item::before {
+    content: "*";
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+    top: 0;
+    width: 15px;
+    font-weight: bold;
+    font-size: 17px;
+    color: #f00;
+}
+.appForm .app_list{
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.appForm .app_list li{ padding: 8px 0;}
+/* 라벨들 왼쪽 정렬, 스타일 조정 */
+.appForm .app_list li .tit_lbl{
+    position: relative;
+    float: left;
+    width: 150px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    line-height: 42px;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: -1px;
+}
+/* 입력하는 쪽 */
+.appForm .app_list li .app_content{ float: right; width: 770px;}
+.appForm .app_list li .app_content * {vertical-align: top;}
+/* "@" 위치 조정 */
+.appForm .app_list li .app_content.email_area .ico_space { display: inline-block; padding-top: 15px;}
+.appForm .app_list li .app_content label {vertical-align: middle;}
+
+/* 회원가입 페이지에 있는 셀렉트 같은 경우에는 크기 새롭게 조정 */
+.appForm .app_list li .select_common {
+    width: 160px;
+    height: 45px;
+    background-position: 100% 50%;
+    border: 1px solid #ccc;   
+}
+.appForm .app_list li .select_common select {
+    width: 200px;
+    height: 43px;
+}
+/* 라디오, 체크박스 버튼들 있는 부분은 위치 살짝 조정 */
+.appForm .app_list li .app_content.radio_area {
+    height: 45px;
+    box-sizing: border-box;
+    padding-top: 12px;
+}
+.appForm .app_list li .app_content.checkbox_area {
+    height: 45px;
+    box-sizing: border-box;
+    padding-top: 12px;
+}
+.appForm .app_list li textarea {
+    height: 245px;
+    resize: none;
+}
+.btn_line{padding:20px 0;}
 
 /* Preloder */
 

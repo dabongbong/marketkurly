@@ -6,6 +6,7 @@
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
 	Member member=(Member)session.getAttribute("member");
+	
 %>
 
 <!DOCTYPE html>
@@ -45,7 +46,7 @@
     <header class="header-section">
         <div class="header-top">
             <div class="container">
-                <a href="#" class="delivery-panner"><img src="./resources/market/img/categoryIcons/delivery_210801.webp" alt="샛별,택배배송안내" width="121" height="22"></a>
+                <a href="#" class="delivery-panner"><img src="/resources/market/img/categoryIcons/delivery_210801.webp" alt="샛별,택배배송안내" width="121" height="22"></a>
                 <div class="ht-right" id="userMenu">
                 <ul class="drop">
                 
@@ -119,7 +120,7 @@
                   <div class="advanced-search">
                         <div class="input-group">
                             <input type="text" placeholder="검색어를 입력해주세요." class="search">
-                            <input type="image" src="./resources/market/img/categoryIcons/ico_search_x2.webp" class="search-icon">
+                            <input type="image" src="/resources/market/img/categoryIcons/ico_search_x2.webp" class="search-icon">
                         </div>
                     </div> 
                     <div class="icon-group">

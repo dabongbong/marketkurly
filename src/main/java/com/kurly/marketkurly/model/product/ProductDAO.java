@@ -6,6 +6,7 @@ import com.kurly.marketkurly.domain.Product;
 
 public interface ProductDAO {
 	public List selectAll();
+	public List selectByCategory(int subcategory_id);
 	public Product select(int product_id);
 	public void insert(Product product);
 	public void update(Product product);
