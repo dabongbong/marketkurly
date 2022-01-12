@@ -53,7 +53,7 @@ public class MemberController {
 
 	//한건 가져오기
 	@GetMapping("/member/detail")
-	public ModelAndView getDetail(int member_id) {
+	public ModelAndView getDetail(HttpServletRequest request,int member_id) {
 		Member member=memberService.select(member_id);
 		
 		ModelAndView mav = new ModelAndView("admin/member/detail");
@@ -64,7 +64,7 @@ public class MemberController {
 	
 	//삭제하기
 	@GetMapping("/member/delete")
-	public String delete(int member_id) {
+	public String delete(HttpServletRequest request,int member_id) {
 		memberService.delete(member_id);
 		
 		return "redirect:/admin/member/list";
@@ -72,7 +72,7 @@ public class MemberController {
 	//아이디 중복체크
 		@RequestMapping(value = "/member/idCheck", method = RequestMethod.GET)
 		@ResponseBody
-		public int idCheck(@RequestParam("user_id") String user_id) {
+		public int idCheck(HttpServletRequest request,@RequestParam("user_id") String user_id) {
 
 			return memberService.userIdCheck(user_id);
 		}

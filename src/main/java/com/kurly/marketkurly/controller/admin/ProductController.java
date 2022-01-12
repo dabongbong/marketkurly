@@ -54,7 +54,7 @@ public class ProductController {
 	}
 	
 	@GetMapping("/product/registForm")
-	public String registForm(Model model) {
+	public String registForm(HttpServletRequest request,Model model) {
 		List categoryList = categoryService.selectAll();
 		model.addAttribute("categoryList", categoryList);
 		
@@ -82,14 +82,14 @@ public class ProductController {
 	}
 	
 	@GetMapping("/product/detail")
-	public ModelAndView getDetail(int product_id) {
+	public ModelAndView getDetail(HttpServletRequest request,int product_id) {
 		ModelAndView mav = new ModelAndView("admin/product/detail");
 		Product product = productService.select(product_id);
 		mav.addObject("product", product);
 		return mav;
 	}
 	@GetMapping("/product/updateForm")
-	public String updateForm(Model model, int product_id) {
+	public String updateForm(HttpServletRequest request,Model model, int product_id) {
 		List categoryList = categoryService.selectAll();
 		Product product = productService.select(product_id);
 		model.addAttribute("categoryList", categoryList);
@@ -102,7 +102,7 @@ public class ProductController {
 		return "redirect:/admin/product/detail?product_id="+product.getProduct_id();
 	}
 	@GetMapping("/product/delete")
-	public String delete(int product_id) {
+	public String delete(HttpServletRequest request,int product_id) {
 		productService.delete(product_id);
 		return "redirect:/admin/product/list";
 	}
