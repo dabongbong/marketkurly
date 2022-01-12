@@ -8,34 +8,13 @@
 <!-- Header End -->
 <style>
 .container {
-	padding: 10px;
+	padding: 20px;
 }
 
 .breacrumb-section {
-	padding: 50px 0px 51px;
+	padding: 20px;
 	font-size: 28px;
 	font-weight: bold;
-}
-.cart-price{
-	color:#4C4C4C;
-	padding: 9px;
-}
-.total-price{
-	color:#4C4C4C;
-	padding: 2px 0px 0px;
-	font-size:22px;
-}
-.pr-price{
-	color:#333333;
-	padding: 30px;
-	font-size:16px;
-}
-.ct-price{
-	padding:9px 18px 18px 20px;
-}
-.topi{
-	margin:17px 0px 0px;
-	padding:17px 0px 0px;
 }
 </style>
 <!-- Breadcrumb Section Begin -->
@@ -51,7 +30,7 @@
 <!-- Shopping Cart Section Begin -->
 <div class="container">
 	<div class="d-flex">
-		<div class="col-lg-9" >
+		<div class="col-lg-8">
 			<div class="cart-table">
 				<table>
 					<thead>
@@ -64,14 +43,15 @@
 							<td class="cart-title first-row">
 								<h5>Pure Pineapple</h5>
 							</td>
-							<td class="pr-price">21000 원</td>
+							<td class="p-price first-row">$60.00</td>
 							<td class="qua-col first-row">
 								<div class="quantity">
 									<div class="pro-qty">
-										<input type="text" value="1" readonly>
+										<input type="text" value="1">
 									</div>
 								</div>
 							</td>
+							<td class="total-price first-row">$60.00</td>
 							<td class="close-td first-row"><i class="ti-close"></i></td>
 						</tr>
 						<!-- 여기까지 반복문 -->
@@ -79,15 +59,12 @@
 				</table>
 			</div>
 		</div>
-		<div class="col-lg-3" style="margin:0px; padding:0px;">
-			<div class="proceed-checkout" style="padding:9px 18px 18px 20px;">
+		<div class="col-lg-4">
+			<div class="proceed-checkout">
 				<ul>
-					<li class="cart-price">상품금액 <span>21000 원</span></li>
-					<li class="cart-price">상품할인금액<span>-1500 원</span></li>
-					<hr>
-					<div class="topi">
-						<li class="total-price">결제예정금액 <span>19500 원</span></li>
-					</div>
+					<li class="subtotal">상품금액 <span>$240.00</span></li>
+					<li class="saletotal">상품할인금액<span>$240.00</span></li>
+					<li class="cart-total">결제예정금액 <span>$240.00</span></li>
 				</ul>
 				<a href="/orderForm" class="proceed-btn" id="login-btn">주문하기</a>
 			</div>

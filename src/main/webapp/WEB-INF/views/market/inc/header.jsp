@@ -94,14 +94,14 @@
                         	<span>전체 카테고리 </span>
                         		<ul class="depart-hover">
                             <li class="active">
-                            <%-- 
+                            
                          	<%for(int i=0; i<categoryList.size(); i++){ %>
                          	<%Category category=categoryList.get(i); %>
                          		<a id="category" style='color:#64646' href="#" onMouseOver="hoverCategory(<%=category.getCategory_id()%>, <%=i%>)">
                          		<img src="/resources/categoryImg/<%=category.getCategory_logo()%>" width="35px"><%=category.getCategory_name() %>
                          		</a>
                          	<%} %>
-                         	 --%>
+                         	 
 		                    	<ul class="sub-hover" id="subBox">
 									<!-- 서브카테고리 비동기방식 -->
 		                    	</ul>
