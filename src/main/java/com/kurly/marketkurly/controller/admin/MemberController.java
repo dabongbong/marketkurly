@@ -44,8 +44,13 @@ public class MemberController {
 		
 		return mav;
 	}
+	//회원등록 폼 요청
+	@GetMapping("/member/regist")
+	public ModelAndView registForm(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("admin/member/regist");
+		return mav;
+	}
 
-	
 	//한건 가져오기
 	@GetMapping("/member/detail")
 	public ModelAndView getDetail(int member_id) {
