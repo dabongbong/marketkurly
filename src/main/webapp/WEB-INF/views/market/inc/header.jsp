@@ -60,7 +60,7 @@
                             <li><a href="#" class="login-panel" id="loginSuccess" >로그아웃</a>
 			                    <ul class="sub">
 			                        <li><a href="/detailform">개인정보수정</a></li>
-			                        <li><a href="#">주문내역</a></li>
+			                        <li><a href="/orderList">주문내역</a></li>
 			                        <li><a href="/logout" >로그아웃</a></li>
 			                    </ul>
                             </li>
