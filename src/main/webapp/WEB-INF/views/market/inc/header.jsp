@@ -5,7 +5,7 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	List<Category> categoryList = (List)request.getAttribute("categoryList");
-	Member member= new Member();
+	Member member=(Member)request.getAttribute("member");
 %>
 
 <!DOCTYPE html>
@@ -57,8 +57,8 @@
                   
                   <!-- 로그인한 상태 -->
                   <c:if test="${ member.user_id != null }">
-                                <li><a href="/loginform" class="login-panel" id="loginSuccess" onClick="location.href='/logout'">로그아웃</a></li>
-                                
+                            <li><a href="/loginform" class="login-panel" id="loginSuccess" onClick="location.href='/logout'">로그아웃</a></li>
+                          
                 </c:if>
                     <li><a href="#" class="customer-panel menu">고객센터<img src="./resources/market/img/categoryIcons/ico_down_16x10.webp" width="10px"></a>
 	                    <ul class="sub">
