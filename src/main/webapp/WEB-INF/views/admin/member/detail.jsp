@@ -61,31 +61,29 @@
                 <h3 class="card-title">상세내용</h3>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form name="form1">
+              
+              
               	<input type="hidden" name="member_id" value="<%=member.getMember_id()%>">
               	
               	
                 <div class="card-body">
                 
                   <div class="form-group">
-                    아이디 <input type="text" class="form-control" value="<%=member.getUser_id() %>" name="user_id">
-                    이름 <input type="text" class="form-control" value="<%=member.getMember_name() %>" name="member_name">
-                    이메일 <input type="text" class="form-control" value="<%=member.getEmail() %>" name="email">
-                    핸드폰<input type="text" class="form-control" value="<%=member.getPhone() %>" name="phone">
-                    주소<input type="text" class="form-control" value="<%=member.getAddr() %>" name="addr">
-                    성별<input type="text" class="form-control" value="<%=member.getGender() %>" name="gender">
-                    생일<input type="text" class="form-control" value="<%=member.getBirth()%>" name="birth">
+                    아이디 <input type="text" class="form-control" value="<%=member.getUser_id() %>" name="user_id" readonly>
+                    이름 <input type="text" class="form-control" value="<%=member.getMember_name() %>" name="member_name" readonly>
+                    이메일 <input type="text" class="form-control" value="<%=member.getEmail() %>" name="email" readonly>
+                    주소<input type="text" class="form-control" value="<%=member.getAddr() %>" name="addr" readonly>
+                    성별<input type="text" class="form-control" value="<%=member.getGender() %>" name="gender" readonly>
+                    생일<input type="text" class="form-control" value="<%=member.getBirth()%>" name="birth" readonly>
                   </div>
                   
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" onClick="bt_edit()">수정</button>
                   <button type="button" class="btn btn-info" onClick="bt_del()">삭제</button>
                   <button type="button" class="btn btn-info" onClick="location.href='/admin/member/list';">목록</button>
                 </div>
-              </form>
+              
             </div>
             
             <!-- /.card -->

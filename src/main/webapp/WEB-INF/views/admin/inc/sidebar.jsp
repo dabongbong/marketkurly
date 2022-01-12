@@ -165,8 +165,26 @@
               </li>
             </ul>
             <!-- 자식메뉴 end -->
-            
           </li>
+           <!-- 주메뉴 begin -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                관리자
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+             <!-- 자식메뉴 begin -->
+            <ul class="nav nav-treeview">
+          	<li class="nav-item">
+                <a href="/admin/login/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>관리자 등록</p>
+                </a>
+              </li>
+            </ul>
+            <!-- 자식메뉴 end -->
           <!-- 주메뉴 end -->
         </ul>
       </nav>

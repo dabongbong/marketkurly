@@ -1,10 +1,10 @@
+<%@page import="com.kurly.marketkurly.domain.Admin"%>
 <%@page import="com.kurly.marketkurly.util.Pager"%>
-<%@page import="com.kurly.marketkurly.domain.Member"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@page import="java.util.List"%>
 <%
-	//상품목록
-	List<Member> memberList=(List)request.getAttribute("memberList");
+	
+	List<Admin> adminList=(List)request.getAttribute("adminList");
 
 	Pager pager = (Pager)request.getAttribute("pager");
 %>
@@ -20,8 +20,8 @@
 
 </head>
 <script type="text/javascript">
-function registForm(){
-	location.href="/admin/member/registform"
+function regist(){
+	location.href="/admin/login/registform"
 
 }
 </script>
@@ -47,7 +47,7 @@ function registForm(){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Member List</h1>
+            <h1 class="m-0">Admin List</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -88,13 +88,8 @@ function registForm(){
                   <thead>
                     <tr>
                       <th>NO</th>
-                      <th>id</th>
+                      <th>user_id</th>
                       <th>name</th>
-                      <th>email</th>
-                      <th>phone</th>
-                      <th>addr</th>
-                      <th>gender</th>
-                      <th>birth</th>
                     </tr>
                   </thead>
                 
@@ -103,21 +98,19 @@ function registForm(){
                   <%int num=pager.getNum(); %>
                   <%for(int i =0; i<=pager.getPageSize();i++) {%>
                   <%if(num<1)break; %>
-                  <%Member member=memberList.get(curPos++); %>
+                  <%Admin admin=adminList.get(curPos++); %>
                     <tr>
                     	<td><%=num-- %></td>
-                      <td><%=member.getUser_id()%></td>
-                      <td><a href="/admin/member/detail?member_id=<%=member.getMember_id() %>"><%=member.getMember_name()%></a></td>
-                      <td><%=member.getEmail()%></td>
-                      <td><%=member.getPhone()%></td>
-                      <td><%=member.getAddr()%></td>
-                      <td><%=member.getGender()%></td>
-                      <td><%=member.getBirth()%></td>
+                      <td><%=admin.getUser_id()%></td>
+                      <td><a href="/admin/login/detail?admin_id=<%=admin.getAdmin_id() %>"><%=admin.getName()%></a></td>
                     </tr>
                     <%} %>
                     
                   </tbody>
                 </table>
+                <div class="card-footer">
+                  <button type="button" class="btn btn-info" id="reg" onClick="regist()">회원등록</button>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
