@@ -37,8 +37,9 @@ public class OrderController {
 	
 	//카테고리 상세보기 
 	@GetMapping("/order/detail")
-	public ModelAndView getDetail(HttpServletRequest request, int order_summary_id) {
+	public ModelAndView getDetail(HttpServletRequest request, int order_summary_id, OrderSummary orderSummary) {
 		List orderDetail= orderService.getDetail(order_summary_id);
+		orderService.checkPlus(orderSummary);
 		Pager pager = new Pager();
 		pager.init(orderDetail, request);
 		

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.kurly.marketkurly.util.Pager"%>
 <%@page import="com.kurly.marketkurly.domain.OrderDetail"%>
 <%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
@@ -7,6 +8,10 @@
 	String order_summary_id = request.getParameter("order_summary_id");
 	List<OrderDetail> orderDetail = (List)request.getAttribute("orderDetail");
 	Pager pager = (Pager)request.getAttribute("pager");
+	int size = 0;
+	for(OrderDetail list : orderDetail){
+		size = orderDetail.size();
+	}
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,13 +71,11 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-12">
+          <div class="col-10" align="center" style="padding-left:160px; padding-right:0px;">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">주문 번호 &nbsp;&nbsp;
-	                <strong>
-	                	<%=order_summary_id %>
-	                </strong>
+                <h3 class="card-title">
+                	<strong><%=orderDetail.get(0).getProduct().getTitle() %></strong> &nbsp;외&nbsp;&nbsp; <strong><%=size-1 %></strong> &nbsp;건
                 </h3>
               </div>
               <!-- /.card-header -->
@@ -85,14 +88,38 @@
 		        <%if(num<1)break; %>
                 <%num--; %>
 		        <%OrderDetail orderDetailList=orderDetail.get(curPos++); %>
-                  <div class="form-group">
+                 <%--  <div class="form-group">
                   	<input type="text" class="form-control" value="<%=orderDetailList.getProduct().getTitle() %>" name="title" readonly>
                     <input type="text" class="form-control" value="<%=orderDetailList.getProduct().getPrice() %>원" name="order_count" readonly>
                     <input type="text" class="form-control" value="<%=orderDetailList.getOrder_count() %>개" name="price" readonly>
-                  </div>
+                  </div> --%>
+                  <div class="cw-item col-sm-12 row">
+                            <div class=" col-sm-3">
+                               <img src="/resources/productImg/<%=orderDetailList.getProduct().getProduct_img()%>" alt=" " width="140" height="80">
+                            </div>
+                            <div class=" col-sm-3">
+                            	<dl>
+                            		<dt>상품명</dt>
+                            		<dd><%=orderDetailList.getProduct().getTitle()%></dd>
+                            	</dl>
+                            </div>
+                            <div class=" col-sm-3">
+                            	<dl>
+                            		<dt>구매수량</dt>
+                            		<dd><%=orderDetailList.getOrder_count() %> 개</dd>
+                            	</dl>
+                            </div>
+                            <div class=" col-sm-3">
+                            	<dl>
+                            		<dt>결재금액</dt>
+                            		<dd><%=orderDetailList.getProduct().getPrice() %> 원</dd>
+                            	</dl>
+                            </div>
+                        </div>
+                        <hr>
                  <%} %>
-                  <div class="form-group">
-                  <button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
+                  <div class="form-group row">
+                  	<div class="col-sm-6" align="right">
 	                  <%if(pager.getFirstPage()-1 > 0){ %> <%-- 이전페이지가 있다면..  --%>
 	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getFirstPage()-1%>">이전페이지</a>
 	                  <%}else{}%>
@@ -104,7 +131,11 @@
 	                  <%if(pager.getLastPage()+1 < pager.getTotalPage()){%> 
 	                      <a href="/admin/order/detail?order_summary_id=<%=order_summary_id%>&currentPage=<%=pager.getLastPage()+1%>">다음페이지</a>
 	                  <%}else{}%>
-                </div>
+	                  </div>
+	                  <div class="col-sm-5" align="right">
+                  		<button type="button" class="btn btn-info" onClick="location.href='/admin/order/list';">목록</button>
+                  	  </div>
+                   </div>
               </form>
             </div>
           

@@ -12,4 +12,5 @@ public interface MemberDAO {
 	public void update(Member member);
 	public void delete(int member_id);
 	public int userIdCheck(String user_id);
+	public int regToday();
 }

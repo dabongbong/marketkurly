@@ -21,7 +21,7 @@ public class PayMethodController {
 	private PayMethodService paymethodService;
 
 	@GetMapping("paymethod/list")
-	public ModelAndView getList() {
+	public ModelAndView getList(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/paymethod/list");
 		List paymethodList = paymethodService.selectAll();
 		

@@ -53,11 +53,6 @@ CREATE TABLE product_hashtag(
 	CONSTRAINT fk_product_hashtag FOREIGN KEY (product_id) REFERENCES product (product_id)
 ) default character set utf8;
 
-create table paymethod(
-	paymethod_id int primary key auto_increment 
-	, method varchar(20)
-) default character set utf8;
-
 create table product_review(
 	review_id int primary key auto_increment
 	, product_id int
@@ -79,6 +74,12 @@ create table member(
 	, addr varchar(100)
 	, gender varchar(10)
 	, birth varchar(20)
+	, regdate timestamp default CURRENT_TIMESTAMP
+) default character set utf8;
+
+create table paymethod(
+	paymethod_id int primary key auto_increment 
+	, method varchar(20)
 ) default character set utf8;
 
 create table order_summary(

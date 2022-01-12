@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kurly.marketkurly.domain.Admin;
 import com.kurly.marketkurly.exception.AdminException;
+import com.kurly.marketkurly.exception.UploadException;
 import com.kurly.marketkurly.model.admin.AdminService;
 import com.kurly.marketkurly.util.HashBuilder;
 import com.kurly.marketkurly.util.Message;
@@ -34,12 +35,6 @@ public class AdminController {
 	private HashBuilder hashBuilder;
 	@Autowired
 	private Pager pager;
-	
-	// 로그인 폼 요청 처리 
-	@GetMapping("login/form")
-	public String getLoginForm(HttpServletRequest request) {
-		return "admin/login/loginForm";
-	}
 	
 	// 로그인 요청 처리 
 	@PostMapping("/login")
@@ -65,6 +60,14 @@ public class AdminController {
 		
 		return message;
 	}
+	
+	// 로그인 폼 요청 처리 
+	@GetMapping("login/form")
+	public ModelAndView getLoginForm(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("admin/login/loginForm");
+		return mav;
+	}
+	
 	
 	//로그아웃 요청 처리 
 	@GetMapping("/logout")
@@ -124,10 +127,9 @@ public class AdminController {
 		return "redirect:/admin/login/list";
 	}
 	
-	
 	@ExceptionHandler(AdminException.class)
 	@ResponseBody
-	public ResponseEntity<Message> handle(HttpServletRequest request, AdminException e) {
+	public ResponseEntity<Message> handle(AdminException e) {
 		HttpHeaders header=new HttpHeaders();
 		header.add("Content-Type", "text/html;charset=utf-8");
 		//한글 및 제대로된 응답 정보를 구성하려면, ResponseEntity  header, body  { code:1, msg:"실패입니다."  }
