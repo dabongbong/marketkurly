@@ -143,7 +143,6 @@ ol {
 	bottom: -14px;
 	width: 80px;
 	height: 3px;
-	background: #e7ab3c;
 	content: "";
 	margin: 0 auto;
 }
@@ -1073,7 +1072,7 @@ ol {
 }
 
 /*---------------------
-  Banner Section
+  상품나열 
 -----------------------*/
 .index__text {
 	display:flex;
@@ -1086,6 +1085,17 @@ ol {
     font-weight: 600;
 }
 
+.index__text2 {
+	display:flex;
+	justify-content: center;
+    padding-top: 5px;
+	color: rgb(153, 153, 153);
+    font-size: 16px;
+    line-height: 1.45;
+    letter-spacing: -0.2px;
+    margin-bottom: 20px;
+}
+
 .banner-section {
 	padding: 80px 50px;
 }
@@ -1095,12 +1105,12 @@ ol {
 	z-index: 1;
 }
 
-.single-banner:hover::before {
+/* .single-banner:hover::before {
 	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
 	transform: scale(1);
 }
-
+ */
 .single-banner::before {
 	position: absolute;
 	left: 35px;
@@ -1155,7 +1165,7 @@ ol {
 }
 
 /*---------------------
-  Women Banner Section
+  상품목록
 -----------------------*/
 
 .women-banner {
@@ -1401,20 +1411,33 @@ ol {
 .deal-of-week {
 	padding-top: 80px;
 	padding-bottom: 80px;
-	margin-left: 65px;
-	margin-right: 65px;
+	margin-left: 50px;
+	margin-right: 50px;
 }
 
+.section-title {
+	text-align: left;
+}
+
+.section-title h2 {
+	color: #333333;
+}
+.section-title h5 {
+	color: #999999;
+}
+.section-title .small__text {
+	color: #cccccc;
+}
 .countdown-timer {
-	text-align: center;
-	margin-bottom: 50px;
+	text-align: left;
+	margin-bottom: 5px;
 }
 
 .countdown-timer .cd-item {
 	display: inline-block;
 	background: #ffffff;
-	margin-right: 35px;
-	padding: 10px 14px;
+	margin-right: 15px;
+	padding: 5px 5px;
 	border-radius: 5px;
 }
 
@@ -1437,6 +1460,11 @@ ol {
 	letter-spacing: 1.5px;
 }
 
+.deal-of-week .d-flex img{
+	width: 338px;
+	height: 434px;
+	padding: 20px 20px;
+}
 /*---------------------
   Man Banner
 -----------------------*/
@@ -1449,17 +1477,19 @@ ol {
 }
 
 /*---------------------
-  Instagram Photo
+  인스타그램 고객후기
 -----------------------*/
 
 .instagram-photo {
 	overflow: hidden;
+	padding:0 60px;
+	padding-bottom: 100px;
 }
 
 .instagram-photo .insta-item {
 	float: left;
-	width: 16.66%;
-	height: 320px;
+	width: 175px;
+	height: 175px;
 	text-align: center;
 	position: relative;
 }
@@ -1513,91 +1543,6 @@ ol {
 	color: #ffffff;
 }
 
-/*---------------------
-  Latest Blog
------------------------*/
-
-.latest-blog {
-	padding-top: 72px;
-	padding-bottom: 80px;
-}
-
-.latest-blog .section-title {
-	margin-bottom: 55px;
-}
-
-.single-latest-blog {
-	margin-bottom: 25px;
-}
-
-.single-latest-blog img {
-	min-width: 100%;
-}
-
-.single-latest-blog .latest-text {
-	padding-top: 25px;
-}
-
-.single-latest-blog .latest-text .tag-list {
-	margin-bottom: 8px;
-}
-
-.single-latest-blog .latest-text .tag-list .tag-item {
-	font-size: 16px;
-	color: #a2a1a1;
-	display: inline-block;
-	margin-right: 15px;
-}
-
-.single-latest-blog .latest-text .tag-list .tag-item i {
-	color: #e7ab3c;
-}
-
-.single-latest-blog .latest-text a {
-	display: block;
-}
-
-.single-latest-blog .latest-text a h4 {
-	color: #252525;
-	font-weight: 700;
-	line-height: 30px;
-	margin-bottom: 16px;
-}
-
-.benefit-items {
-	border: 1px solid #ebebeb;
-	margin-top: 45px;
-}
-
-.benefit-items .single-benefit {
-	padding-top: 30px;
-	padding-bottom: 25px;
-	padding-left: 55px;
-	padding-right: 55px;
-	border-right: 1px solid #F3F4F0;
-}
-
-.benefit-items .single-benefit .sb-icon {
-	float: left;
-	margin-right: 20px;
-}
-
-.benefit-items .single-benefit .sb-text {
-	display: table;
-}
-
-.benefit-items .single-benefit .sb-text h6 {
-	color: #252525;
-	line-height: 20px;
-	font-weight: 700;
-	text-transform: uppercase;
-}
-
-.benefit-items .single-benefit .sb-text p {
-	margin-bottom: 0;
-	color: #252525;
-	line-height: 20px;
-}
 
 /*---------------------
   Partner Logo
@@ -1624,7 +1569,7 @@ ol {
 }
 
 /*------------- 
-새로만든 푸터 
+	푸터 
 ---------------*/
 ul {
     padding: 0;
@@ -1770,13 +1715,13 @@ a{
 	line-height: 16px;
 	padding-left:15px;
 }
-.footer__second .인증범위 img,
-.footer__second .개인정보 img {
+.footer__second .isms>img,
+.footer__second .eprivacyplus>img {
 	width:34px;
 	height:34px;
 }
 
-.footer__second .토스 img {
+.footer__second .payments>img {
 	width:102px;
 	height:34px;
 }
@@ -1800,199 +1745,6 @@ a{
 	font-size:10px;
 	color:#999;
 }
-/*---------------------
-  기존에 있던 Footer
-
-
-.f_container {
-	display: flex;
-	justify-content: space-between;
-}
-.footer-section {
-	background: #ffffff;
-}
-.footer-widget {
-	width: 60%;
-}
-.footer-widget ul{
-	display:flex;
-	list-style-type: none;
-	justify-content: space-between;
-}
-
-
-.footer-widget li a {
-	font-size: 14px !important;
-	padding: 0 10px;
-}
-
-.footer-left {
-	width: 40%;
-	margin-bottom: 30px;
-}
-
-.footer-left .footer-logo {
-	margin-bottom: 24px;
-}
-
-.footer-left .footer-logo a {
-	display: inline-block;
-}
-
-.footer-left ul li {
-	list-style: none;
-	color: #b2b2b2;
-	font-size: 16px;
-	line-height: 30px;
-}
-
-.footer-left .footer-social {
-	padding-top: 25px;
-}
-
-.footer-left .footer-social a {
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	background: #434445;
-	color: #ffffff;
-	text-align: center;
-	line-height: 40px;
-	border-radius: 50%;
-	margin-right: 7px;
-	position: relative;
-	z-index: 1;
-}
-
-.footer-left .footer-social a:hover:before {
-	opacity: 1;
-}
-
-.footer-left .footer-social a:before {
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background: #e7ab3c;
-	content: "";
-	border-radius: 50%;
-	opacity: 0;
-	-webkit-transition: all 0.3s;
-	-webkit-transition: 0.3s;
-	-o-transition: 0.3s;
-	transition: 0.3s;
-	z-index: -1;
-}
-
-.footer-widget {
-	margin-bottom: 30px;
-}
-
-.footer-widget h5 {
-	color: #333;
-	font-weight: 700;
-	margin-bottom: 26px;
-}
-
-.footer-widget ul li {
-	list-style: none;
-}
-
-.footer-widget ul li a {
-	line-height: 36px;
-	font-size: 16px;
-	color: #b2b2b2;
-}
-
-.newslatter-item h5 {
-	color: #ffffff;
-	font-weight: 700;
-	margin-bottom: 30px;
-}
-
-.newslatter-item p {
-	color: #b2b2b2;
-	line-height: 26px;
-}
-
-.newslatter-item .subscribe-form {
-	position: relative;
-}
-
-.newslatter-item .subscribe-form input {
-	color: #b2b2b2;
-	background: #303030;
-	width: 100%;
-	height: 46px;
-	font-size: 16px;
-	border: none;
-	padding-left: 20px;
-}
-
-.newslatter-item .subscribe-form input::-webkit-input-placeholder {
-	color: #b2b2b2;
-}
-
-.newslatter-item .subscribe-form input::-moz-placeholder {
-	color: #b2b2b2;
-}
-
-.newslatter-item .subscribe-form input:-ms-input-placeholder {
-	color: #b2b2b2;
-}
-
-.newslatter-item .subscribe-form input::-ms-input-placeholder {
-	color: #b2b2b2;
-}
-
-.newslatter-item .subscribe-form input::placeholder {
-	color: #b2b2b2;
-}
-
-.newslatter-item .subscribe-form button {
-	display: inline-block;
-	color: #ffffff;
-	background: #e7ab3c;
-	font-size: 13px;
-	font-weight: 700;
-	text-transform: uppercase;
-	border: 1px solid #e7ab3c;
-	position: absolute;
-	right: 0;
-	top: 0;
-	padding: 13px 20px 12px;
-	cursor: pointer;
-}
-
-.copyright-reserved {
-	border-top: 1px solid #303030;
-	padding: 15px 0;
-	margin-top: 45px;
-}
-
-.copyright-reserved .copyright-text {
-	float: left;
-	font-size: 16px;
-	color: #b2b2b2;
-}
-
-.copyright-reserved .copyright-text a {
-	color: #b2b2b2;
-}
-
-.copyright-reserved .copyright-text i {
-	color: #cc2424;
-}
-
-.copyright-reserved .copyright-text a:hover {
-	color: #e7ab3c;
-}
-
-.copyright-reserved .payment-pic {
-	float: right;
-}
------------------------*/
 /*-------------------------------- Other Pages Style -------------------------------*/
 
 /*---------------------
@@ -4249,7 +4001,7 @@ a{
 		right: 5px;
 	}
 	.countdown-timer .cd-item {
-		margin-right: 26px;
+		margin-right: 0px;
 	}
 	.product-details .quantity .primary-btn.pd-cart {
 		padding: 14px 30px 10px;

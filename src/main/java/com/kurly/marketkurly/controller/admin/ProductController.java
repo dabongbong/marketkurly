@@ -85,9 +85,26 @@ public class ProductController {
 	public ModelAndView getDetail(int product_id) {
 		ModelAndView mav = new ModelAndView("admin/product/detail");
 		Product product = productService.select(product_id);
-		System.out.println(product.getProduct_detail_list());
 		mav.addObject("product", product);
 		return mav;
+	}
+	@GetMapping("/product/updateForm")
+	public String updateForm(Model model, int product_id) {
+		List categoryList = categoryService.selectAll();
+		Product product = productService.select(product_id);
+		model.addAttribute("categoryList", categoryList);
+		model.addAttribute("product", product);
+		return "admin/product/updateForm";
+	}
+	@PostMapping("/product/update")
+	public String update(HttpServletRequest request, Product product) {
+		productService.update(product);
+		return "redirect:/admin/product/detail?product_id="+product.getProduct_id();
+	}
+	@GetMapping("/product/delete")
+	public String delete(int product_id) {
+		productService.delete(product_id);
+		return "redirect:/admin/product/list";
 	}
 	
 	

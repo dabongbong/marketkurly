@@ -20,4 +20,12 @@ public class MybatisProductHashtagDAO implements ProductHashtagDAO{
 		}
 	}
 
+	@Override
+	public void deleteByProductId(int product_id) {
+		int result = sessionTemplate.delete("ProductHashtag.deleteByProductId", product_id);
+		if(result==0) {
+			throw new ProductException("상품디테일 등록 삭제");
+		}
+	}
+	
 }

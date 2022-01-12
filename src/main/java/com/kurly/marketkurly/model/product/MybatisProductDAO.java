@@ -35,15 +35,19 @@ public class MybatisProductDAO implements ProductDAO{
 	}
 
 	@Override
-	public void update(Product product) {
-		// TODO Auto-generated method stub
-		
+	public void update(Product product) throws ProductException{
+		int result = sessionTemplate.update("Product.update", product);
+		if(result==0) {
+			throw new ProductException("상품수정 실패");
+		}
 	}
 
 	@Override
-	public void delete(int product_id) {
-		// TODO Auto-generated method stub
-		
+	public void delete(int product_id) throws ProductException{
+		int result = sessionTemplate.delete("Product.delete", product_id);
+		if(result==0) {
+			throw new ProductException("상품삭제 실패");
+		}
 	}
 
 }
