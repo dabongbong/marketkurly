@@ -48,12 +48,12 @@ public class My_qnaController {
 	 		return "market/myQna/write";
 	 	}
 	 	// 문의 등록 하기~
-	 	@PostMapping("/write")
+	 	@PostMapping("/myQnaRegist")
 		public ModelAndView regist(HttpServletRequest request, My_qna my_qna) {
 			
 			my_qnaService.insert(my_qna); 
 			
-			ModelAndView mav = new ModelAndView("redirect:/market/myQna/myQna");
+			ModelAndView mav = new ModelAndView("redirect:/myQnaList");
 			
 			return mav;
 	 	}
@@ -79,7 +79,7 @@ public class My_qnaController {
 		@PostMapping("/myQnaUpdate")
 		public ModelAndView update(My_qna my_qna) {
 			my_qnaService.update(my_qna);
-			ModelAndView mav = new ModelAndView("redirect:/market/myQna/myQnaDetail?my_qna_no="+my_qna.getMy_qna_no());
+			ModelAndView mav = new ModelAndView("redirect:/myQnaDetail?my_qna_no="+my_qna.getMy_qna_no());
 			return mav;
 			
 		}
@@ -88,7 +88,7 @@ public class My_qnaController {
 		public String delete(int my_qna) {
 			my_qnaService.delete(my_qna);
 			
-			return "redirect:/market/myQna/myQna";
+			return "redirect:/myQnaList";
 		}
 		
 		@ExceptionHandler(My_qnaException.class)                      

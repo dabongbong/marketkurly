@@ -63,7 +63,7 @@ public class MemberController {
 		
 		//삭제하기
 		@GetMapping("/delete")
-		public String delete(int member_id) {
+		public String delete(HttpServletRequest request, int member_id) {
 			memberService.delete(member_id);
 			
 			return "redirect:/";

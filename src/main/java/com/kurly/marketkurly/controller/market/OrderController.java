@@ -45,21 +45,24 @@ public class OrderController {
 	
 	// 장바구니
 	@GetMapping("/myCart")
-	public String getCart(HttpServletRequest request) {
-		return "market/order/shoppingCart";
+	public ModelAndView getCart(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("market/order/shoppingCart");
+		return mav;
 	}
 	
 	// 주문 하기 폼 요청
 	@GetMapping("/orderForm")
-	public String getOrderForm(HttpServletRequest request) {
-		return "market/order/registForm";
+	public ModelAndView getOrderForm(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("market/order/registForm");
+		return mav;
 	}
 	
 	// 주문
 	@PostMapping("/orderRegist")
-	public String regist(HttpServletRequest request, OrderSummary orderSummary) {
+	public ModelAndView regist(HttpServletRequest request, OrderSummary orderSummary) {
+		ModelAndView mav = new ModelAndView("rediredirect:/orderList");
 		orderService.insert(orderSummary);
-		return "rediredirect:/orderList";
+		return mav;
 	}
 	
 	
