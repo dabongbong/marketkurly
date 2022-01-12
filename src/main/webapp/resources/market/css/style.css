@@ -176,9 +176,15 @@ ol {
 }
 
 /* buttons */
+/* 멤버 로그인버튼, 수정버튼 */
 #login-btn{
 	border: 1px solid #5f0081; 
 	background-color: #5f0080;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
 	border-radius: 3px;
 }
 
@@ -186,12 +192,41 @@ ol {
 	border: 1px solid #5f0081; 
 	background-color: #fff;
 	color:#5f0080;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
+	border-radius: 3px;
+}
+#edit_bt{
+	border: 1px solid #5f0081; 
+	background-color: #5f0080;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
+	border-radius: 3px;
+}
+#del_bt{
+	border: 1px solid #5f0081; 
+	background-color: #fff;
+	color:#5f0080;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
 	border-radius: 3px;
 }
 #reg{
 	border: 1px solid #5f0081; 
 	background-color: #5f0080;
 	border-radius: 3px;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 13px 45px 11px;
 	
 }
 
@@ -204,7 +239,7 @@ ol {
 	background: #e7ab3c;
 	text-transform: uppercase;
 }
-
+/* 
 .site-btn {
 	color: #ffffff;
 	background: #e7ab3c;
@@ -215,7 +250,7 @@ ol {
 	padding: 13px 45px 11px;
 	cursor: pointer;
 }
-
+ */
 
  
 /* 로그인 실패시 경고글 */

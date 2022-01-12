@@ -30,40 +30,31 @@
                 
                   <div class="form-group">
                   <label for="id">아이디</label>
-                    <input type="text" class="form-control" name="user_id" id="user_id"  placeholder="아이디를 입력해주세요" >
+                    <input type="text" class="form-control" name="user_id" id="user_id" value="<%=member.getUser_id() %>" placeholder="아이디를 입력해주세요" readonly>
                      <div class="check_font" id="id_check"></div>
                   	
                      
-                  <label for="name">이름</label>
-                     <input type="text" class="form-control" name=name id="member_name" placeholder="비밀번호를 입력해주세요">
                     
-                  <label for="pass">비밀번호</label>
-                     <input type="password" class="form-control"  name="member_pass" id="member_pass" placeholder="비밀번호를 입력해주세요">
-                    <div class="check_font" id="pw_check"></div>
-                     
-                  <label for="pass2">비밀번호 확인</label>
-                     <input type="password" class="form-control"  name="member_pass2" id="member_pass2" placeholder="비밀번호를 한번 더 입력해주세요">
+                  <label for="pass2">새 비밀번호</label>
+                     <input type="password" class="form-control"  name="member_pass2" id="member_pass" placeholder="비밀번호를 입력해주세요">
                     <div class="check_font" id="pw2_check"></div>
                     
+                  <label for="pass2">새 비밀번호 확인</label>
+                     <input type="password" class="form-control"  name="member_pass2" id="member_pass2" placeholder="비밀번호를 한번 더 입력해주세요">
+                    <div class="check_font" id="pw2_check"></div>
+
+                  <label for="name">이름</label>
+                     <input type="text" class="form-control" name=name id="member_name" value="<%=member.getMember_name() %>" placeholder="이름을 입력해주세요">
+                    
                   <label for="email">이메일</label>
-                     <input type="email" class="form-control"  name="email" id="email"  placeholder="이메일을 입력해주세요">
+                     <input type="email" class="form-control"  name="email" id="email" value="<%=member.getEmail() %>"  placeholder="이메일을 입력해주세요">
                     <div class="check_font" id="email_check"></div>
                     
                   <label for="phone">핸드폰</label>
-                    <input type="text" class="form-control"  name="phone" id="phone" placeholder="010-0000-0000">
+                    <input type="text" class="form-control"  name="phone" id="phone" value="<%=member.getPhone() %>" placeholder="010-0000-0000">
                     <div class="check_font" id="phone_check"></div>
                     
-                  <label for="addr">주소</label>
-                    <div class="d-flex">
-				        <input type="text"  class="form-control col-9" id="sample6_postcode" placeholder="우편번호" name="zipcode" readonly>
-				        <input type="button" class="form-control col-3"  onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-				    </div>
-				    <div>
-				        <input type="text" class="form-control" id="sample6_address" placeholder="주소" name="address1">
-				        <div class="d-flex">
-				            <input type="text" class="form-control col-3" id="sample6_extraAddress" placeholder="참고항목">
-					        <input type="text" class="form-control col-9" id="sample6_detailAddress" placeholder="상세주소" name="address2">
-				        </div>
+                  
 				    </div><br>
                     
                   <label for="gender">성별</label>
@@ -74,15 +65,15 @@
 
 
                   <label for="id">생일</label>
-                    <input type="text" class="form-control"  name="birth" id="birth" placeholder="20220101">
+                    <input type="text" class="form-control"  name="birth" id="birth" value="<%=member.getBirth() %>" placeholder="20220101">
                     <div class="check_font" id="birth_check"></div>
                   </div>
                   
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="button" class="site-btn register-btn" id="bt_edit" onClick="edit()">수정</button>
-                    <a href="#" id="bt_del" onClick="del()">탈퇴</a>
+                    <button type="button" class="site-btn register-btn col-6" id="edit_bt" onClick="bt_edit()">회원정보수정</button>
+                    <button type="button" class="site-btn register-btn col-6" id="del_bt" onClick="del()">탈퇴하기</button>
                 </div>
               </form>
                     </div>
@@ -107,7 +98,7 @@ function regist(){
  */
  function bt_edit(){
 		if(confirm("수정하시겠습니까?")){
-			form1.action="/member/update";
+			form1.action="/update";
 			form1.method="post";
 			form1.submit();
 		}
@@ -119,10 +110,10 @@ function regist(){
 		}
 	}
 	 --%>
-function edit(){
-	form1.action="/member/delete";
-	form1.method="post";
-	form2.submit();
+function del(){
+	if(confirm("탈퇴하시겠습니까?")){
+		location.action="/delete?member_id=<%=member.getMember_id()%>";
+	}
 }
 
 //아이디 유효성 검사(1 = 중복 / 0 != 중복)
