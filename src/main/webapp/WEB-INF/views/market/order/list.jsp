@@ -1,15 +1,16 @@
 <%@page import="com.kurly.marketkurly.domain.OrderSummary"%>
 <%@page import="com.kurly.marketkurly.domain.Product"%>
+<%@page import="com.kurly.marketkurly.domain.Member"%>
 <%@page import="com.kurly.marketkurly.util.Pager"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<!-- Header Section Begin -->
+<%@ include file="../inc/header.jsp"%>
 <%
 	List<OrderSummary> orderSummaryList = (List)request.getAttribute("orderSummaryList");
 	Pager pager = (Pager)request.getAttribute("pager");
 %>
-<!-- Header Section Begin -->
-<%@ include file="../inc/header.jsp"%>
   <style>
     .pageStyle {
         font-weight:bold;
@@ -65,6 +66,7 @@
 				        <%if(num<1)break; %>
 				        <%OrderSummary orderSummary=orderSummaryList.get(curPos++); %>
 				        <input type="hidden" value="<%=num--%>">
+				        <%if((orderSummary.getMember().getUser_id()).equals(member.getUser_id())){%>
                         <div class="cw-item">
 	                   		<div class="name">
 								<strong><a href="/orderDetail?order_summary_id=<%=orderSummary.getOrder_summary_id()%>">
@@ -89,6 +91,7 @@
                             	</dl>
                             </div>
                         </div>
+                        <%} %>
                         <%} %>
                     </div>
                      <div class="col-sm-12" align="center">
