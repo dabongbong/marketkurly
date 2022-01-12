@@ -68,7 +68,7 @@ function regist(){
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">회원 목록</h3>
+                <h3 class="card-title">관리자 목록</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -105,11 +105,19 @@ function regist(){
                       <td><a href="/admin/login/detail?admin_id=<%=admin.getAdmin_id() %>"><%=admin.getName()%></a></td>
                     </tr>
                     <%} %>
+                    <tr>
+					  	<td colspan="6" align="center">
+					  		<%for(int i = pager.getFirstPage();i<=pager.getLastPage();i++) {%>
+					  		<%if(i>=pager.getTotalPage())break; %>
+					  		<%=i %>
+					  		<%} %>
+					  	</td>
+				  </tr>
                     
                   </tbody>
                 </table>
                 <div class="card-footer">
-                  <button type="button" class="btn btn-info" id="reg" onClick="regist()">회원등록</button>
+                  <button type="button" class="btn btn-info" id="reg" onClick="regist()">등록</button>
                 </div>
               </div>
               <!-- /.card-body -->

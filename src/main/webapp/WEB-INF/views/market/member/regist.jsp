@@ -54,14 +54,14 @@
 					                    
 					                  <label for="addr">주소</label>
 					                    <div class="d-flex">
-									        <input type="text"  class="form-control col-9" id="sample6_postcode" placeholder="우편번호" name="zipcode" readonly>
+									        <input type="text"  class="form-control col-9" id="sample6_postcode" placeholder="우편번호"  readonly>
 									        <input type="button" class="form-control col-3"  onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 									    </div>
 									    <div>
-									        <input type="text" class="form-control" id="sample6_address" placeholder="주소" name="address1">
+									        <input type="text" class="form-control" id="sample6_address" placeholder="주소" name="addr" name="address1">
 									        <div class="d-flex">
-									            <input type="text" class="form-control col-3" id="sample6_extraAddress" placeholder="참고항목">
-										        <input type="text" class="form-control col-9" id="sample6_detailAddress" placeholder="상세주소" name="address2">
+									            <input type="text" class="form-control col-3" id="sample6_extraAddress" name="addr" placeholder="참고항목">
+										        <input type="text" class="form-control col-9" id="sample6_detailAddress" placeholder="상세주소" name="addr" name="address2">
 									        </div>
 									    </div><br>
 					                    
