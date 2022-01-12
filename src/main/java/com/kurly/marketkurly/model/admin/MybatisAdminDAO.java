@@ -30,6 +30,12 @@ public class MybatisAdminDAO implements AdminDAO{
 		}
 		return result;
 	}
+	
+	@Override
+	public Admin selectAdmin(Admin admin) {
+		return sessionTemplate.selectOne("Admin.selectAdmin",admin);
+	}
+	
 
 	@Override
 	public void insert(Admin admin) throws AdminException{
@@ -48,11 +54,12 @@ public class MybatisAdminDAO implements AdminDAO{
 	}
 
 	@Override
-	public void delete(Admin admin)  throws AdminException{
-		int result=sessionTemplate.delete("Admin.delete", admin);
+	public void delete(int admin_id)  throws AdminException{
+		int result=sessionTemplate.delete("Admin.delete", admin_id);
 		if(result==0) {
 			throw new AdminException("관리자 삭제실패");
 		}
 	}
+
 	
 }

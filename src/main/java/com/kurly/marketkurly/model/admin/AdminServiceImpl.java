@@ -17,24 +17,34 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public List selectAll() {
-		return null;
+		List<Admin> list = adminDAO.selectAll();
+		return list;
 	}
 
 	@Override
 	public Admin select(Admin admin) throws AdminException{
 		return adminDAO.select(admin);
 	}
-
+	
 	@Override
-	public void insert(Admin admin) {
+	public Admin selectAdmin(Admin admin)  throws AdminException{
+		return adminDAO.selectAdmin(admin);
+	}
+	
+	@Override
+	public void insert(Admin admin) throws AdminException{
+		adminDAO.insert(admin);
 	}
 
 	@Override
-	public void update(Admin admin) {
+	public void update(Admin admin) throws AdminException{
+		adminDAO.update(admin);
 	}
 
 	@Override
-	public void delete(Admin admin) {
+	public void delete(int admin_id) throws AdminException {
+		adminDAO.delete(admin_id);
 	}
+
 	
 }

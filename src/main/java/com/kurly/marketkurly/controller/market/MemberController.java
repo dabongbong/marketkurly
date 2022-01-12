@@ -6,12 +6,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kurly.marketkurly.domain.Member;
+import com.kurly.marketkurly.exception.MemberException;
 import com.kurly.marketkurly.model.member.MemberService;
 import com.kurly.marketkurly.util.HashBuilder;
 import com.kurly.marketkurly.util.Message;
@@ -85,7 +87,13 @@ public class MemberController {
 			
 			return "redirect:/loginform";
 		}
-		
+		@ExceptionHandler(MemberException.class)
+		public ModelAndView handel(MemberException e) {
+			ModelAndView mav = new ModelAndView("admin/error/result");
+				mav.addObject("e",e);
+				return mav;
+			
+		}
 		
 }
 

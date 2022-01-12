@@ -1,7 +1,7 @@
-<%@page import="com.kurly.marketkurly.domain.Faq"%>
+<%@page import="com.kurly.marketkurly.domain.Notice"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-	Faq faq= (Faq)request.getAttribute("faq");
+	Notice notice = (Notice)request.getAttribute("notice");
 %>
 <%@ include file="../inc/header.jsp"%>
 
@@ -29,22 +29,25 @@
 					</ul>
 				</div>
 			</div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form name="form1" >
-              		<input type="hidden" name="faq_no" value="<%=faq.getFaq_no() %>">
+              <form name="form1">
+              		<input type="hidden" name="notice_no" value="<%=notice.getNotice_no() %>">
 				    
 				 <div class="col-lg-8">
 				 	<div class="form-group">
 				 	<th>제목</th><p>
-					    <input type="text"  	name="title" class="form-control" value="<%=faq.getTitle() %>">
+					    <input type="text"  	name="title" class="form-control" value="<%=notice.getTitle() %>">
 					</div>
 					
+					<div class="form-group">
+					<th>작성자</th><p>
+					    <input type="text"  	name="writer" class="form-control" value="<%=notice.getWriter() %>">
+					</div>
 					
 					<div class="form-group">
 					<th>내용</th><p>
-					    <textarea id="summernote" name="content" class="form-control" style="height:450px"><%=faq.getContent() %></textarea>
+					    <textarea id="summernote" name="content" class="form-control" style="height:450px"><%=notice.getContent() %></textarea>
 					</div>
+					
 					
           
 				</div>
@@ -54,14 +57,6 @@
             
             <!-- /.card -->
           </div>         
-        </div>
-        
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
   
   <%@ include file="../inc/footer.jsp" %>  
   
@@ -70,6 +65,16 @@
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+<!-- bs-custom-file-input 파일컴포넌트 커스터마이징 -->
+<script src="/resources/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+
 
 </body>
 </html>

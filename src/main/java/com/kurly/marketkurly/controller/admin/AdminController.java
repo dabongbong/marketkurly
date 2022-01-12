@@ -1,5 +1,7 @@
 package com.kurly.marketkurly.controller.admin;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -20,6 +22,7 @@ import com.kurly.marketkurly.exception.UploadException;
 import com.kurly.marketkurly.model.admin.AdminService;
 import com.kurly.marketkurly.util.HashBuilder;
 import com.kurly.marketkurly.util.Message;
+import com.kurly.marketkurly.util.Pager;
 
 
 // 관리자 인증과 관련된 요청을 처리하는 하위 컨트롤러 
@@ -30,6 +33,8 @@ public class AdminController {
 	private AdminService adminService;
 	@Autowired
 	private HashBuilder hashBuilder;
+	@Autowired
+	private Pager pager;
 	
 	// 로그인 요청 처리 
 	@PostMapping("/login")
@@ -72,6 +77,55 @@ public class AdminController {
 		
 		return "redirect:/admin/login/form";
 	} 
+	//어드민 리스트 요청
+	@GetMapping("/login/list")
+	public ModelAndView getList(HttpServletRequest request) {
+		List adminList = adminService.selectAll();
+		System.out.println("어드민 리스트"+adminList);
+		ModelAndView mav = new ModelAndView("admin/login/list");
+		pager.init(adminList, request);
+		mav.addObject("adminList",adminList);
+		mav.addObject("pager",pager);
+		
+		return mav;
+	}
+	
+	//어드민 등록 폼 요청
+	@GetMapping("/login/registform")
+	public ModelAndView registForm(HttpServletRequest request) {
+		ModelAndView mav= new ModelAndView("admin/login/regist");
+		return mav;
+	}
+	
+	//어드민 등록 처리
+	@PostMapping("/login/regist")
+	public ModelAndView regist(HttpServletRequest request, Admin admin) {
+		
+		String pass=hashBuilder.convertStringToHash(admin.getPass());
+		admin.setPass(pass);
+		ModelAndView mav=new ModelAndView("redirect:/admin/login/list");
+		
+		adminService.insert(admin);
+		
+		return mav;
+	}
+	//한건 가져오기
+	@GetMapping("/login/detail")
+	public ModelAndView getDetail(HttpServletRequest request,Admin admin) {
+		Admin obj = adminService.selectAdmin(admin);
+		ModelAndView mav = new ModelAndView("admin/login/detail");
+		mav.addObject("admin", obj);
+		
+		return mav;
+	}
+	
+	//삭제하기
+	@GetMapping("/login/delete")
+	public String delete(int admin_id) {
+		adminService.delete(admin_id);
+		
+		return "redirect:/admin/login/list";
+	}
 	
 	@ExceptionHandler(AdminException.class)
 	@ResponseBody

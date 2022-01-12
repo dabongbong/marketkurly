@@ -28,8 +28,8 @@
 				<div class="filter-widget">
 					<h4 class="fw-title">고객센터</h4>
 					<ul class="filter-catagories">
-						<li><a href="/">공지사항</a></li>
-						<li><a href="/">자주하는 질문</a></li>
+						<li><a href="/noticeList">공지사항</a></li>
+						<li><a href="/faq">자주하는 질문</a></li>
 						<li><a href="/myQnaList">1:1 문의</a></li>
 					</ul>
 				</div>
