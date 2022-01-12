@@ -3,7 +3,7 @@
 <mapper namespace="Admin">
 	
 	<select id="selectAll" resultType="Admin">
-		select * from admin
+		select * from admin order by admin_id asc
 	</select>
 	
 	<!-- 레코드 한건 가져오기 -->

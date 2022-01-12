@@ -3,7 +3,7 @@
 <mapper namespace="Member">
 	
 	<select id="selectAll" resultType="Member">
-		select * from member
+		select * from member order by member_id asc;
 	</select>
 	
 	<select id="select" parameterType="int" resultType="Member">
