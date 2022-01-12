@@ -105,6 +105,14 @@ function regist(){
                       <td><a href="/admin/login/detail?admin_id=<%=admin.getAdmin_id() %>"><%=admin.getName()%></a></td>
                     </tr>
                     <%} %>
+                    <tr>
+					  	<td colspan="6" align="center">
+					  		<%for(int i = pager.getFirstPage();i<=pager.getLastPage();i++) {%>
+					  		<%if(i>=pager.getTotalPage())break; %>
+					  		<%=i %>
+					  		<%} %>
+					  	</td>
+				  </tr>
                     
                   </tbody>
                 </table>

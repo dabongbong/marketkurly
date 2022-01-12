@@ -32,7 +32,7 @@
 			
 	<beans:bean class="com.kurly.marketkurly.util.CategoryFileManager" id="categoryFileManager"></beans:bean>
 <!-- 	<beans:bean class="com.kurly.marketkurly.util.Pager" id="pager"></beans:bean> -->
-	
+	<!-- 
 	<beans:bean class="com.kurly.marketkurly.aop.AdminSessionCheckAspect" id="adminSessionCheckAspect"/>
 	<aop:config> 
 		<aop:aspect ref="adminSessionCheckAspect">
@@ -40,5 +40,5 @@
 			<aop:around method="sessionCheck" pointcut-ref="loginPointcut"/>
 		</aop:aspect>	
 	</aop:config>	 
-	
+	 -->
 </beans:beans>
