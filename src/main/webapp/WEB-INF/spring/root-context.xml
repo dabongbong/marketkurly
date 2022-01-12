@@ -73,7 +73,7 @@
 	<!--트랜잭션 설정  xml에 설정하는 것을 가리켜 선언적 설정 -->
 	<!-- 개발자 대신 트랜잭션(관련기술에 알맞게-mybatis, hibernate, jpa...)을 처리해 주는 트랜잭션 매니저 관점을 두자  -->
 
-	<tx:advice transaction-manager="transactionManager" id="txtAdvice">
+<!-- 	<tx:advice transaction-manager="transactionManager" id="txtAdvice">
 		<tx:attributes>
 			<tx:method name="regist" propagation="REQUIRED" />
 		</tx:attributes>
@@ -83,5 +83,5 @@
 		<aop:pointcut expression="execution(public * com.kurly.marketkurly.model..*Service..*(..))" id="serviceCut"/>
 		<aop:advisor advice-ref="txtAdvice" pointcut-ref="serviceCut"/>
 	</aop:config>
-
+ -->
 </beans>

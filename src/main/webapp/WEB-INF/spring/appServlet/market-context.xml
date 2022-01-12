@@ -27,14 +27,12 @@
 	<context:component-scan base-package="com.kurly.marketkurly.controller.market" />
 	
 	<beans:bean class="com.kurly.marketkurly.aop.MarketMenuAspect" id="marketMenuAspect" />
-	<aop:config>
+	
+  	<aop:config>   
 		<aop:aspect id="menuAspect" ref="marketMenuAspect">
-			<!-- aspect가 관여될 수 있는 후보지점들을 가리켜 joinpoint 라 하고, 이 joinpoint 중 결정된 joinpoint 를 가리켜
-				pointcut이라 한다 -->
 			<aop:pointcut expression="execution(public * com.kurly.marketkurly.controller.market..*(..))" id="categoryCut"/>
 			<aop:around method="getCategoryList" pointcut-ref="categoryCut"/>
 		</aop:aspect>
-	</aop:config>
-	
+	</aop:config>  
 	
 </beans:beans>

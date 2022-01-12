@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kurly.marketkurly.domain.Member;
 import com.kurly.marketkurly.model.member.MemberService;
@@ -25,12 +26,14 @@ public class MemberController {
 	
 	//회원등록 폼 요청
 	@GetMapping("/registform")
-	public String registForm() {
-		return "market/member/regist";
+	public ModelAndView registForm(HttpServletRequest request) {
+
+		ModelAndView mav = new ModelAndView("market/member/regist");
+		return mav;
 	}
 	//회원 등록
 		@PostMapping("/regist")
-		public String regist(Member member) {
+		public String regist(HttpServletRequest request,Member member) {
 			
 			String pass=hashBuilder.convertStringToHash(member.getMember_pass());
 			member.setMember_pass(pass);
@@ -42,7 +45,7 @@ public class MemberController {
 		
 		//수정하기
 		@PostMapping("/update")
-		public String update(Member member,Model model) {
+		public String update(HttpServletRequest request,Member member,Model model) {
 			memberService.update(member);
 			
 			model.addAttribute("member", member);
@@ -51,7 +54,7 @@ public class MemberController {
 		
 		//로그인 폼 요청 처리
 		@GetMapping("/loginform")
-		public String getLoginForm() {
+		public String getLoginForm(HttpServletRequest request) {
 			return "market/member/login";
 		}
 		
