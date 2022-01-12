@@ -27,7 +27,7 @@ public class RestMemberController {
 	//로그인
 	@PostMapping("/login")
 	@ResponseBody
-	public Message loginCheck(HttpServletRequest request,Member member, Model model) {
+	public Message loginCheck(HttpServletRequest request,Member member) {
 		System.out.println("비번운 "+member.getMember_pass());
 		
 		
@@ -36,8 +36,6 @@ public class RestMemberController {
 		
 		Member result = memberService.selectByAdmin(member);
 		System.out.println("로그인 결과"+result);
-		
-		model.addAttribute("name",result);
 		
 		Message message = new Message();
 		message.setCode(1);
