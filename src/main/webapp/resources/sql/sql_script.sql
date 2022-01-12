@@ -125,3 +125,11 @@ create table my_qna(
 	, regdate timestamp default now()
 	,constraint fk_member_my_qna foreign key(member_id) references member (member_id)
 ) default character set utf8;
+
+--어드민 로그인 
+create table admin(
+admin_id int primary key auto_increment
+, user_id varchar(30)
+, pass varchar(30)
+, name varchar(30)
+) default character set utf8;
