@@ -7,6 +7,7 @@
 		<result column="order_number" 	  	property="order_number"/>
 		<result column="orderdate" 	  	  		property="orderdate"/>
 		<result column="price" 		 	  			property="price"/>
+		<result column="check_no" 		 	  	property="check_no"/>
 
 		<association column="member_id"    	   property="member"    	  javaType="Member"    	 select="Member.select"/>
 		<association column="paymethod_id" 	   property="paymethod" 	  javaType="PayMethod" 	 select="PayMethod.select"/>
@@ -16,7 +17,7 @@
 	
 	<!-- 회원 전체의 주문 내역-->
 	<select id="selectAll" resultMap="joinMemberOrderSummary">
-		select order_summary_id, order_number, orderdate, price,
+		select order_summary_id, order_number, orderdate, price,check_no,
 		m.member_id as member_id, p.paymethod_id as paymethod_id
 		from order_summary os, member m, paymethod p
 		where os.member_id=m.member_id and os.paymethod_id=p.paymethod_id
@@ -29,6 +30,14 @@
 		select * from order_summary where order_summary_id=#{order_summary_id}
 	</select>
 	
+	<!-- 주문 내역 확인 시 check_no 0에서 1로 변경 -->
+	<update id="updateCheckNo" parameterType="OrderSummary">
+		update order_summary set check_no=1 where order_summary_id=#{order_summary_id}
+	</update>
+	<!-- 미확인 주문 갯수 확인 -->
+	<select id="selectNewOrder" resultType="int">
+		select count(if(check_no=0,check_no,null)) from order_summary
+	</select>
 	<!-- 주문 하기 -->
 	<insert id="insert" parameterType="OrderSummary">
 		insert into order_summary(order_summary_id, member_id, order_number, paymethod_int, orderdate, price)

@@ -39,6 +39,16 @@ public class OrderServiceImpl implements OrderService {
 		return orderSummaryDAO.getDetail(order_summary_id);
 	}
 
+	@Override
+	public void checkPlus(OrderSummary orderSummary) throws OrderException{
+		orderSummaryDAO.checkPlus(orderSummary);
+	}
+
+	@Override
+	public int checkNewOrder() {
+		return orderSummaryDAO.checkNewOrder();
+	}
+
 
 
 
