@@ -70,7 +70,7 @@
 	                    <ul class="sub">
 	                        <li><a href="/market/notice/notice">공지사항</a></li>
 	                        <li><a href="#">자주하는질문</a></li>
-	                        <li><a href="#">1:1문의</a></li>
+	                        <li><a href="/myQnaList">1:1문의</a></li>
 	                    </ul>
                     </li>
 	             </ul> 
