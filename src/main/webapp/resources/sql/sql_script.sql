@@ -130,6 +130,6 @@ create table my_qna(
 create table admin(
 admin_id int primary key auto_increment
 , user_id varchar(30)
-, pass varchar(30)
+, pass varchar(64)
 , name varchar(30)
 ) default character set utf8;
